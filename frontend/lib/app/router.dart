@@ -13,6 +13,10 @@ import 'package:campus_care/features/admin/presentation/admin_settings_screen.da
 import 'package:campus_care/features/admin/presentation/master_data_screen.dart';
 import 'package:campus_care/features/admin/presentation/audit_logs_screen.dart';
 import 'package:campus_care/features/notifications/presentation/notification_center_screen.dart';
+import 'package:campus_care/features/academic/presentation/academic_concerns_screen.dart';
+import 'package:campus_care/features/academic/presentation/confidential_triage_screen.dart';
+import 'package:campus_care/features/recommendations/presentation/recommendations_screen.dart';
+import 'package:campus_care/features/recurrence/presentation/recurrence_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/login',
@@ -78,6 +82,26 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/notifications',
       builder: (context, state) => const NotificationCenterScreen(),
+    ),
+    // Phase 2: Academic Concerns Routes
+    GoRoute(
+      path: '/academic/concerns',
+      builder: (context, state) => const AcademicConcernsScreen(),
+    ),
+    GoRoute(
+      path: '/academic/concerns/:id/confidential-review',
+      builder: (context, state) => ConfidentialTriageScreen(
+        concernId: state.pathParameters['id'] ?? '',
+      ),
+    ),
+    // Phase 2: AI Recommendations & Recurrence Routes
+    GoRoute(
+      path: '/recommendations',
+      builder: (context, state) => const RecommendationsScreen(),
+    ),
+    GoRoute(
+      path: '/recurrence/patterns',
+      builder: (context, state) => const RecurrenceScreen(),
     ),
   ],
 );

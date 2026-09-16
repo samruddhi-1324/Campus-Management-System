@@ -1,0 +1,6 @@
+Analyze the current facilities issue against past successfully resolved issues.
+Suggest a proven fix with a confidence rating and direct link/reference to the past issue.
+Express uncertainty explicitly; do not assert suggestions as facts (PRD §5.5, FR-2.4).
+
+Current Issue: {current_issue}
+Past Resolved Candidates: {past_resolved_candidates}

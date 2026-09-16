@@ -9,6 +9,10 @@ from app.api.v1.endpoints import (
     analytics,
     ai_advisory,
     webhooks,
+    academic,
+    recommendations,
+    recurrence,
+    sla,
 )
 
 api_router = APIRouter()
@@ -16,9 +20,9 @@ api_router = APIRouter()
 # Health check
 @api_router.get("/health", tags=["System"])
 async def health_check():
-    return {"status": "healthy", "service": "Campus Care API", "version": "1.0.0"}
+    return {"status": "healthy", "service": "Campus Care API", "version": "2.0.0"}
 
-# Mount Phase 1 MVP Feature Routers
+# Phase 1 MVP Feature Routers
 api_router.include_router(auth.router, prefix="/auth", tags=["Authentication & RBAC"])
 api_router.include_router(users.router, prefix="/users", tags=["Users"])
 api_router.include_router(issues.router, prefix="/issues", tags=["Issues & Lifecycle"])
@@ -28,3 +32,9 @@ api_router.include_router(admin.router, prefix="/admin", tags=["Admin & Master D
 api_router.include_router(analytics.router, prefix="/analytics", tags=["Analytics & Ops Head"])
 api_router.include_router(ai_advisory.router, prefix="/ai", tags=["AI Advisory Subsystem"])
 api_router.include_router(webhooks.router, prefix="/webhooks", tags=["Delivery Webhooks"])
+
+# Phase 2 Feature Routers
+api_router.include_router(academic.router, prefix="/academic", tags=["Academic Concerns (Phase 2)"])
+api_router.include_router(recommendations.router, prefix="/recommendations", tags=["AI Recommendations (Phase 2)"])
+api_router.include_router(recurrence.router, prefix="/recurrence", tags=["Recurrence Detection (Phase 2)"])
+api_router.include_router(sla.router, prefix="/sla", tags=["SLA Enhancements (Phase 2)"])

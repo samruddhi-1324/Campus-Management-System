@@ -1,0 +1,5 @@
+Generate an actionable advisory recommendation narrative based strictly on pre-computed deterministic evidence aggregates.
+No reporter PII or private notes are included. Focus on preventive maintenance, resolution guidance, or team resourcing adjustments (FR-AI-13..15).
+
+Deterministic Evidence Snapshot: {evidence_json}
+Recommendation Scope: {scope_type}

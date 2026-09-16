@@ -4,6 +4,9 @@ from app.models.user import User, UserRole, UserContactChannel, UserDevice, Noti
 from app.models.master_data import Department, Building, Room, Category, Team
 from app.models.issue import Issue, IssueStatus, IssueUrgency, IssueAttachment, IssueUpdate, IssueStateHistory, IssueGroup
 from app.models.audit import AuditLogEntry, AuditAction, AIInsight, NotificationLog
+from app.models.academic import AcademicConcern, AcademicConcernType, ConfidentialAccessLog
+from app.models.recommendation import Recommendation, RecommendationType, RecurrencePattern
+from app.models.sla import CategorySLAConfig
 
 __all__ = [
     "Base",
@@ -30,4 +33,11 @@ __all__ = [
     "AuditAction",
     "AIInsight",
     "NotificationLog",
+    "AcademicConcern",
+    "AcademicConcernType",
+    "ConfidentialAccessLog",
+    "Recommendation",
+    "RecommendationType",
+    "RecurrencePattern",
+    "CategorySLAConfig",
 ]

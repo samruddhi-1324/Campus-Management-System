@@ -41,6 +41,9 @@ from app.schemas.ai import (
     AIStatusDraftRequest,
     AIStatusDraftResponse,
 )
+from app.schemas.academic import AcademicConcernCreate, AcademicConcernRead
+from app.schemas.recommendation import RecommendationRead, RecommendationDecisionCreate, RecurrencePatternRead
+from app.schemas.sla import CategorySLAConfigCreate, CategorySLAConfigRead
 
 __all__ = [
     "ApiResponse",
@@ -81,4 +84,11 @@ __all__ = [
     "AIDedupCheckResponse",
     "AIStatusDraftRequest",
     "AIStatusDraftResponse",
+    "AcademicConcernCreate",
+    "AcademicConcernRead",
+    "RecommendationRead",
+    "RecommendationDecisionCreate",
+    "RecurrencePatternRead",
+    "CategorySLAConfigCreate",
+    "CategorySLAConfigRead",
 ]
