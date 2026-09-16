@@ -1,0 +1,6 @@
+Compare the target issue against recent open issues in the same building/vicinity.
+Determine if they describe the same physical problem (e.g. library 2nd floor wifi outage reported by 3 different students).
+Do NOT auto-merge; provide similarity score and clear rationale for Coordinator review.
+
+Target Issue: {target_issue}
+Candidate Issues: {candidate_issues}
