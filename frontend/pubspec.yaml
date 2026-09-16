@@ -1,0 +1,53 @@
+name: campus_care
+description: "Campus Care — AI-Powered Facilities & Academic Issue Tracker"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Routing & State Management
+  go_router: ^14.0.0
+  flutter_riverpod: ^2.5.1
+
+  # Networking & Serialization
+  dio: ^5.4.1
+  json_annotation: ^4.8.1
+
+  # Secure Storage & Cache (FR-PLAT-10, FR-PLAT-13)
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.2
+
+  # UI, Icons & Responsiveness (FR-PLAT-04..07)
+  google_fonts: ^6.1.0
+  lucide_icons: ^0.257.0
+  flutter_layout_grid: ^2.0.6
+  intl: ^0.19.0
+
+  # File / Camera Uploads (FR-PLAT-08)
+  image_picker: ^1.0.7
+  file_picker: ^8.0.0
+
+  # Cross-Platform Notifications (FR-NOTIF-21..34)
+  firebase_core: ^2.27.0
+  firebase_messaging: ^14.7.19
+  flutter_local_notifications: ^17.0.0
+  web_socket_channel: ^2.4.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
