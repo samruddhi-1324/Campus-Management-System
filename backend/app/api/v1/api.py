@@ -13,6 +13,10 @@ from app.api.v1.endpoints import (
     recommendations,
     recurrence,
     sla,
+    voice,
+    search,
+    tenants,
+    historical_analytics,
 )
 
 api_router = APIRouter()
@@ -20,7 +24,7 @@ api_router = APIRouter()
 # Health check
 @api_router.get("/health", tags=["System"])
 async def health_check():
-    return {"status": "healthy", "service": "Campus Care API", "version": "2.0.0"}
+    return {"status": "healthy", "service": "Campus Care API", "version": "3.0.0"}
 
 # Phase 1 MVP Feature Routers
 api_router.include_router(auth.router, prefix="/auth", tags=["Authentication & RBAC"])
@@ -38,3 +42,9 @@ api_router.include_router(academic.router, prefix="/academic", tags=["Academic C
 api_router.include_router(recommendations.router, prefix="/recommendations", tags=["AI Recommendations (Phase 2)"])
 api_router.include_router(recurrence.router, prefix="/recurrence", tags=["Recurrence Detection (Phase 2)"])
 api_router.include_router(sla.router, prefix="/sla", tags=["SLA Enhancements (Phase 2)"])
+
+# Phase 3 Feature Routers
+api_router.include_router(voice.router, prefix="/voice", tags=["Voice Input (Phase 3)"])
+api_router.include_router(search.router, prefix="/search", tags=["Natural Language Search (Phase 3)"])
+api_router.include_router(tenants.router, prefix="/tenants", tags=["Multi-Institution Support (Phase 3)"])
+api_router.include_router(historical_analytics.router, prefix="/historical-analytics", tags=["Historical Pattern Mining (Phase 3)"])

@@ -1,0 +1,4 @@
+Analyze multi-year historical issue dataset across academic semesters.
+Identify seasonal spikes (e.g., wifi load during exam weeks, AC failure spikes during summer), long-term asset failure trends, and resource recommendations for campus leadership.
+
+Multi-Year Historical Records: {historical_records_json}

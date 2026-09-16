@@ -17,6 +17,9 @@ import 'package:campus_care/features/academic/presentation/academic_concerns_scr
 import 'package:campus_care/features/academic/presentation/confidential_triage_screen.dart';
 import 'package:campus_care/features/recommendations/presentation/recommendations_screen.dart';
 import 'package:campus_care/features/recurrence/presentation/recurrence_screen.dart';
+import 'package:campus_care/features/search/presentation/nl_search_screen.dart';
+import 'package:campus_care/features/historical_trends/presentation/multi_year_trends_screen.dart';
+import 'package:campus_care/features/tenant/presentation/tenant_selector_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/login',
@@ -25,7 +28,7 @@ final GoRouter appRouter = GoRouter(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
     ),
-    // Reporter Routes
+    // Phase 1: Reporter Routes
     GoRoute(
       path: '/reporter/issues',
       builder: (context, state) => const MyIssuesScreen(),
@@ -40,7 +43,7 @@ final GoRouter appRouter = GoRouter(
         issueId: state.pathParameters['id'] ?? '',
       ),
     ),
-    // Coordinator Routes
+    // Phase 1: Coordinator Routes
     GoRoute(
       path: '/coordinator/queue',
       builder: (context, state) => const CoordinatorQueueScreen(),
@@ -51,7 +54,7 @@ final GoRouter appRouter = GoRouter(
         issueId: state.pathParameters['id'] ?? '',
       ),
     ),
-    // Supervisor Routes
+    // Phase 1: Supervisor Routes
     GoRoute(
       path: '/supervisor/workload',
       builder: (context, state) => const SupervisorWorkloadScreen(),
@@ -60,12 +63,12 @@ final GoRouter appRouter = GoRouter(
       path: '/supervisor/sla-risks',
       builder: (context, state) => const SlaRiskScreen(),
     ),
-    // Ops Head Routes
+    // Phase 1: Ops Head Routes
     GoRoute(
       path: '/ops/analytics',
       builder: (context, state) => const AnalyticsDashboardScreen(),
     ),
-    // Admin Routes
+    // Phase 1: Admin Routes
     GoRoute(
       path: '/admin/settings',
       builder: (context, state) => const AdminSettingsScreen(),
@@ -78,7 +81,7 @@ final GoRouter appRouter = GoRouter(
       path: '/admin/audit-logs',
       builder: (context, state) => const AuditLogsScreen(),
     ),
-    // Notifications Route
+    // Phase 1: Notifications Route
     GoRoute(
       path: '/notifications',
       builder: (context, state) => const NotificationCenterScreen(),
@@ -102,6 +105,21 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/recurrence/patterns',
       builder: (context, state) => const RecurrenceScreen(),
+    ),
+    // Phase 3: Natural Language Search Route
+    GoRoute(
+      path: '/search',
+      builder: (context, state) => const NLSearchScreen(),
+    ),
+    // Phase 3: Multi-Year Historical Trends Route
+    GoRoute(
+      path: '/ops/historical-trends',
+      builder: (context, state) => const MultiYearTrendsScreen(),
+    ),
+    // Phase 3: Multi-Institution Selector Route
+    GoRoute(
+      path: '/institution/select',
+      builder: (context, state) => const TenantSelectorScreen(),
     ),
   ],
 );

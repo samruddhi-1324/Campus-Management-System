@@ -7,6 +7,8 @@ from app.models.audit import AuditLogEntry, AuditAction, AIInsight, Notification
 from app.models.academic import AcademicConcern, AcademicConcernType, ConfidentialAccessLog
 from app.models.recommendation import Recommendation, RecommendationType, RecurrencePattern
 from app.models.sla import CategorySLAConfig
+from app.models.tenant import Institution
+from app.models.historical_pattern import HistoricalTrendRecord
 
 __all__ = [
     "Base",
@@ -40,4 +42,6 @@ __all__ = [
     "RecommendationType",
     "RecurrencePattern",
     "CategorySLAConfig",
+    "Institution",
+    "HistoricalTrendRecord",
 ]

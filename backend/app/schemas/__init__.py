@@ -44,6 +44,10 @@ from app.schemas.ai import (
 from app.schemas.academic import AcademicConcernCreate, AcademicConcernRead
 from app.schemas.recommendation import RecommendationRead, RecommendationDecisionCreate, RecurrencePatternRead
 from app.schemas.sla import CategorySLAConfigCreate, CategorySLAConfigRead
+from app.schemas.tenant import InstitutionCreate, InstitutionRead
+from app.schemas.voice import VoiceTranscriptionRequest, VoiceTranscriptionResponse
+from app.schemas.search import NLSearchRequest, NLSearchResponse, ParsedSearchFilters
+from app.schemas.historical_pattern import HistoricalPatternAnalyticsResponse, MultiYearTrendRecordRead
 
 __all__ = [
     "ApiResponse",
@@ -91,4 +95,13 @@ __all__ = [
     "RecurrencePatternRead",
     "CategorySLAConfigCreate",
     "CategorySLAConfigRead",
+    "InstitutionCreate",
+    "InstitutionRead",
+    "VoiceTranscriptionRequest",
+    "VoiceTranscriptionResponse",
+    "NLSearchRequest",
+    "NLSearchResponse",
+    "ParsedSearchFilters",
+    "HistoricalPatternAnalyticsResponse",
+    "MultiYearTrendRecordRead",
 ]
