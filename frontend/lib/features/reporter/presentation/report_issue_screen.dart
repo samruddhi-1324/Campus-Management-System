@@ -223,10 +223,10 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 ),
                 const SizedBox(height: 16),
                 if (_isAnalyzingAI)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: Row(
-                      children: [
+                      children: const [
                         SizedBox(height: 16, width: 16, child: CircularProgressIndicator(strokeWidth: 2)),
                         SizedBox(width: 8),
                         Text('AI analyzing issue context...', style: TextStyle(fontSize: 12, color: Colors.indigo)),
