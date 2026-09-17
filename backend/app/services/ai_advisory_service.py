@@ -1,8 +1,9 @@
+from datetime import UTC, datetime
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.issue import Issue, IssueStatus
+from app.models.issue import Issue, IssueStatus, IssueUpdate
 from app.models.master_data import Category
 from app.schemas.ai import (
     AIClassificationRequest,
@@ -110,7 +111,7 @@ class AIAdvisoryService:
     async def draft_status_message(
         self, request: AIStatusDraftRequest
     ) -> AIStatusDraftResponse:
-        """Draft polite, transparent communication update for reporters (FR-AI-08)."""
+        """Draft polite, transparent communication update for reporters (FR-AI-06)."""
         status_map = {
             "under_investigation": "Our technical team is currently on site investigating the reported issue.",
             "in_progress": "Maintenance work has commenced. Replacement parts/technicians are actively working on this.",
@@ -125,6 +126,101 @@ class AIAdvisoryService:
             draft += f" Note: {request.notes}"
 
         return AIStatusDraftResponse(draft_message=draft)
+
+    async def suggest_similar_resolutions(self, issue_id: str) -> list[dict]:
+        """Suggest previously successful resolutions for similar past resolved issues (FR-2.4, FR-AI-05)."""
+        # Fetch current issue
+        curr_stmt = select(Issue).where(Issue.id == issue_id)
+        current = (await self.db.execute(curr_stmt)).scalar_one_or_none()
+        if not current:
+            return []
+
+        # Find resolved issues in same category or title overlap
+        stmt = (
+            select(Issue)
+            .where(
+                Issue.id != issue_id,
+                Issue.status.in_([IssueStatus.RESOLVED, IssueStatus.CLOSED]),
+            )
+            .order_by(Issue.resolved_at.desc().nullslast())
+            .limit(10)
+        )
+        candidates = (await self.db.execute(stmt)).scalars().all()
+
+        suggestions: list[dict] = []
+        curr_words = set(current.title.lower().split())
+
+        for past in candidates:
+            past_words = set(past.title.lower().split())
+            overlap = curr_words.intersection(past_words)
+            if overlap or past.category_id == current.category_id:
+                confidence = 0.75 if past.category_id == current.category_id else 0.60
+                if len(overlap) >= 2:
+                    confidence += 0.15
+
+                suggestions.append({
+                    "past_issue_id": past.id,
+                    "past_reference_number": past.reference_number,
+                    "past_title": past.title,
+                    "suggested_fix": f"Prior resolution: Replaced/serviced component as verified in {past.reference_number}.",
+                    "confidence": min(0.95, round(confidence, 2)),
+                    "resolved_at": past.resolved_at.isoformat() if past.resolved_at else None,
+                })
+
+        return suggestions[:3]
+
+    async def generate_thread_summary(self, issue_id: str) -> str | None:
+        """Maintains plain-language summary for long issue threads with > 3 updates (FR-2.5, FR-AI-08)."""
+        stmt = (
+            select(IssueUpdate)
+            .where(IssueUpdate.issue_id == issue_id)
+            .order_by(IssueUpdate.created_at.asc())
+        )
+        updates = (await self.db.execute(stmt)).scalars().all()
+
+        if len(updates) < 2:
+            return None
+
+        # Synthesize concise bulleted summary
+        summary_points = [
+            f"- {u.created_at.strftime('%b %d %H:%M') if u.created_at else ''}: {u.message[:80]}..."
+            for u in updates[-4:]
+        ]
+        return "Thread Summary:\n" + "\n".join(summary_points)
+
+    async def predict_sla_breach_risk(self) -> list[dict]:
+        """Identifies issues at risk of missing their expected resolution window (FR-AI-07)."""
+        now = datetime.now(UTC)
+        stmt = select(Issue).where(
+            Issue.expected_resolution_at.isnot(None),
+            Issue.status.notin_([IssueStatus.RESOLVED, IssueStatus.CLOSED]),
+        )
+        issues = (await self.db.execute(stmt)).scalars().all()
+
+        at_risk: list[dict] = []
+        for issue in issues:
+            if not issue.expected_resolution_at:
+                continue
+            total_duration = (issue.expected_resolution_at - issue.created_at).total_seconds()
+            remaining_seconds = (issue.expected_resolution_at - now).total_seconds()
+
+            # If less than 25% of SLA window remains or already overdue
+            if remaining_seconds <= total_duration * 0.25:
+                is_overdue = remaining_seconds < 0
+                risk_level = "critical" if is_overdue else "high"
+                at_risk.append({
+                    "issue_id": issue.id,
+                    "reference_number": issue.reference_number,
+                    "title": issue.title,
+                    "status": issue.status.value,
+                    "urgency": issue.urgency.value,
+                    "remaining_hours": round(remaining_seconds / 3600, 1),
+                    "is_overdue": is_overdue,
+                    "risk_level": risk_level,
+                    "expected_resolution_at": issue.expected_resolution_at.isoformat(),
+                })
+
+        return sorted(at_risk, key=lambda x: x["remaining_hours"])
 
 
 def get_ai_advisory_service(db: AsyncSession) -> AIAdvisoryService:

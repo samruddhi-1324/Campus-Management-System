@@ -1,10 +1,10 @@
-
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user_id
 from app.core.database import get_db
 from app.schemas.recommendation import RecurrencePatternRead
+from app.services.recurrence_service import get_recurrence_service
 
 router = APIRouter()
 
@@ -16,12 +16,19 @@ async def list_recurrence_patterns(
     db: AsyncSession = Depends(get_db),
 ):
     """View detected recurring equipment & location issues (FR-2.6)."""
+    recurrence_service = get_recurrence_service(db)
+    return await recurrence_service.detect_recurring_patterns(window_days=window_days)
 
 
-@router.post("/patterns/{pattern_id}/convert-to-replacement")
+@router.post("/patterns/{pattern_id}/convert-to-replacement", response_model=RecurrencePatternRead)
 async def convert_pattern_to_replacement(
     pattern_id: str,
     user_id: str = Depends(get_current_user_id),
     db: AsyncSession = Depends(get_db),
 ):
     """Convert recurring issue to formal permanent replacement recommendation (FR-2.7)."""
+    recurrence_service = get_recurrence_service(db)
+    return await recurrence_service.convert_to_replacement_recommendation(
+        pattern_id=pattern_id,
+        actor_id=user_id,
+    )
