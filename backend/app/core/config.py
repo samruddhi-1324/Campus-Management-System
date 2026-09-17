@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     )
 
     # App Configuration
-    ENVIRONMENT: Literal["development", "staging", "production"] = "development"
+    ENVIRONMENT: Literal["development", "staging", "production", "test"] = "development"
     DEBUG: bool = True
     APP_NAME: str = "Campus Care"
     API_V1_STR: str = "/api/v1"
