@@ -1,7 +1,7 @@
 from datetime import UTC, datetime
 from enum import StrEnum
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, String
+from sqlalchemy import Boolean, DateTime, ForeignKey, String, UniqueConstraint
 from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -82,6 +82,9 @@ class UserDevice(Base, TimestampMixin):
 class NotificationPreference(Base, TimestampMixin):
     """User channel preferences for non-critical notifications (FR-NOTIF-11)."""
     __tablename__ = "notification_preferences"
+    __table_args__ = (
+        UniqueConstraint("user_id", "event_category", "channel_type", name="uq_user_event_channel"),
+    )
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False)

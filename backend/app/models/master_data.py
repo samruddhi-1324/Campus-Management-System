@@ -1,5 +1,5 @@
 
-from sqlalchemy import Boolean, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, TimestampMixin
@@ -30,6 +30,9 @@ class Building(Base, TimestampMixin):
 class Room(Base, TimestampMixin):
     """Room within a building (FR-1.24)."""
     __tablename__ = "rooms"
+    __table_args__ = (
+        UniqueConstraint("building_id", "room_number", name="uq_building_room"),
+    )
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     building_id: Mapped[str] = mapped_column(String(36), ForeignKey("buildings.id", ondelete="CASCADE"), index=True, nullable=False)
