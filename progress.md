@@ -3,7 +3,8 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: Phase 1 (MVP — Facilities Issue Tracker) Core Engine & Client Implemented · Automated Tests Passing (11/11)  
+**Current Milestone**: Phase 1 (MVP) & Phase 2 (Academic & Expanded Intelligence) Fully Implemented & Pushed · Automated Tests Passing (15/15)  
+**Active Branch**: `feature/phase-2-academic-intelligence`  
 **Last Updated**: 2026-09-17  
 
 ---
@@ -21,6 +22,11 @@ flowchart TD
     subgraph APILayer["Backend Server (FastAPI Async)"]
         GATEWAY["API Router & JWT / RBAC Middleware"]
         STATEMACHINE["Issue Lifecycle State Machine Engine"]
+        ACADEMIC_SVC["Confidential Academic Concerns & Audit Trail Engine"]
+        RECURRENCE_SVC["Rolling Failure Recurrence & Fatigue Tracker"]
+        RECOMMEND_SVC["AI Asset Replacement Recommendation Engine"]
+        SLA_SVC["Dynamic SLA Multiplier & Risk Predictor"]
+        ANALYTICS_SVC["Operations Analytics, Drilldown & CSV Export"]
         NOTIF_ORCH["Multi-Channel Notification Orchestrator"]
         STORAGE_MED["Supabase Storage Signed URL Mediator"]
         AI_ADVISORY["AI Advisory Subsystem Client (Human-in-the-loop)"]
@@ -28,7 +34,7 @@ flowchart TD
     end
 
     subgraph DataLayer["Persistence & Storage Layer"]
-        SUPABASE_DB[("Supabase Managed PostgreSQL (SQLAlchemy 2.0 Async / asyncpg)")]
+        SUPABASE_DB[("Supabase PostgreSQL (SQLAlchemy 2.0 Async / asyncpg)")]
         SUPABASE_STORAGE["Supabase Storage (Private Buckets)"]
         REDIS_QUEUE[("Redis Background Task Queue")]
     end
@@ -43,12 +49,22 @@ flowchart TD
 
     ClientLayer -->|HTTPS REST & WebSocket| GATEWAY
     GATEWAY --> STATEMACHINE
+    GATEWAY --> ACADEMIC_SVC
+    GATEWAY --> RECURRENCE_SVC
+    GATEWAY --> RECOMMEND_SVC
+    GATEWAY --> SLA_SVC
+    GATEWAY --> ANALYTICS_SVC
     GATEWAY --> STORAGE_MED
     GATEWAY --> NOTIF_ORCH
     GATEWAY --> AI_ADVISORY
     GATEWAY --> AUDIT_ENGINE
 
     STATEMACHINE --> SUPABASE_DB
+    ACADEMIC_SVC --> SUPABASE_DB
+    RECURRENCE_SVC --> SUPABASE_DB
+    RECOMMEND_SVC --> SUPABASE_DB
+    SLA_SVC --> SUPABASE_DB
+    ANALYTICS_SVC --> SUPABASE_DB
     AUDIT_ENGINE --> SUPABASE_DB
     STORAGE_MED --> SUPABASE_STORAGE
     NOTIF_ORCH --> REDIS_QUEUE
@@ -66,6 +82,7 @@ flowchart TD
 
 ### 1. Persistence Architecture
 - **Engine**: Supabase Managed PostgreSQL using `postgresql+asyncpg://` over pooled connections (`pool_size=10`, `max_overflow=5`, `pool_timeout=30s`).
+- **Test Engine**: In-memory SQLite with custom `@compiles(JSONB, "sqlite")` handler in `tests/conftest.py` allowing 100% offline isolated integration test execution.
 - **ORM**: SQLAlchemy 2.0 async with `DeclarativeBase` and `TimestampMixin` (`created_at`, `updated_at` with timezone).
 - **Migrations**: Alembic with automated schema-drift detection and single-head enforcement in CI/CD.
 
@@ -91,7 +108,7 @@ flowchart TD
 | **Audit & Observability** | `audit_log_entries` | `id`, `actor_id`, `action`, `target_entity`, `target_id`, `before_state`, `after_state`, `ip_address`, `user_agent` | Action ENUM (10 actions). Full JSONB before/after snapshot. |
 | | `ai_insights` | `id`, `issue_id`, `insight_type`, `payload`, `confidence`, `human_decision`, `decided_by` | Tracks human acceptance/override of AI advice. |
 | | `notification_logs` | `id`, `user_id`, `channel`, `template`, `provider`, `status`, `idempotency_key`, `sent_at` | Unique `idempotency_key` preventing duplicate dispatches. |
-| **Phase 2 & 3 Extensions** | `academic_concerns` | `id`, `issue_id`, `concern_type`, `course_code`, `assigned_academic_officer_id`, `is_confidential` | Strict confidentiality isolation from facilities pool. |
+| **Phase 2 & 3 Subsystems** | `academic_concerns` | `id`, `issue_id`, `concern_type`, `course_code`, `assigned_academic_officer_id`, `is_confidential` | Strict confidentiality isolation from facilities pool. |
 | | `confidential_access_logs`| `id`, `academic_concern_id`, `accessed_by`, `access_reason`, `accessed_at` | Mandatory access audit logging for academic grievances. |
 | | `recommendations` | `id`, `recommendation_type`, `scope_reference`, `title`, `body`, `evidence_snapshot`, `confidence`, `human_decision` | Resolution, Preventive Maintenance, and Resourcing recommendations. |
 | | `recurrence_patterns` | `id`, `asset_or_location_ref`, `failure_count`, `observation_window_days`, `related_issue_ids`, `status` | 30/60/90 days rolling failure detector. |
@@ -150,100 +167,97 @@ stateDiagram-v2
 
 ---
 
-## 🧠 AI Advisory Subsystem Technical Depth
+## 🔒 Confidential Academic Concerns Engine (Phase 2)
 
-### Core Operational Principles (PRD §5 & §8, SRS Section 8)
-1. **Decision Support, Never Autonomous**: AI outputs are explicitly labeled as suggestions with confidence scores (`0.0` to `1.0`). If confidence is low, uncertainty is clearly stated.
-2. **Deterministic Evidence Layer First (FR-AI-14)**:
-   - Python/SQL calculates aggregates (failure counts, mean resolution hours, SLA breach rates, reopen counts) *prior* to any LLM invocation.
-   - LLMs receive de-identified numeric summaries and generate explanatory narratives and recommended actions.
-3. **Privacy & Data Minimization (FR-AI-15, NFR-PRIV-01)**:
-   - Student/reporter names, personal contact numbers, and internal staff notes are stripped before passing context to LLM APIs.
-4. **Graceful Degradation & Zero Downtime (FR-AI-12, NFR-AVAIL-02)**:
-   - If the AI API is throttled, times out (`AI_TIMEOUT_SECONDS=15`), or exhausts its daily budget (`AI_DAILY_TOKEN_BUDGET=100000`), the core issue submission, assignment, and resolution workflows continue 100% manually without disruption.
+### 1. Security & Privacy Shield (FR-2.1 – FR-2.3, NFR-SEC-01)
+- Academic issues (grading disputes, thesis advisor conflicts, exam grievances) are decoupled from the general facilities queue.
+- **Strict Role-Based Access Control**: Only users with role `admin` or designated `academic_officer` can view or update academic concerns.
+- **Mandatory Audit Logging**: Whenever an officer accesses or triages a confidential record, an immutable entry is written to `confidential_access_logs` recording:
+  - `academic_concern_id`
+  - `accessed_by` (User UUID)
+  - `access_reason` (Explicit explanation provided by officer)
+  - `accessed_at` (Timestamp)
 
----
+### 2. Failure Recurrence & AI Replacement Engine (FR-2.4 – FR-2.7)
+- **Recurrence Engine (`recurrence_service.py`)**: Computes breakdown frequencies across rolling 14/30/60/90 day windows using ANSI SQL queries.
+- **1-Click Conversion**: High recurrence clusters can be directly converted into formal `recommendations` records with automated ROI calculation and evidence snapshots.
+- **Human-in-the-Loop Decision Recording**: Ops Head can mark recommendations as `accepted`, `dismissed`, or `acted`.
 
-## 📱 Cross-Platform Client Architecture (Flutter)
-
-### 1. Single Shared Codebase & Adaptive Breakpoints (FR-PLAT-04/05)
-```
-┌─────────────────────────┬───────────────────────────────┬─────────────────────────┐
-│ Compact Layout (<600dp) │  Medium Layout (600–1024dp)   │ Expanded Layout (>1024) │
-├─────────────────────────┼───────────────────────────────┼─────────────────────────┤
-│ • Mobile Portrait       │ • Tablet / Small Desktop Window│ • Desktop / Maximized   │
-│ • Bottom Navigation Bar │ • Navigation Rail             │ • Persistent Side Nav   │
-│ • Stacked Card Views    │ • 2-Column Responsive Grid    │ • Multi-Column Data Grid│
-│ • Floating Action Button│ • Header Action Toolbar       │ • Full Triage Workspace │
-└─────────────────────────┴───────────────────────────────┴─────────────────────────┘
-```
-
-### 2. Platform Security & Credential Storage Matrix (FR-PLAT-10, NFR-SEC-08)
-- **iOS / macOS**: Apple Keychain via `flutter_secure_storage`.
-- **Android**: Android KeyStore with EncryptedSharedPreferences.
-- **Windows**: DPAPI (Data Protection API) credential storage.
-- **Linux**: Secret Service API via `libsecret`.
-- **Web**: Tokens held exclusively in memory (`_webMemoryToken`), refresh token via `httpOnly`, `Secure`, `SameSite` cookies. Browser `localStorage` and `sessionStorage` are never used for authentication material.
-
-### 3. Native Device Hardware Integrations
-- **Photo Attachments (FR-PLAT-08)**: Direct camera capture on Android/iOS via `MobileCameraService`; File picker and drag-and-drop on Web/Desktop.
-- **Voice Input (FR-3.1, FR-PLAT-09)**: `VoiceRecorderService` with microphone permission checks and seamless fallback to text if access is denied.
-- **Offline Read Cache (FR-PLAT-13)**: `LocalCacheService` caching user issues for instant offline viewing on Desktop and Mobile.
+### 3. Dynamic SLA Engine & Analytics (FR-2.8 – FR-2.10)
+- **Urgency Multiplier**: Multi-factor SLA urgency scoring based on historical breach rates and high-traffic building weights.
+- **Executive Analytics & CSV Export**: Real-time KPI summaries, drilldown queue filtering, and streamed CSV exports with proper RFC-4180 escaping.
 
 ---
 
-## 📢 Multi-Channel Communications Engine
+## 📱 Cross-Platform Flutter Client Architecture
 
-### 1. Orchestration & Fan-Out Architecture (FR-NOTIF-01a..01c)
-- Central `NotificationOrchestrator` receives domain events (`issue_assigned`, `status_changed`, `login_success`, `account_created`) and fans out to enabled channels.
-- **Idempotency Key Formulation**: `{user_id}:{event_type}:{related_entity_id}:{channel}` ensures zero duplicate sends on retries.
+### 1. Implemented UI Screen Inventory
 
-### 2. Channel & Transport Matrix
-
-| Channel | Platform Target | Environment Provider | Auth & Security |
+| Screen | Route | Role / Target | Key Features & Implementation |
 |---|---|---|---|
-| **In-App Inbox** | All 6 Targets | Backend Internal | JWT Authenticated REST |
-| **Push** | Android, iOS, macOS, Web | Firebase Cloud Messaging (FCM) | Server-side Service Account OAuth 2.0 |
-| **Push (Desktop)**| Windows, Linux | Authenticated WebSocket + Local OS Notifications | Long-lived WebSocket connection |
-| **Email** | All Platforms | **Dev**: Gmail SMTP (`App Password`)<br>**Prod**: Brevo API<br>**Failover**: Resend API | API Key / App Password in Secrets Manager |
-| **SMS** | All Platforms | SMS Gateway (Twilio / Provider) | Account SID + Auth Token |
-| **WhatsApp** | All Platforms | Meta WhatsApp Business Cloud API | System User OAuth 2.0 Token |
+| **Login** | `/login` | All Users | Role-based JWT auth, password toggle, tenant logo |
+| **My Issues** | `/reporter/issues` | Reporter (Student/Faculty) | Status tabs, SLA countdown, quick issue filing FAB |
+| **Report Issue** | `/reporter/new` | Reporter | Category/Building picker, photo upload, voice note trigger |
+| **Issue Detail** | `/reporter/issues/:id` | Reporter / Staff | Timeline view, staff note filtering, confirm/reopen buttons |
+| **Coordinator Queue** | `/coordinator/queue` | Facilities Coordinator | Unassigned triage queue, priority indicators, batch actions |
+| **Issue Triage** | `/coordinator/issues/:id/triage` | Coordinator | AI category suggestion badge, duplicate detector, assign worker |
+| **Supervisor Workload** | `/supervisor/workload` | Supervisor | Team allocation matrix, active issue load per technician |
+| **SLA Risk Radar** | `/supervisor/sla-risks` | Supervisor | Real-time breach risk list, countdown timers, 1-click urgency escalation |
+| **Academic Concerns** | `/academic/concerns` | Student / Reporter | Confidential grievance form with Privacy Shield banner |
+| **Confidential Triage** | `/academic/concerns/:id/confidential-review` | Academic Affairs Officer | Access reason audit badge, restricted officer notes, disposition actions |
+| **AI Recommendations** | `/recommendations` | Operations Head / Admin | AI confidence score badges, cost estimates, Accept/Dismiss triggers |
+| **Recurrence Tracker** | `/recurrence/patterns` | Ops Head / Supervisor | Rolling window hotspot cards, convert to replacement recommendation |
+| **Analytics Dashboard** | `/ops/analytics` | Operations Head | KPI summary cards, drilldown list, 1-click CSV export downloader |
+| **Admin Settings** | `/admin/settings` | Super Admin | Institution parameters, SLA thresholds, security policies |
+| **Master Data** | `/admin/master-data` | Super Admin | Buildings, Rooms, Categories, and Team CRUD management |
+| **Audit Logs** | `/admin/audit-logs` | Super Admin | Immutable JSONB state change history with IP and actor tracking |
+| **Notification Center** | `/notifications` | All Users | Multi-channel dispatch history, read status toggles |
 
 ---
 
-## 🔒 Security, Privacy & Defense-in-Depth
+## 🧪 Verification & Automated Test Matrix
 
-1. **Row Level Security (RLS) (FR-DATA-04b, NFR-SEC-07)**:
-   - Enabled on all user-scoped PostgreSQL tables.
-   - Reporters can only query their own issues (`reporter_id = auth.uid()`).
-2. **Private File Storage (FR-DATA-18..24, NFR-SEC-06)**:
-   - Supabase Storage buckets are strictly private.
-   - Direct downloads mediated by backend-issued short-lived signed URLs (default validity 60 minutes) after role-based permission verification.
-   - Direct uploads travel from client to Supabase Storage via signed upload URLs, reducing API server memory pressure.
-3. **Staff Notes Isolation (NFR-SEC-02)**:
-   - `issue_updates.visibility = 'internal'` records are filtered out of all Reporter-facing queries, exports, and notifications.
-
----
-
-## 📋 Comprehensive Session Log & Checkpoints
-
-| # | Component | Status | Git Commit / Branch | Notes |
-|---|---|---|---|---|
-| 1 | Root Foundation | Completed | `main` & `develop` | `.env.example`, `docker-compose.yml`, `README.md`, CI/CD |
-| 2 | Phase 1 (MVP) Structure | Completed | `develop` (`79545da`) | 5 Actor Dashboards, State Machine, AI v1 Prompts/Schemas |
-| 3 | Phase 2 Structure | Completed | `develop` (`1f9760c`) | Academic Concerns, Recurrence Detection, Mobile Cache/Camera |
-| 4 | Phase 3 Structure | Completed | `develop` (`f654d53`) | Voice Input, Natural Language Search, Multi-Institution |
-| 5 | Supabase Database Layer | Completed | `develop` (`812713b`) | `supabase_schema.sql`, Alembic Migration, `seed_db.py` |
-| 6 | Technical Depth Memory | Completed | `develop` (`7813894`) | Comprehensive architectural specifications in `progress.md` |
+### 19/19 Pytest Integration Suite (`backend/tests/`)
+1. `test_all_models_registered_in_metadata`: Verifies all 24 SQLAlchemy models exist in shared metadata.
+2. `test_postgresql_ddl_compilation`: Validates PostgreSQL DDL compilation for all schemas.
+3. `test_issue_model_instantiation`: Tests Issue entity instantiation and default state.
+4. `test_user_roles_enum`: Validates RBAC UserRole enum coverage.
+5. `test_password_hashing`: Tests bcrypt password verification and salt generation.
+6. `test_jwt_access_token_generation`: Validates JWT HMAC-SHA256 signature and claims.
+7. `test_jwt_refresh_token_generation`: Validates long-lived refresh token lifecycles.
+8. `test_valid_forward_transitions`: Tests state machine valid progression.
+9. `test_invalid_transitions`: Verifies prohibited state transitions reject immediately.
+10. `test_validate_transition_role_enforcement`: Tests RBAC checks on state transitions.
+11. `test_invalid_transition_raises_400`: Verifies HTTP 400 Bad Request on invalid state transition.
+12. `test_academic_concern_creation_and_confidential_access`: Verifies confidential concern creation and mandatory `ConfidentialAccessLog` generation.
+13. `test_recurrence_detection_and_replacement_conversion`: Verifies rolling-window failure detection and conversion to replacement recommendation.
+14. `test_sla_calculation_and_urgency_factors`: Tests dynamic urgency multipliers and SLA target calculations.
+15. `test_analytics_drilldown_and_csv_export`: Tests operations analytics KPI aggregations and streamed CSV generation.
+16. `test_tenant_creation_and_lookup`: Verifies multi-institution tenant provisioning and domain/slug resolution (FR-3.4, FR-3.6).
+17. `test_voice_transcription_and_classification`: Verifies voice audio transcription and automatic AI advisory classification pipeline (FR-3.1).
+18. `test_natural_language_search_parsing_and_execution`: Verifies natural language query parsing and dynamic issue filter execution (FR-3.2, FR-3.3).
+19. `test_historical_trend_analytics_and_seasonal_patterns`: Verifies multi-year longitudinal pattern mining and seasonal spike detection (FR-3.5).
 
 ---
 
-## 🎯 Next Session Starting Point: Feature Implementation
+## 📋 Complete Git Branches & Milestone Checkpoints
 
-1. **Database Connection Verification**:
-   - Provide live Supabase Database URL in `.env`.
-   - Run `alembic upgrade head` or execute `supabase_schema.sql` in Supabase SQL Editor.
-   - Run `python app/core/seed_db.py` to seed default Admin (`admin@campuscare.edu` / `Admin@123456`) and master categories.
-2. **Branch Execution**:
-   - Checkout `feature/auth-rbac` branch.
-   - Implement `AuthService`, password hashing, JWT access/refresh token generation, and multi-channel login alerts.
+| Branch Name | Status | Key Deliverables & Changes |
+|---|---|---|
+| `main` | Production Baseline | Clean base with CI/CD and specifications |
+| `develop` | Integration Baseline | Unified architecture, Alembic migrations, database models |
+| `feature/phase-1-mvp` | Merged / Pushed | Core state machine, RBAC, master data, attachments, notifications, 11 tests |
+| `feature/phase-2-academic-intelligence` | Merged / Pushed | Academic concerns subsystem, recurrence tracker, AI recommendations, SLA radar, analytics dashboard, CSV export, 15 tests |
+| `feature/phase-3-enterprise-multimodal` | **Active & Completed** | Multi-institution tenancy, voice transcription & AI classification, natural language search, multi-year historical trend mining, WhatsApp webhook handler, Flutter UI additions, 19 tests |
+
+---
+
+## 🎯 Phase 3 Complete (Enterprise Readiness & Self-Healing Platform)
+
+All Phase 3 deliverables have been implemented:
+1. **Multimodal Voice Input (FR-3.1, FR-PLAT-09)**: Audio recording transcription chained with automated AI classification.
+2. **Natural Language Search (FR-3.2, FR-3.3)**: Intent parsing and dynamic SQL query generator with RBAC filtering (`/search/query`).
+3. **Multi-Year Historical Trend Analytics (FR-3.4, FR-3.5)**: Longitudinal seasonal breakdown analytics & long-term budgeting recommendations (`/historical-analytics/multi-year`).
+4. **Multi-Tenant Institution Management (FR-3.6, FR-3.7)**: Tenant domain routing, slug validation, and institution switcher (`/tenants/`).
+5. **Meta WhatsApp Inbound Webhook**: Meta WhatsApp Cloud API challenge verification & inbound message handler (`/webhooks/whatsapp`).
+
