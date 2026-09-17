@@ -31,8 +31,6 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_institutions_slug", "institutions", ["slug"])
-    op.create_index("idx_institutions_domain", "institutions", ["domain"])
 
     # 2. Departments
     op.create_table(
@@ -69,7 +67,7 @@ def upgrade() -> None:
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.UniqueConstraint("building_id", "room_number", name="uq_building_room"),
     )
-    op.create_index("idx_rooms_building_id", "rooms", ["building_id"])
+    op.create_index("ix_rooms_building_id", "rooms", ["building_id"])
 
     # 5. Categories
     op.create_table(
@@ -83,7 +81,6 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_categories_slug", "categories", ["slug"])
 
     # 6. Users
     op.create_table(
@@ -98,8 +95,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_users_email", "users", ["email"])
-    op.create_index("idx_users_role", "users", ["role"])
+    op.create_index("ix_users_role", "users", ["role"])
 
     # 7. Teams
     op.create_table(
@@ -124,7 +120,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_user_contact_channels_user_id", "user_contact_channels", ["user_id"])
+    op.create_index("ix_user_contact_channels_user_id", "user_contact_channels", ["user_id"])
 
     # 9. User Devices
     op.create_table(
@@ -143,7 +139,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_user_devices_user_id", "user_devices", ["user_id"])
+    op.create_index("ix_user_devices_user_id", "user_devices", ["user_id"])
 
     # 10. Notification Preferences
     op.create_table(
@@ -157,6 +153,7 @@ def upgrade() -> None:
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.UniqueConstraint("user_id", "event_category", "channel_type", name="uq_user_event_channel"),
     )
+    op.create_index("ix_notification_preferences_user_id", "notification_preferences", ["user_id"])
 
     # 11. Issues
     op.create_table(
@@ -198,10 +195,13 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_issues_ref_num", "issues", ["reference_number"])
-    op.create_index("idx_issues_reporter_id", "issues", ["reporter_id"])
-    op.create_index("idx_issues_coordinator_id", "issues", ["assigned_coordinator_id"])
-    op.create_index("idx_issues_status", "issues", ["status"])
+    op.create_index("ix_issues_category_id", "issues", ["category_id"])
+    op.create_index("ix_issues_building_id", "issues", ["building_id"])
+    op.create_index("ix_issues_status", "issues", ["status"])
+    op.create_index("ix_issues_urgency", "issues", ["urgency"])
+    op.create_index("ix_issues_reporter_id", "issues", ["reporter_id"])
+    op.create_index("ix_issues_assigned_coordinator_id", "issues", ["assigned_coordinator_id"])
+    op.create_index("ix_issues_expected_resolution_at", "issues", ["expected_resolution_at"])
 
     # 12. Issue Attachments
     op.create_table(
@@ -218,7 +218,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_attachments_issue_id", "issue_attachments", ["issue_id"])
+    op.create_index("ix_issue_attachments_issue_id", "issue_attachments", ["issue_id"])
 
     # 13. Issue Updates
     op.create_table(
@@ -231,6 +231,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_issue_updates_issue_id", "issue_updates", ["issue_id"])
 
     # 14. Issue State History
     op.create_table(
@@ -244,6 +245,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_issue_state_history_issue_id", "issue_state_history", ["issue_id"])
 
     # 15. Issue Groups (Dedup)
     op.create_table(
@@ -279,7 +281,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_audit_logs_actor", "audit_log_entries", ["actor_id"])
+    op.create_index("ix_audit_log_entries_actor_id", "audit_log_entries", ["actor_id"])
 
     # 17. AI Insights
     op.create_table(
@@ -295,7 +297,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
-    op.create_index("idx_ai_insights_issue_id", "ai_insights", ["issue_id"])
+    op.create_index("ix_ai_insights_issue_id", "ai_insights", ["issue_id"])
 
     # 18. Notification Logs
     op.create_table(
@@ -315,6 +317,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_notification_logs_user_id", "notification_logs", ["user_id"])
 
     # 19. Academic Concerns (Phase 2)
     op.create_table(
@@ -348,6 +351,8 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_confidential_access_logs_academic_concern_id", "confidential_access_logs", ["academic_concern_id"])
+    op.create_index("ix_confidential_access_logs_accessed_by", "confidential_access_logs", ["accessed_by"])
 
     # 21. Recommendations (Phase 2)
     op.create_table(
@@ -385,6 +390,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_recurrence_patterns_asset_or_location_ref", "recurrence_patterns", ["asset_or_location_ref"])
 
     # 23. Category SLA Configs (Phase 2)
     op.create_table(
@@ -399,6 +405,7 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_category_sla_configs_category_id", "category_sla_configs", ["category_id"])
 
     # 24. Historical Trend Records (Phase 3)
     op.create_table(
@@ -417,6 +424,9 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
     )
+    op.create_index("ix_historical_trend_records_institution_id", "historical_trend_records", ["institution_id"])
+    op.create_index("ix_historical_trend_records_category_id", "historical_trend_records", ["category_id"])
+    op.create_index("ix_historical_trend_records_year", "historical_trend_records", ["year"])
 
 
 def downgrade() -> None:

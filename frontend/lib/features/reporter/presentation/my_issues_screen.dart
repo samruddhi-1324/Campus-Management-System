@@ -145,7 +145,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                               borderRadius: BorderRadius.circular(12),
                               onTap: () => context.push('/reporter/issues/${item['id']}'),
                               child: Padding(
-                                const EdgeInsets.all(16),
+                                padding: const EdgeInsets.all(16),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [

@@ -30,7 +30,7 @@ class AuditLogEntry(Base, TimestampMixin):
     actor_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
     action: Mapped[AuditAction] = mapped_column(SQLEnum(AuditAction, name="audit_action_enum"), nullable=False)
     target_entity: Mapped[str] = mapped_column(String(50), nullable=False)  # issue, user, team, category
-    target_id: Mapped[str] = mapped_column(String(36), index=True, nullable=False)
+    target_id: Mapped[str] = mapped_column(String(36), nullable=False)
     before_state: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     after_state: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     ip_address: Mapped[str | None] = mapped_column(String(45), nullable=True)

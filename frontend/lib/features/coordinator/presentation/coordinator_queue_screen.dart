@@ -195,7 +195,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                 elevation: 2,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                 child: Padding(
-                                  const EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
