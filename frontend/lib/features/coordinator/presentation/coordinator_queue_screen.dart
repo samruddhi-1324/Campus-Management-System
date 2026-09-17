@@ -11,7 +11,7 @@ class CoordinatorQueueScreen extends StatefulWidget {
 }
 
 class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
-  List<dynamic> _queue = [];
+  List<dynamic> _queue = const [];
   bool _isLoading = true;
   String? _statusFilter;
   String? _errorMessage;

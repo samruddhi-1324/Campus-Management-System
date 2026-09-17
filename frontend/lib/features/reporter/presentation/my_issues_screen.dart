@@ -11,7 +11,7 @@ class MyIssuesScreen extends StatefulWidget {
 }
 
 class _MyIssuesScreenState extends State<MyIssuesScreen> {
-  List<dynamic> _issues = [];
+  List<dynamic> _issues = const [];
   bool _isLoading = true;
   String? _errorMessage;
 

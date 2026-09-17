@@ -19,8 +19,8 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
   String? _selectedCategoryId;
   String? _selectedBuildingId;
 
-  List<dynamic> _categories = [];
-  List<dynamic> _buildings = [];
+  List<dynamic> _categories = const [];
+  List<dynamic> _buildings = const [];
 
   bool _isLoading = false;
   bool _isAnalyzingAI = false;
@@ -223,10 +223,10 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 ),
                 const SizedBox(height: 16),
                 if (_isAnalyzingAI)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
                     child: Row(
-                      children: const [
+                      children: [
                         SizedBox(height: 16, width: 16, child: CircularProgressIndicator(strokeWidth: 2)),
                         SizedBox(width: 8),
                         Text('AI analyzing issue context...', style: TextStyle(fontSize: 12, color: Colors.indigo)),
