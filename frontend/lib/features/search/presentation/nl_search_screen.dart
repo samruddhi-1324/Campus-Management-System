@@ -143,13 +143,16 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: const [
+                    const Row(
+                      children: [
                         Icon(Icons.psychology, size: 18, color: Colors.blue),
                         SizedBox(width: 6),
                         Text(
                           'AI Parsed Query Filters',
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
                         ),
                       ],
                     ),
