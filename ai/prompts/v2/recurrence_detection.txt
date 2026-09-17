@@ -1,0 +1,6 @@
+Analyze asset and location failure frequency over 30/60/90 days rolling windows.
+Flag recurring patterns where repeated temporary fixes indicate a fundamental defect requiring permanent replacement (FR-2.6, FR-AI-04).
+
+Asset/Location: {asset_ref}
+Incident Logs: {incident_history}
+Window Days: {window_days}

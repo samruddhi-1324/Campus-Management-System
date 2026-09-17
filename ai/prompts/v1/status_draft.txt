@@ -1,0 +1,5 @@
+Draft a polite, professional, concise status update message to the student/staff reporter explaining the current progress on their issue.
+
+Issue Details: {issue_summary}
+Target Status: {target_status}
+Staff Notes: {notes}

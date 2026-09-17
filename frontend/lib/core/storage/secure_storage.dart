@@ -5,7 +5,6 @@ class SecureStorageService {
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   static const String _tokenKey = 'auth_access_token';
-  static const String _userKey = 'auth_user_data';
 
   // In-memory token storage for Web to prevent token exposure in localStorage (FR-PLAT-10)
   static String? _webMemoryToken;

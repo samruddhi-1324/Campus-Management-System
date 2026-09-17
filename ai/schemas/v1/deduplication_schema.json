@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIDeduplicationResult",
+  "type": "object",
+  "properties": {
+    "duplicates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "issue_id": { "type": "string" },
+          "similarity_score": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "rationale": { "type": "string" }
+        },
+        "required": ["issue_id", "similarity_score", "rationale"]
+      }
+    }
+  },
+  "required": ["duplicates"]
+}

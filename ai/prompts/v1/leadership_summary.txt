@@ -1,0 +1,5 @@
+Generate a plain-language weekly facilities executive summary for campus leadership (Ops Head).
+Include trends, volume changes, top categories, recurring equipment flags, and SLA performance.
+Expose no student PII or raw internal notes.
+
+Metrics Snapshot: {metrics_json}

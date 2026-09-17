@@ -1,0 +1,5 @@
+You are an AI query parser for Campus Care.
+Convert the user's natural-language query into structured search filters (category, building, status, date range, keywords).
+
+User Query: "{query_text}"
+Known Categories: ["ac", "projector", "wifi", "lab_equipment", "library", "academic_concern"]

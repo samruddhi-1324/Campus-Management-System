@@ -1,0 +1,37 @@
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+exclude = [
+    ".git",
+    ".github",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "alembic/versions",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "C",    # flake8-comprehensions
+    "B",    # flake8-bugbear
+    "UP",   # pyupgrade
+]
+ignore = [
+    "B008",   # Do not perform function call `Depends` in argument defaults (standard FastAPI pattern)
+    "E501",   # Line too long (handled by formatter)
+    "UP007",  # Use `X | Y` for type annotations
+    "RUF012", # Mutable default value for class attribute
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["F401", "B018"]
+"alembic/env.py" = ["F401"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

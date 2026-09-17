@@ -1,4 +1,5 @@
-from typing import Any, Generic, List, Optional, TypeVar
+from typing import Any, Generic, TypeVar
+
 from pydantic import BaseModel, ConfigDict
 
 T = TypeVar("T")
@@ -16,6 +17,6 @@ class CoreModel(BaseModel):
 class ApiResponse(CoreModel, Generic[T]):
     """Standardized envelope for all API responses."""
     success: bool = True
-    message: Optional[str] = None
-    data: Optional[T] = None
-    errors: Optional[List[Any]] = None
+    message: str | None = None
+    data: T | None = None
+    errors: list[Any] | None = None

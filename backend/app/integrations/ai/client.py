@@ -1,5 +1,4 @@
-from typing import Any, Dict, Optional
-from app.core.config import settings
+from typing import Any
 
 
 class AIAdvisoryClient:
@@ -8,7 +7,7 @@ class AIAdvisoryClient:
     Enforces human-in-the-loop and graceful degradation when the AI service is unavailable.
     """
 
-    async def classify_issue(self, title: str, description: str, location: str) -> Dict[str, Any]:
+    async def classify_issue(self, title: str, description: str, location: str) -> dict[str, Any]:
         """Suggest category, urgency, and missing information items (FR-AI-01, FR-AI-02)."""
         return {
             "suggested_category": None,
@@ -19,7 +18,7 @@ class AIAdvisoryClient:
             "is_ai_generated": True,
         }
 
-    async def check_duplicate(self, issue_id: str, description: str, location: str) -> Dict[str, Any]:
+    async def check_duplicate(self, issue_id: str, description: str, location: str) -> dict[str, Any]:
         """Detect duplicate issues in the same vicinity without auto-merging (FR-AI-03)."""
         return {
             "potential_duplicate_ids": [],
@@ -27,7 +26,7 @@ class AIAdvisoryClient:
             "rationale": "",
         }
 
-    async def draft_status_update(self, issue_context: Dict[str, Any], status: str) -> str:
+    async def draft_status_update(self, issue_context: dict[str, Any], status: str) -> str:
         """Draft a polite, informative status update for human review (FR-AI-06)."""
         return f"Update regarding your issue: Current status is now {status}."
 

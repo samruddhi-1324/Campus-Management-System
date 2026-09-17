@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIMultiYearPatternResult",
+  "type": "object",
+  "properties": {
+    "seasonal_spikes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "long_term_failure_trends": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "strategic_recommendations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["seasonal_spikes", "long_term_failure_trends", "strategic_recommendations"]
+}

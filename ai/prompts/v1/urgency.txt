@@ -1,0 +1,7 @@
+You are an AI advisory assistant for Campus Care.
+Evaluate the urgency of this facilities complaint considering timing signals (e.g. upcoming exam, class in session, safety risk, water leak) vs. routine non-urgent repairs.
+
+Title: {title}
+Description: {description}
+Location: {location}
+Time of report: {timestamp}

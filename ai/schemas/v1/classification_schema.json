@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIClassificationResult",
+  "type": "object",
+  "properties": {
+    "suggested_category": { "type": "string" },
+    "suggested_urgency": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "urgency_rationale": { "type": "string" },
+    "missing_information": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+  },
+  "required": ["suggested_urgency", "urgency_rationale", "missing_information", "confidence"]
+}

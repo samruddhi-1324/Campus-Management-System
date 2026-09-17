@@ -1,0 +1,5 @@
+Maintain a concise, high-level running summary of this long-running issue thread.
+Synthesize the key progress points, current blockers, and pending actions so coordinators do not need to read dozens of back-and-forth messages (PRD §5.8, FR-2.5).
+
+Issue History & Messages: {timeline_messages}
+Previous Summary: {previous_summary}

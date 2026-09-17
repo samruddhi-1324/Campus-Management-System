@@ -1,7 +1,7 @@
 import asyncio
-from logging.config import fileConfig
 import os
 import sys
+from logging.config import fileConfig
 
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
@@ -12,6 +12,7 @@ from alembic import context
 # Add backend app directory to sys.path
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
+import app.models  # noqa: F401 - Register all 24 SQLAlchemy models into Base.metadata
 from app.core.config import settings
 from app.models.base import Base
 
@@ -24,7 +25,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Set target metadata for 'autogenerate' support
+# Set target metadata for 'autogenerate' and 'check' drift support
 target_metadata = Base.metadata
 
 def get_url():
