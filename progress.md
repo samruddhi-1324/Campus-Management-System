@@ -3,13 +3,89 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: Phase 1 (MVP) & Phase 2 (Academic & Expanded Intelligence) Fully Implemented & Pushed · Automated Tests Passing (15/15)  
-**Active Branch**: `feature/phase-2-academic-intelligence`  
+**Current Milestone**: Phase 1 (MVP), Phase 2 (Academic Intelligence), Phase 3 (Enterprise & Multimodal) Implemented & Verified · 19/19 Automated Tests Passing · Local PostgreSQL Database Seeded  
+**Active Branch**: `develop`  
 **Last Updated**: 2026-09-17  
 
 ---
 
-## 🏛️ System Architecture & Data Flow
+## 🗄️ Local PostgreSQL Database Inventory (`campus_care`)
+
+- **Connection URL**: `postgresql+asyncpg://postgres:root@localhost:5432/campus_care`
+- **Total Tables**: 25 (24 domain entities + `alembic_version`)
+- **Seeded Master Data**:
+  - **Admin User**: `admin@campuscare.edu` / `Admin@123456` (`role = ADMIN`)
+  - **Categories (8)**: AC, Projectors & AV, Campus Wifi & Network, Lab Equipment, Library Services, Academic Concern, Electrical & Power, Plumbing & Washrooms
+  - **Buildings & Rooms (3 Buildings / 10 Rooms)**: Main Academic Block (101, 102, 201, 301), Science & Research Center (L101, L102, L201), Central Library Building (G01, 101, 201)
+
+---
+
+## 🎨 Stitch UI Screen Catalog & Multi-Target Layout Specs
+
+| # | Screen Name | Route | Responsive Form Factors (Desktop / Web / Mobile) |
+|---|---|---|---|
+| **1** | **Login & Authentication** | `/login` | Split-screen hero on Desktop/Web; single-column touch with biometrics & role pill on Mobile |
+| **2** | **Institution Workspace Selector** | `/institution/select` | 3-column interactive card grid on Web/Desktop; vertical swipeable list with bottom confirm bar on Mobile |
+| **3** | **Reporter: My Issues Dashboard** | `/reporter/issues` | Dual-pane split view with live preview on Desktop; segmented status tabs with FAB on Mobile |
+| **4** | **Reporter: File New Issue** | `/reporter/new` | 2-column form with waveform voice recorder on Web; step scroll with camera trigger on Mobile |
+| **5** | **Issue Detail & Resolution Stepper** | `/reporter/issues/:id` | 2-column lifecycle timeline with internal notes toggle on Desktop; tabbed view with confirm/reopen bar on Mobile |
+| **6** | **Confidential Academic Concerns** | `/academic/concerns` | Centered Privacy Shield card on Web; biometric-protected full-screen form on Mobile |
+| **7** | **Coordinator Queue & Triage Desk** | `/coordinator/queue` | Full-width triage table with AI suggestions & batch actions on Desktop; swipeable triage cards on Mobile |
+| **8** | **Supervisor SLA Risk Radar** | `/supervisor/sla-risks` | Radial countdown grid with 1-click escalation on Desktop; priority list with 1-tap WhatsApp ping on Mobile |
+| **9** | **Academic Officer Confidential Review** | `/academic/concerns/:id/review` | Split-pane audit trail & disposition editor on Desktop; secure multi-step hearing review on Mobile |
+| **10** | **Operations Analytics Dashboard** | `/ops/analytics` | 4 KPI cards, MTTR charts, and CSV export on Desktop; swipeable KPI carousel on Mobile |
+| **11** | **Failure Recurrence Hotspot Tracker** | `/recurrence/patterns` | 2-column equipment fatigue cards with ROI calculation on Desktop; vertical scroll cards on Mobile |
+| **12** | **AI Asset Replacement Suggestions** | `/recommendations` | Grid of AI recommendation cards with confidence meters on Desktop; stacked decision cards on Mobile |
+| **13** | **Multi-Year Seasonal Pattern Mining** | `/historical-analytics` | Multi-year longitudinal alerts and capital expenditure plan on Desktop; stacked alert cards on Mobile |
+| **14** | **Natural Language & Semantic Search** | `/search` | Plain English query bar with real-time AI parsed filter chips and 2-column result cards |
+| **15** | **Multi-Channel Notification Center** | `/notifications` | Left channel sidebar on Desktop; segmented filter pills with swipe-to-dismiss cards on Mobile |
+
+---
+
+## 🧪 Verification & Automated Test Matrix
+
+### 19/19 Pytest Integration Suite (`backend/tests/`)
+1. `test_all_models_registered_in_metadata`: Verifies all 24 SQLAlchemy models exist in shared metadata.
+2. `test_postgresql_ddl_compilation`: Validates PostgreSQL DDL compilation for all schemas.
+3. `test_issue_model_instantiation`: Tests Issue entity instantiation and default state.
+4. `test_user_roles_enum`: Validates RBAC UserRole enum coverage.
+5. `test_password_hashing`: Tests bcrypt password verification and salt generation.
+6. `test_jwt_access_token_generation`: Validates JWT HMAC-SHA256 signature and claims.
+7. `test_jwt_refresh_token_generation`: Validates long-lived refresh token lifecycles.
+8. `test_valid_forward_transitions`: Tests state machine valid progression.
+9. `test_invalid_transitions`: Verifies prohibited state transitions reject immediately.
+10. `test_validate_transition_role_enforcement`: Tests RBAC checks on state transitions.
+11. `test_invalid_transition_raises_400`: Verifies HTTP 400 Bad Request on invalid state transition.
+12. `test_academic_concern_creation_and_confidential_access`: Verifies confidential concern creation and mandatory `ConfidentialAccessLog` generation.
+13. `test_recurrence_detection_and_replacement_conversion`: Verifies rolling-window failure detection and conversion to replacement recommendation.
+14. `test_sla_calculation_and_urgency_factors`: Tests dynamic urgency multipliers and SLA target calculations.
+15. `test_analytics_drilldown_and_csv_export`: Tests operations analytics KPI aggregations and streamed CSV generation.
+16. `test_tenant_creation_and_lookup`: Verifies multi-institution tenant provisioning and domain/slug resolution (FR-3.4, FR-3.6).
+17. `test_voice_transcription_and_classification`: Verifies voice audio transcription and automatic AI advisory classification pipeline (FR-3.1).
+18. `test_natural_language_search_parsing_and_execution`: Verifies natural language query parsing and dynamic issue filter execution (FR-3.2, FR-3.3).
+19. `test_historical_trend_analytics_and_seasonal_patterns`: Verifies multi-year longitudinal pattern mining and seasonal spike detection (FR-3.5).
+
+---
+
+## 📋 Complete Git Branches & Milestone Checkpoints
+
+| Branch Name | Status | Key Deliverables & Changes |
+|---|---|---|
+| `main` | Production Baseline | Clean base with CI/CD and specifications |
+| `develop` | **Active Working Branch** (`2717b4a`) | Phase 1, Phase 2, Phase 3 fully implemented, Ruff 100% formatted, 19/19 tests passing, local PostgreSQL seeded |
+| `feature/phase-1-mvp` | Merged / Pushed | Core state machine, RBAC, master data, attachments, notifications, 11 tests |
+| `feature/phase-2-academic-intelligence` | Merged / Pushed (`3b64773`) | Academic concerns subsystem, recurrence tracker, AI recommendations, SLA radar, analytics dashboard, CSV export |
+| `feature/phase-3-enterprise-multimodal` | Merged / Pushed (`3b64773`) | Multi-institution tenancy, voice transcription & AI classification, natural language search, multi-year historical trend mining, WhatsApp webhook handler, Flutter UI additions |
+
+---
+
+## 🎯 Next Session Starting Point: UI Stitch Import & 1:1 Flutter Integration
+
+When resuming in the next session:
+1. **Import Stitch `.zip` Package**: Extract Stitch-generated UI screens into `frontend/` assets/designs.
+2. **Implement 1:1 Flutter UI Components**: Build pixel-perfect, adaptive Flutter widgets for Web, Desktop, and Mobile matching the imported Stitch designs.
+3. **Connect API Client Endpoints**: Wire the Flutter UI state management (Riverpod/BLoC/Provider) to the live FastAPI backend.
+4. **End-to-End Verification**: Run full Flutter analyze and integration test suite across all 15 screens.
 
 ```mermaid
 flowchart TD
