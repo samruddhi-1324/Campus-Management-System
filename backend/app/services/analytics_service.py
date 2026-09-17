@@ -21,9 +21,7 @@ class AnalyticsService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_campus_analytics(
-        self, building_id: str | None = None
-    ) -> OpsHeadAnalyticsResponse:
+    async def get_campus_analytics(self, building_id: str | None = None) -> OpsHeadAnalyticsResponse:
         """Calculate live KPI volume, SLA health, and breakdowns across categories and buildings."""
         base_query = select(Issue)
         if building_id:
@@ -144,28 +142,32 @@ class AnalyticsService:
 
         output = io.StringIO()
         writer = csv.writer(output)
-        writer.writerow([
-            "Reference Number",
-            "Title",
-            "Category ID",
-            "Building ID",
-            "Status",
-            "Urgency",
-            "Created At",
-            "Resolved At",
-        ])
+        writer.writerow(
+            [
+                "Reference Number",
+                "Title",
+                "Category ID",
+                "Building ID",
+                "Status",
+                "Urgency",
+                "Created At",
+                "Resolved At",
+            ]
+        )
 
         for issue in issues:
-            writer.writerow([
-                issue.reference_number,
-                issue.title,
-                issue.category_id or "",
-                issue.building_id or "",
-                issue.status.value,
-                issue.urgency.value,
-                issue.created_at.isoformat() if issue.created_at else "",
-                issue.resolved_at.isoformat() if issue.resolved_at else "",
-            ])
+            writer.writerow(
+                [
+                    issue.reference_number,
+                    issue.title,
+                    issue.category_id or "",
+                    issue.building_id or "",
+                    issue.status.value,
+                    issue.urgency.value,
+                    issue.created_at.isoformat() if issue.created_at else "",
+                    issue.resolved_at.isoformat() if issue.resolved_at else "",
+                ]
+            )
 
         return output.getvalue()
 

@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -38,7 +37,9 @@ async def update_my_profile(
 @router.get("/coordinators", response_model=list[UserRead])
 async def list_coordinators(
     department_id: str | None = Query(None),
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """List coordinators and supervisors for issue triage and assignment."""

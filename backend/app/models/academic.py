@@ -18,10 +18,13 @@ class AcademicConcernType(StrEnum):
 
 class AcademicConcern(Base, TimestampMixin):
     """Academic Concern entity with strict confidentiality & isolated routing (FR-2.1..2.3, NFR-SEC-01)."""
+
     __tablename__ = "academic_concerns"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), unique=True, nullable=False)
+    issue_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("issues.id", ondelete="CASCADE"), unique=True, nullable=False
+    )
     concern_type: Mapped[AcademicConcernType] = mapped_column(
         SQLEnum(AcademicConcernType, name="academic_concern_type_enum"),
         nullable=False,
@@ -34,10 +37,13 @@ class AcademicConcern(Base, TimestampMixin):
 
 class ConfidentialAccessLog(Base, TimestampMixin):
     """Audit trail for viewing confidential academic concerns (FR-2.2, NFR-AUDIT-01)."""
+
     __tablename__ = "confidential_access_logs"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    academic_concern_id: Mapped[str] = mapped_column(String(36), ForeignKey("academic_concerns.id", ondelete="CASCADE"), index=True, nullable=False)
+    academic_concern_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("academic_concerns.id", ondelete="CASCADE"), index=True, nullable=False
+    )
     accessed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
     access_reason: Mapped[str | None] = mapped_column(String(255), nullable=True)
     accessed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))

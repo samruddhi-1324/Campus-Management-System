@@ -41,4 +41,6 @@ async def get_academic_concern_detail(
 ):
     """Fetch academic concern with automatic confidential access audit logging (FR-2.2)."""
     academic_service = get_academic_service(db)
-    return await academic_service.get_academic_concern(concern_id=concern_id, officer_id=user_id, access_reason=access_reason)
+    return await academic_service.get_academic_concern(
+        concern_id=concern_id, officer_id=user_id, access_reason=access_reason
+    )

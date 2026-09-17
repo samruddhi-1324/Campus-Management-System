@@ -14,9 +14,7 @@ class HistoricalAnalyticsService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_multi_year_trends(
-        self, institution_id: str | None = None
-    ) -> HistoricalPatternAnalyticsResponse:
+    async def get_multi_year_trends(self, institution_id: str | None = None) -> HistoricalPatternAnalyticsResponse:
         # 1. Fetch historical trend records
         stmt = select(HistoricalTrendRecord)
         if institution_id:

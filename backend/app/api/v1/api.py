@@ -50,4 +50,6 @@ api_router.include_router(sla.router, prefix="/sla", tags=["SLA Enhancements (Ph
 api_router.include_router(voice.router, prefix="/voice", tags=["Voice Input (Phase 3)"])
 api_router.include_router(search.router, prefix="/search", tags=["Natural Language Search (Phase 3)"])
 api_router.include_router(tenants.router, prefix="/tenants", tags=["Multi-Institution Support (Phase 3)"])
-api_router.include_router(historical_analytics.router, prefix="/historical-analytics", tags=["Historical Pattern Mining (Phase 3)"])
+api_router.include_router(
+    historical_analytics.router, prefix="/historical-analytics", tags=["Historical Pattern Mining (Phase 3)"]
+)

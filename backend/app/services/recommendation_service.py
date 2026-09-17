@@ -14,9 +14,7 @@ class RecommendationService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_recommendations_for_user(
-        self, user_id: str, role: str
-    ) -> list[Recommendation]:
+    async def get_recommendations_for_user(self, user_id: str, role: str) -> list[Recommendation]:
         """Fetch recommendations pertinent to role (Supervisor, Ops Head, Admin)."""
         stmt = select(Recommendation).order_by(Recommendation.created_at.desc())
         result = await self.db.execute(stmt)

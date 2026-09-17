@@ -1,4 +1,3 @@
-
 from app.schemas.ai import AIClassificationResponse
 from app.schemas.base import CoreModel
 

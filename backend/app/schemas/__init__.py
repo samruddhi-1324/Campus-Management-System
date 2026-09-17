@@ -1,4 +1,5 @@
 """Pydantic v2 validation schemas registry."""
+
 from app.schemas.academic import AcademicConcernCreate, AcademicConcernRead
 from app.schemas.ai import (
     AIClassificationRequest,

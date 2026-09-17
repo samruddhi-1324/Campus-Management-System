@@ -1,4 +1,3 @@
-
 from sqlalchemy import Boolean, String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
@@ -8,6 +7,7 @@ from app.models.base import Base, TimestampMixin
 
 class Institution(Base, TimestampMixin):
     """Multi-institution tenancy entity (FR-3.4, NFR-SCAL-01)."""
+
     __tablename__ = "institutions"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)

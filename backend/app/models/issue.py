@@ -32,6 +32,7 @@ class IssueUrgency(StrEnum):
 
 class Issue(Base, TimestampMixin):
     """Core Issue entity (SRS Sections 5, 12.1 & 16)."""
+
     __tablename__ = "issues"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -63,7 +64,9 @@ class Issue(Base, TimestampMixin):
 
     # Ownership & Assignments
     reporter_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
-    assigned_coordinator_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
+    assigned_coordinator_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("users.id"), index=True, nullable=True
+    )
     assigned_team_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("teams.id"), nullable=True)
 
     # SLA Tracking
@@ -73,18 +76,29 @@ class Issue(Base, TimestampMixin):
     closed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Relationships
-    attachments: Mapped[list["IssueAttachment"]] = relationship("IssueAttachment", back_populates="issue", cascade="all, delete-orphan")
-    updates: Mapped[list["IssueUpdate"]] = relationship("IssueUpdate", back_populates="issue", cascade="all, delete-orphan")
-    state_history: Mapped[list["IssueStateHistory"]] = relationship("IssueStateHistory", back_populates="issue", cascade="all, delete-orphan")
+    attachments: Mapped[list["IssueAttachment"]] = relationship(
+        "IssueAttachment", back_populates="issue", cascade="all, delete-orphan"
+    )
+    updates: Mapped[list["IssueUpdate"]] = relationship(
+        "IssueUpdate", back_populates="issue", cascade="all, delete-orphan"
+    )
+    state_history: Mapped[list["IssueStateHistory"]] = relationship(
+        "IssueStateHistory", back_populates="issue", cascade="all, delete-orphan"
+    )
 
 
 class IssueAttachment(Base, TimestampMixin):
     """Attachment metadata for files stored in Supabase Storage private buckets (FR-DATA-18..24)."""
+
     __tablename__ = "issue_attachments"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False)
-    attachment_type: Mapped[str] = mapped_column(String(20), default="photo", nullable=False)  # photo (Phase 1), voice (Phase 3)
+    issue_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    attachment_type: Mapped[str] = mapped_column(
+        String(20), default="photo", nullable=False
+    )  # photo (Phase 1), voice (Phase 3)
     storage_bucket: Mapped[str] = mapped_column(String(100), nullable=False)
     storage_path: Mapped[str] = mapped_column(String(512), nullable=False)
     mime_type: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -97,12 +111,17 @@ class IssueAttachment(Base, TimestampMixin):
 
 class IssueUpdate(Base, TimestampMixin):
     """Communication thread updates (internal staff notes vs. external public updates) (FR-1.13)."""
+
     __tablename__ = "issue_updates"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False)
+    issue_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False
+    )
     author_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    visibility: Mapped[str] = mapped_column(String(20), default="external", nullable=False)  # external (public) | internal (staff-only)
+    visibility: Mapped[str] = mapped_column(
+        String(20), default="external", nullable=False
+    )  # external (public) | internal (staff-only)
     message: Mapped[str] = mapped_column(Text, nullable=False)
 
     issue: Mapped["Issue"] = relationship("Issue", back_populates="updates")
@@ -110,10 +129,13 @@ class IssueUpdate(Base, TimestampMixin):
 
 class IssueStateHistory(Base, TimestampMixin):
     """Immutable state transition audit trail (FR-1.29, NFR-AUDIT-01)."""
+
     __tablename__ = "issue_state_history"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False)
+    issue_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("issues.id", ondelete="CASCADE"), index=True, nullable=False
+    )
     from_state: Mapped[str] = mapped_column(String(30), nullable=False)
     to_state: Mapped[str] = mapped_column(String(30), nullable=False)
     changed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
@@ -124,6 +146,7 @@ class IssueStateHistory(Base, TimestampMixin):
 
 class IssueGroup(Base, TimestampMixin):
     """Deduplication groups confirmed by human action (FR-1.28, FR-1.30, FR-AI-03)."""
+
     __tablename__ = "issue_groups"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)

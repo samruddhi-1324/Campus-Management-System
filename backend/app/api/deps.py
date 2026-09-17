@@ -75,6 +75,7 @@ async def get_current_active_user(
 
 def require_roles(*allowed_roles: UserRole) -> Callable:
     """Dependency factory ensuring user has at least one of the specified roles."""
+
     async def role_checker(current_user: User = Depends(get_current_active_user)) -> User:
         if current_user.role not in allowed_roles and UserRole.ADMIN not in allowed_roles:
             # Admin role bypasses unless specifically restricted
@@ -84,4 +85,5 @@ def require_roles(*allowed_roles: UserRole) -> Callable:
                     detail=f"Access denied. Allowed roles: {[r.value for r in allowed_roles]}",
                 )
         return current_user
+
     return role_checker

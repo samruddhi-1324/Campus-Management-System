@@ -72,9 +72,7 @@ class RecurrenceService:
         await self.db.commit()
         return patterns
 
-    async def convert_to_replacement_recommendation(
-        self, pattern_id: str, actor_id: str
-    ) -> RecurrencePattern:
+    async def convert_to_replacement_recommendation(self, pattern_id: str, actor_id: str) -> RecurrencePattern:
         """Allows Coordinator/Supervisor to convert flagged pattern into formal replacement recommendation (FR-2.7)."""
         stmt = select(RecurrencePattern).where(RecurrencePattern.id == pattern_id)
         result = await self.db.execute(stmt)

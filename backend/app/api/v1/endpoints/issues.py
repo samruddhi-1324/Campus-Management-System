@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -55,7 +54,9 @@ async def list_coordinator_queue(
     unassigned_only: bool = Query(False),
     limit: int = Query(100, ge=1, le=200),
     offset: int = Query(0, ge=0),
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """Staff triage queue for prioritizing, filtering, and dispatching issues (FR-1.9, FR-1.10)."""
@@ -85,7 +86,9 @@ async def get_issue_details(
 async def update_issue_status(
     issue_id: str,
     status_in: IssueStatusUpdate,
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """Coordinator/Supervisor updates issue status & adds notes with state machine validation (FR-1.13, FR-1.14)."""
@@ -97,7 +100,9 @@ async def update_issue_status(
 async def assign_issue(
     issue_id: str,
     assign_in: IssueAssignmentUpdate,
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """Assign issue to a coordinator or maintenance team (FR-1.11, FR-1.12)."""
@@ -109,7 +114,9 @@ async def assign_issue(
 async def update_issue_urgency(
     issue_id: str,
     urgency_in: IssueUrgencyUpdate,
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """Update issue urgency level (FR-1.10)."""

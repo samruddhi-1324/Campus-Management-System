@@ -1,4 +1,5 @@
 """SQLAlchemy ORM Models Registry."""
+
 from app.models.academic import (
     AcademicConcern,
     AcademicConcernType,

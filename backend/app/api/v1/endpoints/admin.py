@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -121,7 +120,9 @@ async def create_department(
 @router.get("/teams", response_model=list[TeamRead])
 async def list_teams(
     active_only: bool = Query(True),
-    current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
+    current_user: User = Depends(
+        require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)
+    ),
     db: AsyncSession = Depends(get_db),
 ):
     """List maintenance teams."""

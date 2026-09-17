@@ -14,7 +14,12 @@ class IssueStateMachine:
         IssueStatus.INVESTIGATING: {IssueStatus.ACTION_TAKEN, IssueStatus.WAITING_FOR_INFO, IssueStatus.ESCALATED},
         IssueStatus.ACTION_TAKEN: {IssueStatus.RESOLVED, IssueStatus.INVESTIGATING, IssueStatus.ESCALATED},
         IssueStatus.WAITING_FOR_INFO: {IssueStatus.UNDERSTOOD, IssueStatus.ASSIGNED, IssueStatus.INVESTIGATING},
-        IssueStatus.ESCALATED: {IssueStatus.ASSIGNED, IssueStatus.INVESTIGATING, IssueStatus.ACTION_TAKEN, IssueStatus.RESOLVED},
+        IssueStatus.ESCALATED: {
+            IssueStatus.ASSIGNED,
+            IssueStatus.INVESTIGATING,
+            IssueStatus.ACTION_TAKEN,
+            IssueStatus.RESOLVED,
+        },
         IssueStatus.RESOLVED: {IssueStatus.CONFIRMED, IssueStatus.REOPENED, IssueStatus.CLOSED},
         IssueStatus.CONFIRMED: {IssueStatus.CLOSED},
         IssueStatus.REOPENED: {IssueStatus.INVESTIGATING, IssueStatus.ASSIGNED, IssueStatus.ESCALATED},

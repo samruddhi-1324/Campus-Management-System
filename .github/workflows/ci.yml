@@ -2,7 +2,7 @@ name: Campus Care CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, "feature/**"]
   pull_request:
     branches: [main, develop]
 
@@ -41,7 +41,10 @@ jobs:
           pip install -r backend/requirements.txt
 
       - name: Lint with Ruff
-        run: ruff check backend/
+        run: ruff check backend/ --output-format=github
+
+      - name: Check Python formatting
+        run: ruff format backend/ --check
 
       - name: Check Alembic Single Head (FR-DATA-13)
         run: |

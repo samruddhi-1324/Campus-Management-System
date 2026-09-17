@@ -1,4 +1,3 @@
-
 from app.schemas.base import CoreModel
 from app.schemas.issue import IssueRead
 

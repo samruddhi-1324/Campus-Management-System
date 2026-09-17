@@ -11,9 +11,33 @@ from app.schemas.issue import IssueRead
 from app.schemas.search import NLSearchRequest, NLSearchResponse, ParsedSearchFilters
 
 STOP_WORDS = {
-    "show", "me", "all", "the", "a", "an", "in", "on", "at", "for", "from", "with",
-    "this", "that", "issues", "complaints", "tickets", "please", "find", "get",
-    "unresolved", "open", "closed", "resolved", "month", "today", "week",
+    "show",
+    "me",
+    "all",
+    "the",
+    "a",
+    "an",
+    "in",
+    "on",
+    "at",
+    "for",
+    "from",
+    "with",
+    "this",
+    "that",
+    "issues",
+    "complaints",
+    "tickets",
+    "please",
+    "find",
+    "get",
+    "unresolved",
+    "open",
+    "closed",
+    "resolved",
+    "month",
+    "today",
+    "week",
 }
 
 CATEGORY_KEYWORD_MAP = {
@@ -95,24 +119,17 @@ class NLSearchService:
             stmt = stmt.where(Issue.building_id == matched_bldg_id)
 
         if filters.is_unresolved:
-            stmt = stmt.where(
-                Issue.status.notin_([IssueStatus.CLOSED, IssueStatus.CONFIRMED, IssueStatus.RESOLVED])
-            )
+            stmt = stmt.where(Issue.status.notin_([IssueStatus.CLOSED, IssueStatus.CONFIRMED, IssueStatus.RESOLVED]))
         elif filters.status:
             stmt = stmt.where(Issue.status == filters.status)
 
         if filters.keywords:
-            clauses = [
-                or_(Issue.title.ilike(f"%{kw}%"), Issue.description.ilike(f"%{kw}%"))
-                for kw in filters.keywords
-            ]
+            clauses = [or_(Issue.title.ilike(f"%{kw}%"), Issue.description.ilike(f"%{kw}%")) for kw in filters.keywords]
             stmt = stmt.where(or_(*clauses))
 
         return stmt.order_by(Issue.created_at.desc()).limit(limit)
 
-    async def parse_and_execute_search(
-        self, request: NLSearchRequest, _user_id: str
-    ) -> NLSearchResponse:
+    async def parse_and_execute_search(self, request: NLSearchRequest, _user_id: str) -> NLSearchResponse:
         query_text = request.query_text.strip()
         lower_q = query_text.lower()
         parsed_filters = ParsedSearchFilters()

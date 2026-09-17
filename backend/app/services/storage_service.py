@@ -101,7 +101,9 @@ class StorageService:
                     detail="Access denied to this attachment",
                 )
 
-        download_url = f"{settings.SUPABASE_URL}/storage/v1/object/sign/{attachment.storage_bucket}/{attachment.storage_path}"
+        download_url = (
+            f"{settings.SUPABASE_URL}/storage/v1/object/sign/{attachment.storage_bucket}/{attachment.storage_path}"
+        )
 
         return PresignedDownloadResponse(
             download_url=download_url,

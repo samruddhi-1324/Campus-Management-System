@@ -39,10 +39,7 @@ class IssueService:
         prefix = f"CC-{current_year}-"
 
         # Query highest reference number for current year
-        stmt = (
-            select(func.count(Issue.id))
-            .where(Issue.reference_number.like(f"{prefix}%"))
-        )
+        stmt = select(func.count(Issue.id)).where(Issue.reference_number.like(f"{prefix}%"))
         result = await self.db.execute(stmt)
         count = result.scalar() or 0
         sequence = count + 1
@@ -85,7 +82,11 @@ class IssueService:
             action=AuditAction.CREATE,
             target_entity="issue",
             target_id=issue_id,
-            after_state={"reference_number": ref_number, "status": IssueStatus.REPORTED.value, "title": new_issue.title},
+            after_state={
+                "reference_number": ref_number,
+                "status": IssueStatus.REPORTED.value,
+                "title": new_issue.title,
+            },
         )
 
         await self.db.commit()

@@ -25,6 +25,7 @@ class ChannelType(StrEnum):
 
 class User(Base, TimestampMixin):
     """User entity supporting 5 actor roles (SRS Section 3 & 12.1)."""
+
     __tablename__ = "users"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -41,18 +42,29 @@ class User(Base, TimestampMixin):
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
     # Relationships
-    contact_channels: Mapped[list["UserContactChannel"]] = relationship("UserContactChannel", back_populates="user", cascade="all, delete-orphan")
-    devices: Mapped[list["UserDevice"]] = relationship("UserDevice", back_populates="user", cascade="all, delete-orphan")
-    notification_preferences: Mapped[list["NotificationPreference"]] = relationship("NotificationPreference", back_populates="user", cascade="all, delete-orphan")
+    contact_channels: Mapped[list["UserContactChannel"]] = relationship(
+        "UserContactChannel", back_populates="user", cascade="all, delete-orphan"
+    )
+    devices: Mapped[list["UserDevice"]] = relationship(
+        "UserDevice", back_populates="user", cascade="all, delete-orphan"
+    )
+    notification_preferences: Mapped[list["NotificationPreference"]] = relationship(
+        "NotificationPreference", back_populates="user", cascade="all, delete-orphan"
+    )
 
 
 class UserContactChannel(Base, TimestampMixin):
     """Registered contact channels per user for multi-channel notifications (FR-NOTIF-02)."""
+
     __tablename__ = "user_contact_channels"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False)
-    channel_type: Mapped[ChannelType] = mapped_column(SQLEnum(ChannelType, name="contact_channel_type_enum"), nullable=False)
+    user_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    channel_type: Mapped[ChannelType] = mapped_column(
+        SQLEnum(ChannelType, name="contact_channel_type_enum"), nullable=False
+    )
     address_or_number: Mapped[str] = mapped_column(String(255), nullable=False)
     is_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
@@ -62,11 +74,16 @@ class UserContactChannel(Base, TimestampMixin):
 
 class UserDevice(Base, TimestampMixin):
     """Active user devices for push notifications (FR-NOTIF-21..34)."""
+
     __tablename__ = "user_devices"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False)
-    fcm_token: Mapped[str | None] = mapped_column(String(512), nullable=True)  # Nullable for WebSocket devices (FR-NOTIF-31)
+    user_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    fcm_token: Mapped[str | None] = mapped_column(
+        String(512), nullable=True
+    )  # Nullable for WebSocket devices (FR-NOTIF-31)
     transport_type: Mapped[str] = mapped_column(String(20), default="fcm", nullable=False)  # fcm | websocket
     platform: Mapped[str] = mapped_column(String(20), nullable=False)  # android | ios | web | windows | macos | linux
     app_version: Mapped[str] = mapped_column(String(20), nullable=False)
@@ -81,15 +98,20 @@ class UserDevice(Base, TimestampMixin):
 
 class NotificationPreference(Base, TimestampMixin):
     """User channel preferences for non-critical notifications (FR-NOTIF-11)."""
+
     __tablename__ = "notification_preferences"
-    __table_args__ = (
-        UniqueConstraint("user_id", "event_category", "channel_type", name="uq_user_event_channel"),
-    )
+    __table_args__ = (UniqueConstraint("user_id", "event_category", "channel_type", name="uq_user_event_channel"),)
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False)
-    event_category: Mapped[str] = mapped_column(String(50), nullable=False)  # issue_assigned | issue_updated | issue_resolved
-    channel_type: Mapped[ChannelType] = mapped_column(SQLEnum(ChannelType, name="pref_channel_type_enum"), nullable=False)
+    user_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    event_category: Mapped[str] = mapped_column(
+        String(50), nullable=False
+    )  # issue_assigned | issue_updated | issue_resolved
+    channel_type: Mapped[ChannelType] = mapped_column(
+        SQLEnum(ChannelType, name="pref_channel_type_enum"), nullable=False
+    )
     enabled: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
     user: Mapped["User"] = relationship("User", back_populates="notification_preferences")

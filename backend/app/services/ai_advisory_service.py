@@ -22,9 +22,7 @@ class AIAdvisoryService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_classification_advice(
-        self, request: AIClassificationRequest
-    ) -> AIClassificationResponse:
+    async def get_classification_advice(self, request: AIClassificationRequest) -> AIClassificationResponse:
         """Advisory classification, urgency scoring, and missing information detection (FR-AI-01, FR-AI-02)."""
         text = f"{request.title} {request.description}".lower()
 
@@ -73,13 +71,9 @@ class AIAdvisoryService:
             is_ai_generated=True,
         )
 
-    async def check_duplicate_issues(
-        self, request: AIDedupCheckRequest
-    ) -> AIDedupCheckResponse:
+    async def check_duplicate_issues(self, request: AIDedupCheckRequest) -> AIDedupCheckResponse:
         """Find open issues in same location/building with similar titles (FR-AI-03)."""
-        stmt = select(Issue).where(
-            Issue.status.notin_([IssueStatus.CLOSED, IssueStatus.CONFIRMED])
-        )
+        stmt = select(Issue).where(Issue.status.notin_([IssueStatus.CLOSED, IssueStatus.CONFIRMED]))
         if request.building_id:
             stmt = stmt.where(Issue.building_id == request.building_id)
         if request.room_id:
@@ -108,9 +102,7 @@ class AIAdvisoryService:
 
         return AIDedupCheckResponse(duplicates=duplicates)
 
-    async def draft_status_message(
-        self, request: AIStatusDraftRequest
-    ) -> AIStatusDraftResponse:
+    async def draft_status_message(self, request: AIStatusDraftRequest) -> AIStatusDraftResponse:
         """Draft polite, transparent communication update for reporters (FR-AI-06)."""
         status_map = {
             "under_investigation": "Our technical team is currently on site investigating the reported issue.",
@@ -158,24 +150,22 @@ class AIAdvisoryService:
                 if len(overlap) >= 2:
                     confidence += 0.15
 
-                suggestions.append({
-                    "past_issue_id": past.id,
-                    "past_reference_number": past.reference_number,
-                    "past_title": past.title,
-                    "suggested_fix": f"Prior resolution: Replaced/serviced component as verified in {past.reference_number}.",
-                    "confidence": min(0.95, round(confidence, 2)),
-                    "resolved_at": past.resolved_at.isoformat() if past.resolved_at else None,
-                })
+                suggestions.append(
+                    {
+                        "past_issue_id": past.id,
+                        "past_reference_number": past.reference_number,
+                        "past_title": past.title,
+                        "suggested_fix": f"Prior resolution: Replaced/serviced component as verified in {past.reference_number}.",
+                        "confidence": min(0.95, round(confidence, 2)),
+                        "resolved_at": past.resolved_at.isoformat() if past.resolved_at else None,
+                    }
+                )
 
         return suggestions[:3]
 
     async def generate_thread_summary(self, issue_id: str) -> str | None:
         """Maintains plain-language summary for long issue threads with > 3 updates (FR-2.5, FR-AI-08)."""
-        stmt = (
-            select(IssueUpdate)
-            .where(IssueUpdate.issue_id == issue_id)
-            .order_by(IssueUpdate.created_at.asc())
-        )
+        stmt = select(IssueUpdate).where(IssueUpdate.issue_id == issue_id).order_by(IssueUpdate.created_at.asc())
         updates = (await self.db.execute(stmt)).scalars().all()
 
         if len(updates) < 2:
@@ -208,17 +198,19 @@ class AIAdvisoryService:
             if remaining_seconds <= total_duration * 0.25:
                 is_overdue = remaining_seconds < 0
                 risk_level = "critical" if is_overdue else "high"
-                at_risk.append({
-                    "issue_id": issue.id,
-                    "reference_number": issue.reference_number,
-                    "title": issue.title,
-                    "status": issue.status.value,
-                    "urgency": issue.urgency.value,
-                    "remaining_hours": round(remaining_seconds / 3600, 1),
-                    "is_overdue": is_overdue,
-                    "risk_level": risk_level,
-                    "expected_resolution_at": issue.expected_resolution_at.isoformat(),
-                })
+                at_risk.append(
+                    {
+                        "issue_id": issue.id,
+                        "reference_number": issue.reference_number,
+                        "title": issue.title,
+                        "status": issue.status.value,
+                        "urgency": issue.urgency.value,
+                        "remaining_hours": round(remaining_seconds / 3600, 1),
+                        "is_overdue": is_overdue,
+                        "risk_level": risk_level,
+                        "expected_resolution_at": issue.expected_resolution_at.isoformat(),
+                    }
+                )
 
         return sorted(at_risk, key=lambda x: x["remaining_hours"])
 

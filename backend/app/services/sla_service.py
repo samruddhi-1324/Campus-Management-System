@@ -14,9 +14,7 @@ class SLAService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def create_sla_config(
-        self, config_in: CategorySLAConfigCreate
-    ) -> CategorySLAConfig:
+    async def create_sla_config(self, config_in: CategorySLAConfigCreate) -> CategorySLAConfig:
         """Admin configures category and building specific SLA target windows (FR-2.9)."""
         config_id = str(uuid.uuid4())
         config = CategorySLAConfig(
@@ -33,9 +31,7 @@ class SLAService:
         await self.db.refresh(config)
         return config
 
-    async def list_sla_configs(
-        self, category_id: str | None = None
-    ) -> list[CategorySLAConfig]:
+    async def list_sla_configs(self, category_id: str | None = None) -> list[CategorySLAConfig]:
         """List active SLA target configurations."""
         stmt = select(CategorySLAConfig).where(CategorySLAConfig.is_active.is_(True))
         if category_id:

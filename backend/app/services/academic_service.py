@@ -17,9 +17,7 @@ class AcademicService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def create_academic_concern(
-        self, concern_in: AcademicConcernCreate, reporter_id: str
-    ) -> AcademicConcern:
+    async def create_academic_concern(self, concern_in: AcademicConcernCreate, reporter_id: str) -> AcademicConcern:
         """Reporter submits confidential academic grievance (FR-2.1, FR-2.2)."""
         # 1. Create underlying issue for tracking reference number & state machine
         issue_id = str(uuid.uuid4())

@@ -1,4 +1,3 @@
-
 from sqlalchemy import Boolean, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -7,6 +6,7 @@ from app.models.base import Base, TimestampMixin
 
 class Department(Base, TimestampMixin):
     """Department master data (FR-1.24)."""
+
     __tablename__ = "departments"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -17,6 +17,7 @@ class Department(Base, TimestampMixin):
 
 class Building(Base, TimestampMixin):
     """Campus building master data (FR-1.24)."""
+
     __tablename__ = "buildings"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -29,13 +30,14 @@ class Building(Base, TimestampMixin):
 
 class Room(Base, TimestampMixin):
     """Room within a building (FR-1.24)."""
+
     __tablename__ = "rooms"
-    __table_args__ = (
-        UniqueConstraint("building_id", "room_number", name="uq_building_room"),
-    )
+    __table_args__ = (UniqueConstraint("building_id", "room_number", name="uq_building_room"),)
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    building_id: Mapped[str] = mapped_column(String(36), ForeignKey("buildings.id", ondelete="CASCADE"), index=True, nullable=False)
+    building_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("buildings.id", ondelete="CASCADE"), index=True, nullable=False
+    )
     room_number: Mapped[str] = mapped_column(String(50), nullable=False)
     floor: Mapped[int | None] = mapped_column(Integer, nullable=True)
     room_type: Mapped[str | None] = mapped_column(String(50), nullable=True)  # classroom, lab, library, office
@@ -46,6 +48,7 @@ class Room(Base, TimestampMixin):
 
 class Category(Base, TimestampMixin):
     """Facilities issue categories (AC, Projector, Wifi, Lab Equipment, Library) (PRD §11)."""
+
     __tablename__ = "categories"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -58,6 +61,7 @@ class Category(Base, TimestampMixin):
 
 class Team(Base, TimestampMixin):
     """Facilities maintenance team assignments (FR-1.26)."""
+
     __tablename__ = "teams"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)

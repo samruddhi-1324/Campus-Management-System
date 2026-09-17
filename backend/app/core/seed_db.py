@@ -38,7 +38,12 @@ async def seed_database():
             ("Campus Wifi & Network", "wifi", "Wireless connectivity, dead zones, and network speed drops", 8),
             ("Lab Equipment", "lab_equipment", "Electronics, mechanical, and computer laboratory apparatus", 24),
             ("Library Services", "library", "Study space facilities, RFID gates, and borrowing kiosks", 24),
-            ("Academic Concern", "academic_concern", "Confidential grievances, exam schedule disputes & grading inquiries", 48),
+            (
+                "Academic Concern",
+                "academic_concern",
+                "Confidential grievances, exam schedule disputes & grading inquiries",
+                48,
+            ),
         ]
 
         for name, slug, desc, sla_hours in categories_data:
@@ -59,7 +64,11 @@ async def seed_database():
 
         # 3. Seed Default Buildings & Rooms
         buildings_data = [
-            ("Main Academic Block", "MAB", [("101", 1, "Classroom"), ("102", 1, "Classroom"), ("201", 2, "Seminar Hall")]),
+            (
+                "Main Academic Block",
+                "MAB",
+                [("101", 1, "Classroom"), ("102", 1, "Classroom"), ("201", 2, "Seminar Hall")],
+            ),
             ("Engineering Wing", "ENG", [("Lab 204", 2, "Computer Lab"), ("Lab 305", 3, "Electronics Lab")]),
             ("Central Library", "LIB", [("Reading Hall A", 1, "Library"), ("Digital Resource Center", 2, "Lab")]),
         ]

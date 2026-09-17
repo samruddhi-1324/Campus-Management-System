@@ -17,6 +17,7 @@ class RecommendationType(StrEnum):
 
 class Recommendation(Base, TimestampMixin):
     """Aggregate AI Recommendations for Supervisors, Ops Head and Admins (FR-AI-13..20)."""
+
     __tablename__ = "recommendations"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -38,6 +39,7 @@ class Recommendation(Base, TimestampMixin):
 
 class RecurrencePattern(Base, TimestampMixin):
     """Detected recurring equipment/location failures over rolling windows (FR-2.6, FR-2.7, FR-AI-04)."""
+
     __tablename__ = "recurrence_patterns"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
@@ -45,5 +47,9 @@ class RecurrencePattern(Base, TimestampMixin):
     failure_count: Mapped[int] = mapped_column(Integer, nullable=False)
     observation_window_days: Mapped[int] = mapped_column(Integer, default=30, nullable=False)
     related_issue_ids: Mapped[list] = mapped_column(JSONB, nullable=False)
-    status: Mapped[str] = mapped_column(String(30), default="flagged", nullable=False)  # flagged | confirmed | converted_to_replacement | dismissed
-    converted_recommendation_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("recommendations.id"), nullable=True)
+    status: Mapped[str] = mapped_column(
+        String(30), default="flagged", nullable=False
+    )  # flagged | confirmed | converted_to_replacement | dismissed
+    converted_recommendation_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("recommendations.id"), nullable=True
+    )

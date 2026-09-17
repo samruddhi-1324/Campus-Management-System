@@ -1,4 +1,3 @@
-
 from app.models.academic import AcademicConcernType
 from app.schemas.base import CoreModel
 
