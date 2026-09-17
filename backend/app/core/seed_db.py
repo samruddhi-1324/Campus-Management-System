@@ -12,7 +12,7 @@ from app.models.user import User, UserRole
 async def seed_database():
     """Seed initial master data and admin user into Supabase database."""
     async with AsyncSessionLocal() as session:
-        print("🌱 Seeding initial database records...")
+        print("[INFO] Seeding initial database records...")
 
         # 1. Check or Create Admin User
         admin_email = "admin@campuscare.edu"
@@ -29,7 +29,7 @@ async def seed_database():
                 is_active=True,
             )
             session.add(admin_user)
-            print("  ✅ Created default Admin account: admin@campuscare.edu / Admin@123456")
+            print("  [+] Created default Admin account: admin@campuscare.edu / Admin@123456")
 
         # 2. Seed Default Facilities & Academic Categories (PRD §11 & §12)
         categories_data = [
@@ -38,45 +38,48 @@ async def seed_database():
             ("Campus Wifi & Network", "wifi", "Wireless connectivity, dead zones, and network speed drops", 8),
             ("Lab Equipment", "lab_equipment", "Electronics, mechanical, and computer laboratory apparatus", 24),
             ("Library Services", "library", "Study space facilities, RFID gates, and borrowing kiosks", 24),
-            (
-                "Academic Concern",
-                "academic_concern",
-                "Confidential grievances, exam schedule disputes & grading inquiries",
-                48,
-            ),
+            ("Academic Concern", "academic", "Confidential academic disputes, grading, and advisor mediation", 48),
+            ("Electrical & Power", "electrical", "Power outages, sockets, switches, and backup generators", 6),
+            ("Plumbing & Washrooms", "plumbing", "Water leakage, blockages, taps, and restroom maintenance", 4),
         ]
 
-        for name, slug, desc, sla_hours in categories_data:
-            res = await session.execute(select(Category).where(Category.slug == slug))
-            cat = res.scalar_one_or_none()
-            if not cat:
-                cat_id = str(uuid.uuid4())
-                new_cat = Category(
-                    id=cat_id,
-                    name=name,
-                    slug=slug,
-                    description=desc,
-                    default_sla_hours=sla_hours,
-                    is_active=True,
+        for cat_name, cat_slug, cat_desc, sla_hrs in categories_data:
+            cat_res = await session.execute(select(Category).where(Category.slug == cat_slug))
+            if not cat_res.scalar_one_or_none():
+                session.add(
+                    Category(
+                        id=str(uuid.uuid4()),
+                        name=cat_name,
+                        slug=cat_slug,
+                        description=cat_desc,
+                        default_sla_hours=sla_hrs,
+                        is_active=True,
+                    )
                 )
-                session.add(new_cat)
-                print(f"  ✅ Seeded Category: {name} (Default SLA: {sla_hours}h)")
+                print(f"  [+] Seeded Category: {cat_name} (SLA: {sla_hrs}h)")
 
-        # 3. Seed Default Buildings & Rooms
+        # 3. Seed Campus Buildings & Example Rooms (PRD §11)
         buildings_data = [
             (
                 "Main Academic Block",
                 "MAB",
-                [("101", 1, "Classroom"), ("102", 1, "Classroom"), ("201", 2, "Seminar Hall")],
+                [("101", 1, "lecture_hall"), ("102", 1, "classroom"), ("201", 2, "lab"), ("301", 3, "faculty_room")],
             ),
-            ("Engineering Wing", "ENG", [("Lab 204", 2, "Computer Lab"), ("Lab 305", 3, "Electronics Lab")]),
-            ("Central Library", "LIB", [("Reading Hall A", 1, "Library"), ("Digital Resource Center", 2, "Lab")]),
+            (
+                "Science & Research Center",
+                "SRC",
+                [("L101", 1, "lab"), ("L102", 1, "lab"), ("L201", 2, "clean_room")],
+            ),
+            (
+                "Central Library Building",
+                "CLB",
+                [("G01", 0, "reading_hall"), ("101", 1, "digital_library"), ("201", 2, "archive")],
+            ),
         ]
 
         for b_name, b_code, rooms_list in buildings_data:
-            res = await session.execute(select(Building).where(Building.code == b_code))
-            bldg = res.scalar_one_or_none()
-            if not bldg:
+            b_res = await session.execute(select(Building).where(Building.code == b_code))
+            if not b_res.scalar_one_or_none():
                 bldg_id = str(uuid.uuid4())
                 new_bldg = Building(
                     id=bldg_id,
@@ -96,10 +99,10 @@ async def seed_database():
                         is_active=True,
                     )
                     session.add(new_room)
-                print(f"  ✅ Seeded Building: {b_name} with {len(rooms_list)} rooms")
+                print(f"  [+] Seeded Building: {b_name} with {len(rooms_list)} rooms")
 
         await session.commit()
-        print("🎉 Database seeding completed successfully!")
+        print("[SUCCESS] Database seeding completed successfully!")
 
 
 if __name__ == "__main__":
