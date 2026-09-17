@@ -262,6 +262,46 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                     ),
                   ),
                 const SizedBox(height: 16),
+                if (_categories.isNotEmpty) ...[
+                  DropdownButtonFormField<String>(
+                    value: _selectedCategoryId,
+                    decoration: const InputDecoration(
+                      labelText: 'Category',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.category_outlined),
+                    ),
+                    items: _categories.map((cat) {
+                      return DropdownMenuItem<String>(
+                        value: cat['id'].toString(),
+                        child: Text(cat['name']?.toString() ?? 'Category'),
+                      );
+                    }).toList(),
+                    onChanged: (val) {
+                      setState(() => _selectedCategoryId = val);
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                ],
+                if (_buildings.isNotEmpty) ...[
+                  DropdownButtonFormField<String>(
+                    value: _selectedBuildingId,
+                    decoration: const InputDecoration(
+                      labelText: 'Building / Facility',
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.business_outlined),
+                    ),
+                    items: _buildings.map((b) {
+                      return DropdownMenuItem<String>(
+                        value: b['id'].toString(),
+                        child: Text(b['name']?.toString() ?? 'Building'),
+                      );
+                    }).toList(),
+                    onChanged: (val) {
+                      setState(() => _selectedBuildingId = val);
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                ],
                 TextField(
                   controller: _locationController,
                   decoration: const InputDecoration(

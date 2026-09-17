@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:campus_care/core/audio/voice_recorder_service.dart';
 
 class VoiceReportWidget extends StatefulWidget {
-  final Function(String audioPath) onRecordingComplete;
+  final void Function(String audioPath) onRecordingComplete;
 
   const VoiceReportWidget({super.key, required this.onRecordingComplete});
 
