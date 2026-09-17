@@ -1,5 +1,6 @@
-from typing import Optional
+
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.schemas.historical_pattern import HistoricalPatternAnalyticsResponse
 
 
@@ -9,7 +10,7 @@ class HistoricalAnalyticsService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_multi_year_trends(self, institution_id: Optional[str] = None) -> HistoricalPatternAnalyticsResponse:
+    async def get_multi_year_trends(self, institution_id: str | None = None) -> HistoricalPatternAnalyticsResponse:
         pass
 
 

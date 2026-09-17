@@ -1,22 +1,23 @@
 from fastapi import APIRouter
+
 from app.api.v1.endpoints import (
-    auth,
-    users,
-    issues,
-    attachments,
-    notifications,
-    admin,
-    analytics,
-    ai_advisory,
-    webhooks,
     academic,
+    admin,
+    ai_advisory,
+    analytics,
+    attachments,
+    auth,
+    historical_analytics,
+    issues,
+    notifications,
     recommendations,
     recurrence,
-    sla,
-    voice,
     search,
+    sla,
     tenants,
-    historical_analytics,
+    users,
+    voice,
+    webhooks,
 )
 
 api_router = APIRouter()

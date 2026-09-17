@@ -1,5 +1,5 @@
-from typing import List, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.models.tenant import Institution
 from app.schemas.tenant import InstitutionCreate
 
@@ -13,7 +13,7 @@ class TenantService:
     async def create_institution(self, inst_in: InstitutionCreate) -> Institution:
         pass
 
-    async def get_institution_by_domain(self, domain: str) -> Optional[Institution]:
+    async def get_institution_by_domain(self, domain: str) -> Institution | None:
         pass
 
 

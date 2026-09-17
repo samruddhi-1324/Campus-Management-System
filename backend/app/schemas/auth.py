@@ -1,13 +1,14 @@
-from typing import Optional
+
 from pydantic import EmailStr
-from app.schemas.base import CoreModel
+
 from app.models.user import UserRole
+from app.schemas.base import CoreModel
 
 
 class LoginRequest(CoreModel):
     email: EmailStr
     password: str
-    device_info: Optional[dict] = None
+    device_info: dict | None = None
 
 
 class TokenResponse(CoreModel):

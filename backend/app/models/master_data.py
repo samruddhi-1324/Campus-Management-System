@@ -1,4 +1,4 @@
-from typing import List, Optional
+
 from sqlalchemy import Boolean, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -24,7 +24,7 @@ class Building(Base, TimestampMixin):
     code: Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
-    rooms: Mapped[List["Room"]] = relationship("Room", back_populates="building", cascade="all, delete-orphan")
+    rooms: Mapped[list["Room"]] = relationship("Room", back_populates="building", cascade="all, delete-orphan")
 
 
 class Room(Base, TimestampMixin):
@@ -34,8 +34,8 @@ class Room(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     building_id: Mapped[str] = mapped_column(String(36), ForeignKey("buildings.id", ondelete="CASCADE"), index=True, nullable=False)
     room_number: Mapped[str] = mapped_column(String(50), nullable=False)
-    floor: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
-    room_type: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)  # classroom, lab, library, office
+    floor: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    room_type: Mapped[str | None] = mapped_column(String(50), nullable=True)  # classroom, lab, library, office
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
     building: Mapped["Building"] = relationship("Building", back_populates="rooms")
@@ -48,7 +48,7 @@ class Category(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     slug: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
-    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
     default_sla_hours: Mapped[int] = mapped_column(Integer, default=24, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
@@ -59,5 +59,5 @@ class Team(Base, TimestampMixin):
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
-    supervisor_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
+    supervisor_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)

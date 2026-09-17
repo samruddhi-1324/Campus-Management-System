@@ -1,21 +1,21 @@
 import uuid
-from typing import Optional
+
 from fastapi import HTTPException, status
+from jose import JWTError, jwt
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from jose import JWTError, jwt
 
 from app.core.config import settings
 from app.core.security import (
     ALGORITHM,
-    verify_password,
-    get_password_hash,
     create_access_token,
     create_refresh_token,
+    get_password_hash,
+    verify_password,
 )
 from app.models.user import User, UserRole
 from app.schemas.auth import LoginRequest, TokenResponse
-from app.schemas.user import UserCreate, UserRead
+from app.schemas.user import UserCreate
 
 
 class AuthService:
@@ -24,12 +24,12 @@ class AuthService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_user_by_email(self, email: str) -> Optional[User]:
+    async def get_user_by_email(self, email: str) -> User | None:
         stmt = select(User).where(User.email == email.lower().strip())
         result = await self.db.execute(stmt)
         return result.scalar_one_or_none()
 
-    async def get_user_by_id(self, user_id: str) -> Optional[User]:
+    async def get_user_by_id(self, user_id: str) -> User | None:
         stmt = select(User).where(User.id == user_id)
         result = await self.db.execute(stmt)
         return result.scalar_one_or_none()
@@ -98,8 +98,8 @@ class AuthService:
                 settings.SECRET_KEY,
                 algorithms=[ALGORITHM],
             )
-            token_type: Optional[str] = payload.get("type")
-            user_id: Optional[str] = payload.get("sub")
+            token_type: str | None = payload.get("type")
+            user_id: str | None = payload.get("sub")
             if token_type != "refresh" or not user_id:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
@@ -109,7 +109,7 @@ class AuthService:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Expired or invalid refresh token",
-            )
+            ) from None
 
         user = await self.get_user_by_id(user_id)
         if not user or not user.is_active:

@@ -1,18 +1,18 @@
-from typing import List, Optional
+
 from app.schemas.base import CoreModel
 
 
 class AIClassificationRequest(CoreModel):
     title: str
     description: str
-    location: Optional[str] = None
+    location: str | None = None
 
 
 class AIClassificationResponse(CoreModel):
-    suggested_category_id: Optional[str] = None
+    suggested_category_id: str | None = None
     suggested_urgency: str
     urgency_rationale: str
-    missing_information: List[str]
+    missing_information: list[str]
     confidence: float
     is_ai_generated: bool = True
 
@@ -20,8 +20,8 @@ class AIClassificationResponse(CoreModel):
 class AIDedupCheckRequest(CoreModel):
     title: str
     description: str
-    building_id: Optional[str] = None
-    room_id: Optional[str] = None
+    building_id: str | None = None
+    room_id: str | None = None
 
 
 class PotentialDuplicateItem(CoreModel):
@@ -33,13 +33,13 @@ class PotentialDuplicateItem(CoreModel):
 
 
 class AIDedupCheckResponse(CoreModel):
-    duplicates: List[PotentialDuplicateItem]
+    duplicates: list[PotentialDuplicateItem]
 
 
 class AIStatusDraftRequest(CoreModel):
     issue_id: str
     target_status: str
-    notes: Optional[str] = None
+    notes: str | None = None
 
 
 class AIStatusDraftResponse(CoreModel):

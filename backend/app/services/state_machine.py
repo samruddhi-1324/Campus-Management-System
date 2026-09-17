@@ -1,5 +1,5 @@
-from typing import List, Set
 from fastapi import HTTPException, status
+
 from app.models.issue import IssueStatus
 from app.models.user import UserRole
 
@@ -7,7 +7,7 @@ from app.models.user import UserRole
 class IssueStateMachine:
     """Issue lifecycle state machine enforcing rules from SRS Section 5.6 & Appendix 16."""
 
-    VALID_TRANSITIONS: dict[IssueStatus, Set[IssueStatus]] = {
+    VALID_TRANSITIONS: dict[IssueStatus, set[IssueStatus]] = {
         IssueStatus.REPORTED: {IssueStatus.UNDERSTOOD, IssueStatus.ASSIGNED, IssueStatus.ESCALATED},
         IssueStatus.UNDERSTOOD: {IssueStatus.ASSIGNED, IssueStatus.WAITING_FOR_INFO, IssueStatus.ESCALATED},
         IssueStatus.ASSIGNED: {IssueStatus.INVESTIGATING, IssueStatus.WAITING_FOR_INFO, IssueStatus.ESCALATED},

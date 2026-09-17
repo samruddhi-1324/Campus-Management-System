@@ -1,5 +1,5 @@
-from typing import List, Literal, Optional
-from pydantic import AnyHttpUrl, field_validator
+from typing import Literal
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
     # CORS
-    BACKEND_CORS_ORIGINS: List[str] = ["*"]
+    BACKEND_CORS_ORIGINS: list[str] = ["*"]
 
     # Database (Supabase PostgreSQL async pooled connection)
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/campus_care"
@@ -40,8 +40,8 @@ class Settings(BaseSettings):
 
     # AI Advisory Subsystem Settings (FR-AI-01..20)
     AI_PROVIDER: Literal["anthropic", "openai", "mock"] = "anthropic"
-    ANTHROPIC_API_KEY: Optional[str] = None
-    OPENAI_API_KEY: Optional[str] = None
+    ANTHROPIC_API_KEY: str | None = None
+    OPENAI_API_KEY: str | None = None
     AI_MODEL_NAME: str = "claude-3-7-sonnet-20250219"
     AI_TIMEOUT_SECONDS: int = 15
     AI_DAILY_TOKEN_BUDGET: int = 100000
@@ -56,23 +56,23 @@ class Settings(BaseSettings):
     EMAILS_FROM_EMAIL: str = "campuscare-noreply@institution.edu"
     EMAILS_FROM_NAME: str = "Campus Care"
 
-    BREVO_API_KEY: Optional[str] = None
-    RESEND_API_KEY: Optional[str] = None
+    BREVO_API_KEY: str | None = None
+    RESEND_API_KEY: str | None = None
 
     # SMS Gateway (FR-NOTIF-16)
     SMS_GATEWAY_PROVIDER: str = "twilio"
-    SMS_ACCOUNT_SID: Optional[str] = None
-    SMS_AUTH_TOKEN: Optional[str] = None
-    SMS_FROM_NUMBER: Optional[str] = None
+    SMS_ACCOUNT_SID: str | None = None
+    SMS_AUTH_TOKEN: str | None = None
+    SMS_FROM_NUMBER: str | None = None
 
     # WhatsApp Business Cloud API (FR-NOTIF-17)
     WHATSAPP_API_URL: str = "https://graph.facebook.com/v19.0"
-    WHATSAPP_PHONE_NUMBER_ID: Optional[str] = None
-    WHATSAPP_ACCESS_TOKEN: Optional[str] = None
-    WHATSAPP_APP_SECRET: Optional[str] = None
+    WHATSAPP_PHONE_NUMBER_ID: str | None = None
+    WHATSAPP_ACCESS_TOKEN: str | None = None
+    WHATSAPP_APP_SECRET: str | None = None
 
     # Firebase Cloud Messaging (FR-NOTIF-21..29)
-    FIREBASE_CREDENTIALS_PATH: Optional[str] = None
+    FIREBASE_CREDENTIALS_PATH: str | None = None
 
     # Client Platform & Versioning (FR-PLAT-16)
     MINIMUM_SUPPORTED_CLIENT_VERSION: str = "1.0.0"

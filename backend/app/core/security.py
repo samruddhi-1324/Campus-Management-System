@@ -1,5 +1,6 @@
-from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, Optional, Union
+from datetime import UTC, datetime, timedelta
+from typing import Any
+
 import bcrypt
 from jose import jwt
 
@@ -9,17 +10,17 @@ ALGORITHM = "HS256"
 
 
 def create_access_token(
-    subject: Union[str, Any],
+    subject: str | Any,
     role: str,
-    expires_delta: Optional[timedelta] = None,
-    extra_claims: Optional[Dict[str, Any]] = None,
+    expires_delta: timedelta | None = None,
+    extra_claims: dict[str, Any] | None = None,
 ) -> str:
     if expires_delta:
-        expire = datetime.now(timezone.utc) + expires_delta
+        expire = datetime.now(UTC) + expires_delta
     else:
-        expire = datetime.now(timezone.utc) + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+        expire = datetime.now(UTC) + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
-    to_encode: Dict[str, Any] = {
+    to_encode: dict[str, Any] = {
         "exp": expire,
         "sub": str(subject),
         "role": role,
@@ -31,8 +32,8 @@ def create_access_token(
     return encoded_jwt
 
 
-def create_refresh_token(subject: Union[str, Any]) -> str:
-    expire = datetime.now(timezone.utc) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
+def create_refresh_token(subject: str | Any) -> str:
+    expire = datetime.now(UTC) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
     to_encode = {
         "exp": expire,
         "sub": str(subject),

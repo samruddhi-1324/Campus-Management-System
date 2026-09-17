@@ -1,9 +1,10 @@
-from typing import AsyncGenerator, Callable, List, Optional
+from collections.abc import Callable
+
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
 from app.core.database import get_db
@@ -14,7 +15,7 @@ security_bearer = HTTPBearer(auto_error=False)
 
 
 async def get_current_user_id(
-    credentials: Optional[HTTPAuthorizationCredentials] = Depends(security_bearer),
+    credentials: HTTPAuthorizationCredentials | None = Depends(security_bearer),
 ) -> str:
     """Extract authenticated user ID from JWT bearer token."""
     if not credentials:
@@ -29,7 +30,7 @@ async def get_current_user_id(
             settings.SECRET_KEY,
             algorithms=[ALGORITHM],
         )
-        user_id: Optional[str] = payload.get("sub")
+        user_id: str | None = payload.get("sub")
         if user_id is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -41,7 +42,7 @@ async def get_current_user_id(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
             headers={"WWW-Authenticate": "Bearer"},
-        )
+        ) from None
 
 
 async def get_current_user(

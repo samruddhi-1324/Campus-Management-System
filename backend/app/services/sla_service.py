@@ -1,5 +1,5 @@
-from typing import List, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.models.sla import CategorySLAConfig
 from app.schemas.sla import CategorySLAConfigCreate
 
@@ -13,7 +13,7 @@ class SLAService:
     async def create_sla_config(self, config_in: CategorySLAConfigCreate) -> CategorySLAConfig:
         pass
 
-    async def calculate_expected_resolution(self, category_id: str, urgency: str, building_id: Optional[str] = None):
+    async def calculate_expected_resolution(self, category_id: str, urgency: str, building_id: str | None = None):
         pass
 
 

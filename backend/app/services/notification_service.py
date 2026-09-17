@@ -1,12 +1,14 @@
 import uuid
-from datetime import datetime, timezone
-from typing import List, Optional
+from datetime import UTC, datetime
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.audit import NotificationLog
-from app.models.user import ChannelType, NotificationPreference, User, UserDevice
-from app.schemas.notification import DeviceRegistrationCreate, NotificationPreferenceUpdate
+from app.models.user import UserDevice
+from app.schemas.notification import (
+    DeviceRegistrationCreate,
+)
 
 
 class NotificationService:
@@ -46,7 +48,7 @@ class NotificationService:
             device.fcm_token = device_in.fcm_token
             device.app_version = device_in.app_version
             device.device_model = device_in.device_model
-            device.last_seen_at = datetime.now(timezone.utc)
+            device.last_seen_at = datetime.now(UTC)
             device.is_active = True
 
         await self.db.commit()
@@ -58,11 +60,11 @@ class NotificationService:
         user_id: str,
         channel: str,
         template: str,
-        related_issue_id: Optional[str] = None,
+        related_issue_id: str | None = None,
         provider: str = "internal",
     ) -> NotificationLog:
         """Log outbound notification attempt with idempotency key (FR-NOTIF-04..05)."""
-        idempotency_key = f"{user_id}_{template}_{related_issue_id or 'sys'}_{int(datetime.now(timezone.utc).timestamp())}"
+        idempotency_key = f"{user_id}_{template}_{related_issue_id or 'sys'}_{int(datetime.now(UTC).timestamp())}"
 
         log_entry = NotificationLog(
             id=str(uuid.uuid4()),
@@ -73,7 +75,7 @@ class NotificationService:
             status="delivered",
             related_issue_id=related_issue_id,
             idempotency_key=idempotency_key,
-            sent_at=datetime.now(timezone.utc),
+            sent_at=datetime.now(UTC),
         )
         self.db.add(log_entry)
         await self.db.commit()

@@ -1,4 +1,4 @@
-from typing import List
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -46,7 +46,7 @@ class AIAdvisoryService:
             urgency_rationale = "Minor cosmetic or non-blocking maintenance request."
 
         # Category matching
-        stmt = select(Category).where(Category.is_active == True)
+        stmt = select(Category).where(Category.is_active)
         result = await self.db.execute(stmt)
         categories = result.scalars().all()
 
@@ -57,7 +57,7 @@ class AIAdvisoryService:
                 break
 
         # Missing information detector
-        missing_info: List[str] = []
+        missing_info: list[str] = []
         if not request.location and ("where" in text or "room" not in text):
             missing_info.append("Specific room number or floor level not specified.")
         if len(request.description.strip()) < 20:
@@ -87,7 +87,7 @@ class AIAdvisoryService:
         result = await self.db.execute(stmt)
         existing_issues = result.scalars().all()
 
-        duplicates: List[PotentialDuplicateItem] = []
+        duplicates: list[PotentialDuplicateItem] = []
         query_words = set(request.title.lower().split())
 
         for issue in existing_issues:

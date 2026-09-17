@@ -1,15 +1,15 @@
-from typing import Optional
 from datetime import datetime
-from app.schemas.base import CoreModel
+
 from app.models.user import ChannelType
+from app.schemas.base import CoreModel
 
 
 class DeviceRegistrationCreate(CoreModel):
-    fcm_token: Optional[str] = None
+    fcm_token: str | None = None
     transport_type: str = "fcm"  # fcm | websocket
     platform: str
     app_version: str
-    device_model: Optional[str] = None
+    device_model: str | None = None
     locale: str = "en"
     timezone: str = "UTC"
 
@@ -25,5 +25,5 @@ class NotificationLogRead(CoreModel):
     channel: str
     template: str
     status: str
-    related_issue_id: Optional[str] = None
-    sent_at: Optional[datetime] = None
+    related_issue_id: str | None = None
+    sent_at: datetime | None = None

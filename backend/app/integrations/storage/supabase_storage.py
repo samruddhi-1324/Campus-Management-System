@@ -1,4 +1,4 @@
-from typing import Optional
+
 from app.core.config import settings
 
 
@@ -21,7 +21,7 @@ class SupabaseStorageService:
             "expires_in": self.expiration,
         }
 
-    async def create_signed_download_url(self, file_path: str) -> Optional[str]:
+    async def create_signed_download_url(self, file_path: str) -> str | None:
         """Generate a short-lived signed download URL after access check."""
         return f"{settings.SUPABASE_URL}/storage/v1/object/sign/{self.bucket_name}/{file_path}?token=signed"
 

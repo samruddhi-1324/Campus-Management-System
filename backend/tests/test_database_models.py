@@ -1,21 +1,15 @@
-import pytest
-from sqlalchemy import create_engine, inspect
+from sqlalchemy.dialects import postgresql
+from sqlalchemy.schema import CreateTable
+
 from app.models.base import Base
-from app.models.tenant import Institution
-from app.models.master_data import Department, Building, Room, Category, Team
-from app.models.user import User, UserRole, UserContactChannel, UserDevice, NotificationPreference
-from app.models.issue import Issue, IssueStatus, IssueUrgency, IssueAttachment, IssueUpdate, IssueStateHistory, IssueGroup
-from app.models.audit import AuditLogEntry, AIInsight, NotificationLog
-from app.models.academic import AcademicConcern, ConfidentialAccessLog
-from app.models.recommendation import Recommendation, RecurrencePattern
-from app.models.sla import CategorySLAConfig
-from app.models.historical_pattern import HistoricalTrendRecord
+from app.models.issue import Issue, IssueStatus, IssueUrgency
+from app.models.user import UserRole
 
 
 def test_all_models_registered_in_metadata():
     """Verify that all 24 tables are properly registered in SQLAlchemy Base.metadata."""
     table_names = set(Base.metadata.tables.keys())
-    
+
     expected_tables = {
         "institutions",
         "departments",
@@ -42,19 +36,15 @@ def test_all_models_registered_in_metadata():
         "category_sla_configs",
         "historical_trend_records",
     }
-    
+
     assert expected_tables.issubset(table_names), f"Missing tables: {expected_tables - table_names}"
     assert len(expected_tables) == 24
-
-
-from sqlalchemy.dialects import postgresql
-from sqlalchemy.schema import CreateTable
 
 
 def test_postgresql_ddl_compilation():
     """Verify that all 24 tables compile cleanly into PostgreSQL DDL."""
     pg_dialect = postgresql.dialect()
-    
+
     for table_name, table in Base.metadata.tables.items():
         ddl = str(CreateTable(table).compile(dialect=pg_dialect))
         assert f"CREATE TABLE {table_name}" in ddl or f'CREATE TABLE "{table_name}"' in ddl
@@ -71,7 +61,7 @@ def test_issue_model_instantiation():
         status=IssueStatus.REPORTED,
         urgency=IssueUrgency.HIGH,
     )
-    
+
     assert issue.reference_number == "CC-2026-0001"
     assert issue.status == IssueStatus.REPORTED
     assert issue.urgency == IssueUrgency.HIGH

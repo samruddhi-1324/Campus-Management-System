@@ -1,7 +1,8 @@
-from typing import Optional
+
 from pydantic import EmailStr
-from app.schemas.base import CoreModel
+
 from app.models.user import UserRole
+from app.schemas.base import CoreModel
 
 
 class UserCreate(CoreModel):
@@ -9,14 +10,14 @@ class UserCreate(CoreModel):
     password: str
     full_name: str
     role: UserRole = UserRole.REPORTER
-    department_id: Optional[str] = None
+    department_id: str | None = None
 
 
 class UserUpdate(CoreModel):
-    full_name: Optional[str] = None
-    role: Optional[UserRole] = None
-    department_id: Optional[str] = None
-    is_active: Optional[bool] = None
+    full_name: str | None = None
+    role: UserRole | None = None
+    department_id: str | None = None
+    is_active: bool | None = None
 
 
 class UserRead(CoreModel):
@@ -24,5 +25,5 @@ class UserRead(CoreModel):
     email: EmailStr
     full_name: str
     role: UserRole
-    department_id: Optional[str] = None
+    department_id: str | None = None
     is_active: bool

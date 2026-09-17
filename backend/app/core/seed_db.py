@@ -1,11 +1,12 @@
 import asyncio
 import uuid
+
 from sqlalchemy import select
+
 from app.core.database import AsyncSessionLocal
 from app.core.security import get_password_hash
+from app.models.master_data import Building, Category, Room
 from app.models.user import User, UserRole
-from app.models.master_data import Department, Building, Room, Category
-from app.models.sla import CategorySLAConfig
 
 
 async def seed_database():

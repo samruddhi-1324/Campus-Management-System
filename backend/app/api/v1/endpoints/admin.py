@@ -1,4 +1,4 @@
-from typing import List, Optional
+
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -25,7 +25,7 @@ router = APIRouter()
 
 
 # --- Categories (Public read for all authenticated users) ---
-@router.get("/categories", response_model=List[CategoryRead])
+@router.get("/categories", response_model=list[CategoryRead])
 async def list_categories(
     active_only: bool = Query(True),
     current_user: User = Depends(get_current_active_user),
@@ -48,7 +48,7 @@ async def create_category(
 
 
 # --- Buildings ---
-@router.get("/buildings", response_model=List[BuildingRead])
+@router.get("/buildings", response_model=list[BuildingRead])
 async def list_buildings(
     active_only: bool = Query(True),
     current_user: User = Depends(get_current_active_user),
@@ -71,9 +71,9 @@ async def create_building(
 
 
 # --- Rooms ---
-@router.get("/rooms", response_model=List[RoomRead])
+@router.get("/rooms", response_model=list[RoomRead])
 async def list_rooms(
-    building_id: Optional[str] = Query(None),
+    building_id: str | None = Query(None),
     active_only: bool = Query(True),
     current_user: User = Depends(get_current_active_user),
     db: AsyncSession = Depends(get_db),
@@ -95,7 +95,7 @@ async def create_room(
 
 
 # --- Departments ---
-@router.get("/departments", response_model=List[DepartmentRead])
+@router.get("/departments", response_model=list[DepartmentRead])
 async def list_departments(
     active_only: bool = Query(True),
     current_user: User = Depends(get_current_active_user),
@@ -118,7 +118,7 @@ async def create_department(
 
 
 # --- Teams ---
-@router.get("/teams", response_model=List[TeamRead])
+@router.get("/teams", response_model=list[TeamRead])
 async def list_teams(
     active_only: bool = Query(True),
     current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
@@ -141,10 +141,10 @@ async def create_team(
 
 
 # --- Audit Logs ---
-@router.get("/audit-logs", response_model=List[AuditLogRead])
+@router.get("/audit-logs", response_model=list[AuditLogRead])
 async def list_audit_logs(
-    target_entity: Optional[str] = Query(None),
-    target_id: Optional[str] = Query(None),
+    target_entity: str | None = Query(None),
+    target_id: str | None = Query(None),
     limit: int = Query(50, ge=1, le=200),
     current_user: User = Depends(require_roles(UserRole.ADMIN, UserRole.OPS_HEAD)),
     db: AsyncSession = Depends(get_db),

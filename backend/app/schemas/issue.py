@@ -1,41 +1,41 @@
-from typing import List, Optional
 from datetime import datetime
-from app.schemas.base import CoreModel
+
 from app.models.issue import IssueStatus, IssueUrgency
+from app.schemas.base import CoreModel
 
 
 class IssueCreate(CoreModel):
     title: str
     description: str
-    category_id: Optional[str] = None
-    building_id: Optional[str] = None
-    room_id: Optional[str] = None
-    location_details: Optional[str] = None
+    category_id: str | None = None
+    building_id: str | None = None
+    room_id: str | None = None
+    location_details: str | None = None
     urgency: IssueUrgency = IssueUrgency.MEDIUM
-    attachment_ids: Optional[List[str]] = None
+    attachment_ids: list[str] | None = None
 
 
 class IssueStatusUpdate(CoreModel):
     status: IssueStatus
-    message: Optional[str] = None
+    message: str | None = None
     visibility: str = "external"  # external | internal
-    reason: Optional[str] = None
+    reason: str | None = None
 
 
 class IssueAssignmentUpdate(CoreModel):
-    coordinator_id: Optional[str] = None
-    team_id: Optional[str] = None
-    reason: Optional[str] = None
+    coordinator_id: str | None = None
+    team_id: str | None = None
+    reason: str | None = None
 
 
 class IssueUrgencyUpdate(CoreModel):
     urgency: IssueUrgency
-    reason: Optional[str] = None
+    reason: str | None = None
 
 
 class IssueResolutionConfirm(CoreModel):
     confirmed: bool  # True = Confirmed/Closed, False = Reopened
-    feedback_notes: Optional[str] = None
+    feedback_notes: str | None = None
 
 
 class IssueRead(CoreModel):
@@ -43,18 +43,18 @@ class IssueRead(CoreModel):
     reference_number: str
     title: str
     description: str
-    category_id: Optional[str] = None
-    building_id: Optional[str] = None
-    room_id: Optional[str] = None
-    location_details: Optional[str] = None
+    category_id: str | None = None
+    building_id: str | None = None
+    room_id: str | None = None
+    location_details: str | None = None
     status: IssueStatus
     urgency: IssueUrgency
-    ai_suggested_urgency: Optional[str] = None
-    ai_urgency_rationale: Optional[str] = None
+    ai_suggested_urgency: str | None = None
+    ai_urgency_rationale: str | None = None
     reporter_id: str
-    assigned_coordinator_id: Optional[str] = None
-    expected_resolution_at: Optional[datetime] = None
+    assigned_coordinator_id: str | None = None
+    expected_resolution_at: datetime | None = None
     created_at: datetime
-    resolved_at: Optional[datetime] = None
-    confirmed_at: Optional[datetime] = None
-    closed_at: Optional[datetime] = None
+    resolved_at: datetime | None = None
+    confirmed_at: datetime | None = None
+    closed_at: datetime | None = None

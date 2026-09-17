@@ -1,5 +1,4 @@
-from typing import Any, Dict, List, Optional
-from app.core.config import settings
+from typing import Any
 
 
 class NotificationOrchestrator:
@@ -12,9 +11,9 @@ class NotificationOrchestrator:
         self,
         event_type: str,
         user_id: str,
-        payload: Dict[str, Any],
-        channels: Optional[List[str]] = None,
-    ) -> Dict[str, Any]:
+        payload: dict[str, Any],
+        channels: list[str] | None = None,
+    ) -> dict[str, Any]:
         """Orchestrate multi-channel dispatch with idempotency and background retry."""
         # Orchestration logic will be implemented in Phase 1
         return {

@@ -1,5 +1,5 @@
-from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -35,16 +35,16 @@ async def update_my_profile(
     return current_user
 
 
-@router.get("/coordinators", response_model=List[UserRead])
+@router.get("/coordinators", response_model=list[UserRead])
 async def list_coordinators(
-    department_id: Optional[str] = Query(None),
+    department_id: str | None = Query(None),
     current_user: User = Depends(require_roles(UserRole.COORDINATOR, UserRole.SUPERVISOR, UserRole.OPS_HEAD, UserRole.ADMIN)),
     db: AsyncSession = Depends(get_db),
 ):
     """List coordinators and supervisors for issue triage and assignment."""
     stmt = select(User).where(
         User.role.in_([UserRole.COORDINATOR, UserRole.SUPERVISOR]),
-        User.is_active == True,
+        User.is_active,
     )
     if department_id:
         stmt = stmt.where(User.department_id == department_id)

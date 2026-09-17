@@ -1,4 +1,3 @@
-from typing import Dict, List, Optional
 from app.schemas.base import CoreModel
 
 
@@ -25,8 +24,8 @@ class BuildingVolumeMetric(CoreModel):
 
 class OpsHeadAnalyticsResponse(CoreModel):
     volume: CampusVolumeMetrics
-    by_category: List[CategoryVolumeMetric]
-    by_building: List[BuildingVolumeMetric]
+    by_category: list[CategoryVolumeMetric]
+    by_building: list[BuildingVolumeMetric]
     avg_resolution_hours: float
     median_resolution_hours: float
-    ai_weekly_summary: Optional[str] = None
+    ai_weekly_summary: str | None = None

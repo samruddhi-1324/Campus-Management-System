@@ -1,4 +1,4 @@
-from typing import List, Optional
+
 from app.schemas.base import CoreModel
 from app.schemas.issue import IssueRead
 
@@ -9,17 +9,17 @@ class NLSearchRequest(CoreModel):
 
 
 class ParsedSearchFilters(CoreModel):
-    category_slug: Optional[str] = None
-    building_name: Optional[str] = None
-    status: Optional[str] = None
-    is_unresolved: Optional[bool] = None
-    date_range_start: Optional[str] = None
-    date_range_end: Optional[str] = None
-    keywords: List[str] = []
+    category_slug: str | None = None
+    building_name: str | None = None
+    status: str | None = None
+    is_unresolved: bool | None = None
+    date_range_start: str | None = None
+    date_range_end: str | None = None
+    keywords: list[str] = []
 
 
 class NLSearchResponse(CoreModel):
     original_query: str
     parsed_filters: ParsedSearchFilters
-    results: List[IssueRead]
+    results: list[IssueRead]
     total_matched: int

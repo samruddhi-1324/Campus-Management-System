@@ -1,5 +1,6 @@
-from typing import List
+
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.models.recommendation import RecurrencePattern
 
 
@@ -9,7 +10,7 @@ class RecurrenceService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def detect_recurring_patterns(self, window_days: int = 30) -> List[RecurrencePattern]:
+    async def detect_recurring_patterns(self, window_days: int = 30) -> list[RecurrencePattern]:
         pass
 
     async def convert_to_replacement_recommendation(self, pattern_id: str, actor_id: str) -> RecurrencePattern:

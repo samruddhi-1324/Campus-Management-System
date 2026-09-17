@@ -1,4 +1,3 @@
-from typing import List, Optional
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -24,7 +23,7 @@ async def register_device(
     return {"status": "success", "device_id": device.id}
 
 
-@router.get("/inbox", response_model=List[NotificationLogRead])
+@router.get("/inbox", response_model=list[NotificationLogRead])
 async def get_notifications(
     limit: int = Query(50, ge=1, le=100),
     current_user: User = Depends(get_current_active_user),

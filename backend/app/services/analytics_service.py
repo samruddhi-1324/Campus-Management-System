@@ -1,5 +1,6 @@
-from typing import Optional
+
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.schemas.analytics import OpsHeadAnalyticsResponse
 
 
@@ -9,7 +10,7 @@ class AnalyticsService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_campus_analytics(self, building_id: Optional[str] = None) -> OpsHeadAnalyticsResponse:
+    async def get_campus_analytics(self, building_id: str | None = None) -> OpsHeadAnalyticsResponse:
         pass
 
 

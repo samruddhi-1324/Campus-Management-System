@@ -1,6 +1,6 @@
-from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.schemas.search import NLSearchRequest, NLSearchResponse, ParsedSearchFilters
+
+from app.schemas.search import NLSearchRequest, NLSearchResponse
 
 
 class NLSearchService:

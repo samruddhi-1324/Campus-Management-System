@@ -1,13 +1,14 @@
-from enum import Enum
-from typing import List, Optional
-from datetime import datetime, timezone
-from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, Integer, String, Text, Enum as SQLEnum
+from datetime import datetime
+from enum import StrEnum
+
+from sqlalchemy import BigInteger, DateTime, ForeignKey, String, Text
+from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, TimestampMixin
 
 
-class IssueStatus(str, Enum):
+class IssueStatus(StrEnum):
     REPORTED = "reported"
     UNDERSTOOD = "understood"
     ASSIGNED = "assigned"
@@ -22,7 +23,7 @@ class IssueStatus(str, Enum):
     REOPENED = "reopened"
 
 
-class IssueUrgency(str, Enum):
+class IssueUrgency(StrEnum):
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
@@ -39,10 +40,10 @@ class Issue(Base, TimestampMixin):
     description: Mapped[str] = mapped_column(Text, nullable=False)
 
     # Classification & Location
-    category_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("categories.id"), index=True, nullable=True)
-    building_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("buildings.id"), index=True, nullable=True)
-    room_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("rooms.id"), nullable=True)
-    location_details: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    category_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("categories.id"), index=True, nullable=True)
+    building_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("buildings.id"), index=True, nullable=True)
+    room_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("rooms.id"), nullable=True)
+    location_details: Mapped[str | None] = mapped_column(String(255), nullable=True)
 
     # State Machine & Urgency
     status: Mapped[IssueStatus] = mapped_column(
@@ -57,24 +58,24 @@ class Issue(Base, TimestampMixin):
         index=True,
         nullable=False,
     )
-    ai_suggested_urgency: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
-    ai_urgency_rationale: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    ai_suggested_urgency: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    ai_urgency_rationale: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # Ownership & Assignments
     reporter_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
-    assigned_coordinator_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
-    assigned_team_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("teams.id"), nullable=True)
+    assigned_coordinator_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
+    assigned_team_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("teams.id"), nullable=True)
 
     # SLA Tracking
-    expected_resolution_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), index=True, nullable=True)
-    resolved_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
-    confirmed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
-    closed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    expected_resolution_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), index=True, nullable=True)
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    confirmed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    closed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Relationships
-    attachments: Mapped[List["IssueAttachment"]] = relationship("IssueAttachment", back_populates="issue", cascade="all, delete-orphan")
-    updates: Mapped[List["IssueUpdate"]] = relationship("IssueUpdate", back_populates="issue", cascade="all, delete-orphan")
-    state_history: Mapped[List["IssueStateHistory"]] = relationship("IssueStateHistory", back_populates="issue", cascade="all, delete-orphan")
+    attachments: Mapped[list["IssueAttachment"]] = relationship("IssueAttachment", back_populates="issue", cascade="all, delete-orphan")
+    updates: Mapped[list["IssueUpdate"]] = relationship("IssueUpdate", back_populates="issue", cascade="all, delete-orphan")
+    state_history: Mapped[list["IssueStateHistory"]] = relationship("IssueStateHistory", back_populates="issue", cascade="all, delete-orphan")
 
 
 class IssueAttachment(Base, TimestampMixin):
@@ -89,7 +90,7 @@ class IssueAttachment(Base, TimestampMixin):
     mime_type: Mapped[str] = mapped_column(String(100), nullable=False)
     size_bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
     uploaded_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    deleted_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    deleted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     issue: Mapped["Issue"] = relationship("Issue", back_populates="attachments")
 
@@ -116,7 +117,7 @@ class IssueStateHistory(Base, TimestampMixin):
     from_state: Mapped[str] = mapped_column(String(30), nullable=False)
     to_state: Mapped[str] = mapped_column(String(30), nullable=False)
     changed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    reason: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    reason: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     issue: Mapped["Issue"] = relationship("Issue", back_populates="state_history")
 
@@ -128,4 +129,4 @@ class IssueGroup(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     primary_issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id"), nullable=False)
     created_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)

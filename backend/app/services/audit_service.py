@@ -1,5 +1,5 @@
 import uuid
-from typing import Optional
+
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.audit import AuditAction, AuditLogEntry
@@ -17,10 +17,10 @@ class AuditService:
         action: AuditAction,
         target_entity: str,
         target_id: str,
-        before_state: Optional[dict] = None,
-        after_state: Optional[dict] = None,
-        ip_address: Optional[str] = None,
-        user_agent: Optional[str] = None,
+        before_state: dict | None = None,
+        after_state: dict | None = None,
+        ip_address: str | None = None,
+        user_agent: str | None = None,
     ) -> AuditLogEntry:
         """Create and persist an immutable audit trail entry."""
         entry = AuditLogEntry(

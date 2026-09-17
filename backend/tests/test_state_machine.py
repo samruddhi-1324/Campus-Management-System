@@ -1,5 +1,6 @@
 import pytest
 from fastapi import HTTPException
+
 from app.models.issue import IssueStatus
 from app.models.user import UserRole
 from app.services.state_machine import IssueStateMachine

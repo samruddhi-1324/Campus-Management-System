@@ -1,6 +1,5 @@
 import uuid
-from typing import List, Optional
-from fastapi import HTTPException, status
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -21,10 +20,10 @@ class MasterDataService:
         self.db = db
 
     # --- Departments ---
-    async def list_departments(self, active_only: bool = True) -> List[Department]:
+    async def list_departments(self, active_only: bool = True) -> list[Department]:
         stmt = select(Department)
         if active_only:
-            stmt = stmt.where(Department.is_active == True)
+            stmt = stmt.where(Department.is_active)
         stmt = stmt.order_by(Department.name)
         result = await self.db.execute(stmt)
         return list(result.scalars().all())
@@ -42,10 +41,10 @@ class MasterDataService:
         return dept
 
     # --- Buildings ---
-    async def list_buildings(self, active_only: bool = True) -> List[Building]:
+    async def list_buildings(self, active_only: bool = True) -> list[Building]:
         stmt = select(Building)
         if active_only:
-            stmt = stmt.where(Building.is_active == True)
+            stmt = stmt.where(Building.is_active)
         stmt = stmt.order_by(Building.name)
         result = await self.db.execute(stmt)
         return list(result.scalars().all())
@@ -63,10 +62,10 @@ class MasterDataService:
         return building
 
     # --- Rooms ---
-    async def list_rooms(self, building_id: Optional[str] = None, active_only: bool = True) -> List[Room]:
+    async def list_rooms(self, building_id: str | None = None, active_only: bool = True) -> list[Room]:
         stmt = select(Room)
         if active_only:
-            stmt = stmt.where(Room.is_active == True)
+            stmt = stmt.where(Room.is_active)
         if building_id:
             stmt = stmt.where(Room.building_id == building_id)
         stmt = stmt.order_by(Room.room_number)
@@ -88,10 +87,10 @@ class MasterDataService:
         return room
 
     # --- Categories ---
-    async def list_categories(self, active_only: bool = True) -> List[Category]:
+    async def list_categories(self, active_only: bool = True) -> list[Category]:
         stmt = select(Category)
         if active_only:
-            stmt = stmt.where(Category.is_active == True)
+            stmt = stmt.where(Category.is_active)
         stmt = stmt.order_by(Category.name)
         result = await self.db.execute(stmt)
         return list(result.scalars().all())
@@ -111,10 +110,10 @@ class MasterDataService:
         return category
 
     # --- Teams ---
-    async def list_teams(self, active_only: bool = True) -> List[Team]:
+    async def list_teams(self, active_only: bool = True) -> list[Team]:
         stmt = select(Team)
         if active_only:
-            stmt = stmt.where(Team.is_active == True)
+            stmt = stmt.where(Team.is_active)
         stmt = stmt.order_by(Team.name)
         result = await self.db.execute(stmt)
         return list(result.scalars().all())

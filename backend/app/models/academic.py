@@ -1,13 +1,14 @@
-from enum import Enum
-from typing import Optional
-from datetime import datetime, timezone
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, Enum as SQLEnum
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from datetime import UTC, datetime
+from enum import StrEnum
+
+from sqlalchemy import Boolean, DateTime, ForeignKey, String
+from sqlalchemy import Enum as SQLEnum
+from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, TimestampMixin
 
 
-class AcademicConcernType(str, Enum):
+class AcademicConcernType(StrEnum):
     EXAM_GRIEVANCE = "exam_grievance"
     GRADE_DISPUTE = "grade_dispute"
     COURSE_SCHEDULING = "course_scheduling"
@@ -25,9 +26,9 @@ class AcademicConcern(Base, TimestampMixin):
         SQLEnum(AcademicConcernType, name="academic_concern_type_enum"),
         nullable=False,
     )
-    course_code: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
-    academic_term: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
-    assigned_academic_officer_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
+    course_code: Mapped[str | None] = mapped_column(String(50), nullable=True)
+    academic_term: Mapped[str | None] = mapped_column(String(50), nullable=True)
+    assigned_academic_officer_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
     is_confidential: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
 
@@ -38,5 +39,5 @@ class ConfidentialAccessLog(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     academic_concern_id: Mapped[str] = mapped_column(String(36), ForeignKey("academic_concerns.id", ondelete="CASCADE"), index=True, nullable=False)
     accessed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
-    access_reason: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
-    accessed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    access_reason: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    accessed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))

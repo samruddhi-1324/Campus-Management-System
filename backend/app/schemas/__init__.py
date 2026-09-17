@@ -1,38 +1,5 @@
 """Pydantic v2 validation schemas registry."""
-from app.schemas.base import ApiResponse, CoreModel
-from app.schemas.auth import LoginRequest, TokenResponse
-from app.schemas.user import UserCreate, UserUpdate, UserRead
-from app.schemas.issue import (
-    IssueCreate,
-    IssueStatusUpdate,
-    IssueAssignmentUpdate,
-    IssueUrgencyUpdate,
-    IssueResolutionConfirm,
-    IssueRead,
-)
-from app.schemas.attachment import (
-    PresignedUploadRequest,
-    PresignedUploadResponse,
-    PresignedDownloadResponse,
-    AttachmentRead,
-)
-from app.schemas.master_data import (
-    BuildingCreate,
-    BuildingRead,
-    RoomCreate,
-    RoomRead,
-    CategoryCreate,
-    CategoryRead,
-    TeamCreate,
-    TeamRead,
-)
-from app.schemas.audit import AuditLogRead, AIInsightRead
-from app.schemas.notification import (
-    DeviceRegistrationCreate,
-    NotificationPreferenceUpdate,
-    NotificationLogRead,
-)
-from app.schemas.analytics import OpsHeadAnalyticsResponse, CampusVolumeMetrics
+from app.schemas.academic import AcademicConcernCreate, AcademicConcernRead
 from app.schemas.ai import (
     AIClassificationRequest,
     AIClassificationResponse,
@@ -41,67 +8,107 @@ from app.schemas.ai import (
     AIStatusDraftRequest,
     AIStatusDraftResponse,
 )
-from app.schemas.academic import AcademicConcernCreate, AcademicConcernRead
-from app.schemas.recommendation import RecommendationRead, RecommendationDecisionCreate, RecurrencePatternRead
+from app.schemas.analytics import CampusVolumeMetrics, OpsHeadAnalyticsResponse
+from app.schemas.attachment import (
+    AttachmentRead,
+    PresignedDownloadResponse,
+    PresignedUploadRequest,
+    PresignedUploadResponse,
+)
+from app.schemas.audit import AIInsightRead, AuditLogRead
+from app.schemas.auth import LoginRequest, TokenResponse
+from app.schemas.base import ApiResponse, CoreModel
+from app.schemas.historical_pattern import (
+    HistoricalPatternAnalyticsResponse,
+    MultiYearTrendRecordRead,
+)
+from app.schemas.issue import (
+    IssueAssignmentUpdate,
+    IssueCreate,
+    IssueRead,
+    IssueResolutionConfirm,
+    IssueStatusUpdate,
+    IssueUrgencyUpdate,
+)
+from app.schemas.master_data import (
+    BuildingCreate,
+    BuildingRead,
+    CategoryCreate,
+    CategoryRead,
+    RoomCreate,
+    RoomRead,
+    TeamCreate,
+    TeamRead,
+)
+from app.schemas.notification import (
+    DeviceRegistrationCreate,
+    NotificationLogRead,
+    NotificationPreferenceUpdate,
+)
+from app.schemas.recommendation import (
+    RecommendationDecisionCreate,
+    RecommendationRead,
+    RecurrencePatternRead,
+)
+from app.schemas.search import NLSearchRequest, NLSearchResponse, ParsedSearchFilters
 from app.schemas.sla import CategorySLAConfigCreate, CategorySLAConfigRead
 from app.schemas.tenant import InstitutionCreate, InstitutionRead
+from app.schemas.user import UserCreate, UserRead, UserUpdate
 from app.schemas.voice import VoiceTranscriptionRequest, VoiceTranscriptionResponse
-from app.schemas.search import NLSearchRequest, NLSearchResponse, ParsedSearchFilters
-from app.schemas.historical_pattern import HistoricalPatternAnalyticsResponse, MultiYearTrendRecordRead
 
 __all__ = [
-    "ApiResponse",
-    "CoreModel",
-    "LoginRequest",
-    "TokenResponse",
-    "UserCreate",
-    "UserUpdate",
-    "UserRead",
-    "IssueCreate",
-    "IssueStatusUpdate",
-    "IssueAssignmentUpdate",
-    "IssueUrgencyUpdate",
-    "IssueResolutionConfirm",
-    "IssueRead",
-    "PresignedUploadRequest",
-    "PresignedUploadResponse",
-    "PresignedDownloadResponse",
-    "AttachmentRead",
-    "BuildingCreate",
-    "BuildingRead",
-    "RoomCreate",
-    "RoomRead",
-    "CategoryCreate",
-    "CategoryRead",
-    "TeamCreate",
-    "TeamRead",
-    "AuditLogRead",
-    "AIInsightRead",
-    "DeviceRegistrationCreate",
-    "NotificationPreferenceUpdate",
-    "NotificationLogRead",
-    "OpsHeadAnalyticsResponse",
-    "CampusVolumeMetrics",
     "AIClassificationRequest",
     "AIClassificationResponse",
     "AIDedupCheckRequest",
     "AIDedupCheckResponse",
+    "AIInsightRead",
     "AIStatusDraftRequest",
     "AIStatusDraftResponse",
     "AcademicConcernCreate",
     "AcademicConcernRead",
-    "RecommendationRead",
-    "RecommendationDecisionCreate",
-    "RecurrencePatternRead",
+    "ApiResponse",
+    "AttachmentRead",
+    "AuditLogRead",
+    "BuildingCreate",
+    "BuildingRead",
+    "CampusVolumeMetrics",
+    "CategoryCreate",
+    "CategoryRead",
     "CategorySLAConfigCreate",
     "CategorySLAConfigRead",
+    "CoreModel",
+    "DeviceRegistrationCreate",
+    "HistoricalPatternAnalyticsResponse",
     "InstitutionCreate",
     "InstitutionRead",
-    "VoiceTranscriptionRequest",
-    "VoiceTranscriptionResponse",
+    "IssueAssignmentUpdate",
+    "IssueCreate",
+    "IssueRead",
+    "IssueResolutionConfirm",
+    "IssueStatusUpdate",
+    "IssueUrgencyUpdate",
+    "LoginRequest",
+    "MultiYearTrendRecordRead",
     "NLSearchRequest",
     "NLSearchResponse",
+    "NotificationLogRead",
+    "NotificationPreferenceUpdate",
+    "OpsHeadAnalyticsResponse",
     "ParsedSearchFilters",
-    "HistoricalPatternAnalyticsResponse",
-    "MultiYearTrendRecordRead",
+    "PresignedDownloadResponse",
+    "PresignedUploadRequest",
+    "PresignedUploadResponse",
+    "RecommendationDecisionCreate",
+    "RecommendationRead",
+    "RecurrencePatternRead",
+    "RoomCreate",
+    "RoomRead",
+    "TeamCreate",
+    "TeamRead",
+    "TokenResponse",
+    "UserCreate",
+    "UserRead",
+    "UserUpdate",
+    "VoiceTranscriptionRequest",
+    "VoiceTranscriptionResponse",
 ]

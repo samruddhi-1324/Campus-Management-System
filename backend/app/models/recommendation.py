@@ -1,14 +1,15 @@
-from enum import Enum
-from typing import Optional
-from datetime import datetime, timezone
-from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, Integer, String, Text, Enum as SQLEnum
+from datetime import datetime
+from enum import StrEnum
+
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, TimestampMixin
 
 
-class RecommendationType(str, Enum):
+class RecommendationType(StrEnum):
     RESOLUTION = "resolution"
     PREVENTIVE = "preventive"
     RESOURCING = "resourcing"
@@ -30,9 +31,9 @@ class Recommendation(Base, TimestampMixin):
     evidence_snapshot: Mapped[dict] = mapped_column(JSONB, nullable=False)  # Pre-computed deterministic evidence
     confidence: Mapped[float] = mapped_column(default=0.0, nullable=False)
     model_version: Mapped[str] = mapped_column(String(50), nullable=False)
-    human_decision: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)  # accepted | dismissed | acted
-    decided_by: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
-    decided_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    human_decision: Mapped[str | None] = mapped_column(String(20), nullable=True)  # accepted | dismissed | acted
+    decided_by: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
+    decided_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class RecurrencePattern(Base, TimestampMixin):
@@ -45,4 +46,4 @@ class RecurrencePattern(Base, TimestampMixin):
     observation_window_days: Mapped[int] = mapped_column(Integer, default=30, nullable=False)
     related_issue_ids: Mapped[list] = mapped_column(JSONB, nullable=False)
     status: Mapped[str] = mapped_column(String(30), default="flagged", nullable=False)  # flagged | confirmed | converted_to_replacement | dismissed
-    converted_recommendation_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("recommendations.id"), nullable=True)
+    converted_recommendation_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("recommendations.id"), nullable=True)

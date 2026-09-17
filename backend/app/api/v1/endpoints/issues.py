@@ -1,4 +1,4 @@
-from typing import List, Optional
+
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -29,9 +29,9 @@ async def create_issue(
     return await service.create_issue(issue_in, reporter=current_user)
 
 
-@router.get("/my", response_model=List[IssueRead])
+@router.get("/my", response_model=list[IssueRead])
 async def list_my_issues(
-    status_filter: Optional[IssueStatus] = Query(None),
+    status_filter: IssueStatus | None = Query(None),
     limit: int = Query(50, ge=1, le=100),
     offset: int = Query(0, ge=0),
     current_user: User = Depends(get_current_active_user),
@@ -47,11 +47,11 @@ async def list_my_issues(
     )
 
 
-@router.get("/queue", response_model=List[IssueRead])
+@router.get("/queue", response_model=list[IssueRead])
 async def list_coordinator_queue(
-    status_filter: Optional[IssueStatus] = Query(None),
-    category_id: Optional[str] = Query(None),
-    urgency: Optional[IssueUrgency] = Query(None),
+    status_filter: IssueStatus | None = Query(None),
+    category_id: str | None = Query(None),
+    urgency: IssueUrgency | None = Query(None),
     unassigned_only: bool = Query(False),
     limit: int = Query(100, ge=1, le=200),
     offset: int = Query(0, ge=0),

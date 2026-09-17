@@ -1,13 +1,14 @@
-from enum import Enum
-from typing import List, Optional
-from datetime import datetime, timezone
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, Enum as SQLEnum
+from datetime import UTC, datetime
+from enum import StrEnum
+
+from sqlalchemy import Boolean, DateTime, ForeignKey, String
+from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, TimestampMixin
 
 
-class UserRole(str, Enum):
+class UserRole(StrEnum):
     REPORTER = "reporter"
     COORDINATOR = "coordinator"
     SUPERVISOR = "supervisor"
@@ -15,7 +16,7 @@ class UserRole(str, Enum):
     ADMIN = "admin"
 
 
-class ChannelType(str, Enum):
+class ChannelType(StrEnum):
     EMAIL = "email"
     SMS = "sms"
     WHATSAPP = "whatsapp"
@@ -36,13 +37,13 @@ class User(Base, TimestampMixin):
         index=True,
         nullable=False,
     )
-    department_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("departments.id"), nullable=True)
+    department_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("departments.id"), nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
     # Relationships
-    contact_channels: Mapped[List["UserContactChannel"]] = relationship("UserContactChannel", back_populates="user", cascade="all, delete-orphan")
-    devices: Mapped[List["UserDevice"]] = relationship("UserDevice", back_populates="user", cascade="all, delete-orphan")
-    notification_preferences: Mapped[List["NotificationPreference"]] = relationship("NotificationPreference", back_populates="user", cascade="all, delete-orphan")
+    contact_channels: Mapped[list["UserContactChannel"]] = relationship("UserContactChannel", back_populates="user", cascade="all, delete-orphan")
+    devices: Mapped[list["UserDevice"]] = relationship("UserDevice", back_populates="user", cascade="all, delete-orphan")
+    notification_preferences: Mapped[list["NotificationPreference"]] = relationship("NotificationPreference", back_populates="user", cascade="all, delete-orphan")
 
 
 class UserContactChannel(Base, TimestampMixin):
@@ -65,14 +66,14 @@ class UserDevice(Base, TimestampMixin):
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False)
-    fcm_token: Mapped[Optional[str]] = mapped_column(String(512), nullable=True)  # Nullable for WebSocket devices (FR-NOTIF-31)
+    fcm_token: Mapped[str | None] = mapped_column(String(512), nullable=True)  # Nullable for WebSocket devices (FR-NOTIF-31)
     transport_type: Mapped[str] = mapped_column(String(20), default="fcm", nullable=False)  # fcm | websocket
     platform: Mapped[str] = mapped_column(String(20), nullable=False)  # android | ios | web | windows | macos | linux
     app_version: Mapped[str] = mapped_column(String(20), nullable=False)
-    device_model: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
+    device_model: Mapped[str | None] = mapped_column(String(100), nullable=True)
     locale: Mapped[str] = mapped_column(String(10), default="en", nullable=False)
     timezone: Mapped[str] = mapped_column(String(50), default="UTC", nullable=False)
-    last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
     user: Mapped["User"] = relationship("User", back_populates="devices")

@@ -1,7 +1,7 @@
-from typing import Optional
 from datetime import datetime
-from app.schemas.base import CoreModel
+
 from app.models.audit import AuditAction
+from app.schemas.base import CoreModel
 
 
 class AuditLogRead(CoreModel):
@@ -10,8 +10,8 @@ class AuditLogRead(CoreModel):
     action: AuditAction
     target_entity: str
     target_id: str
-    before_state: Optional[dict] = None
-    after_state: Optional[dict] = None
+    before_state: dict | None = None
+    after_state: dict | None = None
     created_at: datetime
 
 
@@ -21,6 +21,6 @@ class AIInsightRead(CoreModel):
     insight_type: str
     payload: dict
     confidence: float
-    human_decision: Optional[str] = None
-    decided_by: Optional[str] = None
-    decided_at: Optional[datetime] = None
+    human_decision: str | None = None
+    decided_by: str | None = None
+    decided_at: datetime | None = None

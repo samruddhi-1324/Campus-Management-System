@@ -1,6 +1,6 @@
 import uuid
-from datetime import datetime, timezone
-from typing import List, Optional
+from datetime import UTC, datetime
+
 from fastapi import HTTPException, status
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -9,8 +9,6 @@ from sqlalchemy.orm import selectinload
 from app.models.audit import AuditAction
 from app.models.issue import (
     Issue,
-    IssueAttachment,
-    IssueGroup,
     IssueStateHistory,
     IssueStatus,
     IssueUpdate,
@@ -37,7 +35,7 @@ class IssueService:
 
     async def _generate_reference_number(self) -> str:
         """Generate formatted unique reference number: CC-YYYY-XXXXX."""
-        current_year = datetime.now(timezone.utc).year
+        current_year = datetime.now(UTC).year
         prefix = f"CC-{current_year}-"
 
         # Query highest reference number for current year
@@ -116,10 +114,10 @@ class IssueService:
     async def list_my_issues(
         self,
         reporter_id: str,
-        status_filter: Optional[IssueStatus] = None,
+        status_filter: IssueStatus | None = None,
         limit: int = 50,
         offset: int = 0,
-    ) -> List[Issue]:
+    ) -> list[Issue]:
         """Reporter lists only their own issues (FR-1.3, NFR-SEC-01)."""
         stmt = select(Issue).where(Issue.reporter_id == reporter_id)
         if status_filter:
@@ -130,13 +128,13 @@ class IssueService:
 
     async def list_coordinator_queue(
         self,
-        status_filter: Optional[IssueStatus] = None,
-        category_id: Optional[str] = None,
-        urgency: Optional[IssueUrgency] = None,
+        status_filter: IssueStatus | None = None,
+        category_id: str | None = None,
+        urgency: IssueUrgency | None = None,
         unassigned_only: bool = False,
         limit: int = 100,
         offset: int = 0,
-    ) -> List[Issue]:
+    ) -> list[Issue]:
         """Coordinator prioritized triage queue (FR-1.9, FR-1.10)."""
         stmt = select(Issue)
         if status_filter:
@@ -168,7 +166,7 @@ class IssueService:
         IssueStateMachine.validate_transition(old_status, new_status, actor.role)
 
         issue.status = new_status
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
 
         # Handle specific state timestamp updates
         if new_status == IssueStatus.RESOLVED:
@@ -307,7 +305,7 @@ class IssueService:
                 detail=f"Cannot confirm/reopen issue in status '{issue.status.value}'. Must be 'resolved'.",
             )
 
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         if confirm_in.confirmed:
             old_status = issue.status
             issue.status = IssueStatus.CONFIRMED

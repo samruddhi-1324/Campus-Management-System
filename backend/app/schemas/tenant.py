@@ -1,4 +1,4 @@
-from typing import Optional
+
 from app.schemas.base import CoreModel
 
 
@@ -6,8 +6,8 @@ class InstitutionCreate(CoreModel):
     name: str
     slug: str
     domain: str
-    logo_url: Optional[str] = None
-    settings: Optional[dict] = None
+    logo_url: str | None = None
+    settings: dict | None = None
 
 
 class InstitutionRead(CoreModel):
@@ -15,6 +15,6 @@ class InstitutionRead(CoreModel):
     name: str
     slug: str
     domain: str
-    logo_url: Optional[str] = None
+    logo_url: str | None = None
     settings: dict
     is_active: bool
