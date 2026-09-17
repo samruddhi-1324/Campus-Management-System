@@ -22,10 +22,12 @@ from app.api.v1.endpoints import (
 
 api_router = APIRouter()
 
+
 # Health check
 @api_router.get("/health", tags=["System"])
 async def health_check():
     return {"status": "healthy", "service": "Campus Care API", "version": "3.0.0"}
+
 
 # Phase 1 MVP Feature Routers
 api_router.include_router(auth.router, prefix="/auth", tags=["Authentication & RBAC"])

@@ -1,4 +1,3 @@
-from datetime import UTC, datetime
 import pytest
 
 from app.models.historical_pattern import HistoricalTrendRecord
@@ -83,7 +82,7 @@ async def test_voice_transcription_and_classification(test_db):
         language_code="en",
     )
 
-    response = await voice_service.transcribe_audio_attachment(request, user_id="user-123")
+    response = await voice_service.transcribe_audio_attachment(request, _user_id="user-123")
 
     assert response.transcribed_text is not None
     assert len(response.transcribed_text) > 10
@@ -147,7 +146,7 @@ async def test_natural_language_search_parsing_and_execution(test_db):
         limit=10,
     )
 
-    result = await nl_service.parse_and_execute_search(search_req, user_id="staff-1")
+    result = await nl_service.parse_and_execute_search(search_req, _user_id="staff-1")
 
     assert result.original_query == search_req.query_text
     assert result.parsed_filters.category_slug == "wifi"

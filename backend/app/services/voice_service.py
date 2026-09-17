@@ -15,7 +15,7 @@ class VoiceService:
         self.ai_service = AIAdvisoryService(db)
 
     async def transcribe_audio_attachment(
-        self, request: VoiceTranscriptionRequest, user_id: str
+        self, request: VoiceTranscriptionRequest, _user_id: str
     ) -> VoiceTranscriptionResponse:
         """Transcribes recorded audio attachment and passes text to AI classification advisory."""
         # 1. Fetch attachment metadata if exists

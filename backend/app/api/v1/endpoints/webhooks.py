@@ -1,5 +1,6 @@
 import logging
 from typing import Any
+
 from fastapi import APIRouter, HTTPException, Query, Request, Response, status
 
 logger = logging.getLogger(__name__)
@@ -44,14 +45,14 @@ async def whatsapp_inbound_webhook(request: Request) -> dict[str, Any]:
             for msg in messages:
                 from_num = msg.get("from")
                 msg_body = msg.get("text", {}).get("body", "")
-                logger.info(f"Received inbound WhatsApp message from {from_num}: {msg_body}")
+                logger.info("Received inbound WhatsApp message from %s: %s", from_num, msg_body)
                 processed_count += 1
             # Handle status delivery receipts (sent, delivered, read)
             statuses = val.get("statuses", [])
             for st in statuses:
                 recipient_id = st.get("recipient_id")
                 status_str = st.get("status")
-                logger.info(f"WhatsApp delivery status update for {recipient_id}: {status_str}")
+                logger.info("WhatsApp delivery status update for %s: %s", recipient_id, status_str)
                 processed_count += 1
 
     return {"status": "success", "processed_events": processed_count}
@@ -62,7 +63,7 @@ async def brevo_webhook(request: Request) -> dict[str, str]:
     """Signed delivery webhook for Brevo email status (FR-NOTIF-20b)."""
     try:
         payload = await request.json()
-        logger.info(f"Brevo email webhook event: {payload.get('event')}")
+        logger.info("Brevo email webhook event: %s", payload.get("event"))
     except Exception:
         pass
     return {"status": "received"}
@@ -73,7 +74,7 @@ async def resend_webhook(request: Request) -> dict[str, str]:
     """Signed delivery webhook for Resend failover email status (FR-NOTIF-20b)."""
     try:
         payload = await request.json()
-        logger.info(f"Resend email webhook event: {payload.get('type')}")
+        logger.info("Resend email webhook event: %s", payload.get("type"))
     except Exception:
         pass
     return {"status": "received"}

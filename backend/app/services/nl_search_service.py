@@ -1,4 +1,5 @@
 import re
+
 from sqlalchemy import or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -15,7 +16,7 @@ class NLSearchService:
         self.db = db
 
     async def parse_and_execute_search(
-        self, request: NLSearchRequest, user_id: str
+        self, request: NLSearchRequest, _user_id: str
     ) -> NLSearchResponse:
         query_text = request.query_text.strip()
         lower_q = query_text.lower()
