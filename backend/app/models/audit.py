@@ -64,6 +64,6 @@ class NotificationLog(Base, TimestampMixin):
     related_issue_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("issues.id", ondelete="SET NULL"), nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="queued", nullable=False)  # queued | sent | delivered | failed | suppressed
     attempt_count: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
-    idempotency_key: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
+    idempotency_key: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     error_detail: Mapped[str | None] = mapped_column(Text, nullable=True)
     sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

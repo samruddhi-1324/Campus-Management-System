@@ -21,7 +21,7 @@ class AcademicConcern(Base, TimestampMixin):
     __tablename__ = "academic_concerns"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), unique=True, index=True, nullable=False)
+    issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id", ondelete="CASCADE"), unique=True, nullable=False)
     concern_type: Mapped[AcademicConcernType] = mapped_column(
         SQLEnum(AcademicConcernType, name="academic_concern_type_enum"),
         nullable=False,

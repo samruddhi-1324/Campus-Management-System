@@ -12,8 +12,8 @@ class Institution(Base, TimestampMixin):
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     name: Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
-    slug: Mapped[str] = mapped_column(String(50), unique=True, index=True, nullable=False)
-    domain: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False)  # e.g., institution.edu
+    slug: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
+    domain: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)  # e.g., institution.edu
     logo_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
     settings: Mapped[dict] = mapped_column(JSONB, default=dict, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)

@@ -35,7 +35,7 @@ class Issue(Base, TimestampMixin):
     __tablename__ = "issues"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
-    reference_number: Mapped[str] = mapped_column(String(30), unique=True, index=True, nullable=False)
+    reference_number: Mapped[str] = mapped_column(String(30), unique=True, nullable=False)
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=False)
 
