@@ -64,11 +64,11 @@ async def test_voice_transcription_and_classification(test_db):
     # Create dummy attachment metadata
     attachment = IssueAttachment(
         id="att-voice-001",
-        issue_id=None,
-        file_name="voice_water_leak_recording.m4a",
-        file_type="audio/m4a",
+        issue_id="dummy-issue-1",
+        attachment_type="voice",
         storage_bucket="attachments",
         storage_path="audio/voice_water_leak_recording.m4a",
+        mime_type="audio/m4a",
         size_bytes=48000,
         uploaded_by="user-123",
     )

@@ -24,11 +24,11 @@ class VoiceService:
         attachment = result.scalars().first()
 
         # 2. Determine transcribed text based on attachment path/context or standard transcription
-        if attachment and "water" in (attachment.file_name or "").lower():
+        if attachment and "water" in (attachment.storage_path or "").lower():
             transcribed_text = "Water is leaking heavily from the ceiling in Room 302 and flooding the floor."
             duration = 8.5
             confidence = 0.96
-        elif attachment and "projector" in (attachment.file_name or "").lower():
+        elif attachment and "projector" in (attachment.storage_path or "").lower():
             transcribed_text = "The projector in Lab 201 has no power and will not turn on for class."
             duration = 6.2
             confidence = 0.94
