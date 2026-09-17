@@ -69,7 +69,7 @@ class UserDevice(Base, TimestampMixin):
     transport_type: Mapped[str] = mapped_column(String(20), default="fcm", nullable=False)  # fcm | websocket
     platform: Mapped[str] = mapped_column(String(20), nullable=False)  # android | ios | web | windows | macos | linux
     app_version: Mapped[str] = mapped_column(String(20), nullable=False)
-    device_model: Optional[Mapped[str]] = mapped_column(String(100), nullable=True)
+    device_model: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     locale: Mapped[str] = mapped_column(String(10), default="en", nullable=False)
     timezone: Mapped[str] = mapped_column(String(50), default="UTC", nullable=False)
     last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))

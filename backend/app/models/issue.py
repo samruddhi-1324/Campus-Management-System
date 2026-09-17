@@ -57,19 +57,19 @@ class Issue(Base, TimestampMixin):
         index=True,
         nullable=False,
     )
-    ai_suggested_urgency: Optional[Mapped[str]] = mapped_column(String(20), nullable=True)
-    ai_urgency_rationale: Optional[Mapped[str]] = mapped_column(Text, nullable=True)
+    ai_suggested_urgency: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    ai_urgency_rationale: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     # Ownership & Assignments
     reporter_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
-    assigned_coordinator_id: Optional[Mapped[str]] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
-    assigned_team_id: Optional[Mapped[str]] = mapped_column(String(36), ForeignKey("teams.id"), nullable=True)
+    assigned_coordinator_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
+    assigned_team_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("teams.id"), nullable=True)
 
     # SLA Tracking
-    expected_resolution_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), index=True, nullable=True)
-    resolved_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
-    confirmed_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
-    closed_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    expected_resolution_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), index=True, nullable=True)
+    resolved_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    confirmed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    closed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Relationships
     attachments: Mapped[List["IssueAttachment"]] = relationship("IssueAttachment", back_populates="issue", cascade="all, delete-orphan")
@@ -89,7 +89,7 @@ class IssueAttachment(Base, TimestampMixin):
     mime_type: Mapped[str] = mapped_column(String(100), nullable=False)
     size_bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
     uploaded_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    deleted_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    deleted_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 
     issue: Mapped["Issue"] = relationship("Issue", back_populates="attachments")
 
@@ -116,7 +116,7 @@ class IssueStateHistory(Base, TimestampMixin):
     from_state: Mapped[str] = mapped_column(String(30), nullable=False)
     to_state: Mapped[str] = mapped_column(String(30), nullable=False)
     changed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    reason: Optional[Mapped[str]] = mapped_column(Text, nullable=True)
+    reason: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     issue: Mapped["Issue"] = relationship("Issue", back_populates="state_history")
 
@@ -128,4 +128,4 @@ class IssueGroup(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     primary_issue_id: Mapped[str] = mapped_column(String(36), ForeignKey("issues.id"), nullable=False)
     created_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    notes: Optional[Mapped[str]] = mapped_column(Text, nullable=True)
+    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)

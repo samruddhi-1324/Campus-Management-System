@@ -2,6 +2,18 @@ from typing import Optional
 from app.schemas.base import CoreModel
 
 
+class DepartmentCreate(CoreModel):
+    name: str
+    code: str
+
+
+class DepartmentRead(CoreModel):
+    id: str
+    name: str
+    code: str
+    is_active: bool
+
+
 class BuildingCreate(CoreModel):
     name: str
     code: str

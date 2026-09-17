@@ -25,9 +25,9 @@ class AcademicConcern(Base, TimestampMixin):
         SQLEnum(AcademicConcernType, name="academic_concern_type_enum"),
         nullable=False,
     )
-    course_code: Optional[Mapped[str]] = mapped_column(String(50), nullable=True)
-    academic_term: Optional[Mapped[str]] = mapped_column(String(50), nullable=True)
-    assigned_academic_officer_id: Optional[Mapped[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
+    course_code: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
+    academic_term: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
+    assigned_academic_officer_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
     is_confidential: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
 
@@ -38,5 +38,5 @@ class ConfidentialAccessLog(Base, TimestampMixin):
     id: Mapped[str] = mapped_column(String(36), primary_key=True)
     academic_concern_id: Mapped[str] = mapped_column(String(36), ForeignKey("academic_concerns.id", ondelete="CASCADE"), index=True, nullable=False)
     accessed_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=False)
-    access_reason: Optional[Mapped[str]] = mapped_column(String(255), nullable=True)
+    access_reason: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     accessed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))

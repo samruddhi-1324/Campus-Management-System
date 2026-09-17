@@ -30,9 +30,9 @@ class Recommendation(Base, TimestampMixin):
     evidence_snapshot: Mapped[dict] = mapped_column(JSONB, nullable=False)  # Pre-computed deterministic evidence
     confidence: Mapped[float] = mapped_column(default=0.0, nullable=False)
     model_version: Mapped[str] = mapped_column(String(50), nullable=False)
-    human_decision: Optional[Mapped[str]] = mapped_column(String(20), nullable=True)  # accepted | dismissed | acted
-    decided_by: Optional[Mapped[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
-    decided_at: Optional[Mapped[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    human_decision: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)  # accepted | dismissed | acted
+    decided_by: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("users.id"), nullable=True)
+    decided_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class RecurrencePattern(Base, TimestampMixin):
@@ -45,4 +45,4 @@ class RecurrencePattern(Base, TimestampMixin):
     observation_window_days: Mapped[int] = mapped_column(Integer, default=30, nullable=False)
     related_issue_ids: Mapped[list] = mapped_column(JSONB, nullable=False)
     status: Mapped[str] = mapped_column(String(30), default="flagged", nullable=False)  # flagged | confirmed | converted_to_replacement | dismissed
-    converted_recommendation_id: Optional[Mapped[str]] = mapped_column(String(36), ForeignKey("recommendations.id"), nullable=True)
+    converted_recommendation_id: Mapped[Optional[str]] = mapped_column(String(36), ForeignKey("recommendations.id"), nullable=True)
