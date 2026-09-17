@@ -13,6 +13,7 @@ from alembic import context
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from app.core.config import settings
+import app.models  # noqa: F401 - Register all 24 SQLAlchemy models into Base.metadata
 from app.models.base import Base
 
 # this is the Alembic Config object, which provides
@@ -24,7 +25,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Set target metadata for 'autogenerate' support
+# Set target metadata for 'autogenerate' and 'check' drift support
 target_metadata = Base.metadata
 
 def get_url():
