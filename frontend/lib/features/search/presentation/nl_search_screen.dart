@@ -169,8 +169,8 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                             backgroundColor: Colors.indigo.shade50,
                           ),
                         if (filters['is_unresolved'] == true)
-                          const Chip(
-                            label: Text('Status: Unresolved'),
+                          Chip(
+                            label: const Text('Status: Unresolved'),
                             backgroundColor: Colors.amber.shade100,
                           ),
                       ],
