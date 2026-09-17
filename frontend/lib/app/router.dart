@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:campus_care/features/auth/presentation/login_screen.dart';
 import 'package:campus_care/features/reporter/presentation/report_issue_screen.dart';
