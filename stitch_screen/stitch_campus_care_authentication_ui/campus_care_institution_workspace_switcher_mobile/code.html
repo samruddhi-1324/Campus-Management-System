@@ -48,30 +48,30 @@
 </div>
 <!-- Main Floating Operations Sheet -->
 <div class="relative -mt-4 bg-surface rounded-t-2xl px-gutter-mobile pt-space-md pb-32 flex flex-col gap-space-md">
-<!-- Sticky Search & Quick Filter Controls -->
+<!<!-- Sticky Search & Quick Filter Controls -->
 <div class="sticky top-16 z-30 -mx-gutter-mobile px-gutter-mobile py-2 bg-surface/90 backdrop-blur-lg">
 <div class="relative flex items-center w-full">
 <span class="material-symbols-outlined absolute left-3.5 text-[20px] text-on-surface-variant pointer-events-none">domain_verification</span>
-<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] focus:outline-none focus:bg-surface-container-lowest placeholder:text-outline" id="campusSearchInput" placeholder="Search university, campus or domain..." type="text"/>
-<button class="hidden absolute right-3 w-6 h-6 flex items-center justify-center text-outline hover:text-primary" id="clearSearchBtn">
+<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] focus:outline-none focus:bg-surface-container-lowest placeholder:text-outline" id="campusSearchInput" oninput="runMobileFilters(this.value)" placeholder="Search university, campus or domain..." type="text"/>
+<button class="hidden absolute right-3 w-6 h-6 flex items-center justify-center text-outline hover:text-primary" id="clearSearchBtn" onclick="clearMobileSearch()" style="display:none;">
 <span class="material-symbols-outlined text-[18px]">close</span>
 </button>
 </div>
 <!-- Filter Chips -->
 <div class="flex items-center gap-2 mt-2.5 overflow-x-auto pb-1 no-scrollbar" id="filterChipsContainer">
-<button class="filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm" data-filter="all">
+<button class="filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm" data-filter="all" onclick="applyMobileFilter('all', this)">
 <span>All Nodes</span>
 <span class="w-4 h-4 rounded-full bg-on-primary/20 text-on-primary flex items-center justify-center font-code-sm text-[10px]">5</span>
 </button>
-<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="my-campus">
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="my-campus" onclick="applyMobileFilter('my-campus', this)">
 <span>My Campuses</span>
 <span class="w-4 h-4 rounded-full bg-surface-container-highest text-primary flex items-center justify-center font-code-sm text-[10px]">2</span>
 </button>
-<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="high-activity">
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="high-activity" onclick="applyMobileFilter('high-activity', this)">
 <span class="w-1.5 h-1.5 rounded-full bg-error"></span>
 <span>High Priority</span>
 </button>
-<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="verified">
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="verified" onclick="applyMobileFilter('verified', this)">
 <span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
 <span>Verified</span>
 </button>
@@ -85,9 +85,9 @@
 <!-- Campus Cards Container -->
 <div class="flex flex-col gap-space-sm" id="tenantList">
 <!-- CARD 1: Apex University (Default Selected) -->
-<div aria-checked="true" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_12px_rgba(30,27,75,0.08)] transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="apex" role="radio">
+<div aria-checked="true" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_12px_rgba(30,27,75,0.08)] transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="apex" onclick="selectMobileTenant('apex', this)" role="radio">
 <!-- Distinctive Active Indicator Bar -->
-<div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-secondary" style="display:block;"></div>
 <div class="flex items-start justify-between gap-space-xs">
 <div class="flex items-center gap-3 min-w-0">
 <!-- University Crest Monogram -->
@@ -135,8 +135,8 @@
 </div>
 </div>
 <!-- CARD 2: Stanford University -->
-<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="stanford" role="radio">
-<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="stanford" onclick="selectMobileTenant('stanford', this)" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary" style="display:none;"></div>
 <div class="flex items-start justify-between gap-space-xs">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
@@ -167,8 +167,8 @@
 </div>
 </div>
 <!-- CARD 3: MIT -->
-<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="mit" role="radio">
-<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="mit" onclick="selectMobileTenant('mit', this)" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary" style="display:none;"></div>
 <div class="flex items-start justify-between gap-space-xs">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
@@ -199,8 +199,8 @@
 </div>
 </div>
 <!-- CARD 4: UC Berkeley -->
-<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="high-activity verified" data-tenant="berkeley" role="radio">
-<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="high-activity verified" data-tenant="berkeley" onclick="selectMobileTenant('berkeley', this)" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary" style="display:none;"></div>
 <div class="flex items-start justify-between gap-space-xs">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
@@ -230,8 +230,8 @@
 </div>
 </div>
 <!-- CARD 5: Carnegie Mellon University -->
-<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="cmu" role="radio">
-<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="cmu" onclick="selectMobileTenant('cmu', this)" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary" style="display:none;"></div>
 <div class="flex items-start justify-between gap-space-xs">
 <div class="flex items-center gap-3 min-w-0">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
@@ -262,7 +262,7 @@
 </div>
 </div>
 <!-- Empty State (Shown when search has no matches) -->
-<div class="hidden flex flex-col items-center justify-center py-10 px-4 text-center" id="noResultsState">
+<div class="hidden flex flex-col items-center justify-center py-10 px-4 text-center" id="noResultsState" style="display:none;">
 <div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-outline mb-3">
 <span class="material-symbols-outlined text-[28px]">search_off</span>
 </div>
@@ -284,7 +284,7 @@
 <div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-xl px-gutter-mobile pt-3 pb-safe shadow-[0_-4px_20px_rgba(30,27,75,0.06)]">
 <div class="max-w-md mx-auto flex flex-col gap-2 pb-2">
 <!-- Primary Confirm Button -->
-<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(7,2,53,0.2)] active:scale-[0.98] transition-transform" id="confirmWorkspaceBtn">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(7,2,53,0.2)] active:scale-[0.98] transition-transform cursor-pointer" id="confirmWorkspaceBtn" onclick="confirmMobileWorkspace()">
 <span id="confirmBtnLabel">Switch to Apex Univ. of Technology</span>
 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>
@@ -298,220 +298,179 @@
 </div>
 </div>
 </div>
-</div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    initWorkspaceSwitcher();
-  });
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    initWorkspaceSwitcher();
+  const tenantDetails = {
+    apex: { name: 'Apex Univ. of Technology', email: 'j.holloway@apex.edu' },
+    stanford: { name: 'Stanford University', email: 'j.holloway@stanford.edu' },
+    mit: { name: 'Mass. Institute of Technology', email: 'j.holloway@mit.edu' },
+    berkeley: { name: 'UC Berkeley', email: 'j.holloway@berkeley.edu' },
+    cmu: { name: 'Carnegie Mellon University', email: 'j.holloway@cmu.edu' }
+  };
+
+  let activeMobileFilter = 'all';
+  let currentMobileSelectedTenant = localStorage.getItem('active_tenant') || 'apex';
+
+  function showMobileToast(message, icon) {
+    icon = icon || 'check_circle';
+    let toast = document.getElementById('mobile-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'mobile-toast';
+      toast.style.cssText = 'position:fixed;top:80px;left:16px;right:16px;z-index:99999;transition:all 0.3s ease;';
+      document.body.appendChild(toast);
+    }
+    toast.className = 'flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary';
+    toast.style.display = 'flex';
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    toast.innerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">' + icon + '</span><span class="font-label-sm text-label-sm font-semibold">' + message + '</span>';
+    
+    clearTimeout(window.__mobileToastTimeout);
+    window.__mobileToastTimeout = setTimeout(function() {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-20px)';
+      setTimeout(function() { toast.style.display = 'none'; }, 300);
+    }, 2200);
   }
 
-  function initWorkspaceSwitcher() {
-    const searchInput = document.getElementById('campusSearchInput');
-    const clearBtn = document.getElementById('clearSearchBtn');
-    const filterChips = document.querySelectorAll('.filter-chip');
-    const cards = document.querySelectorAll('.tenant-card');
-    const noResults = document.getElementById('noResultsState');
-    const confirmBtn = document.getElementById('confirmWorkspaceBtn');
-    const confirmBtnLabel = document.getElementById('confirmBtnLabel');
-    const clusterStatus = document.getElementById('clusterStatusText');
+  window.selectMobileTenant = function(tenantKey, cardElement, autoNavigate) {
+    tenantKey = tenantKey || 'apex';
+    currentMobileSelectedTenant = tenantKey;
+
+    localStorage.setItem('active_tenant', tenantKey);
+    localStorage.setItem('active_tenant_name', tenantDetails[tenantKey]?.name || 'Apex Univ. of Technology');
+
     const sessionEmail = document.querySelector('.font-code-sm.text-primary-fixed');
+    if (sessionEmail && tenantDetails[tenantKey]) {
+      sessionEmail.textContent = tenantDetails[tenantKey].email;
+    }
 
-    let activeFilter = 'all';
-    let currentSelectedTenant = localStorage.getItem('active_tenant') || 'apex';
-
-    const tenantDetails = {
-      apex: { name: 'Apex Univ. of Technology', email: 'j.holloway@apex.edu' },
-      stanford: { name: 'Stanford University', email: 'j.holloway@stanford.edu' },
-      mit: { name: 'Mass. Institute of Technology', email: 'j.holloway@mit.edu' },
-      berkeley: { name: 'UC Berkeley', email: 'j.holloway@berkeley.edu' },
-      cmu: { name: 'Carnegie Mellon University', email: 'j.holloway@cmu.edu' }
-    };
-
-    function showToast(message, icon) {
-      icon = icon || 'check_circle';
-      let toast = document.getElementById('mobile-toast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'mobile-toast';
-        toast.style.cssText = 'position:fixed;top:80px;left:16px;right:16px;z-index:9999;transition:all 0.3s ease;';
-        document.body.appendChild(toast);
-      }
-      toast.className = 'flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary';
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateY(0)';
-      toast.innerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">' + icon + '</span><span class="font-label-sm text-label-sm font-semibold">' + message + '</span>';
+    const cards = document.querySelectorAll('.tenant-card');
+    cards.forEach(function(c) {
+      const isCurrent = (c === cardElement) || (c.getAttribute('data-tenant') === tenantKey);
+      c.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
       
-      clearTimeout(window.__mobileToastTimeout);
-      window.__mobileToastTimeout = setTimeout(function() {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(-20px)';
-      }, 2200);
-    }
+      const indicator = c.querySelector('.active-indicator');
+      const pill = c.querySelector('.radio-pill');
 
-    function selectCard(card, autoNavigate) {
-      const tenantKey = card.getAttribute('data-tenant') || 'apex';
-      currentSelectedTenant = tenantKey;
-
-      localStorage.setItem('active_tenant', tenantKey);
-      localStorage.setItem('active_tenant_name', tenantDetails[tenantKey]?.name || 'Apex Univ. of Technology');
-
-      if (sessionEmail && tenantDetails[tenantKey]) {
-        sessionEmail.textContent = tenantDetails[tenantKey].email;
-      }
-
-      cards.forEach(function(c) {
-        const isCurrent = c === card;
-        c.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
-        
-        const indicator = c.querySelector('.active-indicator');
-        const pill = c.querySelector('.radio-pill');
-
-        if (isCurrent) {
-          c.classList.remove('bg-surface-container-lowest', 'shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
-          c.classList.add('bg-surface-container-lowest', 'shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
-          if (indicator) {
-            indicator.classList.remove('hidden');
-            indicator.style.display = 'block';
-          }
-          if (pill) {
-            pill.className = 'radio-pill flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex-shrink-0';
-            pill.innerHTML = '<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span><span>Active</span>';
-          }
-        } else {
-          c.classList.remove('shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
-          c.classList.add('shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
-          if (indicator) {
-            indicator.classList.add('hidden');
-            indicator.style.display = 'none';
-          }
-          if (pill) {
-            pill.className = 'radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0';
-            pill.innerHTML = '<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>';
-          }
+      if (isCurrent) {
+        c.classList.remove('bg-surface-container-lowest', 'shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
+        c.classList.add('bg-surface-container-lowest', 'shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
+        if (indicator) {
+          indicator.classList.remove('hidden');
+          indicator.style.display = 'block';
         }
-      });
-
-      const name = tenantDetails[tenantKey]?.name || 'Workspace';
-      if (confirmBtnLabel) {
-        confirmBtnLabel.textContent = 'Switch to ' + name;
-      }
-
-      showToast('Selected: ' + name, 'domain');
-
-      if (autoNavigate) {
-        confirmWorkspaceSwitch();
-      }
-    }
-
-    function confirmWorkspaceSwitch() {
-      if (!confirmBtn) return;
-      confirmBtn.disabled = true;
-      confirmBtn.classList.add('opacity-90');
-      confirmBtnLabel.textContent = 'Connecting RLS Partition...';
-
-      setTimeout(function() {
-        confirmBtnLabel.textContent = 'Workspace Connected ✓';
-        confirmBtn.classList.remove('bg-primary');
-        confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
-        showToast('Partition Loaded • Redirecting...', 'sync_saved_locally');
-        setTimeout(function() {
-          window.location.href = '../campus_care_complaints_dashboard_mobile/code.html?tenant=' + currentSelectedTenant;
-        }, 500);
-      }, 700);
-    }
-
-    cards.forEach(function(card) {
-      card.addEventListener('click', function() {
-        selectCard(card, false);
-      });
-      let lastTap = 0;
-      card.addEventListener('touchend', function() {
-        const currentTime = new Date().getTime();
-        const tapLength = currentTime - lastTap;
-        if (tapLength < 500 && tapLength > 0) {
-          selectCard(card, true);
+        if (pill) {
+          pill.className = 'radio-pill flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex-shrink-0';
+          pill.innerHTML = '<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span><span>Active</span>';
         }
-        lastTap = currentTime;
-      });
+      } else {
+        c.classList.remove('shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
+        c.classList.add('shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
+        if (indicator) {
+          indicator.classList.add('hidden');
+          indicator.style.display = 'none';
+        }
+        if (pill) {
+          pill.className = 'radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0';
+          pill.innerHTML = '<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>';
+        }
+      }
     });
 
-    function applyFilterAndSearch() {
-      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
-      let visibleCount = 0;
-
-      cards.forEach(function(card) {
-        const text = card.textContent.toLowerCase();
-        const tags = card.getAttribute('data-tags') || '';
-        const matchesQuery = !query || text.includes(query);
-        const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
-
-        if (matchesQuery && matchesFilter) {
-          card.classList.remove('hidden');
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-          card.style.display = 'none';
-        }
-      });
-
-      if (noResults) {
-        if (visibleCount === 0) {
-          noResults.classList.remove('hidden');
-          noResults.style.display = 'flex';
-        } else {
-          noResults.classList.add('hidden');
-          noResults.style.display = 'none';
-        }
-      }
-
-      if (clearBtn) {
-        if (query.length > 0) {
-          clearBtn.classList.remove('hidden');
-          clearBtn.style.display = 'flex';
-        } else {
-          clearBtn.classList.add('hidden');
-          clearBtn.style.display = 'none';
-        }
-      }
-
-      if (clusterStatus) {
-        clusterStatus.textContent = visibleCount + ' Campus' + (visibleCount === 1 ? '' : 'es') + ' Found';
-      }
+    const name = tenantDetails[tenantKey]?.name || 'Workspace';
+    const confirmBtnLabel = document.getElementById('confirmBtnLabel');
+    if (confirmBtnLabel) {
+      confirmBtnLabel.textContent = 'Switch to ' + name;
     }
 
-    if (searchInput) {
-      searchInput.addEventListener('input', applyFilterAndSearch);
+    showMobileToast('Selected: ' + name, 'domain');
+
+    if (autoNavigate) {
+      confirmMobileWorkspace();
+    }
+  };
+
+  window.confirmMobileWorkspace = function() {
+    const confirmBtn = document.getElementById('confirmWorkspaceBtn');
+    const confirmBtnLabel = document.getElementById('confirmBtnLabel');
+    if (!confirmBtn) return;
+    
+    confirmBtn.disabled = true;
+    confirmBtn.classList.add('opacity-90');
+    if (confirmBtnLabel) confirmBtnLabel.textContent = 'Connecting RLS Partition...';
+
+    setTimeout(function() {
+      if (confirmBtnLabel) confirmBtnLabel.textContent = 'Workspace Connected ✓';
+      confirmBtn.classList.remove('bg-primary');
+      confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+      showMobileToast('Partition Loaded • Redirecting...', 'sync_saved_locally');
+      setTimeout(function() {
+        window.location.href = '../campus_care_complaints_dashboard_mobile/code.html?tenant=' + currentMobileSelectedTenant;
+      }, 500);
+    }, 700);
+  };
+
+  window.runMobileFilters = function(query) {
+    query = (query || '').trim().toLowerCase();
+    const cards = document.querySelectorAll('.tenant-card');
+    const noResults = document.getElementById('noResultsState');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const clusterStatus = document.getElementById('clusterStatusText');
+    let visibleCount = 0;
+
+    cards.forEach(function(card) {
+      const text = card.textContent.toLowerCase();
+      const tags = card.getAttribute('data-tags') || '';
+      const matchesQuery = !query || text.includes(query);
+      const matchesFilter = activeMobileFilter === 'all' || tags.includes(activeMobileFilter);
+
+      if (matchesQuery && matchesFilter) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      noResults.style.display = (visibleCount === 0) ? 'flex' : 'none';
     }
 
     if (clearBtn) {
-      clearBtn.addEventListener('click', function() {
-        searchInput.value = '';
-        applyFilterAndSearch();
-        searchInput.focus();
-      });
+      clearBtn.style.display = (query.length > 0) ? 'flex' : 'none';
     }
 
-    filterChips.forEach(function(chip) {
-      chip.addEventListener('click', function() {
-        filterChips.forEach(function(c) {
-          c.className = 'filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all';
-        });
-        chip.className = 'filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm';
-        activeFilter = chip.getAttribute('data-filter') || 'all';
-        applyFilterAndSearch();
-      });
+    if (clusterStatus) {
+      clusterStatus.textContent = visibleCount + ' Campus' + (visibleCount === 1 ? '' : 'es') + ' Found';
+    }
+  };
+
+  window.clearMobileSearch = function() {
+    const searchInput = document.getElementById('campusSearchInput');
+    if (searchInput) {
+      searchInput.value = '';
+      runMobileFilters('');
+      searchInput.focus();
+    }
+  };
+
+  window.applyMobileFilter = function(filterTag, chipElement) {
+    activeMobileFilter = filterTag;
+    const filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(function(c) {
+      c.className = 'filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all';
     });
-
-    if (confirmBtn) {
-      confirmBtn.addEventListener('click', confirmWorkspaceSwitch);
+    if (chipElement) {
+      chipElement.className = 'filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm';
     }
+    const searchInput = document.getElementById('campusSearchInput');
+    runMobileFilters(searchInput ? searchInput.value : '');
+  };
 
-    const initialCard = document.querySelector('.tenant-card[data-tenant="' + currentSelectedTenant + '"]') || cards[0];
-    if (initialCard) {
-      selectCard(initialCard, false);
-    }
+  // Init
+  const defaultCard = document.querySelector('.tenant-card[data-tenant="' + currentMobileSelectedTenant + '"]');
+  if (defaultCard) {
+    selectMobileTenant(currentMobileSelectedTenant, defaultCard, false);
   }
 </script></main></body></html>
