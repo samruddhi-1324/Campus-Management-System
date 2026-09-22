@@ -298,8 +298,16 @@
 </div>
 </div>
 </div>
+</div>
 <script>
-  (function initWorkspaceSwitcher() {
+  document.addEventListener('DOMContentLoaded', function() {
+    initWorkspaceSwitcher();
+  });
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initWorkspaceSwitcher();
+  }
+
+  function initWorkspaceSwitcher() {
     const searchInput = document.getElementById('campusSearchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
     const filterChips = document.querySelectorAll('.filter-chip');
@@ -321,22 +329,28 @@
       cmu: { name: 'Carnegie Mellon University', email: 'j.holloway@cmu.edu' }
     };
 
-    function showToast(message, icon = 'check_circle') {
+    function showToast(message, icon) {
+      icon = icon || 'check_circle';
       let toast = document.getElementById('mobile-toast');
       if (!toast) {
         toast = document.createElement('div');
         toast.id = 'mobile-toast';
-        toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 -translate-y-8 opacity-0 pointer-events-none';
+        toast.style.cssText = 'position:fixed;top:80px;left:16px;right:16px;z-index:9999;transition:all 0.3s ease;';
         document.body.appendChild(toast);
       }
-      toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 translate-y-0 opacity-100';
-      toast.innerHTML = `<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">${icon}</span><span class="font-label-sm text-label-sm font-semibold">${message}</span>`;
-      setTimeout(() => {
-        toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 -translate-y-8 opacity-0 pointer-events-none';
+      toast.className = 'flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary';
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+      toast.innerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">' + icon + '</span><span class="font-label-sm text-label-sm font-semibold">' + message + '</span>';
+      
+      clearTimeout(window.__mobileToastTimeout);
+      window.__mobileToastTimeout = setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-20px)';
       }, 2200);
     }
 
-    function selectCard(card, autoNavigate = false) {
+    function selectCard(card, autoNavigate) {
       const tenantKey = card.getAttribute('data-tenant') || 'apex';
       currentSelectedTenant = tenantKey;
 
@@ -347,7 +361,7 @@
         sessionEmail.textContent = tenantDetails[tenantKey].email;
       }
 
-      cards.forEach(c => {
+      cards.forEach(function(c) {
         const isCurrent = c === card;
         c.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
         
@@ -357,7 +371,10 @@
         if (isCurrent) {
           c.classList.remove('bg-surface-container-lowest', 'shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
           c.classList.add('bg-surface-container-lowest', 'shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
-          if (indicator) indicator.classList.remove('hidden');
+          if (indicator) {
+            indicator.classList.remove('hidden');
+            indicator.style.display = 'block';
+          }
           if (pill) {
             pill.className = 'radio-pill flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex-shrink-0';
             pill.innerHTML = '<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span><span>Active</span>';
@@ -365,7 +382,10 @@
         } else {
           c.classList.remove('shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
           c.classList.add('shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
-          if (indicator) indicator.classList.add('hidden');
+          if (indicator) {
+            indicator.classList.add('hidden');
+            indicator.style.display = 'none';
+          }
           if (pill) {
             pill.className = 'radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0';
             pill.innerHTML = '<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>';
@@ -378,7 +398,7 @@
         confirmBtnLabel.textContent = 'Switch to ' + name;
       }
 
-      showToast(`Selected: ${name}`, 'domain');
+      showToast('Selected: ' + name, 'domain');
 
       if (autoNavigate) {
         confirmWorkspaceSwitch();
@@ -391,24 +411,23 @@
       confirmBtn.classList.add('opacity-90');
       confirmBtnLabel.textContent = 'Connecting RLS Partition...';
 
-      setTimeout(() => {
+      setTimeout(function() {
         confirmBtnLabel.textContent = 'Workspace Connected ✓';
         confirmBtn.classList.remove('bg-primary');
         confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
         showToast('Partition Loaded • Redirecting...', 'sync_saved_locally');
-        setTimeout(() => {
-          window.location.href = `../campus_care_complaints_dashboard_mobile/code.html?tenant=${currentSelectedTenant}`;
+        setTimeout(function() {
+          window.location.href = '../campus_care_complaints_dashboard_mobile/code.html?tenant=' + currentSelectedTenant;
         }, 500);
       }, 700);
     }
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        selectCard(card);
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        selectCard(card, false);
       });
-      // Double tap to enter immediately
       let lastTap = 0;
-      card.addEventListener('touchend', () => {
+      card.addEventListener('touchend', function() {
         const currentTime = new Date().getTime();
         const tapLength = currentTime - lastTap;
         if (tapLength < 500 && tapLength > 0) {
@@ -419,10 +438,10 @@
     });
 
     function applyFilterAndSearch() {
-      const query = (searchInput.value || '').trim().toLowerCase();
+      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
       let visibleCount = 0;
 
-      cards.forEach(card => {
+      cards.forEach(function(card) {
         const text = card.textContent.toLowerCase();
         const tags = card.getAttribute('data-tags') || '';
         const matchesQuery = !query || text.includes(query);
@@ -430,25 +449,31 @@
 
         if (matchesQuery && matchesFilter) {
           card.classList.remove('hidden');
+          card.style.display = 'flex';
           visibleCount++;
         } else {
           card.classList.add('hidden');
+          card.style.display = 'none';
         }
       });
 
       if (noResults) {
         if (visibleCount === 0) {
           noResults.classList.remove('hidden');
+          noResults.style.display = 'flex';
         } else {
           noResults.classList.add('hidden');
+          noResults.style.display = 'none';
         }
       }
 
       if (clearBtn) {
         if (query.length > 0) {
           clearBtn.classList.remove('hidden');
+          clearBtn.style.display = 'flex';
         } else {
           clearBtn.classList.add('hidden');
+          clearBtn.style.display = 'none';
         }
       }
 
@@ -462,21 +487,19 @@
     }
 
     if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
+      clearBtn.addEventListener('click', function() {
         searchInput.value = '';
         applyFilterAndSearch();
         searchInput.focus();
       });
     }
 
-    filterChips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        filterChips.forEach(c => {
-          c.classList.remove('active', 'bg-primary', 'text-on-primary');
-          c.classList.add('bg-surface-container', 'text-on-surface-variant');
+    filterChips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        filterChips.forEach(function(c) {
+          c.className = 'filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all';
         });
-        chip.classList.add('active', 'bg-primary', 'text-on-primary');
-        chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        chip.className = 'filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm';
         activeFilter = chip.getAttribute('data-filter') || 'all';
         applyFilterAndSearch();
       });
@@ -486,10 +509,9 @@
       confirmBtn.addEventListener('click', confirmWorkspaceSwitch);
     }
 
-    // Auto-select initial tenant
-    const initialCard = document.querySelector(`.tenant-card[data-tenant="${currentSelectedTenant}"]`);
+    const initialCard = document.querySelector('.tenant-card[data-tenant="' + currentSelectedTenant + '"]') || cards[0];
     if (initialCard) {
-      selectCard(initialCard);
+      selectCard(initialCard, false);
     }
-  })();
+  }
 </script></main></body></html>

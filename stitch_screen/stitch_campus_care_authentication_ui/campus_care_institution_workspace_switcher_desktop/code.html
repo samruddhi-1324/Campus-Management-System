@@ -505,67 +505,88 @@
 </section>
 <!-- Client-side Interactive Filtering Script -->
 <script>
-  (function initDesktopSwitcher() {
+  document.addEventListener('DOMContentLoaded', function() {
+    initDesktopSwitcher();
+  });
+  // Also run immediately in case DOM is already parsed
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initDesktopSwitcher();
+  }
+
+  function initDesktopSwitcher() {
     const searchInput = document.getElementById('institution-search');
     const headerSearch = document.querySelector('header input');
     const tenantCards = document.querySelectorAll('.tenant-card');
     const filterButtons = document.querySelectorAll('.campus-filter-btn');
     const noTenantsState = document.getElementById('no-tenants-state');
     const tenantsGrid = document.getElementById('tenants-grid');
-    const nodeCountBadge = document.querySelector('.font-code-sm.bg-surface-container-high');
-    const viewButtons = document.querySelectorAll('button:has(.material-symbols-outlined)');
+    const nodeCountBadge = document.querySelector('section span.bg-surface-container-high');
 
-    // Stored tenant details
     const tenantData = {
-      'apex': { name: 'Apex University of Tech', domain: 'apex.edu', code: 'TENANT-0941', initial: 'A' },
-      'stanford': { name: 'Stanford University', domain: 'stanford.edu', code: 'TENANT-CA-4100', initial: 'S' },
-      'mit': { name: 'Mass. Institute of Tech', domain: 'mit.edu', code: 'TENANT-MA-0213', initial: 'M' },
-      'berkeley': { name: 'UC Berkeley', domain: 'berkeley.edu', code: 'TENANT-CA-9472', initial: 'C' },
-      'cmu': { name: 'Carnegie Mellon University', domain: 'cmu.edu', code: 'TENANT-PA-1521', initial: 'CM' },
+      'apex': { name: 'Apex University of Technology', domain: 'apex.edu', code: 'TENANT-0941', initial: 'AU' },
+      'stanford': { name: 'Stanford University', domain: 'stanford.edu', code: 'TENANT-CA-4100', initial: 'SU' },
+      'mit': { name: 'Massachusetts Inst. of Tech', domain: 'mit.edu', code: 'TENANT-MA-0213', initial: 'MIT' },
+      'berkeley': { name: 'UC Berkeley', domain: 'berkeley.edu', code: 'TENANT-CA-9472', initial: 'CAL' },
+      'cmu': { name: 'Carnegie Mellon University', domain: 'cmu.edu', code: 'TENANT-PA-1521', initial: 'CMU' },
       'uw': { name: 'University of Washington', domain: 'uw.edu', code: 'TENANT-WA-9819', initial: 'UW' }
     };
 
     let currentSelectedTenant = localStorage.getItem('active_tenant') || 'apex';
     let currentActiveFilter = 'all';
 
-    // Toast feedback function
-    function showToast(message, icon = 'check_circle', isError = false) {
+    function showToast(message, icon, isError) {
+      icon = icon || 'check_circle';
+      isError = isError || false;
       let toast = document.getElementById('desktop-toast');
       if (!toast) {
         toast = document.createElement('div');
         toast.id = 'desktop-toast';
-        toast.className = 'fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl text-on-primary transform transition-all duration-300 translate-y-12 opacity-0 pointer-events-none';
+        toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;transition:all 0.3s ease;';
         document.body.appendChild(toast);
       }
-      toast.className = `fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-xl shadow-2xl text-on-primary transform transition-all duration-300 translate-y-0 opacity-100 ${isError ? 'bg-error' : 'bg-primary'}`;
-      toast.innerHTML = `<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">${icon}</span><span class="font-label-lg text-label-lg">${message}</span>`;
-      setTimeout(() => {
-        toast.className = toast.className.replace('translate-y-0 opacity-100', 'translate-y-12 opacity-0 pointer-events-none');
+      toast.className = 'flex items-center gap-3 px-5 py-3.5 rounded-xl shadow-2xl text-on-primary ' + (isError ? 'bg-error' : 'bg-primary');
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+      toast.innerHTML = '<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">' + icon + '</span><span class="font-label-lg text-label-lg">' + message + '</span>';
+      
+      clearTimeout(window.__toastTimeout);
+      window.__toastTimeout = setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
       }, 2500);
     }
 
-    // Update the Top Live Session Provisioning Card
     function updateHeaderCard(tenantKey) {
       const data = tenantData[tenantKey] || tenantData['apex'];
-      const bannerCard = document.querySelector('section .bg-surface-container-lowest\\/10');
+      const bannerCard = document.querySelector('section .backdrop-blur-xl');
       if (bannerCard) {
         const initialEl = bannerCard.querySelector('.font-headline-sm');
         const nameEl = bannerCard.querySelector('.font-title-md');
         const domainEl = bannerCard.querySelector('.font-code-sm.text-primary-fixed-dim');
         if (initialEl) initialEl.textContent = data.initial;
         if (nameEl) nameEl.textContent = data.name;
-        if (domainEl) domainEl.textContent = `${data.domain} • Partition #${data.code}`;
+        if (domainEl) domainEl.textContent = data.domain + ' • Partition #' + data.code;
       }
-      // Update header bar right side
       const headerLabel = document.querySelector('header .font-label-sm.text-primary');
       const headerCode = document.querySelector('header .font-code-sm.text-on-surface-variant');
       if (headerLabel) headerLabel.textContent = data.name;
       if (headerCode) headerCode.textContent = data.code;
     }
 
-    // Highlight selected card UI
-    function selectTenantCard(card, navigateNow = false) {
-      tenantCards.forEach(c => {
+    function getCardTenantKey(card) {
+      const heading = card.querySelector('h3');
+      if (!heading) return 'apex';
+      const text = heading.textContent.toLowerCase();
+      if (text.includes('stanford')) return 'stanford';
+      if (text.includes('mass') || text.includes('mit')) return 'mit';
+      if (text.includes('berkeley')) return 'berkeley';
+      if (text.includes('carnegie') || text.includes('cmu')) return 'cmu';
+      if (text.includes('washington') || text.includes('uw')) return 'uw';
+      return 'apex';
+    }
+
+    function selectTenantCard(card, navigateNow) {
+      tenantCards.forEach(function(c) {
         c.classList.remove('ring-2', 'ring-primary', 'shadow-xl');
         c.classList.add('shadow-sm');
         const topBar = c.querySelector('.absolute.top-0');
@@ -576,18 +597,17 @@
         const actionArea = c.querySelector('.pt-space-md');
         if (actionArea) {
           const statusDiv = actionArea.firstElementChild;
-          if (statusDiv && statusDiv.tagName === 'DIV') {
-            statusDiv.innerHTML = `<span class="text-code-sm font-code-sm text-outline">Shared Institutional View</span>`;
+          if (statusDiv) {
+            statusDiv.innerHTML = '<span class="text-code-sm font-code-sm text-outline">Shared Institutional View</span>';
           }
           const btn = actionArea.querySelector('button');
           if (btn) {
             btn.className = 'px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-primary hover:text-on-primary text-primary font-label-lg text-label-lg transition-all shadow-sm flex items-center gap-space-xs';
-            btn.innerHTML = `<span>Switch Workspace</span><span class="material-symbols-outlined text-[16px]">swap_horiz</span>`;
+            btn.innerHTML = '<span>Switch Workspace</span><span class="material-symbols-outlined text-[16px]">swap_horiz</span>';
           }
         }
       });
 
-      // Activate current card
       card.classList.add('ring-2', 'ring-primary', 'shadow-xl');
       card.classList.remove('shadow-sm');
       const topBar = card.querySelector('.absolute.top-0');
@@ -598,49 +618,38 @@
       const actionArea = card.querySelector('.pt-space-md');
       if (actionArea) {
         const statusDiv = actionArea.firstElementChild;
-        if (statusDiv && statusDiv.tagName === 'DIV') {
-          statusDiv.innerHTML = `<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[18px]">radio_button_checked</span><span>Current Selection</span></div>`;
+        if (statusDiv) {
+          statusDiv.innerHTML = '<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[18px]">radio_button_checked</span><span>Current Selection</span></div>';
         }
         const btn = actionArea.querySelector('button');
         if (btn) {
           btn.className = 'px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-md flex items-center gap-space-xs';
-          btn.innerHTML = `<span>Enter Workspace</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>`;
+          btn.innerHTML = '<span>Enter Workspace</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>';
         }
       }
 
-      // Find tenant key
-      const heading = card.querySelector('h3');
-      let tenantKey = 'apex';
-      if (heading) {
-        const text = heading.textContent.toLowerCase();
-        if (text.includes('stanford')) tenantKey = 'stanford';
-        else if (text.includes('mass') || text.includes('mit')) tenantKey = 'mit';
-        else if (text.includes('berkeley')) tenantKey = 'berkeley';
-        else if (text.includes('mellon') || text.includes('cmu')) tenantKey = 'cmu';
-        else if (text.includes('washington')) tenantKey = 'uw';
-      }
-
+      const tenantKey = getCardTenantKey(card);
       currentSelectedTenant = tenantKey;
       localStorage.setItem('active_tenant', tenantKey);
-      localStorage.setItem('active_tenant_name', tenantData[tenantKey]?.name || 'Apex University of Tech');
+      localStorage.setItem('active_tenant_name', tenantData[tenantKey]?.name || 'Apex University of Technology');
       updateHeaderCard(tenantKey);
 
       if (navigateNow) {
-        showToast(`Connecting to ${tenantData[tenantKey]?.name}...`, 'swap_horiz');
-        setTimeout(() => {
-          window.location.href = `../campus_care_complaints_dashboard_desktop/code.html?tenant=${tenantKey}`;
-        }, 600);
+        showToast('Connecting to ' + tenantData[tenantKey].name + '...', 'swap_horiz');
+        setTimeout(function() {
+          window.location.href = '../campus_care_complaints_dashboard_desktop/code.html?tenant=' + tenantKey;
+        }, 500);
       } else {
-        showToast(`Workspace selected: ${tenantData[tenantKey]?.name}`, 'verified');
+        showToast('Workspace selected: ' + tenantData[tenantKey].name, 'verified');
       }
     }
 
-    // Attach click events to cards and action buttons
-    tenantCards.forEach(card => {
+    // Attach card click handlers
+    tenantCards.forEach(function(card) {
       card.style.cursor = 'pointer';
-      card.addEventListener('click', (e) => {
-        const isButton = e.target.closest('button');
-        if (isButton) {
+      card.addEventListener('click', function(e) {
+        const btn = e.target.closest('button');
+        if (btn) {
           selectTenantCard(card, true);
         } else {
           selectTenantCard(card, false);
@@ -648,44 +657,50 @@
       });
     });
 
-    // Filtering logic
+    // Search & Filter Logic
     function runFilters() {
       const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
       let visibleCount = 0;
 
-      tenantCards.forEach(card => {
+      tenantCards.forEach(function(card) {
         const text = card.textContent.toLowerCase();
         const matchesQuery = !query || text.includes(query);
         let matchesFilter = true;
 
         if (currentActiveFilter === 'verified') {
-          matchesFilter = card.dataset.verified === 'true';
+          matchesFilter = card.getAttribute('data-verified') === 'true';
         } else if (currentActiveFilter === 'enrolled') {
-          matchesFilter = card.dataset.enrolled === 'true';
+          matchesFilter = card.getAttribute('data-enrolled') === 'true';
         } else if (currentActiveFilter === 'incidents') {
-          matchesFilter = parseInt(card.dataset.incidents || '0') > 25;
+          matchesFilter = parseInt(card.getAttribute('data-incidents') || '0', 10) > 25;
         }
 
         if (matchesQuery && matchesFilter) {
           card.classList.remove('hidden');
+          card.style.display = 'flex';
           visibleCount++;
         } else {
           card.classList.add('hidden');
+          card.style.display = 'none';
         }
       });
 
       if (nodeCountBadge) {
-        nodeCountBadge.textContent = `${visibleCount} Active Node${visibleCount === 1 ? '' : 's'}`;
+        nodeCountBadge.textContent = visibleCount + ' Active Node' + (visibleCount === 1 ? '' : 's');
       }
 
       if (visibleCount === 0) {
-        noTenantsState.classList.remove('hidden');
-        noTenantsState.classList.add('flex');
-        tenantsGrid.classList.add('hidden');
+        if (noTenantsState) {
+          noTenantsState.classList.remove('hidden');
+          noTenantsState.style.display = 'flex';
+        }
+        if (tenantsGrid) tenantsGrid.classList.add('hidden');
       } else {
-        noTenantsState.classList.add('hidden');
-        noTenantsState.classList.remove('flex');
-        tenantsGrid.classList.remove('hidden');
+        if (noTenantsState) {
+          noTenantsState.classList.add('hidden');
+          noTenantsState.style.display = 'none';
+        }
+        if (tenantsGrid) tenantsGrid.classList.remove('hidden');
       }
     }
 
@@ -694,7 +709,7 @@
     }
 
     if (headerSearch) {
-      headerSearch.addEventListener('input', (e) => {
+      headerSearch.addEventListener('input', function(e) {
         if (searchInput) {
           searchInput.value = e.target.value;
           runFilters();
@@ -702,57 +717,59 @@
       });
     }
 
-    // Keyboard shortcut Cmd+K / Ctrl+K
-    window.addEventListener('keydown', (e) => {
+    window.addEventListener('keydown', function(e) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         if (searchInput) searchInput.focus();
       }
     });
 
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-          b.classList.remove('bg-primary', 'text-on-primary');
-          b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+    filterButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(function(b) {
+          b.className = 'campus-filter-btn px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-all';
         });
-        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
-        btn.classList.add('bg-primary', 'text-on-primary');
-
-        currentActiveFilter = btn.dataset.filter;
+        btn.className = 'campus-filter-btn px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg bg-primary text-on-primary shadow-sm transition-all';
+        currentActiveFilter = btn.getAttribute('data-filter') || 'all';
         runFilters();
       });
     });
 
     // Grid vs List view toggle
-    const viewButtonsList = document.querySelectorAll('.flex.items-center.gap-1.bg-surface-container-low button');
-    if (viewButtonsList.length >= 2) {
-      const gridBtn = viewButtonsList[0];
-      const listBtn = viewButtonsList[1];
+    const viewButtons = document.querySelectorAll('section .flex.items-center.gap-1.bg-surface-container-low button');
+    if (viewButtons.length >= 2) {
+      const gridBtn = viewButtons[0];
+      const listBtn = viewButtons[1];
 
-      gridBtn.addEventListener('click', () => {
+      gridBtn.addEventListener('click', function() {
         gridBtn.className = 'p-1 rounded bg-surface-container-lowest text-primary shadow-sm';
         listBtn.className = 'p-1 rounded text-outline hover:text-on-surface';
-        tenantsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter';
+        if (tenantsGrid) {
+          tenantsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter';
+        }
       });
 
-      listBtn.addEventListener('click', () => {
+      listBtn.addEventListener('click', function() {
         listBtn.className = 'p-1 rounded bg-surface-container-lowest text-primary shadow-sm';
         gridBtn.className = 'p-1 rounded text-outline hover:text-on-surface';
-        tenantsGrid.className = 'grid grid-cols-1 gap-gutter';
-      });
-    }
-
-    // Request Domain Link Button
-    const domainLinkBtn = document.querySelector('button:has(.material-symbols-outlined:contains("domain_add"))') || document.querySelectorAll('section button')[document.querySelectorAll('section button').length - 1];
-    if (domainLinkBtn) {
-      domainLinkBtn.addEventListener('click', () => {
-        const domain = prompt('Enter the collegiate domain to request federated link (e.g. harvard.edu, princeton.edu):');
-        if (domain && domain.trim()) {
-          showToast(`Federation request dispatched for ${domain.trim()}`, 'domain_verification');
+        if (tenantsGrid) {
+          tenantsGrid.className = 'grid grid-cols-1 gap-gutter';
         }
       });
     }
+
+    // Domain Request Button
+    const domainButtons = document.querySelectorAll('button');
+    domainButtons.forEach(function(btn) {
+      if (btn.textContent.includes('Request Domain Link')) {
+        btn.addEventListener('click', function() {
+          const domain = prompt('Enter collegiate domain to request federation (e.g. harvard.edu, princeton.edu):');
+          if (domain && domain.trim()) {
+            showToast('Federation request dispatched for ' + domain.trim(), 'domain_verification');
+          }
+        });
+      }
+    });
 
     window.filterTenants = function(q) {
       if (searchInput) {
@@ -761,8 +778,7 @@
       }
     };
 
-    // Initialize with stored tenant or default
     updateHeaderCard(currentSelectedTenant);
-  })();
+  }
 </script>
 </div></main><footer class="w-full bg-surface-container-low border-t border-surface-container-high py-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">Campus Care Enterprise</span><span class="font-label-sm text-label-sm text-on-surface-variant">Collegiate Operations Infrastructure</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-sm text-label-sm"><a class="hover:text-primary transition-colors" href="#">Security &amp; Compliance</a><a class="hover:text-primary transition-colors" href="#">FERPA Governance</a><a class="hover:text-primary transition-colors" href="#">Institutional Support</a><span class="text-outline">© 2025 Campus Care Architecture</span></div></div></footer></body></html>
