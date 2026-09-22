@@ -7,6 +7,176 @@
     }
   </style>
   </head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+
+<!-- CAMPUS CARE MOBILE APP GLOBAL TOPBAR -->
+<div class="sticky top-0 z-[9999] bg-[#070235]/95 backdrop-blur-xl border-b border-white/15 px-3 py-2.5 flex items-center justify-between text-white shadow-lg">
+    <div class="flex items-center gap-2">
+        <a href="../campus_care_mobile_authentication/code.html" class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-slate-300 hover:text-white active:bg-white/20">
+            <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        </a>
+        <div>
+            <div class="flex items-center gap-1.5">
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-blue-400">Screen 02/14</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            </div>
+            <h2 class="text-xs font-bold text-white truncate max-w-[180px] leading-tight">Campus Switcher</h2>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+        <button onclick="document.getElementById('mobile-screen-drawer').classList.toggle('hidden')" class="px-2 py-1 rounded-lg bg-blue-600 text-white font-bold text-[11px] flex items-center gap-1 shadow-sm">
+            <span class="material-symbols-outlined text-[15px]">menu</span>
+            <span>All Pages</span>
+        </button>
+        <a href="../campus_care_institution_workspace_switcher_desktop/code.html" title="Switch to Desktop" class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">
+            <span class="material-symbols-outlined text-[18px]">desktop_windows</span>
+        </a>
+        <a href="../campus_care_unified_multi_channel_notification_center_mobile/code.html" class="relative w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">
+            <span class="material-symbols-outlined text-[18px]">notifications</span>
+            <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
+        </a>
+    </div>
+</div>
+
+<!-- Mobile Drawer Modal -->
+<div id="mobile-screen-drawer" class="hidden fixed inset-0 z-[10000] bg-black/80 backdrop-blur-md flex flex-col justify-end p-3 animate-fade-in">
+    <div class="bg-[#0c0836] border border-white/20 rounded-3xl p-4 max-h-[85vh] flex flex-col gap-3 shadow-2xl text-white">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-blue-400">account_tree</span>
+                <h3 class="font-bold text-sm">Campus Care Site Map (14 Screens)</h3>
+            </div>
+            <button onclick="document.getElementById('mobile-screen-drawer').classList.add('hidden')" class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-slate-300">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+        </div>
+        <div class="overflow-y-auto flex flex-col gap-1 pr-1 max-h-[60vh]">
+            
+        <a href="../campus_care_mobile_authentication/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">lock</span>
+                <span>01. Auth & Persona Switcher</span>
+            </div>
+            <span class="text-[10px] opacity-75">1/14</span>
+        </a>
+        
+        <a href="../campus_care_institution_workspace_switcher_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">domain</span>
+                <span>02. Institution Workspace Switcher</span>
+            </div>
+            <span class="text-[10px] opacity-75">2/14</span>
+        </a>
+        
+        <a href="../campus_care_complaints_dashboard_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">dashboard</span>
+                <span>03. Complaints Operations Dashboard</span>
+            </div>
+            <span class="text-[10px] opacity-75">3/14</span>
+        </a>
+        
+        <a href="../campus_care_issue_filing_form_with_voice_input_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">mic</span>
+                <span>04. Issue Filing Form & Voice AI</span>
+            </div>
+            <span class="text-[10px] opacity-75">4/14</span>
+        </a>
+        
+        <a href="../campus_care_issue_detail_lifecycle_resolution_tracker_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">track_changes</span>
+                <span>05. Resolution Lifecycle Tracker</span>
+            </div>
+            <span class="text-[10px] opacity-75">5/14</span>
+        </a>
+        
+        <a href="../campus_care_coordinator_triage_workspace_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+                <span>06. Coordinator Triage Desk</span>
+            </div>
+            <span class="text-[10px] opacity-75">6/14</span>
+        </a>
+        
+        <a href="../campus_care_maintenance_supervisor_sla_risk_radar_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">timer</span>
+                <span>07. SLA Risk Radar</span>
+            </div>
+            <span class="text-[10px] opacity-75">7/14</span>
+        </a>
+        
+        <a href="../campus_care_ai_natural_language_search_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">travel_explore</span>
+                <span>08. AI Semantic Search Engine</span>
+            </div>
+            <span class="text-[10px] opacity-75">8/14</span>
+        </a>
+        
+        <a href="../campus_care_equipment_fatigue_recurrence_radar_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">electric_bolt</span>
+                <span>09. Equipment Fatigue Radar</span>
+            </div>
+            <span class="text-[10px] opacity-75">9/14</span>
+        </a>
+        
+        <a href="../campus_care_executive_operations_analytics_dashboard_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">analytics</span>
+                <span>10. Executive Analytics Dashboard</span>
+            </div>
+            <span class="text-[10px] opacity-75">10/14</span>
+        </a>
+        
+        <a href="../campus_care_confidential_academic_grievance_form_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                <span>11. Confidential Academic Grievance</span>
+            </div>
+            <span class="text-[10px] opacity-75">11/14</span>
+        </a>
+        
+        <a href="../campus_care_unified_multi_channel_notification_center_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">notifications_active</span>
+                <span>12. Multi-Channel Notification Center</span>
+            </div>
+            <span class="text-[10px] opacity-75">12/14</span>
+        </a>
+        
+        <a href="../campus_care_academic_officer_review_disposition_workspace_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">gavel</span>
+                <span>13. Officer Review & Disposition</span>
+            </div>
+            <span class="text-[10px] opacity-75">13/14</span>
+        </a>
+        
+        <a href="../campus_care_ai_maintenance_recommendations_mobile/code.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/10 text-xs transition-colors">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+                <span>14. AI Predictive Maintenance Engine</span>
+            </div>
+            <span class="text-[10px] opacity-75">14/14</span>
+        </a>
+        
+        </div>
+        <div class="pt-2 border-t border-white/10 grid grid-cols-2 gap-2">
+            <a href="../index.html" class="py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-center font-bold text-xs text-slate-200">
+                🧭 Master Hub
+            </a>
+            <a href="../campus_care_institution_workspace_switcher_desktop/code.html" class="py-2.5 rounded-xl bg-blue-600 text-center font-bold text-xs text-white">
+                🖥️ Desktop View
+            </a>
+        </div>
+    </div>
+</div>
+<!-- END CAMPUS CARE MOBILE GLOBAL TOPBAR -->
+
 <!-- Sequential Step Tour Ribbon (Mobile) -->
 <div id="sequential-tour-bar-mobile" style="position:fixed;top:0.25rem;left:0.5rem;right:0.5rem;z-index:99999;background:rgba(7,2,53,0.96);backdrop-filter:blur(10px);color:#ffffff;padding:0.4rem 0.75rem;border-radius:0.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:11px;">
   <a href="../campus_care_mobile_authentication/code.html" style="padding:0.2rem 0.5rem;border-radius:0.35rem;background:rgba(255,255,255,0.15);color:#ffffff;font-weight:700;text-decoration:none;font-size:10px;">◀ Prev</a>
@@ -489,4 +659,30 @@
   if (defaultCard) {
     selectMobileTenant(currentMobileSelectedTenant, defaultCard, false);
   }
-</script></main></body></html>
+</script></main>
+<!-- CAMPUS CARE MOBILE STICKY BOTTOM NAVIGATION BAR -->
+<nav id="campus-care-mobile-bottom-nav" class="sticky bottom-0 z-[9990] bg-[#070235]/95 backdrop-blur-xl border-t border-white/15 px-2 py-1.5 flex items-center justify-around text-white shadow-2xl">
+    <a href="../campus_care_complaints_dashboard_mobile/code.html" class="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-slate-400">
+        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+        <span class="text-[9px]">Dashboard</span>
+    </a>
+    <a href="../campus_care_issue_filing_form_with_voice_input_mobile/code.html" class="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-slate-400">
+        <span class="material-symbols-outlined text-[20px]">add_circle</span>
+        <span class="text-[9px]">Report</span>
+    </a>
+    <a href="../campus_care_maintenance_supervisor_sla_risk_radar_mobile/code.html" class="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-slate-400">
+        <span class="material-symbols-outlined text-[20px]">timer</span>
+        <span class="text-[9px]">SLA Radar</span>
+    </a>
+    <a href="../campus_care_confidential_academic_grievance_form_mobile/code.html" class="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-slate-400">
+        <span class="material-symbols-outlined text-[20px]">verified_user</span>
+        <span class="text-[9px]">Grievance</span>
+    </a>
+    <a href="../campus_care_complaints_dashboard_mobile/code.html" class="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20">
+        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        <span class="text-[9px]">Next Step</span>
+    </a>
+</nav>
+<!-- END CAMPUS CARE MOBILE BOTTOM BAR -->
+
+</body></html>
