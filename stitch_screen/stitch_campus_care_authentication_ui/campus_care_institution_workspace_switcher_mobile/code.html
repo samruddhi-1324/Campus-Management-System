@@ -48,11 +48,11 @@
 </div>
 <!-- Main Floating Operations Sheet -->
 <div class="relative -mt-4 bg-surface rounded-t-2xl px-gutter-mobile pt-space-md pb-32 flex flex-col gap-space-md">
-<!<!-- Sticky Search & Quick Filter Controls -->
+<!-- Sticky Search & Quick Filter Controls -->
 <div class="sticky top-16 z-30 -mx-gutter-mobile px-gutter-mobile py-2 bg-surface/90 backdrop-blur-lg">
 <div class="relative flex items-center w-full">
-<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-on-surface-variant pointer-events-none">domain_verification</span>
-<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] focus:outline-none focus:bg-surface-container-lowest placeholder:text-outline" id="campusSearchInput" oninput="runMobileFilters(this.value)" placeholder="Search university, campus or domain..." type="text"/>
+<span class="material-symbols-outlined absolute left-3.5 text-[22px] text-secondary pointer-events-none">search</span>
+<input class="w-full h-12 pl-11 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md border-2 border-secondary/30 focus:border-secondary shadow-sm focus:outline-none placeholder:text-on-surface-variant/70 transition-all" id="campusSearchInput" oninput="runMobileFilters(this.value)" placeholder="Search university, campus or domain (e.g. mit, stanford)..." type="search"/>
 <button class="hidden absolute right-3 w-6 h-6 flex items-center justify-center text-outline hover:text-primary" id="clearSearchBtn" onclick="clearMobileSearch()" style="display:none;">
 <span class="material-symbols-outlined text-[18px]">close</span>
 </button>
