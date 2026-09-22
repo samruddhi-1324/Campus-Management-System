@@ -118,16 +118,16 @@
 <div class="flex items-center gap-3 overflow-x-auto pb-1">
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex-shrink-0 font-bold">Suggested Query Prompts:</span>
 <div class="flex items-center gap-2">
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors" type="button">
+<button onclick="setQueryText('Projector thermal shutdowns during CS lectures')" class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-secondary-fixed/40 text-on-surface-variant hover:text-primary text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors cursor-pointer" type="button">
           “Projector thermal shutdowns during CS lectures”
         </button>
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors" type="button">
+<button onclick="setQueryText('AC failures exceeding $4,000 repair cost')" class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-secondary-fixed/40 text-on-surface-variant hover:text-primary text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors cursor-pointer" type="button">
           “AC failures exceeding $4,000 repair cost”
         </button>
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors" type="button">
+<button onclick="setQueryText('Biohazard fume hood alerts pending inspection')" class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-secondary-fixed/40 text-on-surface-variant hover:text-primary text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors cursor-pointer" type="button">
           “Biohazard fume hood alerts pending inspection”
         </button>
-<button class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors" type="button">
+<button onclick="setQueryText('Academic exam grievances filed under 48h SLA')" class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-secondary-fixed/40 text-on-surface-variant hover:text-primary text-body-md font-body-md shadow-sm whitespace-nowrap transition-colors cursor-pointer" type="button">
           “Academic exam grievances filed under 48h SLA”
         </button>
 </div>
@@ -482,6 +482,16 @@
 </div>
 </div>
 <script>
+    function setQueryText(text) {
+      const searchInput = document.getElementById('semantic-query-input');
+      if (searchInput) {
+        searchInput.value = text;
+        searchInput.focus();
+        searchInput.classList.add('ring-2', 'ring-secondary');
+        setTimeout(() => searchInput.classList.remove('ring-2', 'ring-secondary'), 800);
+      }
+    }
+
     (function initSearchInteractivity() {
       const searchInput = document.getElementById('semantic-query-input');
       const clearBtn = document.getElementById('clear-query-btn');
@@ -503,6 +513,7 @@
           } else {
             voiceBtn.classList.add('bg-secondary-container', 'text-on-secondary');
             voiceBtn.classList.remove('bg-surface-container-low', 'text-secondary');
+            alert('🎙️ AI Semantic Voice Recognition active. Speak your search prompt.');
           }
         });
       }

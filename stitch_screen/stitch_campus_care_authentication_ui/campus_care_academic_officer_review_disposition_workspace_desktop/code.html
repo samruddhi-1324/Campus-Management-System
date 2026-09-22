@@ -418,16 +418,16 @@
 </div>
 <!-- Primary Action Commit Block -->
 <div class="flex flex-col gap-space-sm pt-space-xs">
-<button class="w-full py-3.5 px-space-lg rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-lg transition-all flex items-center justify-center gap-space-sm group">
+<button onclick="commitDisposition(this)" class="w-full py-3.5 px-space-lg rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-lg transition-all flex items-center justify-center gap-space-sm group cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[20px] text-secondary-fixed group-hover:scale-110 transition-transform">lock</span>
 <span>Commit Disposition &amp; Seal Record →</span>
 </button>
 <div class="flex items-center gap-space-xs">
-<button class="flex-1 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1">
+<button onclick="alert('💾 Confidential Deliberation Draft auto-saved to Cryptographic Vault.');" class="flex-1 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px]">save</span>
                 Save Deliberation Draft
               </button>
-<button class="flex-1 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1">
+<button onclick="alert('📋 Formal evidentiary supplement requested from Department Chair.');" class="flex-1 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px]">help_center</span>
                 Request Supplement
               </button>
@@ -451,11 +451,23 @@
 <span class="font-body-md text-[12px] text-on-surface-variant">Lead Institutional Ombudsperson • Case Liaison</span>
 </div>
 </div>
-<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-bold transition-colors flex items-center gap-1">
+<button onclick="alert('✉️ Secure concierge channel opened with Dr. Elena Rostova (Lead Institutional Ombudsperson).')" class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-bold transition-colors flex items-center gap-1 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px] text-secondary">mail</span> Concierge Dispatch
           </button>
 </div>
 </aside>
 </div>
 </div>
+<script>
+  function commitDisposition(btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>Sealing Cryptographic Ledger...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">verified</span><span>Disposition Sealed & Docket Archived ✓</span>';
+      btn.classList.remove('bg-primary');
+      btn.classList.add('bg-emerald-700');
+      alert('🔒 Hearing Disposition Sealed.\n\nDocket #AG-2025-0842 formally entered into Registrar Audit Ledger.\nFERPA Air-Gap Hash: SHA256-e981...042b');
+    }, 1000);
+  }
+</script>
 </div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-lg"><div class="px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-label-sm text-label-sm"><div><span>University Hearing Board • Confidential Disposition Protocol FERPA/Title IX Cleared</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-primary transition-colors" href="#">Charter Bylaws</a><a class="hover:text-primary transition-colors" href="#">Ombuds Confidentiality Standard</a><a class="hover:text-primary transition-colors" href="#">Cryptographic Audit Log</a></div></div></footer></body></html>
