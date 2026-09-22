@@ -52,37 +52,28 @@
 <div class="flex flex-1 items-center gap-space-sm">
 <div class="relative flex-1 max-w-md">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
-<input class="w-full h-10 pl-10 pr-4 bg-surface-container-low text-on-surface placeholder-on-surface-variant font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Search ticket reference, location, or equipment..." type="text" value=""/>
+<input id="desktopSearchInput" oninput="filterDesktopTickets()" class="w-full h-10 pl-10 pr-4 bg-surface-container-low text-on-surface placeholder-on-surface-variant font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Search ticket reference, location, or equipment (e.g. ac, wifi, projector)..." type="search" value=""/>
 </div>
 <!-- Filter: Category Dropdown -->
 <div class="relative">
-<select class="h-10 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-lg text-label-lg rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-all">
-<option>Category: All Facilities</option>
-<option>HVAC &amp; Climate Control</option>
-<option>IT &amp; Campus Wi-Fi</option>
-<option>Auditorium AV &amp; Projectors</option>
-<option>Laboratory &amp; Bio-Safety</option>
+<select id="desktopCategorySelect" onchange="filterDesktopTickets()" class="h-10 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-lg text-label-lg rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-all">
+<option value="all">Category: All Facilities</option>
+<option value="hvac">HVAC &amp; Climate Control</option>
+<option value="wifi">IT &amp; Campus Wi-Fi</option>
+<option value="av">Auditorium AV &amp; Projectors</option>
+<option value="lab">Laboratory &amp; Bio-Safety</option>
 </select>
 <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
 </div>
 <!-- Filter: Urgency -->
 <div class="relative">
-<select class="h-10 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-lg text-label-lg rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-all">
-<option>Urgency: All Prioritizations</option>
-<option>Critical &amp; High SLA Risk</option>
-<option>Medium / Standard Operations</option>
-<option>Low / Informational</option>
+<select id="desktopUrgencySelect" onchange="filterDesktopTickets()" class="h-10 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-lg text-label-lg rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-all">
+<option value="all">Urgency: All Prioritizations</option>
+<option value="critical">Critical &amp; High SLA Risk</option>
+<option value="standard">Medium / Standard Operations</option>
+<option value="low">Low / Informational</option>
 </select>
 <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
-</div>
-<!-- Sort -->
-<div class="relative hidden sm:block">
-<select class="h-10 pl-3 pr-8 bg-surface-container-low text-on-surface-variant font-label-lg text-label-lg rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-all">
-<option>Sort: SLA Deadline</option>
-<option>Sort: Newest Submissions</option>
-<option>Sort: Urgency Score (High to Low)</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">sort</span>
 </div>
 </div>
 <!-- Action CTA -->
@@ -98,16 +89,16 @@
 <div class="px-space-xl pb-space-xl">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
 <!-- Left Column: Tickets Stream (Width ~45% = 5 cols on 12-grid, stretched) -->
-<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="lg:col-span-5 flex flex-col gap-space-md" id="ticketsQueueContainer">
 <div class="flex items-center justify-between px-space-xs">
 <div class="flex items-center gap-space-xs">
 <span class="font-headline-sm text-headline-sm text-primary">Live Influx Queue</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm font-semibold">4 Open</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm font-semibold" id="queueCountBadge">4 Open</span>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Auto-sync Active</span>
 </div>
 <!-- Card 1: SELECTED / ACTIVE ITEM (Ref #CC-8492) -->
-<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" onclick="selectTicket(this, 'CC-8492')">
+<div class="ticket-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" data-category="hvac" data-urgency="critical" data-ref="CC-8492" onclick="selectTicket(this, 'CC-8492')">
 <!-- Active Left Rail Accent -->
 <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
 <div class="pl-space-xs">
@@ -151,7 +142,7 @@
 </div>
 </div>
 <!-- Card 2: Ref #CC-8479 (IT & Wi-Fi) -->
-<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" onclick="selectTicket(this, 'CC-8479')">
+<div class="ticket-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" data-category="wifi" data-urgency="standard" data-ref="CC-8479" onclick="selectTicket(this, 'CC-8479')">
 <div class="flex items-center justify-between gap-space-xs mb-space-xs">
 <div class="flex items-center gap-space-xs flex-wrap">
 <span class="font-code-sm text-code-sm font-bold text-on-surface-variant tracking-wide">Ref #CC-8479</span>
@@ -187,7 +178,7 @@
 </div>
 </div>
 <!-- Card 3: Ref #CC-8461 (AV Projector) -->
-<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" onclick="selectTicket(this, 'CC-8461')">
+<div class="ticket-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" data-category="av" data-urgency="low" data-ref="CC-8461" onclick="selectTicket(this, 'CC-8461')">
 <div class="flex items-center justify-between gap-space-xs mb-space-xs">
 <div class="flex items-center gap-space-xs flex-wrap">
 <span class="font-code-sm text-code-sm font-bold text-on-surface-variant tracking-wide">Ref #CC-8461</span>
@@ -219,7 +210,7 @@
 </div>
 </div>
 <!-- Card 4: Ref #CC-8430 (Needs Confirmation Actionable) -->
-<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" onclick="selectTicket(this, 'CC-8430')">
+<div class="ticket-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all duration-200 group overflow-hidden" data-category="lab" data-urgency="standard" data-ref="CC-8430" onclick="selectTicket(this, 'CC-8430')">
 <div class="flex items-center justify-between gap-space-xs mb-space-xs">
 <div class="flex items-center gap-space-xs flex-wrap">
 <span class="font-code-sm text-code-sm font-bold text-on-surface-variant tracking-wide">Ref #CC-8430</span>
@@ -248,51 +239,50 @@
 <span class="material-symbols-outlined text-secondary text-[20px]">help_center</span>
 <span class="font-label-sm text-label-sm text-on-surface truncate">Awaiting Your Confirmation (Did this fix it?)</span>
 </div>
-<button class="px-space-sm py-1 bg-secondary text-on-secondary rounded font-label-sm text-label-sm hover:bg-secondary-container transition-colors shrink-0" type="button">
+<button class="px-space-sm py-1 bg-secondary text-on-secondary rounded font-label-sm text-label-sm hover:bg-secondary-container transition-colors shrink-0 cursor-pointer" onclick="event.stopPropagation(); alert('✓ Work Order #CC-8430 successfully confirmed & archived.');" type="button">
               Confirm Resolved
             </button>
+</div>
+</div>
 </div>
 </div>
 </div>
 <!-- Right Column: Sticky Elevated Detail Drawer (~55% = 7 cols on 12-grid) -->
 <div class="lg:col-span-7 lg:sticky lg:top-20 flex flex-col gap-space-md">
 <!-- Main Drawer Canvas -->
-<div class="bg-surface-container-lowest rounded-2xl shadow-xl p-space-lg flex flex-col gap-space-lg relative overflow-hidden">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl p-space-lg flex flex-col gap-space-lg relative overflow-hidden transition-all duration-300" id="drawer-main-canvas">
 <!-- Drawer Header -->
 <div class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-space-xs">
 <span class="font-code-sm text-code-sm font-bold text-secondary tracking-widest uppercase">Work Order Reference</span>
-<span class="font-code-sm text-code-sm font-bold text-primary bg-surface-container px-2 py-0.5 rounded">#CC-8492</span>
+<span class="font-code-sm text-code-sm font-bold text-primary bg-surface-container px-2 py-0.5 rounded" id="drawer-ref">#CC-8492</span>
 </div>
 <div class="flex items-center gap-space-xs">
-<button aria-label="Share case" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<button aria-label="Share case" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="alert('Case link copied to clipboard!')" type="button">
 <span class="material-symbols-outlined text-[20px]">share</span>
 </button>
-<button aria-label="Print or download case summary" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<button aria-label="Print or download case summary" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="window.print()" type="button">
 <span class="material-symbols-outlined text-[20px]">download</span>
 </button>
-<button aria-label="Case history menu" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
-<span class="material-symbols-outlined text-[20px]">more_vert</span>
-</button>
 </div>
 </div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight leading-snug">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight leading-snug" id="drawer-title">
               Classroom 204 AC Unit Malfunctioning / Loud rattling before exam
             </h2>
 <div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
-<span class="inline-flex items-center gap-1.5 bg-surface-container text-primary font-label-lg text-label-lg px-3 py-1 rounded-full font-medium">
+<span class="inline-flex items-center gap-1.5 bg-surface-container text-primary font-label-lg text-label-lg px-3 py-1 rounded-full font-medium" id="drawer-category">
 <span class="material-symbols-outlined text-[18px]">mode_fan</span>
-                HVAC Infrastructure
-              </span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant font-label-lg text-label-lg px-3 py-1 rounded-full">
+<span>HVAC Infrastructure</span>
+</span>
+<span class="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant font-label-lg text-label-lg px-3 py-1 rounded-full" id="drawer-location">
 <span class="material-symbols-outlined text-[18px] text-secondary">domain</span>
-                Packard Engineering Building, Room 204
-              </span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant font-label-lg text-label-lg px-3 py-1 rounded-full">
+<span>Packard Engineering Building, Room 204</span>
+</span>
+<span class="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface-variant font-label-lg text-label-lg px-3 py-1 rounded-full" id="drawer-reported">
 <span class="material-symbols-outlined text-[18px]">calendar_today</span>
-                Reported Oct 24, 10:12 AM
-              </span>
+<span>Reported Oct 24, 10:12 AM</span>
+</span>
 </div>
 </div>
 <!-- Live SLA Health Bar Indicator -->
@@ -302,111 +292,34 @@
 <span class="material-symbols-outlined text-secondary text-[20px]">timer</span>
 <span class="font-label-lg text-label-lg font-bold">Standard SLA Resolution Window</span>
 </div>
-<span class="font-code-sm text-code-sm font-bold text-error">78% Elapsed (42m Remaining)</span>
+<span class="font-code-sm text-code-sm font-bold text-error" id="drawer-sla-status">78% Elapsed (42m Remaining)</span>
 </div>
 <!-- Progress Track -->
 <div class="w-full h-2.5 bg-surface-container-highest rounded-full overflow-hidden flex">
-<div class="h-full bg-secondary-container rounded-l-full" style="width: 60%;"></div>
-<div class="h-full bg-error" style="width: 18%;"></div>
+<div class="h-full bg-secondary-container rounded-l-full transition-all duration-500" id="drawer-sla-bar-primary" style="width: 60%;"></div>
+<div class="h-full bg-error transition-all duration-500" id="drawer-sla-bar-risk" style="width: 18%;"></div>
 <div class="h-full bg-transparent flex-1"></div>
 </div>
 <div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
-<span>Dispatched 10:12 AM</span>
-<span class="font-medium text-on-surface">Target SLA: 11:30 AM EST (Exam Session Starts 11:45 AM)</span>
+<span id="drawer-sla-dispatched">Dispatched 10:12 AM</span>
+<span class="font-medium text-on-surface" id="drawer-sla-target">Target SLA: 11:30 AM EST (Exam Session Starts 11:45 AM)</span>
 </div>
 </div>
 <!-- Academic & Facility Context Preview Photo -->
 <div class="relative rounded-xl overflow-hidden h-36 bg-surface-container shadow-inner">
-<img class="w-full h-full object-cover" data-alt="Interior wide photograph of modern university engineering lecture auditorium classroom 204 at Stanford with wooden tiered desks, vaulted acoustic ceiling, HVAC duct grates along the upper soffit, and bright architectural natural sunlight through tall windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2YKm5hLDPVFjubUw6VgfFSCkBtnr3zYUSIcNwyFfno25hxzVA_bXu_iQydlQt8410pFTNF06MueEqzFyDiWeaFMknXII_lw9efRuNi-X_sh4Sw6Ys_fR7mFEZIvvS6fxgQ0M-QjnvgBnLadLKj_Vxh7K9HZMX7SN_bmBO-vAGUyFwlbD_-WRJ32HrcaEvuGER2LSbklYqrSH8rZrGZklGr8DsePBGo327TWwgFsa8H2se7EtGBva_oA"/>
+<img class="w-full h-full object-cover" id="drawer-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2YKm5hLDPVFjubUw6VgfFSCkBtnr3zYUSIcNwyFfno25hxzVA_bXu_iQydlQt8410pFTNF06MueEqzFyDiWeaFMknXII_lw9efRuNi-X_sh4Sw6Ys_fR7mFEZIvvS6fxgQ0M-QjnvgBnLadLKj_Vxh7K9HZMX7SN_bmBO-vAGUyFwlbD_-WRJ32HrcaEvuGER2LSbklYqrSH8rZrGZklGr8DsePBGo327TWwgFsa8H2se7EtGBva_oA"/>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent flex items-end p-space-md">
 <div class="text-on-primary">
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed-dim">Site Inspection Zone</span>
-<p class="font-title-md text-title-md font-medium">Overhead Blower Assembly Unit 4-B — Acoustic Threshold Exceeded (68 dB)</p>
+<p class="font-title-md text-title-md font-medium" id="drawer-photo-title">Overhead Blower Assembly Unit 4-B — Acoustic Threshold Exceeded (68 dB)</p>
 </div>
 </div>
 </div>
-<!-- Lifecycle Progress Stepper (SRS / PRD Formal Progression) -->
+<!-- Lifecycle Progress Stepper -->
 <div class="bg-surface-container-low/60 rounded-xl p-space-md">
 <h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-md">Formal Resolution Pipeline</h3>
-<div class="relative flex flex-col gap-space-md">
-<!-- Step 1: Reported -->
-<div class="flex items-start gap-space-md relative">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 z-10">
-<span class="material-symbols-outlined text-[18px]">done</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg font-bold text-on-surface">1. Reported by Facility User</span>
-<span class="font-code-sm text-code-sm text-on-surface-variant">10:12 AM</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant text-xs">Logged by Prof. Sarah Lin (Dept of Electrical Eng).</p>
-</div>
-</div>
-<!-- Step 2: AI Classification -->
-<div class="flex items-start gap-space-md relative">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 z-10">
-<span class="material-symbols-outlined text-[18px]">done</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg font-bold text-on-surface">2. Understood by AI &amp; Classified</span>
-<span class="font-code-sm text-code-sm text-on-surface-variant">10:13 AM</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant text-xs">Acoustic disturbance mapped to Exam Schedule priority (Urgency rating: 9.2).</p>
-</div>
-</div>
-<!-- Step 3: Assigned -->
-<div class="flex items-start gap-space-md relative">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 z-10">
-<span class="material-symbols-outlined text-[18px]">done</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg font-bold text-on-surface">3. Dispatched to Dave Kovacs (HVAC Lead)</span>
-<span class="font-code-sm text-code-sm text-on-surface-variant">10:18 AM</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant text-xs">Work order accepted via Mobile Field Operations Console.</p>
-</div>
-</div>
-<!-- Step 4: Investigating (ACTIVE STATE) -->
-<div class="flex items-start gap-space-md relative">
-<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 z-10 animate-pulse">
-<span class="material-symbols-outlined text-[18px]">build</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg font-bold text-secondary">4. Investigating &amp; Action Taken (Active)</span>
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-container/10 text-secondary">In Progress</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface text-xs font-medium">Technician on-site at Packard Rm 204. Replacing worn blower drive belt.</p>
-</div>
-</div>
-<!-- Step 5: Marked Resolved (Pending) -->
-<div class="flex items-start gap-space-md relative opacity-45">
-<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 z-10">
-<span class="material-symbols-outlined text-[18px]">check_circle_outline</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg text-on-surface">5. Marked as Resolved</span>
-<span class="font-code-sm text-code-sm text-on-surface-variant">Est. 11:15 AM</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant text-xs">Ops team performance validation &amp; air volume test.</p>
-</div>
-</div>
-<!-- Step 6: Confirmed by User (Pending) -->
-<div class="flex items-start gap-space-md relative opacity-45">
-<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 z-10">
-<span class="material-symbols-outlined text-[18px]">verified_user</span>
-</div>
-<div class="flex-1 pt-0.5">
-<div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg text-on-surface">6. Final Confirmation by You</span>
-<span class="font-code-sm text-code-sm text-on-surface-variant">Pending</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant text-xs">Requires 1-click student/faculty sign-off to close out audit record.</p>
-</div>
-</div>
+<div class="relative flex flex-col gap-space-md" id="drawer-pipeline-container">
+<!-- Will be populated dynamically -->
 </div>
 </div>
 <!-- AI Insights & Advisory Card -->
@@ -420,9 +333,9 @@
 <span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">CampusCore AI Dispatch Engine</span>
 <span class="inline-flex items-center gap-1 bg-surface-container-lowest/10 px-2 py-0.5 rounded text-[10px] text-white">High Confidence</span>
 </div>
-<p class="font-body-md text-body-md text-surface-variant leading-relaxed">
-<strong class="text-white">AI Context:</strong> Classroom 204 is scheduled for <span class="text-secondary-fixed font-semibold">EE 214 Midterm Exam at 11:45 AM (94 seats)</span>. Technician Dave Kovacs was auto-routed with a spare drive-belt assembly kit based on mechanical sound frequency signature. Prior similar incident <span class="underline underline-offset-2">#CC-7210</span> resolved in 28 mins with no exam postponement.
-                </p>
+<p class="font-body-md text-body-md text-surface-variant leading-relaxed" id="drawer-ai-context">
+<strong class="text-white">AI Context:</strong> Classroom 204 is scheduled for <span class="text-secondary-fixed font-semibold">EE 214 Midterm Exam at 11:45 AM (94 seats)</span>. Technician Dave Kovacs was auto-routed with a spare drive-belt assembly kit based on mechanical sound frequency signature. Prior similar incident resolved in 28 mins.
+              </p>
 </div>
 </div>
 </div>
@@ -432,15 +345,15 @@
 <div class="space-y-space-sm">
 <!-- Message from Coordinator -->
 <div class="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 text-xs font-bold">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 text-xs font-bold" id="drawer-tech-initials">
                   DK
                 </div>
 <div class="flex-1 min-w-0">
 <div class="flex items-center justify-between">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold">Dave Kovacs (HVAC Field Lead)</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">10m ago</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold" id="drawer-tech-name">Dave Kovacs (HVAC Field Lead)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="drawer-tech-time">10m ago</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5" id="drawer-tech-msg">
                     "Arrived at Packard Rm 204 with replacement air intake fan. Testing motor vibration now. Noise will cease by 11:15 AM."
                   </p>
 </div>
@@ -455,7 +368,7 @@
 <span class="font-label-lg text-label-lg text-on-surface font-semibold">CampusCore Notification Engine</span>
 <span class="font-label-sm text-label-sm text-on-surface-variant">22m ago</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5" id="drawer-auto-msg">
                     Auto-notification dispatched via Stanford Mobile Push &amp; WhatsApp to Dean of Students and Exam Proctor.
                   </p>
 </div>
@@ -466,17 +379,17 @@
 <div class="pt-space-xs flex flex-col gap-space-xs">
 <div class="flex items-center gap-space-xs bg-surface-container-low rounded-lg p-1">
 <input class="flex-1 h-9 px-3 bg-transparent text-on-surface font-body-md text-body-md placeholder-on-surface-variant focus:outline-none" id="quickReplyInput" placeholder="Send direct message to Dave Kovacs..." type="text"/>
-<button class="h-9 px-4 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg flex items-center gap-1 hover:bg-primary-container transition-colors shrink-0" onclick="sendQuickReply()" type="button">
+<button class="h-9 px-4 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg flex items-center gap-1 hover:bg-primary-container transition-colors shrink-0 cursor-pointer" onclick="sendQuickReply()" type="button">
 <span>Send</span>
 <span class="material-symbols-outlined text-[16px]">send</span>
 </button>
 </div>
 <div class="flex items-center justify-between px-1">
-<button class="text-error font-label-sm text-label-sm hover:underline flex items-center gap-1" type="button">
+<button class="text-error font-label-sm text-label-sm hover:underline flex items-center gap-1 cursor-pointer" onclick="alert('Priority Escalation Notice sent to Department Supervisor & Operations Director.')" type="button">
 <span class="material-symbols-outlined text-[16px]">warning</span>
                 Request Immediate SLA Escalation
               </button>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Technician direct extension: x4920</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="drawer-tech-ext">Technician direct extension: x4920</span>
 </div>
 </div>
 </div>
@@ -485,8 +398,161 @@
 </div>
 </div>
 <script>
+  const ticketDatabase = {
+    'CC-8492': {
+      ref: '#CC-8492',
+      title: 'Classroom 204 AC Unit Malfunctioning / Loud rattling before exam',
+      category: 'HVAC Infrastructure',
+      icon: 'mode_fan',
+      location: 'Packard Engineering Building, Room 204',
+      reported: 'Reported Oct 24, 10:12 AM',
+      slaStatus: '78% Elapsed (42m Remaining)',
+      slaBarPrimary: '60%',
+      slaBarRisk: '18%',
+      slaDispatched: 'Dispatched 10:12 AM',
+      slaTarget: 'Target SLA: 11:30 AM EST (Exam Session Starts 11:45 AM)',
+      photoTitle: 'Overhead Blower Assembly Unit 4-B — Acoustic Threshold Exceeded (68 dB)',
+      aiContext: '<strong class="text-white">AI Context:</strong> Classroom 204 is scheduled for <span class="text-secondary-fixed font-semibold">EE 214 Midterm Exam at 11:45 AM (94 seats)</span>. Technician Dave Kovacs was auto-routed with a spare drive-belt assembly kit based on mechanical sound frequency signature.',
+      techInitials: 'DK',
+      techName: 'Dave Kovacs (HVAC Field Lead)',
+      techTime: '10m ago',
+      techMsg: '"Arrived at Packard Rm 204 with replacement air intake fan. Testing motor vibration now. Noise will cease by 11:15 AM."',
+      techExt: 'Technician direct extension: x4920',
+      autoMsg: 'Auto-notification dispatched via Mobile Push & WhatsApp to Dean of Students and Exam Proctor.',
+      pipeline: [
+        { title: '1. Reported by Facility User', time: '10:12 AM', desc: 'Logged by Prof. Sarah Lin (Dept of Electrical Eng).', status: 'done' },
+        { title: '2. Understood by AI & Classified', time: '10:13 AM', desc: 'Acoustic disturbance mapped to Exam Schedule priority (Urgency rating: 9.2).', status: 'done' },
+        { title: '3. Dispatched to Dave Kovacs (HVAC Lead)', time: '10:18 AM', desc: 'Work order accepted via Mobile Field Operations Console.', status: 'done' },
+        { title: '4. Investigating & Action Taken (Active)', time: 'In Progress', desc: 'Technician on-site at Packard Rm 204. Replacing worn blower drive belt.', status: 'active' },
+        { title: '5. Marked as Resolved', time: 'Est. 11:15 AM', desc: 'Ops team performance validation & air volume test.', status: 'pending' },
+        { title: '6. Final Confirmation by You', time: 'Pending', desc: 'Requires 1-click student/faculty sign-off to close out audit record.', status: 'pending' }
+      ]
+    },
+    'CC-8479': {
+      ref: '#CC-8479',
+      title: 'Main Quad Library 2nd Fl High-Density Wi-Fi Dropping',
+      category: 'IT & Wi-Fi Network',
+      icon: 'wifi',
+      location: 'Green Library, East Wing Stacks B',
+      reported: 'Reported Oct 24, 9:20 AM',
+      slaStatus: '45% Elapsed (2h 15m Remaining)',
+      slaBarPrimary: '45%',
+      slaBarRisk: '0%',
+      slaDispatched: 'Dispatched 9:25 AM',
+      slaTarget: 'Target SLA: 1:30 PM EST (Peak Study Hours)',
+      photoTitle: 'Green Library Stacks — Cisco Catalyst 9130 AP #14 Packet Loss Anomaly',
+      aiContext: '<strong class="text-white">AI Context:</strong> 4 separate student reports grouped via geo-clustering. AI diagnosed AP #14 channel overlap on 5GHz band with 42% retry rate.',
+      techInitials: 'SO',
+      techName: 'Sanjay Patel (Campus Network Ops)',
+      techTime: '25m ago',
+      techMsg: '"Pushed firmware recalibration to AP #14 and #15. RSSI coverage back to -58 dBm across study cubicles."',
+      techExt: 'Network NOC direct extension: x3100',
+      autoMsg: 'Grouped notification sent to 4 affected student reporting tokens.',
+      pipeline: [
+        { title: '1. Reported by Facility User', time: '9:20 AM', desc: 'Logged by 4 students via Campus Mobile app.', status: 'done' },
+        { title: '2. Understood by AI & Classified', time: '9:22 AM', desc: 'Auto-grouped 4 incidents into single cluster ticket #CC-8479.', status: 'done' },
+        { title: '3. Dispatched to Sanjay Patel (NOC)', time: '9:25 AM', desc: 'Assigned to Wireless Core Engineering team.', status: 'done' },
+        { title: '4. Investigating & Spectrum Analysis', time: 'Active', desc: 'Analyzing channel saturation and load balancing APs.', status: 'active' },
+        { title: '5. Marked as Resolved', time: 'Est. 12:30 PM', desc: 'Speed test benchmark verification (>150 Mbps).', status: 'pending' },
+        { title: '6. Final Confirmation by You', time: 'Pending', desc: 'Awaiting student confirmation prompt.', status: 'pending' }
+      ]
+    },
+    'CC-8461': {
+      ref: '#CC-8461',
+      title: 'Lecture Hall B 4K Projector HDMI Input Flicker',
+      category: 'Auditorium AV & Displays',
+      icon: 'videocam',
+      location: 'Hewlett Teaching Center, Room 200',
+      reported: 'Reported Oct 24, 8:40 AM',
+      slaStatus: '22% Elapsed (4h 30m Remaining)',
+      slaBarPrimary: '22%',
+      slaBarRisk: '0%',
+      slaDispatched: 'Dispatched 8:45 AM',
+      slaTarget: 'Target SLA: 2:00 PM EST (Interval before CS 106A Lecture)',
+      photoTitle: 'Hewlett 200 Podium AV Rack — Crestron 4K Matrix Switcher',
+      aiContext: '<strong class="text-white">AI Context:</strong> Intermittent EDID handshake drop detected on HDMI Podium AUX input. Scheduled for between-class window (2:15 PM) to prevent lecture interruption.',
+      techInitials: 'MC',
+      techName: 'Marcus Chen (AV Lead Specialist)',
+      techTime: '1h ago',
+      techMsg: '"Fiber transmitter module replacement staged in AV central inventory. Heading to Hewlett at 2:10 PM."',
+      techExt: 'AV Services direct extension: x8821',
+      autoMsg: 'Lecture hall instructor notified of scheduled maintenance window.',
+      pipeline: [
+        { title: '1. Reported by Facility User', time: '8:40 AM', desc: 'Logged by TA David Miller during morning seminar.', status: 'done' },
+        { title: '2. Understood by AI & Classified', time: '8:42 AM', desc: 'Categorized as Classroom AV / Non-blocking (Urgency 4.5).', status: 'done' },
+        { title: '3. Dispatched to Marcus Chen', time: '8:45 AM', desc: 'Assigned to AV Field Support queue.', status: 'done' },
+        { title: '4. Staged for Maintenance Window', time: 'Scheduled', desc: 'Scheduled between 2:15 PM – 2:45 PM interval.', status: 'active' },
+        { title: '5. Marked as Resolved', time: 'Est. 2:45 PM', desc: '4K 60Hz test pattern pass validation.', status: 'pending' },
+        { title: '6. Final Confirmation by You', time: 'Pending', desc: 'Confirmation requested post-lecture.', status: 'pending' }
+      ]
+    },
+    'CC-8430': {
+      ref: '#CC-8430',
+      title: 'Robotics Lab Chemical Exhaust Ventilation Hood Error',
+      category: 'Laboratory & Bio-Safety',
+      icon: 'science',
+      location: 'Gates Computer Science Building, Room B04',
+      reported: 'Reported Oct 23, 3:15 PM',
+      slaStatus: 'Resolved (100% SLA Compliance)',
+      slaBarPrimary: '100%',
+      slaBarRisk: '0%',
+      slaDispatched: 'Dispatched Oct 23',
+      slaTarget: 'Completed at 11:32 AM • Awaiting User Sign-off',
+      photoTitle: 'Gates B04 Bio-Safety Hood #3 — Airflow Velocity Nominal (102 FPM)',
+      aiContext: '<strong class="text-white">AI Context:</strong> Safety sensors verified safe operating pressure. Work order flagged as "Pending User Confirmation" per OSHA/Campus Compliance rule.',
+      techInitials: 'ER',
+      techName: 'Elena Rostova (Bio-Safety Engineer)',
+      techTime: 'Today at 11:32 AM',
+      techMsg: '"Exhaust motor re-calibrated; airflow sensor holding at nominal 100 FPM. Please test and confirm in your dashboard."',
+      techExt: 'Bio-Safety Emergency extension: x9911',
+      autoMsg: 'Resolution prompt dispatched to lab manager and student researcher.',
+      pipeline: [
+        { title: '1. Reported by Facility User', time: 'Oct 23', desc: 'Logged by Robotics PhD Candidate Alex Rivera.', status: 'done' },
+        { title: '2. Understood by AI & Classified', time: 'Oct 23', desc: 'Bio-safety priority flagged for prompt dispatch.', status: 'done' },
+        { title: '3. Dispatched to Elena Rostova', time: 'Oct 23', desc: 'Bio-Safety response unit dispatched.', status: 'done' },
+        { title: '4. Calibrated & Tested', time: '11:30 AM', desc: 'Fan motor re-wired and calibrated to 102 FPM.', status: 'done' },
+        { title: '5. Marked as Resolved by Ops', time: '11:32 AM', desc: 'Ops team passed safety certification.', status: 'done' },
+        { title: '6. Awaiting Your Confirmation', time: 'ACTION REQUIRED', desc: 'Please click Confirm Resolved to archive.', status: 'active' }
+      ]
+    }
+  };
+
+  function renderPipeline(pipeline) {
+    const container = document.getElementById('drawer-pipeline-container');
+    if (!container || !pipeline) return;
+    
+    container.innerHTML = pipeline.map(step => {
+      let iconHtml = '';
+      let textClass = 'text-on-surface';
+      let rowOpacity = '';
+
+      if (step.status === 'done') {
+        iconHtml = '<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0 z-10"><span class="material-symbols-outlined text-[18px]">done</span></div>';
+      } else if (step.status === 'active') {
+        iconHtml = '<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 z-10 animate-pulse"><span class="material-symbols-outlined text-[18px]">build</span></div>';
+        textClass = 'text-secondary';
+      } else {
+        iconHtml = '<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 z-10"><span class="material-symbols-outlined text-[18px]">schedule</span></div>';
+        rowOpacity = 'opacity-45';
+      }
+
+      return `
+        <div class="flex items-start gap-space-md relative ${rowOpacity}">
+          ${iconHtml}
+          <div class="flex-1 pt-0.5">
+            <div class="flex items-center justify-between">
+              <span class="font-label-lg text-label-lg font-bold ${textClass}">${step.title}</span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">${step.time}</span>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant text-xs mt-0.5">${step.desc}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
   function selectTicket(element, ticketRef) {
-    // Remove active styles from previous card
+    // 1. Remove active styles from previous left cards
     const allCards = element.parentElement.children;
     for (let card of allCards) {
       if (card.classList.contains('bg-surface-container-lowest')) {
@@ -497,27 +563,118 @@
       }
     }
 
-    // Apply active rail highlight to selected card
+    // 2. Apply active rail highlight to selected card
     const railIndicator = document.createElement('div');
     railIndicator.className = 'absolute left-0 top-0 bottom-0 w-1.5 bg-secondary';
     element.prepend(railIndicator);
     element.classList.remove('shadow-sm');
     element.classList.add('shadow-md');
+
+    // 3. Populate Right Detail Drawer
+    const data = ticketDatabase[ticketRef];
+    if (!data) return;
+
+    const drawerRef = document.getElementById('drawer-ref');
+    const drawerTitle = document.getElementById('drawer-title');
+    const drawerCategory = document.getElementById('drawer-category');
+    const drawerLocation = document.getElementById('drawer-location');
+    const drawerReported = document.getElementById('drawer-reported');
+    const drawerSlaStatus = document.getElementById('drawer-sla-status');
+    const drawerSlaBarPrimary = document.getElementById('drawer-sla-bar-primary');
+    const drawerSlaBarRisk = document.getElementById('drawer-sla-bar-risk');
+    const drawerSlaDispatched = document.getElementById('drawer-sla-dispatched');
+    const drawerSlaTarget = document.getElementById('drawer-sla-target');
+    const drawerPhotoTitle = document.getElementById('drawer-photo-title');
+    const drawerAiContext = document.getElementById('drawer-ai-context');
+    const drawerTechInitials = document.getElementById('drawer-tech-initials');
+    const drawerTechName = document.getElementById('drawer-tech-name');
+    const drawerTechTime = document.getElementById('drawer-tech-time');
+    const drawerTechMsg = document.getElementById('drawer-tech-msg');
+    const drawerAutoMsg = document.getElementById('drawer-auto-msg');
+    const drawerTechExt = document.getElementById('drawer-tech-ext');
+    const quickReplyInput = document.getElementById('quickReplyInput');
+
+    if (drawerRef) drawerRef.innerText = data.ref;
+    if (drawerTitle) drawerTitle.innerText = data.title;
+    if (drawerCategory) drawerCategory.innerHTML = `<span class="material-symbols-outlined text-[18px]">${data.icon}</span><span>${data.category}</span>`;
+    if (drawerLocation) drawerLocation.innerHTML = `<span class="material-symbols-outlined text-[18px] text-secondary">domain</span><span>${data.location}</span>`;
+    if (drawerReported) drawerReported.innerHTML = `<span class="material-symbols-outlined text-[18px]">calendar_today</span><span>${data.reported}</span>`;
+    if (drawerSlaStatus) drawerSlaStatus.innerText = data.slaStatus;
+    if (drawerSlaBarPrimary) drawerSlaBarPrimary.style.width = data.slaBarPrimary;
+    if (drawerSlaBarRisk) drawerSlaBarRisk.style.width = data.slaBarRisk;
+    if (drawerSlaDispatched) drawerSlaDispatched.innerText = data.slaDispatched;
+    if (drawerSlaTarget) drawerSlaTarget.innerText = data.slaTarget;
+    if (drawerPhotoTitle) drawerPhotoTitle.innerText = data.photoTitle;
+    if (drawerAiContext) drawerAiContext.innerHTML = data.aiContext;
+    if (drawerTechInitials) drawerTechInitials.innerText = data.techInitials;
+    if (drawerTechName) drawerTechName.innerText = data.techName;
+    if (drawerTechTime) drawerTechTime.innerText = data.techTime;
+    if (drawerTechMsg) drawerTechMsg.innerText = data.techMsg;
+    if (drawerAutoMsg) drawerAutoMsg.innerText = data.autoMsg;
+    if (drawerTechExt) drawerTechExt.innerText = data.techExt;
+    if (quickReplyInput) quickReplyInput.placeholder = `Send direct message to ${data.techName.split('(')[0].trim()}...`;
+
+    renderPipeline(data.pipeline);
+
+    // Subtle smooth pulse to give immediate visual feedback of update
+    const canvas = document.getElementById('drawer-main-canvas');
+    if (canvas) {
+      canvas.style.transform = 'scale(0.995)';
+      setTimeout(() => { canvas.style.transform = 'scale(1)'; }, 150);
+    }
   }
 
   function sendQuickReply() {
     const input = document.getElementById('quickReplyInput');
     if (input && input.value.trim().length > 0) {
+      const msg = input.value;
       input.value = '';
       input.placeholder = 'Message sent to field coordinator!';
       setTimeout(() => {
-        input.placeholder = 'Send direct message to Dave Kovacs...';
+        const ref = document.getElementById('drawer-ref')?.innerText?.replace('#', '') || 'CC-8492';
+        const data = ticketDatabase[ref];
+        input.placeholder = data ? `Send direct message to ${data.techName.split('(')[0].trim()}...` : 'Send direct message...';
       }, 2500);
     }
   }
 
-  // Handle URL tenant param
-  (function initTenant() {
+  function filterDesktopTickets() {
+    const searchInput = document.getElementById('desktopSearchInput');
+    const categorySelect = document.getElementById('desktopCategorySelect');
+    const urgencySelect = document.getElementById('desktopUrgencySelect');
+    const queueCountBadge = document.getElementById('queueCountBadge');
+
+    const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+    const category = categorySelect ? categorySelect.value : 'all';
+    const urgency = urgencySelect ? urgencySelect.value : 'all';
+
+    const cards = document.querySelectorAll('.ticket-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const cardCat = card.getAttribute('data-category') || '';
+      const cardUrg = card.getAttribute('data-urgency') || '';
+
+      const matchesQuery = !query || text.includes(query);
+      const matchesCategory = category === 'all' || cardCat === category;
+      const matchesUrgency = urgency === 'all' || cardUrg === urgency;
+
+      if (matchesQuery && matchesCategory && matchesUrgency) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (queueCountBadge) {
+      queueCountBadge.innerText = visibleCount + ' Open';
+    }
+  }
+
+  // Handle URL tenant param & Initial Render
+  (function initDashboard() {
     const params = new URLSearchParams(window.location.search);
     const tenant = params.get('tenant');
     const tenantNames = {
@@ -531,5 +688,8 @@
       const badge = document.getElementById('tenant-display-name');
       if (badge) badge.innerText = tenantNames[tenant.toLowerCase()];
     }
+
+    // Init pipeline for first ticket
+    renderPipeline(ticketDatabase['CC-8492'].pipeline);
   })();
 </script></main></div></body></html>
