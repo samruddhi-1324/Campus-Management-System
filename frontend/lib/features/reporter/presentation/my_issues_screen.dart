@@ -199,7 +199,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(48.0),
-                      child: const CircularProgressIndicator(),
+                      child: CircularProgressIndicator(),
                     ),
                   )
                 else if (_errorMessage != null)

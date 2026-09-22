@@ -143,7 +143,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Asset fatigue flagged for Capital Budget FY25 Replacement Proposal.'),
             backgroundColor: const Color(0xFF005137),
           ),
@@ -294,7 +294,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [const Color(0xFF1E1B4B), const Color(0xFF070235), const Color(0xFF1E1B4B)],
+                        colors: const [Color(0xFF1E1B4B), Color(0xFF070235), Color(0xFF1E1B4B)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -353,7 +353,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   if (_isLoading)
                     Padding(
                       padding: const EdgeInsets.all(40),
-                      child: Center(child: const CircularProgressIndicator()),
+                      child: Center(child: CircularProgressIndicator()),
                     )
                   else if (_patterns.isEmpty)
                     Container(

@@ -100,7 +100,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
     setState(() => _isVoiceActive = !_isVoiceActive);
     if (_isVoiceActive) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Listening for voice query (FR-3.1 Neural Dictation)...'),
           backgroundColor: AppTheme.secondaryCobalt,
           duration: Duration(seconds: 2),
@@ -368,7 +368,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                 if (_isSearching)
                   Padding(
                     padding: const EdgeInsets.all(40),
-                    child: Center(child: const CircularProgressIndicator()),
+                    child: Center(child: CircularProgressIndicator()),
                   )
                 else if (results != null && results.isNotEmpty) ...[
                   Row(

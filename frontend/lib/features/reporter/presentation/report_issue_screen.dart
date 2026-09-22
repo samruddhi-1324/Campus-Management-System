@@ -133,7 +133,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Issue filed successfully! Triage Coordinator assigned.'),
           backgroundColor: AppTheme.statusLow,
         ),

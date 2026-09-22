@@ -99,7 +99,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       }
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text('All notification streams marked as read.'),
         backgroundColor: const Color(0xFF005137),
       ),
@@ -308,7 +308,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                 if (_isLoading)
                   Padding(
                     padding: const EdgeInsets.all(40),
-                    child: Center(child: const CircularProgressIndicator()),
+                    child: Center(child: CircularProgressIndicator()),
                   )
                 else if (_filteredNotifications.isEmpty)
                   Container(

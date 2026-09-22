@@ -144,7 +144,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Executive PDF / CSV Dossier generated.'), backgroundColor: AppTheme.statusLow),
+          SnackBar(content: Text('Executive PDF / CSV Dossier generated.'), backgroundColor: AppTheme.statusLow),
         );
       }
     } finally {
@@ -295,7 +295,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [const Color(0xFF1E1B4B), const Color(0xFF17143E), const Color(0xFF252061)],
+                        colors: const [Color(0xFF1E1B4B), Color(0xFF17143E), Color(0xFF252061)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

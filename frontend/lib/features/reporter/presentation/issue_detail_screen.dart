@@ -86,12 +86,12 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
         'rating': 5,
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Resolution confirmed! Thank you.'), backgroundColor: AppTheme.statusLow),
+        SnackBar(content: Text('Resolution confirmed! Thank you.'), backgroundColor: AppTheme.statusLow),
       );
       _fetchIssueDetails();
     } catch (_) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Resolution confirmed (demo sync).'), backgroundColor: AppTheme.statusLow),
+        SnackBar(content: Text('Resolution confirmed (demo sync).'), backgroundColor: AppTheme.statusLow),
       );
     }
   }
@@ -175,7 +175,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
         ],
       ),
       body: _isLoading
-          ? Center(child: const CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
@@ -572,7 +572,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 onPressed: () {
                   if (_commentController.text.isNotEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Note appended to work order telemetry.')),
+                      SnackBar(content: Text('Note appended to work order telemetry.')),
                     );
                     _commentController.clear();
                   }

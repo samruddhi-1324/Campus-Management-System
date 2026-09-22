@@ -285,7 +285,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                   if (_isLoading)
                     Padding(
                       padding: const EdgeInsets.all(40),
-                      child: Center(child: const CircularProgressIndicator()),
+                      child: Center(child: CircularProgressIndicator()),
                     )
                   else if (_recommendations.isEmpty)
                     Container(

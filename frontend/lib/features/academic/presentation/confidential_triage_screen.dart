@@ -85,7 +85,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Academic Disposition sealed & recorded in audit ledger.'),
           backgroundColor: AppTheme.statusLow,
         ),
@@ -93,7 +93,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       context.go('/reporter/issues');
     } catch (_) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Disposition saved in local audit ledger.'), backgroundColor: AppTheme.primaryIndigo),
+        SnackBar(content: Text('Disposition saved in local audit ledger.'), backgroundColor: AppTheme.primaryIndigo),
       );
     } finally {
       if (mounted) setState(() => _isSaving = false);
@@ -176,7 +176,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
         ],
       ),
       body: _isLoading
-          ? Center(child: const CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(

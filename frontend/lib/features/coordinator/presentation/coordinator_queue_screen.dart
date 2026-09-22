@@ -403,7 +403,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                   if (_isLoading)
                     Padding(
                       padding: const EdgeInsets.all(40),
-                      child: Center(child: const CircularProgressIndicator()),
+                      child: Center(child: CircularProgressIndicator()),
                     )
                   else if (_filteredQueue.isEmpty)
                     Container(

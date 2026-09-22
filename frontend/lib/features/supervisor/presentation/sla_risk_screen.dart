@@ -109,7 +109,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
       });
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Priority escalated. Immediate field alert dispatched.'),
             backgroundColor: AppTheme.statusCritical,
           ),
@@ -119,7 +119,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Supervisor emergency override logged for dispatch mesh.'),
             backgroundColor: AppTheme.statusCritical,
           ),
@@ -310,7 +310,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                   if (_isLoading)
                     Padding(
                       padding: const EdgeInsets.all(40),
-                      child: Center(child: const CircularProgressIndicator()),
+                      child: Center(child: CircularProgressIndicator()),
                     )
                   else if (_filteredRisks.isEmpty)
                     Container(
