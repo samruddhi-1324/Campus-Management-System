@@ -21,9 +21,12 @@ class AppTheme {
 
   // Status & Urgency Colors
   static const Color statusUrgent = Color(0xFFBA1A1A); // Red
-  static const Color statusHigh = Color(0xFFF97316); // Orange
-  static const Color statusMedium = Color(0xFFF59E0B); // Amber
-  static const Color statusLow = Color(0xFF10B981); // Emerald
+  static const Color statusCritical = Color(0xFFDC2626); // Critical Red
+  static const Color statusHigh = Color(0xFFEA580C); // High Orange
+  static const Color statusMedium = Color(0xFFD97706); // Medium Amber
+  static const Color statusLow = Color(0xFF16A34A); // Low Green
+  static const Color accentMint = Color(0xFF2DD4BF); // Mint Accent
+  static const Color neutralLightOutline = Color(0xFFD9DEE8); // Light Neutral Outline
   static const Color aiBadgeColor = Color(0xFF316BF3); // Cobalt blue accent
 
   static ThemeData get lightTheme {

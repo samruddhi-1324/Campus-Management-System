@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
@@ -16,7 +15,6 @@ class ConfidentialTriageScreen extends StatefulWidget {
 
 class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
   bool _isLoading = true;
-  String? _errorMessage;
   Map<String, dynamic>? _concern;
   final _privateNotesController = TextEditingController();
   final _resolutionNotesController = TextEditingController();
@@ -46,7 +44,6 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
   Future<void> _fetchConcernDetails() async {
     setState(() {
       _isLoading = true;
-      _errorMessage = null;
     });
 
     try {
@@ -129,7 +126,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                 color: AppTheme.primaryIndigo,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              child: const Icon(Icons.shield_person_outlined, color: Colors.white, size: 20),
+              child: const Icon(Icons.shield_outlined, color: Colors.white, size: 20),
             ),
             const SizedBox(width: 10),
             Column(

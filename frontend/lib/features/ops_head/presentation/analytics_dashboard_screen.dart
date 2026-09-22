@@ -18,8 +18,6 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
   Map<String, dynamic>? _summary;
   List<dynamic> _drilldownIssues = [];
   bool _isExporting = false;
-  String _selectedDateRange = '30d';
-  String _selectedSector = 'all';
 
   @override
   void initState() {

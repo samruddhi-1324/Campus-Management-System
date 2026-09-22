@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
@@ -17,7 +16,6 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
   String? _errorMessage;
   List<dynamic> _recommendations = [];
   String _selectedStatus = 'pending';
-  String _selectedClass = 'all';
 
   @override
   void initState() {
