@@ -145,7 +145,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Asset fatigue flagged for Capital Budget FY25 Replacement Proposal.'),
-            backgroundColor: Color(0xFF005137),
+            backgroundColor: const Color(0xFF005137),
           ),
         );
       }
@@ -166,7 +166,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.circular(8),
               ),
               child: const Icon(Icons.precision_manufacturing_outlined, color: Colors.white, size: 20),
             ),
@@ -211,7 +211,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
         onRefresh: _fetchRecurrencePatterns,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
@@ -239,7 +239,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: AppTheme.surfaceWhite,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: const BorderRadius.circular(20),
                           border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.4)),
                         ),
                         child: Text(
@@ -294,11 +294,11 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [Color(0xFF1E1B4B), Color(0xFF070235), Color(0xFF1E1B4B)],
+                        colors: [const Color(0xFF1E1B4B), const Color(0xFF070235), const Color(0xFF1E1B4B)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: const BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
                           color: AppTheme.primaryIndigo.withOpacity(0.15),
@@ -314,7 +314,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.12),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: const BorderRadius.circular(10),
                           ),
                           child: const Icon(Icons.auto_awesome, color: AppTheme.accentMint, size: 22),
                         ),
@@ -352,8 +352,8 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   // Hotspot Equipment Cards: 2x2 Grid
                   if (_isLoading)
                     const Padding(
-                      padding: EdgeInsets.all(40),
-                      child: Center(child: CircularProgressIndicator()),
+                      padding: const EdgeInsets.all(40),
+                      child: Center(child: const CircularProgressIndicator()),
                     )
                   else if (_patterns.isEmpty)
                     Container(
@@ -361,13 +361,13 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                       padding: const EdgeInsets.all(48),
                       decoration: BoxDecoration(
                         color: AppTheme.surfaceWhite,
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: const BorderRadius.circular(16),
                         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.check_circle_outline, size: 56, color: Color(0xFF005137)),
+                          const Icon(Icons.check_circle_outline, size: 56, color: const Color(0xFF005137)),
                           const SizedBox(height: 12),
                           Text('No Recurrent Failure Hotspots', style: GoogleFonts.manrope(fontSize: 16, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 4),
@@ -414,7 +414,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
         color: isSelected ? Colors.white : AppTheme.textPrimary,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: const BorderRadius.circular(8),
         side: BorderSide(
           color: isSelected ? AppTheme.primaryIndigo : AppTheme.neutralLightOutline.withOpacity(0.4),
         ),
@@ -437,7 +437,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
       width: width,
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: const BorderRadius.circular(16),
         border: Border.all(
           color: isCritical ? AppTheme.statusCritical.withOpacity(0.3) : AppTheme.neutralLightOutline.withOpacity(0.3),
           width: isCritical ? 1.5 : 1,
@@ -472,7 +472,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: (isCritical ? AppTheme.statusCritical : AppTheme.secondaryCobalt).withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(6),
+                        borderRadius: const BorderRadius.circular(6),
                       ),
                       child: Text(
                         '$failureCount FAILURES / 30D',
@@ -497,7 +497,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.backgroundLight,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: const BorderRadius.circular(10),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -537,7 +537,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                       backgroundColor: AppTheme.primaryIndigo,
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                     ),
                   ),
                 ),

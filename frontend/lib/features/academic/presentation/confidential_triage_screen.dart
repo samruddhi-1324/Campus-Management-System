@@ -159,11 +159,11 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.tertiaryMint.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
             ),
             child: Row(
               children: [
-                const Icon(Icons.verified, size: 14, color: Color(0xFF005137)),
+                const Icon(Icons.verified, size: 14, color: const Color(0xFF005137)),
                 const SizedBox(width: 4),
                 Text(
                   '256-Bit Ledger Active',
@@ -176,7 +176,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
         ],
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
@@ -220,7 +220,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.primaryIndigo,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: const BorderRadius.circular(16),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -253,7 +253,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.primaryContainer,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
             ),
             child: Text(
               '48h SLA Active',
@@ -277,7 +277,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -295,7 +295,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceContainerLow,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: const BorderRadius.circular(10),
                     border: Border.all(color: AppTheme.outlineVariant),
                   ),
                   child: Row(
@@ -328,7 +328,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Row(
@@ -371,7 +371,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -395,7 +395,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                 .map((d) => DropdownMenuItem(value: d['key'], child: Text(d['label']!, style: GoogleFonts.manrope(fontSize: 12))))
                 .toList(),
             onChanged: (val) => setState(() => _selectedDisposition = val ?? _selectedDisposition),
-            decoration: const InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
+            decoration: const InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
           ),
           const SizedBox(height: 18),
 

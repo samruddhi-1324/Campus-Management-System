@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
           final isDesktop = constraints.maxWidth >= 960;
           return Center(
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: isDesktop ? 32 : 16,
                 vertical: isDesktop ? 40 : 20,
               ),
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceWhite,
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: const BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
                       color: AppTheme.primaryIndigo.withOpacity(0.08),
@@ -220,13 +220,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
                       color: AppTheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: const BorderRadius.circular(20),
                       border: Border.all(color: AppTheme.secondaryContainer.withOpacity(0.3)),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.auto_awesome, color: Color(0xFFDBE1FF), size: 16),
+                        const Icon(Icons.auto_awesome, color: const Color(0xFFDBE1FF), size: 16),
                         const SizedBox(width: 8),
                         Text(
                           'CAMPUS CARE v3.0',
@@ -291,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer.withOpacity(0.85),
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: const BorderRadius.circular(16),
                   border: Border.all(color: AppTheme.secondaryContainer.withOpacity(0.2)),
                 ),
                 child: Row(
@@ -300,7 +300,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: AppTheme.primaryIndigo,
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: const BorderRadius.circular(12),
                       ),
                       child: const Icon(Icons.hub_outlined, color: AppTheme.tertiaryMint, size: 24),
                     ),
@@ -403,7 +403,7 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppTheme.primaryContainer.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: const BorderRadius.circular(12),
         border: Border.all(color: Colors.white.withOpacity(0.06)),
       ),
       child: Column(
@@ -449,11 +449,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: const BorderRadius.circular(16),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.auto_awesome, color: Color(0xFFDBE1FF), size: 14),
+                    const Icon(Icons.auto_awesome, color: const Color(0xFFDBE1FF), size: 14),
                     const SizedBox(width: 6),
                     Text(
                       'CAMPUS CARE v3.0',
@@ -596,7 +596,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: const BorderRadius.circular(10),
                 border: Border.all(color: AppTheme.statusUrgent.withOpacity(0.3)),
               ),
               child: Row(

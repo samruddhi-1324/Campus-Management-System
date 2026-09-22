@@ -136,7 +136,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.circular(8),
               ),
               child: const Icon(Icons.track_changes, color: Colors.white, size: 20),
             ),
@@ -175,7 +175,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
         ],
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
@@ -224,7 +224,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
         boxShadow: [
           BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 16, offset: const Offset(0, 4)),
@@ -240,7 +240,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: const BorderRadius.circular(12),
                 ),
                 child: Text(
                   refNum,
@@ -255,7 +255,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.statusUrgent.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: const BorderRadius.circular(12),
                 ),
                 child: Row(
                   children: [
@@ -298,7 +298,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceContainerLow,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: const BorderRadius.circular(10),
                 ),
                 child: const Icon(Icons.location_on_outlined, color: AppTheme.primaryIndigo, size: 20),
               ),
@@ -326,7 +326,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceContainerLow,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: const BorderRadius.circular(10),
                 ),
                 child: const Icon(Icons.category_outlined, color: AppTheme.secondaryCobalt, size: 20),
               ),
@@ -352,7 +352,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: const BorderRadius.circular(14),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Column(
@@ -390,7 +390,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.tertiaryMint.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: const BorderRadius.circular(8),
                       ),
                       child: Text(
                         'On-Site',
@@ -416,7 +416,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -517,7 +517,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                   decoration: BoxDecoration(
                                     color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: const BorderRadius.circular(10),
                                   ),
                                   child: Text(
                                     'ACTIVE NOW',
@@ -563,7 +563,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                   controller: _commentController,
                   decoration: const InputDecoration(
                     hintText: 'Type an update for the field technician or coordinator...',
-                    contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                   ),
                 ),
               ),

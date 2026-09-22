@@ -26,7 +26,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       'sla_compliance': '99.4%',
       'region': 'Main Quad / Central',
       'badge': 'A',
-      'color': Color(0xFF070235),
+      'color': const Color(0xFF070235),
       'is_verified': true,
       'is_enrolled': true,
     },
@@ -40,7 +40,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       'sla_compliance': '98.8%',
       'region': 'North Medical Wing',
       'badge': 'M',
-      'color': Color(0xFF0051D5),
+      'color': const Color(0xFF0051D5),
       'is_verified': true,
       'is_enrolled': true,
     },
@@ -54,7 +54,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       'sla_compliance': '100%',
       'region': 'Downtown Campus',
       'badge': 'S',
-      'color': Color(0xFF002819),
+      'color': const Color(0xFF002819),
       'is_verified': true,
       'is_enrolled': false,
     },
@@ -68,7 +68,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       'sla_compliance': '97.2%',
       'region': 'Ocean Tech Park',
       'badge': 'P',
-      'color': Color(0xFF1E1B4B),
+      'color': const Color(0xFF1E1B4B),
       'is_verified': true,
       'is_enrolled': false,
     },
@@ -102,7 +102,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.circular(8),
               ),
               child: const Icon(Icons.corporate_fare, color: Colors.white, size: 20),
             ),
@@ -180,7 +180,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceContainerLow,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: const BorderRadius.circular(20),
                             border: Border.all(color: AppTheme.outlineVariant),
                           ),
                           child: Text(
@@ -251,7 +251,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.12),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: const BorderRadius.circular(16),
               ),
               child: Row(
                 children: [
@@ -315,7 +315,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: const BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.15)),
       ),
       child: Column(
@@ -337,7 +337,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
                   color: AppTheme.tertiaryMint,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: const BorderRadius.circular(12),
                 ),
                 child: Text(
                   'Verified Node',
@@ -420,7 +420,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: const BorderRadius.circular(16),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -433,7 +433,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               filled: true,
               fillColor: AppTheme.surfaceContainerLow,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: const BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
@@ -503,7 +503,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: AppTheme.surfaceWhite,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: const BorderRadius.circular(16),
                 border: Border.all(
                   color: isSelected ? AppTheme.secondaryCobalt : AppTheme.outlineVariant,
                   width: isSelected ? 2 : 1,
@@ -566,7 +566,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
                             color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: const BorderRadius.circular(12),
                           ),
                           child: Row(
                             children: [
@@ -644,7 +644,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: AppTheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: const BorderRadius.circular(8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

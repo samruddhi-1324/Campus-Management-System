@@ -101,7 +101,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('All notification streams marked as read.'),
-        backgroundColor: Color(0xFF005137),
+        backgroundColor: const Color(0xFF005137),
       ),
     );
   }
@@ -138,7 +138,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.circular(8),
               ),
               child: const Icon(Icons.notifications_active_outlined, color: Colors.white, size: 20),
             ),
@@ -175,7 +175,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: isDesktop ? 32 : 16,
           vertical: 20,
         ),
@@ -200,11 +200,11 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.accentMint.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: const BorderRadius.circular(20),
                       ),
                       child: Row(
                         children: [
-                          Container(width: 8, height: 8, decoration: const BoxDecoration(color: Color(0xFF005137), shape: BoxShape.circle)),
+                          Container(width: 8, height: 8, decoration: const BoxDecoration(color: const Color(0xFF005137), shape: BoxShape.circle)),
                           const SizedBox(width: 6),
                           Text('All 5 Channels Operational (99.94% SLA)', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w700, color: const Color(0xFF005137))),
                         ],
@@ -249,7 +249,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                           backgroundColor: AppTheme.primaryIndigo,
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                          shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                         ),
                       ),
                     ],
@@ -280,7 +280,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceWhite,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: const BorderRadius.circular(12),
                     border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                   ),
                   child: SingleChildScrollView(
@@ -307,8 +307,8 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                 // Notification Stream List
                 if (_isLoading)
                   const Padding(
-                    padding: EdgeInsets.all(40),
-                    child: Center(child: CircularProgressIndicator()),
+                    padding: const EdgeInsets.all(40),
+                    child: Center(child: const CircularProgressIndicator()),
                   )
                 else if (_filteredNotifications.isEmpty)
                   Container(
@@ -316,7 +316,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                     padding: const EdgeInsets.all(48),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceWhite,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: const BorderRadius.circular(16),
                       border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                     ),
                     child: Column(
@@ -349,7 +349,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       return Container(
                         decoration: BoxDecoration(
                           color: isRead ? AppTheme.surfaceWhite : const Color(0xFFF9FAFC),
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: const BorderRadius.circular(14),
                           border: Border.all(
                             color: !isRead ? AppTheme.secondaryCobalt.withOpacity(0.4) : AppTheme.neutralLightOutline.withOpacity(0.3),
                             width: !isRead ? 1.5 : 1,
@@ -421,7 +421,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: AppTheme.primaryIndigo,
                                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                             ),
                                             onPressed: () => context.push('/issues/$issueId'),
                                           ),
@@ -475,7 +475,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       height: 40,
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: const BorderRadius.circular(10),
       ),
       child: Center(child: Icon(icon, size: 20, color: color)),
     );
@@ -506,7 +506,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: color.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: const BorderRadius.circular(4),
       ),
       child: Text(label, style: GoogleFonts.manrope(fontSize: 10, fontWeight: FontWeight.w700, color: color)),
     );
@@ -531,7 +531,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
         color: isSelected ? Colors.white : AppTheme.textPrimary,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: const BorderRadius.circular(8),
         side: BorderSide(
           color: isSelected ? AppTheme.primaryIndigo : AppTheme.neutralLightOutline.withOpacity(0.4),
         ),
@@ -545,7 +545,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: const BorderRadius.circular(14),
         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
       ),
       child: Row(
@@ -565,7 +565,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: countColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: const BorderRadius.circular(10),
             ),
             child: Icon(icon, size: 20, color: countColor),
           ),

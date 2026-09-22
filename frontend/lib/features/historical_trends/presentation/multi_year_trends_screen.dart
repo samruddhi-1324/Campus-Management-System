@@ -75,7 +75,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(12)),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -117,7 +117,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: color.withOpacity(0.08),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.circular(12),
           border: Border.all(color: color.withOpacity(0.2)),
         ),
         child: Column(
@@ -148,7 +148,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
   }) {
     return Card(
       elevation: 0.5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
@@ -167,7 +167,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
                     color: color.withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: const BorderRadius.circular(6),
                   ),
                   child: Text(
                     impactBadge,

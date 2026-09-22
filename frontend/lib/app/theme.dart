@@ -38,13 +38,13 @@ class AppTheme {
         primary: primaryIndigo,
         onPrimary: Colors.white,
         primaryContainer: primaryContainer,
-        onPrimaryContainer: Color(0xFF8683BA),
+        onPrimaryContainer: const Color(0xFF8683BA),
         secondary: secondaryCobalt,
         onSecondary: Colors.white,
         secondaryContainer: secondaryContainer,
-        onSecondaryContainer: Color(0xFFFEFCFF),
+        onSecondaryContainer: const Color(0xFFFEFCFF),
         tertiary: tertiaryMint,
-        onTertiary: Color(0xFF002114),
+        onTertiary: const Color(0xFF002114),
         error: statusUrgent,
         onError: Colors.white,
         background: backgroundLight,
@@ -128,8 +128,8 @@ class AppTheme {
         color: surfaceWhite,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: Color(0xFFE2E8F0)),
+          borderRadius: const BorderRadius.circular(16),
+          side: const BorderSide(color: const Color(0xFFE2E8F0)),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -137,19 +137,19 @@ class AppTheme {
         fillColor: surfaceWhite,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.circular(12),
           borderSide: const BorderSide(color: outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.circular(12),
           borderSide: const BorderSide(color: outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.circular(12),
           borderSide: const BorderSide(color: secondaryCobalt, width: 1.8),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.circular(12),
           borderSide: const BorderSide(color: statusUrgent),
         ),
         hintStyle: GoogleFonts.manrope(
@@ -165,7 +165,7 @@ class AppTheme {
           minimumSize: const Size(0, 48),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: const BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.manrope(
             fontSize: 14,
@@ -180,7 +180,7 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           side: const BorderSide(color: outlineVariant),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: const BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.manrope(
             fontSize: 14,

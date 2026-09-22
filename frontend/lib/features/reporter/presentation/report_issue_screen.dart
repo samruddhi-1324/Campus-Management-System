@@ -168,7 +168,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.circular(8),
               ),
               child: const Icon(Icons.add_task, color: Colors.white, size: 20),
             ),
@@ -246,7 +246,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
         boxShadow: [
           BoxShadow(
@@ -283,7 +283,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer.withOpacity(0.08),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: const BorderRadius.circular(12),
                 ),
                 child: Text(
                   'Draft Ref #CC-NEW',
@@ -303,7 +303,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: const BorderRadius.circular(10),
                 border: Border.all(color: AppTheme.statusUrgent.withOpacity(0.3)),
               ),
               child: Row(
@@ -376,7 +376,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                       value: _selectedBuilding,
                       items: _buildings.map((b) => DropdownMenuItem(value: b, child: Text(b, style: GoogleFonts.manrope(fontSize: 13)))).toList(),
                       onChanged: (val) => setState(() => _selectedBuilding = val ?? _selectedBuilding),
-                      decoration: const InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
+                      decoration: const InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
                     ),
                   ],
                 ),
@@ -408,12 +408,12 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               Text('DETAILED DESCRIPTION', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
               InkWell(
                 onTap: _toggleVoiceDictation,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: const BorderRadius.circular(16),
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: _isVoiceRecording ? AppTheme.statusUrgent.withOpacity(0.1) : AppTheme.secondaryCobalt.withOpacity(0.08),
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: const BorderRadius.circular(16),
                     border: Border.all(
                       color: _isVoiceRecording ? AppTheme.statusUrgent : AppTheme.secondaryCobalt.withOpacity(0.4),
                     ),
@@ -450,7 +450,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               alignLabelWithHint: true,
               suffixIcon: _isAnalyzingAI
                   ? const Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       child: SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2)),
                     )
                   : null,
@@ -487,7 +487,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: AppTheme.primaryIndigo,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: const BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
                 color: AppTheme.primaryIndigo.withOpacity(0.12),
@@ -521,7 +521,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                       color: AppTheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: const BorderRadius.circular(10),
                     ),
                     child: Text(
                       'Live Model v3.2',
@@ -556,7 +556,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: const BorderRadius.circular(12),
                   border: Border.all(color: Colors.white10),
                 ),
                 child: Row(
@@ -599,7 +599,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.secondaryCobalt.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: const BorderRadius.circular(10),
                     border: Border.all(color: AppTheme.secondaryContainer.withOpacity(0.4)),
                   ),
                   child: Row(
@@ -625,7 +625,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: AppTheme.surfaceWhite,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: const BorderRadius.circular(16),
             border: Border.all(color: AppTheme.outlineVariant),
           ),
           child: Row(
@@ -634,7 +634,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceContainerLow,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: const BorderRadius.circular(10),
                 ),
                 child: const Icon(Icons.shield_outlined, color: AppTheme.primaryIndigo, size: 24),
               ),

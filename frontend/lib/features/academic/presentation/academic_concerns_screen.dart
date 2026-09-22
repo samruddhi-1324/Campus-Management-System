@@ -178,7 +178,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -189,7 +189,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: AppTheme.primaryIndigo,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
             ),
             child: Row(
               children: [
@@ -224,7 +224,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Row(
@@ -258,7 +258,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: const BorderRadius.circular(10),
                 border: Border.all(color: AppTheme.statusUrgent.withOpacity(0.3)),
               ),
               child: Text(
@@ -372,7 +372,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: AppTheme.primaryIndigo,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: const BorderRadius.circular(20),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -416,7 +416,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: AppTheme.primaryContainer,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.circular(12),
               border: Border.all(color: Colors.white10),
             ),
             child: Row(
