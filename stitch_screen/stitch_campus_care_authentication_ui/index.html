@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Care — Live UI Showcase (14 Screens)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #070235;
+      --secondary: #0051d5;
+      --accent: #85f8c4;
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --text-sec: #47464f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: #191c1e;
+      padding: 32px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, #070235 0%, #1e1b4b 100%);
+      color: white;
+      padding: 36px 32px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 30px rgba(7, 2, 53, 0.15);
+    }
+    header h1 {
+      font-family: 'Newsreader', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1rem;
+      color: #c4c1fb;
+      max-width: 700px;
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(133, 248, 196, 0.2);
+      color: #85f8c4;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(7, 2, 53, 0.08);
+      border-color: rgba(0, 81, 213, 0.3);
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+    .card h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.85rem;
+      color: var(--text-sec);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1e1b4b;
+    }
+    .btn-secondary {
+      background: #eef2ff;
+      color: var(--secondary);
+    }
+    .btn-secondary:hover {
+      background: #dbe4ff;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      color: var(--text-sec);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">PRODUCTION UI/UX SUITE</div>
+      <h1>Campus Care — Live Screens Showcase</h1>
+      <p>Interactive preview of all 14 screens designed for Campus Care (Desktop & Mobile views). Click any screen below to open its live design.</p>
+    </header>
+
+    <div class="grid">
+      <!-- 1. Auth -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Authentication & Onboarding</div>
+          <h3>1. Login & Dual-Pane Hero</h3>
+          <p>Split indigo hero layout with real-time SLA telemetry widget, SSO partition selector, and quick role presets.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_desktop_authentication/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_mobile_authentication/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 2. Tenant Selector -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Multi-Tenancy</div>
+          <h3>2. Institution Workspace Switcher</h3>
+          <p>Tenant partitioning selector with campus search, active telemetry chips, and university partition cards.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_institution_workspace_switcher_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_institution_workspace_switcher_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 3. Reporter Dashboard -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Student & Staff Reporter</div>
+          <h3>3. Complaints Dashboard</h3>
+          <p>Live KPI metric cluster, status filtering tabs, and interactive ticket cards with SLA tracking.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_complaints_dashboard_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_complaints_dashboard_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 4. Issue Filing -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Issue Intake</div>
+          <h3>4. Issue Filing with Voice Input</h3>
+          <p>Category selection pills, pulsing voice dictation button (FR-3.1), and real-time AI Pre-Triage Radar widget.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_issue_filing_form_with_voice_input_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_issue_filing_form_with_voice_input_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 5. Issue Detail -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Resolution Lifecycle</div>
+          <h3>5. Issue Detail & Resolution Tracker</h3>
+          <p>5-stage timeline stepper, dispatched technician card, live audit log, and resolution confirmation modal.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_issue_detail_lifecycle_resolution_tracker_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_issue_detail_lifecycle_resolution_tracker_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 6. Academic Grievance -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Ombuds / Confidential</div>
+          <h3>6. Confidential Academic Grievance Form</h3>
+          <p>FERPA Privacy Shield, anonymous reporting toggle, grievance categorization, and secure document upload.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_confidential_academic_grievance_form_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_confidential_academic_grievance_form_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 7. Academic Review -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Ombudsperson Review</div>
+          <h3>7. Academic Review & Disposition Workspace</h3>
+          <p>Confidential dossier viewer, formal disposition actions (Investigate, Dismiss, Refer), and audit hash seal.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_academic_officer_review_disposition_workspace_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_academic_officer_review_disposition_workspace_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 8. Coordinator Queue -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Triage & Dispatch</div>
+          <h3>8. Coordinator Triage Workspace</h3>
+          <p>Live incident inflow queue, KPI summary cards, urgency badges, and one-click technician dispatch.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_coordinator_triage_workspace_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_coordinator_triage_workspace_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 9. SLA Radar -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Supervisor Operations</div>
+          <h3>9. Supervisor SLA Risk Radar</h3>
+          <p>Countdown warning banner, circular radial SLA timers, near-breach trackers, and escalation triggers.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_maintenance_supervisor_sla_risk_radar_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_maintenance_supervisor_sla_risk_radar_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 10. Executive Analytics -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Executive Leadership</div>
+          <h3>10. Executive Operations Analytics</h3>
+          <p>AI Executive Leadership Briefing, MTTR & SLA compliance trends, Inflow vs Outflow velocity charts, and CSV/PDF export.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_executive_operations_analytics_dashboard_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_executive_operations_analytics_dashboard_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 11. Recurrence Radar -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Predictive Maintenance</div>
+          <h3>11. Equipment Fatigue & Recurrence Radar</h3>
+          <p>2x2 Bento grid for chronic asset degradation, rolling window analysis (14d/30d/90d), and replacement proposals.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_equipment_fatigue_recurrence_radar_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_equipment_fatigue_recurrence_radar_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 12. AI Recommendations -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Capital Advisory</div>
+          <h3>12. AI Maintenance Recommendations</h3>
+          <p>Autonomous capital replacement suggestions, confidence ratings, Capex ROI calculators, and HITL approvals.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_ai_maintenance_recommendations_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_ai_maintenance_recommendations_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 13. AI Search -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Neural Search</div>
+          <h3>13. AI Natural Language Search</h3>
+          <p>Hero glowing search bar, neural entity deconstruction chips, voice search, and suggested query prompts.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_ai_natural_language_search_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_ai_natural_language_search_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+
+      <!-- 14. Notifications -->
+      <div class="card">
+        <div>
+          <div class="card-tag">Communications Hub</div>
+          <h3>14. Multi-Channel Notification Center</h3>
+          <p>Unified alert stream across WhatsApp Business API, FCM Push, Brevo Email, and WebSockets with channel filters.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="campus_care_unified_multi_channel_notification_center_desktop/code.html" target="_blank">Desktop View</a>
+          <a class="btn btn-secondary" href="campus_care_unified_multi_channel_notification_center_mobile/code.html" target="_blank">Mobile View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Campus Care Multi-Tenant System &copy; 2026. All 14 UI/UX screen pairs active.</p>
+    </div>
+  </div>
+</body>
+</html>
