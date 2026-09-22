@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Campus Care - Operations</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Newsreader:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#d8dadc", "surface-container": "#eceef0", "on-tertiary": "#ffffff", "tertiary-container": "#002819", "secondary-fixed-dim": "#b4c5ff", "on-primary": "#ffffff", "secondary-fixed": "#dbe1ff", "on-secondary-fixed-variant": "#003ea8", "on-background": "#191c1e", "on-error": "#ffffff", "on-secondary-container": "#fefcff", "primary-container": "#1e1b4b", "secondary": "#0051d5", "background": "#f7f9fb", "on-surface-variant": "#47464f", "surface-tint": "#5b598c", "error": "#ba1a1a", "on-secondary": "#ffffff", "on-primary-container": "#8683ba", "primary": "#070235", "on-tertiary-fixed-variant": "#005137", "inverse-primary": "#c4c1fb", "on-primary-fixed": "#181445", "on-secondary-fixed": "#00174b", "inverse-surface": "#2d3133", "tertiary": "#000f07", "surface": "#f7f9fb", "surface-container-high": "#e6e8ea", "on-primary-fixed-variant": "#444173", "primary-fixed": "#e3dfff", "surface-container-lowest": "#ffffff", "on-surface": "#191c1e", "secondary-container": "#316bf3", "outline": "#787680", "surface-container-highest": "#e0e3e5", "inverse-on-surface": "#eff1f3", "error-container": "#ffdad6", "on-tertiary-fixed": "#002114", "surface-container-low": "#f2f4f6", "surface-variant": "#e0e3e5", "on-error-container": "#93000a", "primary-fixed-dim": "#c4c1fb", "surface-bright": "#f7f9fb", "tertiary-fixed": "#85f8c4", "outline-variant": "#c8c5d0", "on-tertiary-container": "#179c6e", "tertiary-fixed-dim": "#68dba9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "3rem", "space-md": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "margin": "2rem", "space-sm": "0.5rem" }, "fontFamily": { "label-sm": ["Manrope"], "display-lg": ["Newsreader"], "headline-lg": ["Newsreader"], "title-md": ["Manrope"], "body-lg": ["Manrope"], "label-lg": ["Manrope"], "code-sm": ["Manrope"], "headline-xl-mobile": ["Newsreader"], "headline-sm": ["Newsreader"], "display-lg-mobile": ["Newsreader"], "headline-xl": ["Newsreader"], "body-md": ["Manrope"] }, "fontSize": { "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "700" }], "display-lg": ["3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "title-md": ["1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["0.8125rem", { "lineHeight": "1.2rem", "fontWeight": "500" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-sm": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-xl": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" }], "body-md": ["0.875rem", { "lineHeight": "1.45rem", "fontWeight": "400" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; min-height: 100%; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary-fixed flex flex-col min-h-full"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(7,2,53,0.04)]"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary leading-tight font-medium">Campus Care</span><span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm tracking-wider uppercase">Stanford</span></div><span class="font-label-sm text-label-sm text-on-surface-variant font-normal leading-none mt-0.5">Sla Radar</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Operational Alerts" class="relative w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-background min-h-screen"><div class="flex flex-col w-full pb-6">
+<!-- Top Operational Telemetry Header -->
+<div class="px-space-md pt-space-sm pb-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+        SLA Radar Live
+      </span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">Q4 High-Yield Shift</span>
+</div>
+<!-- Live Ticker / Refresh Chip -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface" id="refreshTrigger" type="button">
+<span class="material-symbols-outlined text-[15px] text-secondary animate-[spin_6s_linear_infinite]">autorenew</span>
+<span class="font-label-sm text-label-sm font-semibold">T-00:41s</span>
+</button>
+</div>
+<!-- Pulsing Warning Alert Card -->
+<div class="px-space-md py-space-xs">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-error/15 via-error-container to-surface-container-low p-space-md shadow-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-error text-on-error flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+<span class="material-symbols-outlined text-[22px]">crisis_alert</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-title-md text-title-md text-on-surface font-bold leading-tight">3 breaches imminent (<60m)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+              Urgent intervention mandated by campus protocol.
+            </p>
+</div>
+</div>
+</div>
+<!-- Live Exam Surge Marquee Pill -->
+<div class="mt-space-sm flex items-center justify-between pt-2 border-t border-error/10">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-error/20 text-error">
+<span class="material-symbols-outlined text-[14px]">school</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider">Active Peak Exam Surge</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-error font-code-sm text-code-sm font-bold shadow-xs">
+          +35% penalty
+        </span>
+</div>
+</div>
+</div>
+<!-- Filter Chips (Horizontal Scroller) -->
+<div class="w-full overflow-x-auto px-space-md py-space-sm flex items-center gap-2 no-scrollbar">
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-xs">
+      All SLA Risks (3)
+    </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold">
+      <30m Imminent (2)
+    </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold">
+      Escalated (1)
+    </button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold">
+      Standby Crew (3)
+    </button>
+</div>
+<!-- Risk Work Order Stack -->
+<div class="px-space-md space-y-3.5 mt-1">
+<!-- Card 1: Stauffer 104 Lab Hood (Imminent Breach 12m) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm relative overflow-hidden transition-all">
+<!-- High Severity Left Bar Indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<!-- Card Sub-header & Radial Countdown -->
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-code-sm text-code-sm font-bold text-primary tracking-wider">#CC-8482</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">STAUFFER 104</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase">Lab Hood</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-medium leading-snug mt-1.5 truncate">
+            Fume Hood Low Flow Siren & Exhaust
+          </h2>
+</div>
+<!-- Animated Radial Countdown (12m / 80% elapsed) -->
+<div class="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 44 44">
+<circle class="text-surface-container" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-error animate-pulse" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="23" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm font-bold text-error leading-none">12m</span>
+<span class="text-[9px] text-on-surface-variant font-medium tracking-tight mt-0.5">80%</span>
+</div>
+</div>
+</div>
+<!-- Badges & Multiplier Row -->
+<div class="mt-3 pl-1 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">warning</span>
+          Hazardous Lab · High Impact
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          2.0x Risk Multiplier
+        </span>
+</div>
+<!-- Assignee Status -->
+<div class="mt-3.5 pl-1 p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant flex-shrink-0 font-bold text-xs">
+            SJ
+          </div>
+<div class="flex flex-col truncate">
+<span class="font-label-lg text-label-lg text-on-surface leading-tight truncate">Sarah Jenkins</span>
+<span class="font-code-sm text-code-sm text-error font-medium">Overloaded (3 jobs concurrent)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-error text-[20px] flex-shrink-0">timelapse</span>
+</div>
+<!-- Operational Action Bar -->
+<div class="mt-3.5 pl-1 grid grid-cols-12 gap-2">
+<!-- 1-Tap WhatsApp Ping -->
+<a class="col-span-6 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#075E54] font-label-sm text-label-sm font-bold transition-colors" href="https://wa.me/?text=Priority%20SLA%20Alert%20for%20STAUFFER%20104%20Hood" target="_blank">
+<svg class="w-4 h-4 fill-current flex-shrink-0" viewbox="0 0 24 24">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.19.52-1.1 1-1.52 1.05-.41.05-.94.07-1.52-.11-.36-.12-.82-.27-1.42-.53-2.52-1.09-4.16-3.66-4.29-3.83-.12-.17-1.02-1.36-1.02-2.6 0-1.23.64-1.84.87-2.09.23-.25.5-.31.67-.31.17 0 .34.01.49.02.16.01.37-.06.57.43.21.51.72 1.76.78 1.89.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.33-.39.45-.13.13-.26.27-.11.53.15.26.68 1.11 1.45 1.8 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.17-.26.34-.22.58-.13.23.09 1.5.71 1.76.84.26.13.43.2.49.31.07.11.07.64-.12 1.16z"></path>
+</svg>
+          WhatsApp Ping
+        </a>
+<!-- Reassign Trigger Button -->
+<button class="col-span-4 flex items-center justify-center gap-1 px-3 py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 font-label-sm text-label-sm font-semibold transition-colors" onclick="document.getElementById('reassignDrawer').classList.remove('translate-y-full')" type="button">
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+          Reassign
+        </button>
+<!-- Quick Escalate Button -->
+<button class="col-span-2 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Quick Escalate" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">campaign</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Packard 201 HVAC (Critical 24m) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm relative overflow-hidden transition-all">
+<!-- High Severity Left Bar Indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#F59E0B]"></div>
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-code-sm text-code-sm font-bold text-primary tracking-wider">#CC-8495</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">PACKARD 201</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase">HVAC</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-medium leading-snug mt-1.5 truncate">
+            AC Blower Rattle & Vibration
+          </h2>
+</div>
+<!-- Radial Countdown (24m) -->
+<div class="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 44 44">
+<circle class="text-surface-container" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-[#F59E0B]" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="48" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm font-bold text-[#B45309] leading-none">24m</span>
+<span class="text-[9px] text-on-surface-variant font-medium tracking-tight mt-0.5">Left</span>
+</div>
+</div>
+</div>
+<!-- Badges & Multiplier Row -->
+<div class="mt-3 pl-1 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px] text-[#B45309]">meeting_room</span>
+          Exam Hall · High Impact
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+          1.5x Multiplier (Midterm in 30m)
+        </span>
+</div>
+<!-- Assignee Status -->
+<div class="mt-3.5 pl-1 p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-full bg-secondary/15 flex items-center justify-center text-secondary flex-shrink-0 font-bold text-xs">
+<span class="material-symbols-outlined text-[16px]">route</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-label-lg text-label-lg text-on-surface leading-tight truncate">Unassigned</span>
+<span class="font-code-sm text-code-sm text-secondary font-medium">Auto-route queued (Searching...)</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">
+          Auto
+        </span>
+</div>
+<!-- Operational Action Bar -->
+<div class="mt-3.5 pl-1 grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 font-label-sm text-label-sm font-semibold transition-colors" onclick="document.getElementById('reassignDrawer').classList.remove('translate-y-full')" type="button">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+          Assign Standby
+        </button>
+<button class="flex items-center justify-center gap-1 px-3 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Inspect Room
+        </button>
+</div>
+</div>
+<!-- Card 3: Hewlett Ctr B AV (Warning 48m) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm relative overflow-hidden transition-all">
+<!-- Warning Severity Left Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-surface-tint"></div>
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-code-sm text-code-sm font-bold text-primary tracking-wider">#CC-8491</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">HEWLETT CTR B</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase">AV</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-medium leading-snug mt-1.5 truncate">
+            4K Laser Projector No Signal (CS106A)
+          </h2>
+</div>
+<!-- Radial Countdown (48m) -->
+<div class="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 44 44">
+<circle class="text-surface-container" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-surface-tint" cx="22" cy="22" fill="none" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="75" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm font-bold text-on-surface leading-none">48m</span>
+<span class="text-[9px] text-on-surface-variant font-medium tracking-tight mt-0.5">Left</span>
+</div>
+</div>
+</div>
+<!-- Badges Row -->
+<div class="mt-3 pl-1 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">groups</span>
+          140 Seats · High Visibility
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+          1.2x Multiplier
+        </span>
+</div>
+<!-- Action Row (1-Tap WhatsApp to Marcus Chen) -->
+<div class="mt-3.5 pl-1 flex items-center justify-between gap-space-sm pt-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-bold text-xs">
+            MC
+          </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Marcus Chen</span>
+<span class="text-[11px] text-on-surface-variant leading-tight">En Route (5m away)</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#075E54] font-label-sm text-label-sm font-bold transition-colors" href="https://wa.me/?text=Status%20check%20CS106A%20Hewlett%20Ctr%20Projector" target="_blank">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.19.52-1.1 1-1.52 1.05-.41.05-.94.07-1.52-.11-.36-.12-.82-.27-1.42-.53-2.52-1.09-4.16-3.66-4.29-3.83-.12-.17-1.02-1.36-1.02-2.6 0-1.23.64-1.84.87-2.09.23-.25.5-.31.67-.31.17 0 .34.01.49.02.16.01.37-.06.57.43.21.51.72 1.76.78 1.89.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.33-.39.45-.13.13-.26.27-.11.53.15.26.68 1.11 1.45 1.8 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.17-.26.34-.22.58-.13.23.09 1.5.71 1.76.84.26.13.43.2.49.31.07.11.07.64-.12 1.16z"></path>
+</svg>
+          WhatsApp Marcus
+        </a>
+</div>
+</div>
+</div>
+<!-- Interactive Swipe-Up / Bottom Reassign Modal Sheet -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end bg-primary/40 backdrop-blur-sm transition-transform duration-300 ease-out translate-y-full" id="reassignDrawer">
+<div class="w-full bg-surface-container-lowest rounded-t-2xl shadow-xl flex flex-col max-h-[751px] overflow-y-auto">
+<!-- Drawer Pull Handle Bar -->
+<div class="pt-3 pb-1 flex justify-center w-full">
+<div class="w-12 h-1.5 rounded-full bg-surface-container-highest cursor-pointer" onclick="document.getElementById('reassignDrawer').classList.add('translate-y-full')"></div>
+</div>
+<!-- Sheet Header -->
+<div class="px-space-md pt-2 pb-space-sm border-b border-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-secondary">bolt</span>
+<span class="font-headline-sm text-headline-sm text-primary font-medium">Instant Reassign</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('reassignDrawer').classList.add('translate-y-full')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="font-code-sm text-code-sm font-bold text-primary">#CC-8482</span>
+<span class="font-body-md text-body-md text-on-surface-variant">· Lab Fume Hood Low Flow</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">
+          Current: Sarah Jenkins (Delayed) → Select immediate standby replacement:
+        </p>
+</div>
+<!-- Candidate Standby List -->
+<div class="p-space-md space-y-3">
+<!-- Candidate 1: Dave Kovacs (Optimal) -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors relative overflow-hidden">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold flex items-center justify-center flex-shrink-0">
+                DK
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">Dave Kovacs</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-bold">98% Match</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">HVAC / Hazardous Safety Lead</span>
+<div class="flex items-center gap-2 mt-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container">near_me</span>
+                    Spilker Hall (2m away)
+                  </span>
+<span>·</span>
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                    Standby (0 active)
+                  </span>
+</div>
+</div>
+</div>
+</div>
+<!-- One-Tap Confirm CTA -->
+<button class="w-full mt-3 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-xs hover:bg-secondary/90 transition-colors" onclick="triggerReassignSuccess('Dave Kovacs')" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            Confirm Instant Reassign
+          </button>
+</div>
+<!-- Candidate 2: Elena Rostova -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold flex items-center justify-center flex-shrink-0">
+                ER
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">Elena Rostova</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold">88% Match</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">Electrical Specialist</span>
+<div class="flex items-center gap-2 mt-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                    Central Depot (12m away)
+                  </span>
+<span>·</span>
+<span class="text-on-surface-variant font-medium">Standby Ready</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-3 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-bold transition-colors" onclick="triggerReassignSuccess('Elena Rostova')" type="button">
+            Select Elena Rostova
+          </button>
+</div>
+<!-- Broadcast Option CTA -->
+<button class="w-full py-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors flex items-center justify-center gap-2 font-label-sm text-label-sm font-bold shadow-xs" onclick="triggerBroadcastSuccess()" type="button">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+          Broadcast to Available On-Call Crew
+        </button>
+</div>
+<div class="pb-6"></div>
+</div>
+</div>
+<!-- Reassign Confirmation Toast Notification -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-full bg-primary text-on-primary shadow-lg flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px]" id="toastNotification">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span class="font-label-sm text-label-sm font-semibold" id="toastMessage">Work Order Reassigned</span>
+</div>
+</div>
+<script>
+  // Dynamic interaction handles
+  function triggerReassignSuccess(techName) {
+    document.getElementById('reassignDrawer').classList.add('translate-y-full');
+    const toast = document.getElementById('toastNotification');
+    const message = document.getElementById('toastMessage');
+    message.textContent = `Reassigned #CC-8482 to ${techName}`;
+    toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+    }, 3200);
+  }
+
+  function triggerBroadcastSuccess() {
+    document.getElementById('reassignDrawer').classList.add('translate-y-full');
+    const toast = document.getElementById('toastNotification');
+    const message = document.getElementById('toastMessage');
+    message.textContent = 'Emergency Dispatch Sent to 3 Standby Units';
+    toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+    }, 3200);
+  }
+
+  // Active state synchronization on bottom navigation bar
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-path') === 'sla-radar') {
+        link.classList.remove('text-on-surface-variant');
+        link.classList.add('text-secondary');
+        const icon = link.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(7,2,53,0.05)]" data-active-classes="text-secondary"><div class="h-16 px-space-sm flex items-center justify-around"><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors" data-path="triage" href="#"><span class="material-symbols-outlined text-[24px]">assignment_late</span><span class="font-label-sm text-label-sm">Triage</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-colors text-secondary" data-path="sla-radar" href="#"><span class="material-symbols-outlined text-[24px]">radar</span><span class="font-label-sm text-label-sm">SLA Radar</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors" data-path="technicians" href="#"><span class="material-symbols-outlined text-[24px]">engineering</span><span class="font-label-sm text-label-sm">Technicians</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">badge</span><span class="font-label-sm text-label-sm">Profile</span></a></div></nav></body></html>

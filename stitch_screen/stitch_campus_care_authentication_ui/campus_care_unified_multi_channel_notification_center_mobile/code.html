@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary": "#ffffff", "surface-container-low": "#f2f4f6", "on-primary-container": "#8683ba", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "primary-fixed-dim": "#c4c1fb", "outline-variant": "#c8c5d0", "surface-bright": "#f7f9fb", "surface-container-highest": "#e0e3e5", "secondary-fixed-dim": "#b4c5ff", "on-surface": "#191c1e", "background": "#f7f9fb", "on-tertiary": "#ffffff", "on-surface-variant": "#47464f", "secondary": "#0051d5", "tertiary": "#000f07", "surface-container-high": "#e6e8ea", "primary": "#070235", "on-secondary-fixed": "#00174b", "on-secondary": "#ffffff", "on-primary-fixed": "#181445", "on-error-container": "#93000a", "secondary-container": "#316bf3", "inverse-primary": "#c4c1fb", "on-primary-fixed-variant": "#444173", "primary-container": "#1e1b4b", "surface-variant": "#e0e3e5", "surface-container": "#eceef0", "on-secondary-fixed-variant": "#003ea8", "on-secondary-container": "#fefcff", "primary-fixed": "#e3dfff", "on-background": "#191c1e", "tertiary-fixed-dim": "#68dba9", "outline": "#787680", "inverse-surface": "#2d3133", "surface": "#f7f9fb", "tertiary-fixed": "#85f8c4", "on-tertiary-fixed": "#002114", "surface-tint": "#5b598c", "on-tertiary-container": "#179c6e", "inverse-on-surface": "#eff1f3", "error": "#ba1a1a", "surface-dim": "#d8dadc", "tertiary-container": "#002819", "on-tertiary-fixed-variant": "#005137", "on-error": "#ffffff", "secondary-fixed": "#dbe1ff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-desktop": "3rem", "space-lg": "1.5rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-md": "1rem", "margin": "2rem", "gutter-mobile": "1rem" }, fontFamily: { "headline-xl-mobile": ["Newsreader"], "headline-xl": ["Newsreader"], "display-lg-mobile": ["Newsreader"], "display-lg": ["Newsreader"], "code-sm": ["Manrope"], "label-lg": ["Manrope"], "headline-sm": ["Newsreader"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "title-md": ["Manrope"], "headline-lg": ["Newsreader"], "label-sm": ["Manrope"] }, fontSize: { "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-xl": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "display-lg": ["3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.02em", "fontWeight": "400" }], "code-sm": ["0.8125rem", { "lineHeight": "1.2rem", "fontWeight": "500" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "body-lg": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }], "body-md": ["0.875rem", { "lineHeight": "1.45rem", "fontWeight": "400" }], "title-md": ["1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,27,75,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WQ8juvh1jJ95dbI3iSmkv5rEjwVSROTCZZD8Z-5g2CUyMLv292EPKEr50WYBSGTJcIfi8-a-LTBinelflidWTNnyFiHBnwXsdHigLZgwVC2DUvEschBtqQcd1VKWhoT-y7A_v9h0400WnqZZkkS3e_A4yQG8CqV3TUcBjMByWWgNj15HQti_pIQiE3WJmagCnn0eFUeU2X99yOleA39zF6bYATMtFfHy4iN5Lucppym2sZOQPjHty5dYSo"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary leading-none truncate">Campus Care</span><span class="px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider shrink-0">Stanford</span></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Notifications</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="h-11 px-2.5 rounded-lg flex items-center gap-1 text-secondary font-label-sm text-label-sm active:bg-secondary-fixed/30 transition-colors" title="Mark all read" type="button"><span class="material-symbols-outlined text-[18px]">done_all</span><span class="hidden xs:inline">Read all</span></button><div class="relative flex items-center justify-center w-11 h-11"><span class="material-symbols-outlined text-on-surface-variant text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
+<!-- Content Container with strict mobile padding and no top margin/padding to avoid header overlap -->
+<div class="flex flex-col w-full px-gutter-mobile gap-space-md pb-space-xl">
+<!-- Sub-header Title & Status Row -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-sm text-headline-sm text-primary">Notification Center</h1>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">4 New</span>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors flex items-center gap-1 active:scale-95 duration-150" id="mark-all-btn">
+<span class="material-symbols-outlined text-[16px] text-secondary">done_all</span>
+<span>Mark all read</span>
+</button>
+</div>
+<!-- Top Segmented Channel Filter Carousel (Horizontal swipeable pills) -->
+<div class="w-full overflow-x-auto no-scrollbar -mx-gutter-mobile px-gutter-mobile">
+<div class="flex items-center gap-space-xs min-w-max py-0.5" id="filter-pill-container">
+<!-- All (Active) -->
+<button class="filter-pill h-8 px-3.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform" data-filter="all">
+<span>All</span>
+<span class="opacity-75 font-normal">(12)</span>
+</button>
+<!-- Unread with amber alert dot -->
+<button class="filter-pill h-8 px-3 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface font-semibold flex items-center gap-1.5 active:scale-95 transition-all" data-filter="unread">
+<span class="w-2 h-2 rounded-full bg-error ring-2 ring-error-container"></span>
+<span>Unread</span>
+<span class="text-on-surface-variant/80 font-normal">(4)</span>
+</button>
+<!-- WhatsApp -->
+<button class="filter-pill h-8 px-3 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface font-semibold flex items-center gap-1.5 active:scale-95 transition-all" data-filter="whatsapp">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span>WhatsApp</span>
+<span class="text-on-surface-variant/80 font-normal">(2)</span>
+</button>
+<!-- Email -->
+<button class="filter-pill h-8 px-3 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface font-semibold flex items-center gap-1.5 active:scale-95 transition-all" data-filter="email">
+<span class="material-symbols-outlined text-[16px] text-secondary">mail</span>
+<span>Email</span>
+<span class="text-on-surface-variant/80 font-normal">(3)</span>
+</button>
+<!-- In-App -->
+<button class="filter-pill h-8 px-3 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface font-semibold flex items-center gap-1.5 active:scale-95 transition-all" data-filter="inapp">
+<span class="material-symbols-outlined text-[16px] text-primary">smartphone</span>
+<span>In-App</span>
+<span class="text-on-surface-variant/80 font-normal">(4)</span>
+</button>
+<!-- Push -->
+<button class="filter-pill h-8 px-3 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface font-semibold flex items-center gap-1.5 active:scale-95 transition-all" data-filter="push">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">notifications_active</span>
+<span>Push</span>
+<span class="text-on-surface-variant/80 font-normal">(3)</span>
+</button>
+</div>
+</div>
+<!-- Delivery Gateway Status Banner -->
+<div class="w-full bg-surface-container-low rounded-xl p-3 flex items-center justify-between gap-space-xs shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[17px]">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">All 5 Notification Channels Operational</span>
+<span class="font-body-md text-[11px] text-on-surface-variant leading-tight truncate">Stanford Gateway · 3 devices synchronized (FCM v1)</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0 ring-4 ring-secondary/15 animate-pulse"></span>
+</div>
+<!-- List of Swipe-to-Dismiss Cards -->
+<div class="flex flex-col w-full gap-space-sm" id="notifications-stack">
+<!-- Card 1: Unread, High Urgency (WhatsApp) -->
+<div class="notification-card relative w-full overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] transition-all duration-200" data-channel="whatsapp" data-id="notif-1">
+<div class="swipe-background absolute inset-0 bg-surface-container-highest flex items-center justify-between px-5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary"><span class="material-symbols-outlined text-[18px]">check_circle</span>Mark Read</div>
+<div class="flex items-center gap-1.5 text-error"><span class="material-symbols-outlined text-[18px]">archive</span>Dismiss</div>
+</div>
+<div class="swipe-surface relative w-full bg-surface-container-lowest p-space-md flex flex-col gap-2.5 transition-transform duration-150">
+<!-- Top metadata row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[11px] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">chat</span>
+                WhatsApp
+              </span>
+<span class="text-on-surface-variant font-body-md text-[11px]">· 10m ago</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px] uppercase font-bold tracking-wider">Urgent</span>
+<!-- Subtle swipe handle indicator -->
+<span class="material-symbols-outlined text-[16px] text-outline-variant select-none">drag_indicator</span>
+</div>
+</div>
+<!-- Body content -->
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Technician Assigned to CC-2026-0812</h3>
+<span class="font-label-lg text-label-lg text-secondary font-semibold">Science Block Lab 201 Chiller Unit</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+              Dave Kovacs dispatched (ETA 15m). High-priority WhatsApp ping sent to tech supervisor and campus reporter.
+            </p>
+</div>
+<!-- Action strip -->
+<div class="flex items-center justify-between pt-1 mt-0.5">
+<div class="flex items-center gap-2">
+<button class="dismiss-btn h-8 px-2.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold active:bg-surface-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+<span>Mark Read</span>
+</button>
+<a class="h-8 px-2.5 rounded-lg text-secondary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-0.5" href="#">
+<span>View Ticket</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<span class="font-code-sm text-code-sm text-outline">#CC-0812</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Security / Login (Push & SMS) -->
+<div class="notification-card relative w-full overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] transition-all duration-200" data-channel="push" data-id="notif-2">
+<div class="swipe-background absolute inset-0 bg-surface-container-highest flex items-center justify-between px-5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary"><span class="material-symbols-outlined text-[18px]">check_circle</span>Mark Read</div>
+<div class="flex items-center gap-1.5 text-error"><span class="material-symbols-outlined text-[18px]">archive</span>Dismiss</div>
+</div>
+<div class="swipe-surface relative w-full bg-surface-container-lowest p-space-md flex flex-col gap-2.5 transition-transform duration-150">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[11px] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant">sms</span>
+                Push &amp; SMS
+              </span>
+<span class="text-on-surface-variant font-body-md text-[11px]">· 24m ago</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant select-none">drag_indicator</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Security Alert: New Session Login</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+              Login from macOS Chrome (Stanford-Secure Wi-Fi, Gates Bldg). Dual verification ping broadcast via Push and SMS (FR-NOTIF-08).
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 mt-0.5">
+<div class="flex items-center gap-2">
+<button class="dismiss-btn h-8 px-2.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold active:bg-surface-container transition-colors">
+                Mark Read
+              </button>
+<button class="h-8 px-3 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold active:scale-95 transition-transform flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+<span>Verify Session</span>
+</button>
+</div>
+<span class="font-code-sm text-[11px] text-outline">SEC-LOG</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Unread, SLA Warning (Email) -->
+<div class="notification-card relative w-full overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] transition-all duration-200" data-channel="email" data-id="notif-3">
+<div class="swipe-background absolute inset-0 bg-surface-container-highest flex items-center justify-between px-5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary"><span class="material-symbols-outlined text-[18px]">check_circle</span>Mark Read</div>
+<div class="flex items-center gap-1.5 text-error"><span class="material-symbols-outlined text-[18px]">archive</span>Dismiss</div>
+</div>
+<div class="swipe-surface relative w-full bg-surface-container-lowest p-space-md flex flex-col gap-2.5 transition-transform duration-150">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[11px] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px] text-secondary">email</span>
+                Email
+              </span>
+<span class="text-on-surface-variant font-body-md text-[11px]">· 38m ago</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant select-none">drag_indicator</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">SLA Warning: 45m on #CC-8501</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+              East Wing Mesh AP Dropout pre-breach threshold approached. Automatic escalation dispatched to IT supervisor queue.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 mt-0.5">
+<div class="flex items-center gap-2">
+<button class="dismiss-btn h-8 px-2.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold active:bg-surface-container transition-colors">
+                Mark Read
+              </button>
+<a class="h-8 px-2.5 rounded-lg text-secondary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-0.5" href="#">
+<span>Open Ticket</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<span class="font-code-sm text-code-sm text-outline">#CC-8501</span>
+</div>
+</div>
+</div>
+<!-- Card 4: AI Recommendation (In-App) -->
+<div class="notification-card relative w-full overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] transition-all duration-200" data-channel="inapp" data-id="notif-4">
+<div class="swipe-background absolute inset-0 bg-surface-container-highest flex items-center justify-between px-5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary"><span class="material-symbols-outlined text-[18px]">check_circle</span>Mark Read</div>
+<div class="flex items-center gap-1.5 text-error"><span class="material-symbols-outlined text-[18px]">archive</span>Dismiss</div>
+</div>
+<div class="swipe-surface relative w-full bg-surface-container-lowest p-space-md flex flex-col gap-2.5 transition-transform duration-150">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px] text-secondary">smart_toy</span>
+                AI Recommendation
+              </span>
+<span class="text-on-surface-variant font-body-md text-[11px]">· 1h ago</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant select-none">drag_indicator</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Capital Replacement Proposal: Lab 201</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+              5 repeated compressor stalls in 30 days. Automated capital replacement proposal compiled and awaiting human sign-off.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 mt-0.5">
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold active:scale-95 transition-transform flex items-center gap-1 shadow-sm">
+<span>Review Proposal</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+<button class="dismiss-btn h-8 px-2 rounded-lg text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface">
+                Dismiss
+              </button>
+</div>
+<span class="font-code-sm text-[11px] text-outline">CAP-EXP</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Read State (In-App) -->
+<div class="notification-card relative w-full overflow-hidden rounded-xl bg-surface-container-low transition-all duration-200 opacity-80" data-channel="inapp" data-id="notif-5">
+<div class="swipe-background absolute inset-0 bg-surface-container-highest flex items-center justify-between px-5 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary"><span class="material-symbols-outlined text-[18px]">visibility</span>Read</div>
+<div class="flex items-center gap-1.5 text-error"><span class="material-symbols-outlined text-[18px]">archive</span>Dismiss</div>
+</div>
+<div class="swipe-surface relative w-full bg-surface-container-low p-space-md flex flex-col gap-2.5 transition-transform duration-150">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+                In-App
+              </span>
+<span class="text-on-surface-variant font-body-md text-[11px]">· 3h ago</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant select-none">drag_indicator</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Resolution Confirmed on #CC-8422</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+              Student reporter confirmed fix: “Projector color tint resolved before 10 AM lecture.” Case closed gracefully.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-1 mt-0.5">
+<span class="font-label-sm text-[11px] text-on-surface-variant">Archived to historical audit log</span>
+<span class="font-code-sm text-code-sm text-outline">#CC-8422</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet Trigger: Notification & Channel Preferences -->
+<div class="w-full pt-space-xs">
+<button class="w-full bg-surface-container-lowest rounded-xl p-3.5 flex items-center justify-between shadow-[0_1px_3px_rgba(30,27,75,0.04)] active:bg-surface-container transition-colors group" id="open-preferences-btn">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</div>
+<div class="flex flex-col text-left min-w-0">
+<span class="font-title-md text-title-md text-primary leading-tight truncate">Notification Preferences</span>
+<span class="font-body-md text-[12px] text-on-surface-variant truncate">Quiet Hours (10PM–7AM) · Device Sync · Critical Pager</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-0.5 transition-transform text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Interactive Slide-Over / Bottom Sheet for Preferences (Initially Hidden) -->
+<div class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 flex flex-col justify-end" id="pref-modal">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-sm transition-opacity" id="pref-backdrop"></div>
+<!-- Sheet Drawer -->
+<div class="relative w-full max-w-lg mx-auto bg-surface-container-lowest rounded-t-3xl p-gutter-mobile flex flex-col gap-space-md shadow-2xl transform translate-y-full transition-transform duration-300 pb-safe pointer-events-auto">
+<!-- Handle -->
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto"></div>
+<div class="flex items-center justify-between pb-1">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-primary">Delivery Preferences</h2>
+<span class="font-body-md text-body-md text-on-surface-variant">Channels routed via Stanford SSO profile</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:bg-surface-container-high" id="close-pref-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Preference Toggles -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Quiet Hours</span>
+<span class="font-body-md text-[12px] text-on-surface-variant">Mute non-urgent In-App &amp; SMS alerts from 22:00 to 07:00</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-on-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">WhatsApp Critical Dispatch</span>
+<span class="font-body-md text-[12px] text-on-surface-variant">Direct instant messaging for Sev-1 chiller &amp; electrical outages</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-on-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Push Gateway (FCM v1)</span>
+<span class="font-body-md text-[12px] text-on-surface-variant">3 Stanford managed Apple &amp; Android handsets linked</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-on-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<button class="w-full h-11 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg font-semibold active:bg-primary/90 transition-colors shadow-sm" id="save-pref-btn">
+        Save &amp; Synchronize Devices
+      </button>
+</div>
+</div>
+<script>
+    // Micro-interactions: Segmented channel pill active states & filtering
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.notification-card');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          p.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        pill.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+
+        const filter = pill.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+          } else if (filter === 'unread') {
+            const isUnread = card.querySelector('.bg-secondary');
+            card.style.display = isUnread ? 'block' : 'none';
+          } else {
+            const channel = card.getAttribute('data-channel');
+            card.style.display = (channel === filter) ? 'block' : 'none';
+          }
+        });
+      });
+    });
+
+    // Mark all read micro-interaction
+    const markAllBtn = document.getElementById('mark-all-btn');
+    if (markAllBtn) {
+      markAllBtn.addEventListener('click', () => {
+        document.querySelectorAll('.notification-card').forEach(card => {
+          const dot = card.querySelector('.bg-secondary.rounded-full');
+          if (dot) dot.remove();
+          card.classList.add('opacity-80', 'bg-surface-container-low');
+          card.classList.remove('bg-surface-container-lowest');
+        });
+        const badge = document.querySelector('header .bg-error');
+        if (badge) badge.style.display = 'none';
+        const newBadge = document.querySelector('h1 + span');
+        if (newBadge) {
+          newBadge.textContent = 'All Cleared';
+          newBadge.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed');
+          newBadge.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+        }
+      });
+    }
+
+    // Dismiss buttons handling
+    document.querySelectorAll('.dismiss-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.notification-card');
+        if (card) {
+          const dot = card.querySelector('.bg-secondary.rounded-full');
+          if (dot) dot.remove();
+          card.classList.add('opacity-75');
+        }
+      });
+    });
+
+    // Preferences Sheet Show/Hide
+    const prefModal = document.getElementById('pref-modal');
+    const openPrefBtn = document.getElementById('open-preferences-btn');
+    const closePrefBtn = document.getElementById('close-pref-btn');
+    const savePrefBtn = document.getElementById('save-pref-btn');
+    const prefBackdrop = document.getElementById('pref-backdrop');
+
+    function openModal() {
+      prefModal.classList.remove('pointer-events-none', 'opacity-0');
+      prefModal.querySelector('.transform').classList.remove('translate-y-full');
+    }
+
+    function closeModal() {
+      prefModal.classList.add('pointer-events-none', 'opacity-0');
+      prefModal.querySelector('.transform').classList.add('translate-y-full');
+    }
+
+    if (openPrefBtn) openPrefBtn.addEventListener('click', openModal);
+    if (closePrefBtn) closePrefBtn.addEventListener('click', closeModal);
+    if (savePrefBtn) savePrefBtn.addEventListener('click', closeModal);
+    if (prefBackdrop) prefBackdrop.addEventListener('click', closeModal);
+
+    // Interactive Swipe-to-dismiss gesture simulation on touch devices
+    document.querySelectorAll('.swipe-surface').forEach(surface => {
+      let startX = 0;
+      let currentX = 0;
+      surface.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      surface.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX - startX;
+        if (Math.abs(currentX) < 120) {
+          surface.style.transform = `translateX(${currentX}px)`;
+        }
+      }, { passive: true });
+
+      surface.addEventListener('touchend', () => {
+        if (Math.abs(currentX) > 60) {
+          surface.style.transform = currentX > 0 ? 'translateX(70px)' : 'translateX(-70px)';
+        } else {
+          surface.style.transform = 'translateX(0px)';
+        }
+        currentX = 0;
+      });
+    });
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(30,27,75,0.05)]" data-active-classes="text-secondary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm tracking-tight">Home</span></a><a class="flex flex-col items-center justify-center w-14 h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="triage" href="#"><span class="material-symbols-outlined text-[22px]">rule</span><span class="font-label-sm text-label-sm tracking-tight">Triage</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-11 gap-0.5 transition-colors relative text-secondary font-semibold" data-path="notifications" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute -top-1 -right-1 px-1 min-w-[14px] h-[14px] rounded-full bg-error text-on-error font-label-sm text-[9px] leading-tight flex items-center justify-center font-bold">5</span></div><span class="font-label-sm text-label-sm tracking-tight">Alerts</span></a><a class="flex flex-col items-center justify-center w-14 h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="radar" href="#"><span class="material-symbols-outlined text-[22px]">near_me</span><span class="font-label-sm text-label-sm tracking-tight">Radar</span></a><a class="flex flex-col items-center justify-center w-14 h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">manage_accounts</span><span class="font-label-sm text-label-sm tracking-tight">Profile</span></a></div></nav></body></html>

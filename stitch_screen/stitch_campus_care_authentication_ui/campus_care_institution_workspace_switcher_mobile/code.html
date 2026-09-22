@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#e0e3e5', 'secondary-fixed-dim': '#b4c5ff', 'surface-container-low': '#f2f4f6', 'primary-container': '#1e1b4b', 'on-secondary-fixed': '#00174b', 'on-secondary-fixed-variant': '#003ea8', 'on-error': '#ffffff', 'secondary-container': '#316bf3', 'error': '#ba1a1a', 'inverse-on-surface': '#eff1f3', 'on-secondary': '#ffffff', 'on-primary-fixed': '#181445', 'primary-fixed-dim': '#c4c1fb', 'on-tertiary-fixed': '#002114', 'secondary-fixed': '#dbe1ff', 'tertiary-fixed-dim': '#68dba9', 'surface': '#f7f9fb', 'surface-tint': '#5b598c', 'surface-variant': '#e0e3e5', 'on-tertiary-container': '#179c6e', 'background': '#f7f9fb', 'on-primary-fixed-variant': '#444173', 'on-secondary-container': '#fefcff', 'tertiary-fixed': '#85f8c4', 'inverse-surface': '#2d3133', 'on-error-container': '#93000a', 'primary': '#070235', 'tertiary-container': '#002819', 'on-surface-variant': '#47464f', 'primary-fixed': '#e3dfff', 'secondary': '#0051d5', 'surface-container-lowest': '#ffffff', 'outline-variant': '#c8c5d0', 'on-primary-container': '#8683ba', 'surface-container': '#eceef0', 'surface-container-high': '#e6e8ea', 'outline': '#787680', 'surface-dim': '#d8dadc', 'on-tertiary': '#ffffff', 'on-primary': '#ffffff', 'surface-bright': '#f7f9fb', 'tertiary': '#000f07', 'on-surface': '#191c1e', 'on-tertiary-fixed-variant': '#005137', 'on-background': '#191c1e', 'inverse-primary': '#c4c1fb', 'error-container': '#ffdad6' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-sm': '0.5rem', 'gutter': '1.5rem', 'gutter-mobile': '1rem', 'margin': '2rem', 'space-xl': '2.5rem', 'space-xs': '0.25rem', 'margin-mobile': '1rem', 'space-lg': '1.5rem', 'margin-desktop': '3rem', 'space-md': '1rem' }, fontFamily: { 'headline-xl-mobile': ['Newsreader'], 'headline-lg': ['Newsreader'], 'code-sm': ['Manrope'], 'title-md': ['Manrope'], 'label-sm': ['Manrope'], 'display-lg-mobile': ['Newsreader'], 'body-md': ['Manrope'], 'label-lg': ['Manrope'], 'headline-sm': ['Newsreader'], 'body-lg': ['Manrope'], 'display-lg': ['Newsreader'], 'headline-xl': ['Newsreader'] }, fontSize: { 'headline-xl-mobile': ['1.75rem', { lineHeight: '2.25rem', letterSpacing: '-0.01em', fontWeight: '400' }], 'headline-lg': ['2rem', { lineHeight: '2.5rem', letterSpacing: '-0.01em', fontWeight: '500' }], 'code-sm': ['0.8125rem', { lineHeight: '1.2rem', fontWeight: '500' }], 'title-md': ['1.125rem', { lineHeight: '1.625rem', fontWeight: '600' }], 'label-sm': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.04em', fontWeight: '700' }], 'display-lg-mobile': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '-0.01em', fontWeight: '400' }], 'body-md': ['0.875rem', { lineHeight: '1.45rem', fontWeight: '400' }], 'label-lg': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em', fontWeight: '600' }], 'headline-sm': ['1.375rem', { lineHeight: '1.75rem', fontWeight: '500' }], 'body-lg': ['1rem', { lineHeight: '1.6rem', fontWeight: '400' }], 'display-lg': ['3.5rem', { lineHeight: '4rem', letterSpacing: '-0.02em', fontWeight: '400' }], 'headline-xl': ['2.5rem', { lineHeight: '3rem', letterSpacing: '-0.015em', fontWeight: '400' }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Back" class="w-11 h-11 min-w-[44px] min-h-[44px] -ml-2 flex items-center justify-center rounded-full hover:bg-surface-container active:bg-surface-container-high transition-colors text-primary" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex items-center gap-space-xs"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xt48Izz3jtg8cZPzQSmyCYfhDwUt-pPVeCotsEUQIEyTNzl6f6QoSEUcVIXM4duRfJ4ZjoQeqsD9hbp5m9eD8LKRRSwMGyVbS_QBcnEYuQX7aUOJTX1VYmOxqQUA9dKWDZdkWZLTzqiCQUJVGA3bFt6NY-g4PLmNhLjMYYbEIxQoNjHYJ1ReS7ObSiFBUKx8Uek5v6Lqh06o3B8sp6gQ38UQS8RLlBnotl4O3jo7AyCYPe7sRoepxEVJgr"/><h1 class="font-title-md text-title-md text-primary tracking-tight truncate max-w-[190px]">Switch Workspace</h1></div></div><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_1px_3px_0_rgba(30,27,75,0.08)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive Architectural Grid Header Scrim -->
+<div class="relative w-full overflow-hidden bg-primary px-gutter-mobile pt-space-lg pb-space-xl">
+<div class="absolute inset-0 opacity-15 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="40%" id="meshGrad" r="60%">
+<stop offset="0%" stop-color="#85f8c4" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#316bf3" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<rect fill="url(#meshGrad)" height="200" width="400"></rect>
+<path d="M40 180 L120 70 L220 50 L320 80 L380 150 M120 70 L200 130 L220 50 M200 130 L320 80 M120 70 L280 140" fill="none" stroke="#b4c5ff" stroke-dasharray="3 3" stroke-width="1"></path>
+<circle cx="120" cy="70" fill="#85f8c4" r="3"></circle>
+<circle cx="220" cy="50" fill="#68dba9" r="4"></circle>
+<circle cx="320" cy="80" fill="#85f8c4" r="3.5"></circle>
+<circle cx="200" cy="130" fill="#b4c5ff" r="3"></circle>
+</svg>
+</div>
+<!-- Active Session Pill -->
+<div class="relative z-10 flex items-center justify-between gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-primary-fixed truncate max-w-[210px]">j.holloway@stanford.edu</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span class="font-label-sm text-label-sm tracking-widest">PROV-TENANT</span>
+</div>
+</div>
+<div class="relative z-10 mt-space-md">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed-dim">Institutional Routing Engine</p>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile text-surface-container-lowest mt-0.5">Select Workspace</h2>
+<p class="font-body-md text-body-md text-surface-variant/80 mt-1">Cross-campus facility telemetry, safety dispatch, and operations partitioned at data layer.</p>
+</div>
+</div>
+<!-- Main Floating Operations Sheet -->
+<div class="relative -mt-4 bg-surface rounded-t-2xl px-gutter-mobile pt-space-md pb-32 flex flex-col gap-space-md">
+<!-- Sticky Search & Quick Filter Controls -->
+<div class="sticky top-16 z-30 -mx-gutter-mobile px-gutter-mobile py-2 bg-surface/90 backdrop-blur-lg">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3.5 text-[20px] text-on-surface-variant pointer-events-none">domain_verification</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-[0_1px_3px_0_rgba(30,27,75,0.06)] focus:outline-none focus:bg-surface-container-lowest placeholder:text-outline" id="campusSearchInput" placeholder="Search university, campus or domain..." type="text"/>
+<button class="hidden absolute right-3 w-6 h-6 flex items-center justify-center text-outline hover:text-primary" id="clearSearchBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2 mt-2.5 overflow-x-auto pb-1 no-scrollbar" id="filterChipsContainer">
+<button class="filter-chip active flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all shadow-sm" data-filter="all">
+<span>All Nodes</span>
+<span class="w-4 h-4 rounded-full bg-on-primary/20 text-on-primary flex items-center justify-center font-code-sm text-[10px]">5</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="my-campus">
+<span>My Campuses</span>
+<span class="w-4 h-4 rounded-full bg-surface-container-highest text-primary flex items-center justify-center font-code-sm text-[10px]">2</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="high-activity">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>High Priority</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all" data-filter="verified">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>Verified</span>
+</button>
+</div>
+</div>
+<!-- Section Heading -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Authorised Institutional Partitions</span>
+<span class="font-code-sm text-code-sm text-secondary font-semibold" id="clusterStatusText">Online • 5 Campuses</span>
+</div>
+<!-- Campus Cards Container -->
+<div class="flex flex-col gap-space-sm" id="tenantList">
+<!-- CARD 1: Apex University (Default Selected) -->
+<div aria-checked="true" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_12px_rgba(30,27,75,0.08)] transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="apex" role="radio">
+<!-- Distinctive Active Indicator Bar -->
+<div class="active-indicator absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-3 min-w-0">
+<!-- University Crest Monogram -->
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary font-headline-sm text-headline-sm shadow-md flex-shrink-0">
+              AU
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Apex Univ. of Technology</h3>
+<span class="material-symbols-outlined text-[17px] text-secondary flex-shrink-0" style="font-variation-settings: 'FILL' 1;" title="Verified Domain">verified</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-outline">apex.edu</span>
+<span class="text-outline-variant text-[11px]">•</span>
+<span class="font-label-sm text-[11px] text-secondary uppercase font-bold tracking-wider">Primary Seat</span>
+</div>
+</div>
+</div>
+<!-- Selection Pill -->
+<div class="radio-pill flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Active</span>
+</div>
+</div>
+<!-- Metric Badges & Facilities Summary -->
+<div class="mt-3.5 pt-3 bg-surface-container-low/60 -mx-space-md px-space-md pb-1 flex flex-col gap-2 rounded-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFFBEB] text-[#92400E] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+                28 Active Incidents
+              </span>
+<span class="font-code-sm text-code-sm text-outline">Cluster #01</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">99.4% Uptime</span>
+</div>
+<!-- Mini Breakdown -->
+<div class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm pb-1 flex-wrap">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>14 Facilities</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#68dba9]"></span>8 IT/Wifi</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>6 Safety Priority</span>
+</div>
+</div>
+</div>
+<!-- CARD 2: Stanford University -->
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="my-campus high-activity verified" data-tenant="stanford" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
+              SU
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Stanford University</h3>
+<span class="material-symbols-outlined text-[17px] text-secondary flex-shrink-0" style="font-variation-settings: 'FILL' 1;" title="Verified Domain">verified</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-outline">stanford.edu</span>
+<span class="text-outline-variant text-[11px]">•</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-medium">Main Quad Partition</span>
+</div>
+</div>
+</div>
+<div class="radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFFBEB] text-[#92400E] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+            42 Active Incidents
+          </span>
+<span class="font-body-md text-body-md text-outline">21 Facilities • 14 Labs • 7 HVAC</span>
+</div>
+</div>
+<!-- CARD 3: MIT -->
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="mit" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
+              MIT
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Mass. Institute of Technology</h3>
+<span class="material-symbols-outlined text-[17px] text-secondary flex-shrink-0" style="font-variation-settings: 'FILL' 1;" title="Verified Domain">verified</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-outline">mit.edu</span>
+<span class="text-outline-variant text-[11px]">•</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-medium">Kendall Tech Core</span>
+</div>
+</div>
+</div>
+<div class="radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+            19 Active Incidents
+          </span>
+<span class="font-body-md text-body-md text-outline">Stable Energy Grid</span>
+</div>
+</div>
+<!-- CARD 4: UC Berkeley -->
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="high-activity verified" data-tenant="berkeley" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
+              UCB
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface truncate">University of California, Berkeley</h3>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-outline">berkeley.edu</span>
+<span class="text-outline-variant text-[11px]">•</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-medium">East Bay Complex</span>
+</div>
+</div>
+</div>
+<div class="radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFFBEB] text-[#92400E] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+            35 Active Incidents
+          </span>
+<span class="font-body-md text-body-md text-outline">18 Facilities • 12 Seismic sensors</span>
+</div>
+</div>
+<!-- CARD 5: Carnegie Mellon University -->
+<div aria-checked="false" class="tenant-card cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(30,27,75,0.04)] hover:shadow-md transition-all duration-200 overflow-hidden" data-tags="verified" data-tenant="cmu" role="radio">
+<div class="active-indicator hidden absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm flex-shrink-0">
+              CMU
+            </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Carnegie Mellon University</h3>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-outline">cmu.edu</span>
+<span class="text-outline-variant text-[11px]">•</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-medium">Robotics Cluster</span>
+</div>
+</div>
+</div>
+<div class="radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+            14 Active Incidents
+          </span>
+<span class="font-body-md text-body-md text-outline">Automated HVAC Routing</span>
+</div>
+</div>
+</div>
+<!-- Empty State (Shown when search has no matches) -->
+<div class="hidden flex flex-col items-center justify-center py-10 px-4 text-center" id="noResultsState">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-outline mb-3">
+<span class="material-symbols-outlined text-[28px]">search_off</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">No Campus Domain Found</p>
+<p class="font-body-md text-body-md text-outline mt-1 max-w-[260px]">Verify SSO provisioning or contact your Campus Care platform administrator.</p>
+</div>
+<!-- Quick Help & Institutional Context Note -->
+<div class="mt-2 p-space-md rounded-xl bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-[22px] text-secondary flex-shrink-0 mt-0.5">hub</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Federated Cross-Campus Operations</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+          Switching workspaces loads localized sensor topologies, maintenance tickets, and automated work-order queues for that specific campus.
+        </span>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-xl px-gutter-mobile pt-3 pb-safe shadow-[0_-4px_20px_rgba(30,27,75,0.06)]">
+<div class="max-w-md mx-auto flex flex-col gap-2 pb-2">
+<!-- Primary Confirm Button -->
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(7,2,53,0.2)] active:scale-[0.98] transition-transform" id="confirmWorkspaceBtn">
+<span id="confirmBtnLabel">Switch to Apex Univ. of Technology</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Security / Partition Footnote -->
+<div class="flex items-center justify-center gap-1.5 py-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">lock</span>
+<p class="font-code-sm text-[11px] text-outline text-center">
+          Multi-tenant partition secured with Supabase RLS
+        </p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initWorkspaceSwitcher() {
+    const searchInput = document.getElementById('campusSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.tenant-card');
+    const noResults = document.getElementById('noResultsState');
+    const confirmBtn = document.getElementById('confirmWorkspaceBtn');
+    const confirmBtnLabel = document.getElementById('confirmBtnLabel');
+    const clusterStatus = document.getElementById('clusterStatusText');
+
+    let activeFilter = 'all';
+    let currentSelectedTenant = 'apex';
+
+    const tenantNames = {
+      apex: 'Apex Univ. of Technology',
+      stanford: 'Stanford University',
+      mit: 'Mass. Institute of Technology',
+      berkeley: 'University of California, Berkeley',
+      cmu: 'Carnegie Mellon University'
+    };
+
+    function selectCard(card) {
+      const tenantKey = card.getAttribute('data-tenant');
+      currentSelectedTenant = tenantKey;
+
+      cards.forEach(c => {
+        const isCurrent = c === card;
+        c.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
+        
+        const indicator = c.querySelector('.active-indicator');
+        const pill = c.querySelector('.radio-pill');
+
+        if (isCurrent) {
+          c.classList.remove('bg-surface-container-lowest', 'shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
+          c.classList.add('bg-surface-container-lowest', 'shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
+          if (indicator) indicator.classList.remove('hidden');
+          if (pill) {
+            pill.className = 'radio-pill flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm flex-shrink-0';
+            pill.innerHTML = '<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span><span>Active</span>';
+          }
+        } else {
+          c.classList.remove('shadow-[0_4px_12px_rgba(30,27,75,0.08)]');
+          c.classList.add('shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]');
+          if (indicator) indicator.classList.add('hidden');
+          if (pill) {
+            pill.className = 'radio-pill flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-outline hover:text-primary flex-shrink-0';
+            pill.innerHTML = '<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>';
+          }
+        }
+      });
+
+      if (confirmBtnLabel) {
+        confirmBtnLabel.textContent = 'Switch to ' + (tenantNames[tenantKey] || 'Workspace');
+      }
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        selectCard(card);
+      });
+    });
+
+    function applyFilterAndSearch() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const tags = card.getAttribute('data-tags') || '';
+        const matchesQuery = !query || text.includes(query);
+        const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
+
+        if (matchesQuery && matchesFilter) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      if (clearBtn) {
+        if (query.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+
+      if (clusterStatus) {
+        clusterStatus.textContent = visibleCount + ' Campus' + (visibleCount === 1 ? '' : 'es') + ' Found';
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilterAndSearch);
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        applyFilterAndSearch();
+        searchInput.focus();
+      });
+    }
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('active', 'bg-primary', 'text-on-primary');
+          c.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        chip.classList.add('active', 'bg-primary', 'text-on-primary');
+        chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        activeFilter = chip.getAttribute('data-filter') || 'all';
+        applyFilterAndSearch();
+      });
+    });
+
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        const originalText = confirmBtnLabel.textContent;
+        confirmBtn.disabled = true;
+        confirmBtn.classList.add('opacity-80');
+        confirmBtnLabel.textContent = 'Connecting RLS Context...';
+
+        setTimeout(() => {
+          confirmBtnLabel.textContent = 'Workspace Connected ✓';
+          confirmBtn.classList.remove('bg-primary');
+          confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+          setTimeout(() => {
+            confirmBtn.classList.remove('opacity-80', 'bg-tertiary-container', 'text-on-tertiary-container');
+            confirmBtn.classList.add('bg-primary');
+            confirmBtn.disabled = false;
+            confirmBtnLabel.textContent = originalText;
+          }, 1400);
+        }, 800);
+      });
+    }
+  })();
+</script></main></body></html>

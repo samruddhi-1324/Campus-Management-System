@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#070235", "surface-container-high": "#e6e8ea", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#b4c5ff", "tertiary-fixed": "#85f8c4", "on-secondary-fixed-variant": "#003ea8", "tertiary-fixed-dim": "#68dba9", "surface-variant": "#e0e3e5", "on-surface": "#191c1e", "inverse-surface": "#2d3133", "primary-container": "#1e1b4b", "on-primary-fixed": "#181445", "tertiary": "#000f07", "surface-container-highest": "#e0e3e5", "surface": "#f7f9fb", "on-primary-container": "#8683ba", "tertiary-container": "#002819", "on-surface-variant": "#47464f", "inverse-primary": "#c4c1fb", "primary-fixed": "#e3dfff", "surface-bright": "#f7f9fb", "on-secondary-container": "#fefcff", "primary-fixed-dim": "#c4c1fb", "surface-dim": "#d8dadc", "on-error": "#ffffff", "on-error-container": "#93000a", "background": "#f7f9fb", "secondary-container": "#316bf3", "on-secondary-fixed": "#00174b", "surface-container-lowest": "#ffffff", "on-tertiary-fixed": "#002114", "on-background": "#191c1e", "surface-container": "#eceef0", "on-tertiary-fixed-variant": "#005137", "secondary-fixed": "#dbe1ff", "secondary": "#0051d5", "error": "#ba1a1a", "inverse-on-surface": "#eff1f3", "outline-variant": "#c8c5d0", "surface-tint": "#5b598c", "on-secondary": "#ffffff", "outline": "#787680", "on-tertiary-container": "#179c6e", "error-container": "#ffdad6", "surface-container-low": "#f2f4f6", "on-primary-fixed-variant": "#444173" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-xs": "0.25rem", "gutter": "1.5rem", "space-lg": "1.5rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "margin": "2rem", "margin-desktop": "3rem", "gutter-mobile": "1rem", "space-xl": "2.5rem" }, "fontFamily": { "title-md": [ "Manrope" ], "code-sm": [ "Manrope" ], "body-lg": [ "Manrope" ], "display-lg": [ "Newsreader" ], "headline-xl-mobile": [ "Newsreader" ], "headline-xl": [ "Newsreader" ], "headline-lg": [ "Newsreader" ], "label-lg": [ "Manrope" ], "display-lg-mobile": [ "Newsreader" ], "headline-sm": [ "Newsreader" ], "body-md": [ "Manrope" ], "label-sm": [ "Manrope" ] }, "fontSize": { "title-md": [ "1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" } ], "code-sm": [ "0.8125rem", { "lineHeight": "1.2rem", "fontWeight": "500" } ], "body-lg": [ "1rem", { "lineHeight": "1.6rem", "fontWeight": "400" } ], "display-lg": [ "3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "headline-xl-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-xl": [ "2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" } ], "headline-lg": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" } ], "display-lg-mobile": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "body-md": [ "0.875rem", { "lineHeight": "1.45rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(30,27,75,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="px-space-lg pt-space-lg pb-space-md flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">account_balance</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Campus Care</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Operations Core</span></div></div><div class="px-space-lg pb-space-md"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1"><div class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[15px]">verified</span><span class="font-label-sm text-label-sm uppercase font-bold tracking-wide">Stanford Operations</span></div><span class="font-body-md text-body-md text-on-surface-variant truncate">Institutional Division #04</span></div></div><div class="px-space-md py-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">Operations Navigation</span></div><nav class="flex flex-col gap-1 px-space-sm mt-1" data-active-classes="bg-primary-container text-on-primary font-title-md"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="analytics-operations" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">monitoring</span><span>Analytics &amp; Operations</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="triage-queue" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">rule_folder</span><span>Triage Queue</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="sla-risk-radar" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">crisis_alert</span><span>SLA Risk Radar</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="facilities-map" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">domain</span><span>Facilities Map</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">summarize</span><span>Reports</span></a></nav></div><div class="p-space-md bg-surface-container-low mx-space-sm mb-space-md rounded-xl flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">System Telemetry</span><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span></div><span class="font-code-sm text-code-sm text-on-surface font-semibold">All Systems Operational</span><span class="font-label-sm text-label-sm text-on-surface-variant">SLA Resolution: 98.4%</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,27,75,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container"><span class="material-symbols-outlined text-[16px] text-primary">account_balance</span><span class="font-label-sm text-label-sm text-primary font-bold tracking-wide">Stanford University Operations</span></div><span class="text-outline-variant">|</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Executive Ops Head / Dean Review</span></div><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">Dean's Council</span><span class="font-label-sm text-label-sm text-on-surface-variant">ops.executive@stanford.edu</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative w-full pt-16 bg-surface px-space-lg"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Operational Banner & Executive Scope -->
+<section class="flex flex-col gap-space-md pt-space-md mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">PRD §3.4 / SRS v3.0 FR-1.21 Telemetry Node</span>
+<span class="text-outline-variant font-code-sm text-code-sm">·</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">Real-Time Operational Synchronizer</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-primary tracking-tight">Stanford Campus Operations Command &amp; Executive Telemetry</p>
+<span class="font-body-md text-body-md text-on-surface-variant">Q2 Academic Census Window · Main Quad, Science Core &amp; Health Sciences Facility Fleet</span>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-primary shadow-sm hover:shadow-md hover:bg-surface-container-low transition-all duration-200 cursor-pointer" id="ai-digest-btn" type="button">
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform group-hover:rotate-12">bolt</span>
+<span class="font-label-lg text-label-lg font-semibold text-primary">Run AI Leadership Digest</span>
+</button>
+<div class="relative inline-block text-left" id="export-dropdown-wrapper">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary shadow-sm hover:bg-primary transition-all duration-200 cursor-pointer" id="export-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span class="font-label-lg text-label-lg font-medium text-on-primary">Export CSV / PDF Dossier</span>
+<span class="material-symbols-outlined text-[16px] opacity-70">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-56 rounded-xl bg-surface-container-lowest shadow-xl z-30 py-space-xs flex-col" id="export-menu">
+<button class="w-full text-left px-space-md py-space-xs text-on-surface hover:bg-surface-container font-body-md text-body-md flex items-center justify-between">
+<span>Executive Briefing (PDF)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">.pdf</span>
+</button>
+<button class="w-full text-left px-space-md py-space-xs text-on-surface hover:bg-surface-container font-body-md text-body-md flex items-center justify-between">
+<span>Full Raw Telemetry (CSV)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">.csv</span>
+</button>
+<button class="w-full text-left px-space-md py-space-xs text-on-surface hover:bg-surface-container font-body-md text-body-md flex items-center justify-between">
+<span>FERPA Audit Bundle</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">.enc</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Bar Component -->
+<div class="p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">date_range</span>
+<select class="bg-transparent border-none text-on-surface font-label-lg text-label-lg font-semibold focus:outline-none cursor-pointer" id="date-range-select">
+<option value="today">Today (Real-time snapshot)</option>
+<option value="7d">Last 7 Days (May 07 – May 14, 2025)</option>
+<option selected="" value="30d">Last 30 Days (Apr 15 – May 14, 2025)</option>
+<option value="qtd">Quarter to Date (Q2 Academic Year)</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">domain</span>
+<select class="bg-transparent border-none text-on-surface font-label-lg text-label-lg font-semibold focus:outline-none cursor-pointer max-w-[260px] truncate" id="building-scope-select">
+<option selected="" value="all">All Campus Sectors (Main Quad, West Science &amp; Eng, Medical, East Campus)</option>
+<option value="main">Main Quad &amp; Memorial Court</option>
+<option value="west">West Science &amp; Engineering Annex</option>
+<option value="med">Stanford Medicine &amp; Bio-X Laboratories</option>
+<option value="east">East Campus &amp; Student Residential Row</option>
+</select>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs text-on-surface-variant font-code-sm text-code-sm px-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">sync</span>
+<span>Feed synchronized: 2m ago via MQTT broker</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm self-end md:self-auto pr-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-semibold uppercase">Active Protocol</span>
+<span class="font-code-sm text-code-sm text-primary font-bold">FERPA-SEC-2025-V2</span>
+</div>
+</div>
+<!-- AI Leadership Briefing Card (PRD §5.9 / FR-AI-09 / FR-1.23) -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary-container via-[#17143e] to-[#252061] text-on-primary p-space-md shadow-md transition-all duration-300" id="ai-briefing-card">
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
+<div class="relative flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary-fixed font-bold">AI Executive Operations Briefing</span>
+<span class="text-on-primary-container font-code-sm text-code-sm">•</span>
+<span class="text-on-primary-container font-code-sm text-code-sm">Generated 2h ago by Campus Care Ops Engine</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-lowest/10 text-on-primary font-code-sm text-[11px]">Confidence: 99.4%</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary leading-relaxed max-w-5xl">
+<strong class="font-semibold text-white">1,420 total issues logged (+8.4% vs prev cycle)</strong>. HVAC and Wi-Fi across West Quad account for <span class="underline decoration-tertiary-fixed/60 underline-offset-2">48% of high-urgency volume</span>. 2 assets flagged for capital replacement (<span class="font-code-sm text-code-sm bg-white/10 px-1 py-0.5 rounded text-white">Packard AHU-02 blower</span> and <span class="font-code-sm text-code-sm bg-white/10 px-1 py-0.5 rounded text-white">Green Library Core AP-GL-2E</span>). Median resolution holding steady at <span class="text-tertiary-fixed font-semibold">4.2h with 94.8% SLA compliance</span>.
+            </p>
+</div>
+</div>
+<button aria-label="Dismiss briefing" class="text-on-primary-container hover:text-on-primary p-1 rounded-lg hover:bg-surface-container-lowest/10 transition-colors" id="dismiss-briefing-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Top KPI Grid: 4 Cards with Mini SVG Trend Sparklines -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Card 1: Total Volume -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="h-1 w-full bg-primary-container absolute top-0 left-0"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Total Volume</span>
+<span class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight mt-1">1,420</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">inbox</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-end justify-between gap-space-xs">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px] font-bold">trending_up</span>
+<span class="font-label-sm text-label-sm font-bold">+12.4% vs last cycle</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">92% Facilities · 8% Academic</span>
+</div>
+<!-- Sparkline 1: Royal Indigo Upward Trend Curve -->
+<div class="w-24 h-10 shrink-0">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 40">
+<path d="M 0,34 Q 20,32 35,28 T 60,18 T 85,12 T 100,6" fill="none" stroke="#1e1b4b" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 0,34 Q 20,32 35,28 T 60,18 T 85,12 T 100,6 L 100,40 L 0,40 Z" fill="#1e1b4b" fill-opacity="0.08"></path>
+<circle cx="100" cy="6" fill="#1e1b4b" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card 2: Mean Time to Resolve (MTTR) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="h-1 w-full bg-[#059669] absolute top-0 left-0"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Mean Time to Resolve</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">4.2</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">hours</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-[#ecfdf5] flex items-center justify-center text-[#059669]">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-end justify-between gap-space-xs">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-[#059669]">
+<span class="material-symbols-outlined text-[16px] font-bold">trending_down</span>
+<span class="font-label-sm text-label-sm font-bold">-34m improvement</span>
+</div>
+<span class="font-code-sm text-code-sm text-[#065f46] font-semibold bg-[#ecfdf5] px-1.5 py-0.5 rounded w-fit">Target: &lt; 5.0h (Pass)</span>
+</div>
+<!-- Sparkline 2: Emerald Downward Healthy Sparkline -->
+<div class="w-24 h-10 shrink-0">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 40">
+<path d="M 0,10 Q 25,12 40,20 T 70,26 T 90,32 T 100,34" fill="none" stroke="#059669" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 0,10 Q 25,12 40,20 T 70,26 T 90,32 T 100,34 L 100,40 L 0,40 Z" fill="#059669" fill-opacity="0.08"></path>
+<circle cx="100" cy="34" fill="#059669" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card 3: SLA Compliance Rate -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="h-1 w-full bg-secondary-container absolute top-0 left-0"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">SLA Compliance Rate</span>
+<span class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight mt-1">94.8%</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-[#eff6ff] flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-end justify-between gap-space-xs">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px] font-bold">arrow_upward</span>
+<span class="font-label-sm text-label-sm font-bold">+1.6% above baseline</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary-container bg-primary-fixed/40 px-1.5 py-0.5 rounded font-semibold w-fit">Institutional Tier A</span>
+</div>
+<!-- Sparkline 3: High sustained sparkline with dashed threshold -->
+<div class="w-24 h-10 shrink-0 relative">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 40">
+<line stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="100" y1="26" y2="26"></line>
+<path d="M 0,22 Q 25,18 45,14 T 75,10 T 100,8" fill="none" stroke="#316bf3" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="100" cy="8" fill="#316bf3" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card 4: Active Escalations -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="h-1 w-full bg-error absolute top-0 left-0"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-bold">Active Escalations</span>
+<span class="font-headline-xl text-headline-xl text-error font-bold tracking-tight mt-1">5</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-end justify-between gap-space-xs">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">2 Critical · 3 Elevated</span>
+<span class="font-code-sm text-code-sm text-error bg-error-container px-1.5 py-0.5 rounded font-bold w-fit animate-pulse">Action Required (&lt;60m)</span>
+</div>
+<!-- Sparkline 4: Stepped alert sparkline in crimson -->
+<div class="w-24 h-10 shrink-0">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 40">
+<path d="M 0,36 L 20,36 L 20,28 L 45,28 L 45,18 L 75,18 L 75,8 L 100,8" fill="none" stroke="#ba1a1a" stroke-width="2.5"></path>
+<circle cx="100" cy="8" fill="#ba1a1a" r="3.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Middle Row: Analytical Visualizations -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-lg">
+<!-- Left Column: Resolution Velocity & Inflow vs Outflow Trend (7 cols desktop) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Resolution Velocity &amp; Inflow vs Outflow</span>
+<span class="w-2 h-2 rounded-full bg-[#059669]"></span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">14-Day Cycle Analysis (May 01 – May 14, 2025)</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Time grain toggles -->
+<div class="inline-flex p-1 rounded-lg bg-surface-container-low font-label-sm text-label-sm">
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Daily</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-bold shadow-xs cursor-pointer">Weekly</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Monthly</button>
+</div>
+</div>
+</div>
+<!-- Chart Legend & Metrics -->
+<div class="flex items-center flex-wrap gap-space-md text-body-md text-on-surface-variant mb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#059669]"></span>
+<span class="font-semibold text-on-surface">Resolved Outflow: <span class="text-primary font-bold">52/day</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-1 border-t-2 border-dashed border-[#f59e0b]"></span>
+<span class="font-semibold text-on-surface">New Inflow: <span class="text-primary font-bold">48/day</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-1 bg-error"></span>
+<span class="text-on-surface-variant">Breach Alert Limit (5)</span>
+</div>
+</div>
+<!-- High-Fidelity SVG Line / Area Graph with Hover Tooltip Marker -->
+<div class="relative w-full h-72 my-space-xs">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 640 260">
+<defs>
+<lineargradient id="emeraldGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#059669" stop-opacity="0.28"></stop>
+<stop offset="100%" stop-color="#059669" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="amberGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#f1f5f9" stroke-width="1.5" x1="30" x2="630" y1="30" y2="30"></line>
+<line stroke="#f1f5f9" stroke-width="1.5" x1="30" x2="630" y1="80" y2="80"></line>
+<line stroke="#f1f5f9" stroke-width="1.5" x1="30" x2="630" y1="130" y2="130"></line>
+<line stroke="#f1f5f9" stroke-width="1.5" x1="30" x2="630" y1="180" y2="180"></line>
+<line stroke="#f1f5f9" stroke-width="1.5" x1="30" x2="630" y1="230" y2="230"></line>
+<!-- Axis Y Labels -->
+<text class="text-[10px] fill-on-surface-variant font-mono" x="5" y="34">60</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" x="5" y="84">45</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" x="5" y="134">30</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" x="5" y="184">15</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" x="5" y="234">0</text>
+<!-- Critical Threshold Warning Guideline -->
+<line opacity="0.4" stroke="#ba1a1a" stroke-dasharray="4,4" stroke-width="1" x1="30" x2="630" y1="210" y2="210"></line>
+<!-- Outflow (Resolved) Filled Area -->
+<path d="M 40,160 Q 80,140 120,130 T 200,105 T 280,90 T 360,70 T 440,65 T 520,55 T 600,45 L 600,230 L 40,230 Z" fill="url(#emeraldGradient)"></path>
+<!-- Inflow Dotted Line (Amber) -->
+<path d="M 40,145 Q 80,150 120,135 T 200,120 T 280,110 T 360,95 T 440,85 T 520,70 T 600,68" fill="none" stroke="#d97706" stroke-dasharray="5,4" stroke-width="2.5"></path>
+<!-- Outflow Line (Emerald Solid) -->
+<path d="M 40,160 Q 80,140 120,130 T 200,105 T 280,90 T 360,70 T 440,65 T 520,55 T 600,45" fill="none" stroke="#059669" stroke-linecap="round" stroke-width="3"></path>
+<!-- Highlight Node at May 12 (X: 520) -->
+<line opacity="0.6" stroke="#1e1b4b" stroke-dasharray="3,3" stroke-width="1.5" x1="520" x2="520" y1="30" y2="230"></line>
+<circle cx="520" cy="55" fill="#059669" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="520" cy="70" fill="#d97706" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<!-- X-Axis Labels -->
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="40" y="248">May 01</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="120" y="248">May 03</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="200" y="248">May 05</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="280" y="248">May 07</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="360" y="248">May 09</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="440" y="248">May 11</text>
+<text class="text-[10px] font-bold fill-primary font-mono" text-anchor="middle" x="520" y="248">May 12 (Peak)</text>
+<text class="text-[10px] fill-on-surface-variant font-mono" text-anchor="middle" x="600" y="248">May 14</text>
+</svg>
+<!-- Simulated Popover Tooltip for May 12 -->
+<div class="absolute right-14 top-4 bg-primary text-on-primary p-space-sm rounded-lg shadow-xl pointer-events-none text-xs flex flex-col gap-1 z-10">
+<div class="flex items-center justify-between gap-3 border-b border-white/20 pb-1">
+<span class="font-code-sm text-code-sm font-bold text-tertiary-fixed">May 12, 2025</span>
+<span class="font-code-sm text-[10px] text-white/70">14-Day High</span>
+</div>
+<div class="flex items-center justify-between gap-4 font-body-md text-body-md">
+<span class="text-white/80">Inflow Logged:</span>
+<span class="font-bold text-[#fde68a]">48 tickets</span>
+</div>
+<div class="flex items-center justify-between gap-4 font-body-md text-body-md">
+<span class="text-white/80">Resolved:</span>
+<span class="font-bold text-[#a7f3d0]">52 tickets</span>
+</div>
+<div class="flex items-center justify-between gap-4 pt-1 font-label-sm text-label-sm border-t border-white/10">
+<span class="text-white">Net Velocity:</span>
+<span class="text-tertiary-fixed font-bold">+4 Outflow Clearance</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm border-t border-surface-container-high text-on-surface-variant font-body-md text-body-md">
+<span class="flex items-center gap-1 font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[16px] text-[#059669]">check_circle</span>
+          Net throughput currently exceeding intake by +8.3%
+        </span>
+<a class="font-label-lg text-label-lg font-semibold text-secondary hover:underline flex items-center gap-0.5" href="#">
+<span>Inspect Inflow Queue</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Category Breakdown & Campus Distribution (5 cols desktop) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Category Breakdown</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Distribution across 1,420 Active Records</span>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container" title="Filter categories">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+<!-- SVG Donut Chart with Center Label -->
+<div class="relative flex items-center justify-center my-space-sm">
+<div class="w-48 h-48 relative">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Background Ring -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#f1f5f9" stroke-width="12"></circle>
+<!-- Slice 1: HVAC Malfunctions 38% (Indigo #1e1b4b) - Circumference = 2 * PI * 38 ≈ 238.76. 38% = 90.7 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#1e1b4b" stroke-dasharray="90.7 238.76" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Slice 2: AV/Projection 24% (Sky Blue #0051d5) - 24% = 57.3 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#0051d5" stroke-dasharray="57.3 238.76" stroke-dashoffset="-90.7" stroke-width="12"></circle>
+<!-- Slice 3: IT & Campus Wi-Fi 18% (Violet #5b598c) - 18% = 43.0 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#5b598c" stroke-dasharray="43.0 238.76" stroke-dashoffset="-148.0" stroke-width="12"></circle>
+<!-- Slice 4: Lab Safety & Equipment 12% (Amber #d97706) - 12% = 28.6 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#d97706" stroke-dasharray="28.6 238.76" stroke-dashoffset="-191.0" stroke-width="12"></circle>
+<!-- Slice 5: Academic Concerns 8% (Purple FERPA #8683ba) - 8% = 19.1 -->
+<circle cx="50" cy="50" fill="none" r="38" stroke="#8683ba" stroke-dasharray="19.1 238.76" stroke-dashoffset="-219.6" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-sm text-headline-sm text-primary font-bold leading-none">1,420</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1 tracking-wider">Total Tickets</span>
+</div>
+</div>
+</div>
+<!-- Category Legend Details -->
+<div class="flex flex-col gap-2 mt-space-sm pt-space-sm border-t border-surface-container-high">
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary-container shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium">HVAC Malfunctions</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">540 (38%)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Med: 3.8h</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-secondary shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium">AV &amp; Lecture Projection</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">341 (24%)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Med: 1.6h</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-surface-tint shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium">IT &amp; Campus Wi-Fi Mesh</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">255 (18%)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Med: 2.1h</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#d97706] shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Lab Equipment &amp; Safety</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">170 (12%)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Med: 1.1h</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-on-primary-container shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Academic Grievances (FERPA)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">114 (8%)</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Med: 18.5h</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Drilldown Issues Table (FR-2.8, FR-2.10) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<!-- Header Controls & Filtering -->
+<div class="flex flex-col gap-space-md mb-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-semibold">Operational Issues Drilldown &amp; Incident Telemetry</h2>
+<span class="font-body-md text-body-md text-on-surface-variant">1,420 Total Records Logged in Academic Year 2024–2025</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-lg text-label-lg font-semibold cursor-pointer" id="export-filtered-csv" type="button">
+<span class="material-symbols-outlined text-[18px]">table_view</span>
+<span>Export CSV (Filtered 5 Records)</span>
+</button>
+</div>
+</div>
+<!-- Interactive Filter Chips and Search Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<!-- Chips Group -->
+<div class="flex items-center flex-wrap gap-space-xs" id="table-filter-chips">
+<button class="filter-chip px-space-sm py-1 rounded-full text-on-surface-variant bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors cursor-pointer" data-filter="all">
+            All (1,420)
+          </button>
+<button class="filter-chip px-space-sm py-1 rounded-full text-on-surface-variant bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors cursor-pointer flex items-center gap-1" data-filter="breached">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Breached (8)</span>
+</button>
+<button class="filter-chip active px-space-sm py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors cursor-pointer flex items-center gap-1" data-filter="escalated">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed">local_fire_department</span>
+<span>Escalated (5)</span>
+</button>
+<button class="filter-chip px-space-sm py-1 rounded-full text-on-surface-variant bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors cursor-pointer" data-filter="open">
+            Open (64)
+          </button>
+<button class="filter-chip px-space-sm py-1 rounded-full text-on-surface-variant bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-colors cursor-pointer flex items-center gap-1" data-filter="resolved">
+<span class="material-symbols-outlined text-[14px] text-[#059669]">check</span>
+<span>Resolved (1,343)</span>
+</button>
+</div>
+<!-- Search Input -->
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-space-md py-2 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" id="table-search-input" placeholder="Search ticket ref, asset ID, building, coordinator..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Interactive Data Table Container -->
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-left border-collapse" id="incidents-table">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md w-8">
+<input class="w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" id="select-all-tickets" type="checkbox"/>
+</th>
+<th class="py-space-sm px-space-sm">Ref #</th>
+<th class="py-space-sm px-space-md">Category &amp; Sub-Discipline</th>
+<th class="py-space-sm px-space-md">Location &amp; Zone</th>
+<th class="py-space-sm px-space-sm">Reported</th>
+<th class="py-space-sm px-space-sm">Urgency / Multiplier</th>
+<th class="py-space-sm px-space-md">Assigned Specialist</th>
+<th class="py-space-sm px-space-md">SLA Health / Countdown</th>
+<th class="py-space-sm px-space-sm">Status</th>
+<th class="py-space-sm px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-space-sm px-space-md">
+<input class="ticket-checkbox w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-sm font-code-sm text-code-sm font-bold text-primary whitespace-nowrap">
+              #CC-8482
+            </td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Lab Safety &amp; Airflow</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Fume Hood Low Flow #FH-104-B</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">biotech</span>
+<span class="font-medium text-on-surface">Stauffer Chem Rm 104</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap text-on-surface-variant font-code-sm text-code-sm">
+              36m ago
+            </td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-space-xs py-0.5 rounded bg-error-container text-error font-code-sm text-code-sm font-bold">
+                2.0x Chemical Hazard
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-[10px]">
+                  SJ
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Sarah Jenkins</span>
+<span class="font-code-sm text-[11px] text-error">Delayed in transit</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-error font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">timer</span> 12m left
+                  </span>
+<span class="text-[10px] text-error font-semibold">CRITICAL</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-[92%] animate-pulse"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-label-sm font-bold">
+                Escalated
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-primary transition-colors cursor-pointer">
+                  Inspect
+                </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors cursor-pointer">
+                  Reassign
+                </button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-space-sm px-space-md">
+<input class="ticket-checkbox w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-sm font-code-sm text-code-sm font-bold text-primary whitespace-nowrap">
+              #CC-8495
+            </td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">HVAC Infrastructure</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Blower Bearing Rattle (AHU-02)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">hvac</span>
+<span class="font-medium text-on-surface">Packard Eng Rm 201</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap text-on-surface-variant font-code-sm text-code-sm">
+              18m ago
+            </td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-space-xs py-0.5 rounded bg-[#fef3c7] text-[#92400e] font-code-sm text-code-sm font-bold">
+                1.5x Midterm Exam
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="font-code-sm text-code-sm text-on-surface-variant italic">Unassigned (Pending Dispatch)</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-[#d97706] font-bold">24m left</span>
+<span class="text-[10px] text-[#d97706]">Elevated</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#d97706] w-[75%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#92400e] font-label-sm text-label-sm font-bold">
+                Escalated
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-secondary-container text-on-secondary font-label-sm text-label-sm hover:bg-secondary transition-colors cursor-pointer">
+                Assign Tech
+              </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-space-sm px-space-md">
+<input class="ticket-checkbox w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-sm font-code-sm text-code-sm font-bold text-primary whitespace-nowrap">
+              #AG-2025-0842
+            </td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-semibold text-on-surface">Academic Concern</span>
+<span class="material-symbols-outlined text-[14px] text-on-primary-container" title="FERPA Protected">lock</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Grade Dispute / Course Syllabus SLA</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">school</span>
+<span class="font-medium text-on-surface">CS Dept / Gates Hall</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap text-on-surface-variant font-code-sm text-code-sm">
+              2h ago
+            </td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-primary-container font-code-sm text-code-sm font-bold">
+                Confidential Dean SLA
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-[10px]">
+                  LO
+                </div>
+<span class="font-medium text-on-surface">Lead Ombudsperson</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-primary font-bold">18h left of 48h</span>
+<span class="text-[10px] text-on-surface-variant">Dean's Track</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint w-[40%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-[#f3e8ff] text-[#6b21a8] font-label-sm text-label-sm font-bold">
+                Under Review
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container-low text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors cursor-pointer">
+                View Dossier
+              </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-space-sm px-space-md">
+<input class="ticket-checkbox w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-sm font-code-sm text-code-sm font-bold text-primary whitespace-nowrap">
+              #CC-8491
+            </td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">AV &amp; Lecture Projection</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">4K Laser Projector No Signal</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">videocam</span>
+<span class="font-medium text-on-surface">Hewlett Ctr Rm 200</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap text-on-surface-variant font-code-sm text-code-sm">
+              42m ago
+            </td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-space-xs py-0.5 rounded bg-[#eff6ff] text-[#1e40af] font-code-sm text-code-sm font-bold">
+                1.2x Auditorium
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-[10px]">
+                  MC
+                </div>
+<span class="font-medium text-on-surface">Marcus Chen</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-secondary font-bold">48m left</span>
+<span class="text-[10px] text-secondary">Active Run</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[58%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-[#eff6ff] text-[#1d4ed8] font-label-sm text-label-sm font-bold">
+                Dispatched
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container-low text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors cursor-pointer">
+                Ping Specialist
+              </button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface transition-colors group">
+<td class="py-space-sm px-space-md">
+<input class="ticket-checkbox w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-sm font-code-sm text-code-sm font-bold text-primary whitespace-nowrap">
+              #CC-8475
+            </td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Facility Plumbing</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Under-Sink Emergency Leak (P-Trap)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">plumbing</span>
+<span class="font-medium text-on-surface">Huang Eng Rm 302</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap text-on-surface-variant font-code-sm text-code-sm">
+              1h 10m ago
+            </td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-code-sm text-code-sm font-bold">
+                1.0x Standard
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#ecfdf5] text-[#065f46] flex items-center justify-center font-bold text-[10px]">
+                  CM
+                </div>
+<span class="font-medium text-on-surface">Carlos Mendez</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-[#059669] font-bold">85m left</span>
+<span class="text-[10px] text-[#059669]">Controlled</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#059669] w-[35%]"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#065f46] font-label-sm text-label-sm font-bold">
+                In Progress
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container-low text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors cursor-pointer">
+                View Tracker
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Audit Footer -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-md mt-space-sm border-t border-surface-container-high">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span>Showing <strong class="text-on-surface font-semibold">1–5</strong> of 5 Escalated Records (Page 1 of 1)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary-container">shield</span>
+          Stanford Operations Registry · FERPA Air-Gapped &amp; Supabase RLS Protected · SHA-256 Verified Telemetry
+        </span>
+</div>
+</div>
+</section>
+<!-- Interactive Logic Hook -->
+<script>
+    (function() {
+      // Dismiss AI briefing card
+      const dismissBtn = document.getElementById('dismiss-briefing-btn');
+      const aiCard = document.getElementById('ai-briefing-card');
+      if (dismissBtn && aiCard) {
+        dismissBtn.addEventListener('click', function() {
+          aiCard.style.opacity = '0';
+          setTimeout(function() {
+            aiCard.style.display = 'none';
+          }, 250);
+        });
+      }
+
+      // Export Menu Toggle
+      const exportBtn = document.getElementById('export-btn');
+      const exportMenu = document.getElementById('export-menu');
+      if (exportBtn && exportMenu) {
+        exportBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          exportMenu.classList.toggle('hidden');
+          exportMenu.classList.toggle('flex');
+        });
+        document.addEventListener('click', function() {
+          if (!exportMenu.classList.contains('hidden')) {
+            exportMenu.classList.add('hidden');
+            exportMenu.classList.remove('flex');
+          }
+        });
+      }
+
+      // AI Leadership Digest Generator Simulation
+      const aiDigestBtn = document.getElementById('ai-digest-btn');
+      if (aiDigestBtn) {
+        aiDigestBtn.addEventListener('click', function() {
+          const originalHTML = aiDigestBtn.innerHTML;
+          aiDigestBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span class="font-label-lg text-label-lg font-semibold">Synthesizing Digest...</span>';
+          aiDigestBtn.disabled = true;
+
+          setTimeout(function() {
+            aiDigestBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-[#059669]">task_alt</span><span class="font-label-lg text-label-lg font-semibold text-[#059669]">Digest Dispatched to Dean</span>';
+            setTimeout(function() {
+              aiDigestBtn.innerHTML = originalHTML;
+              aiDigestBtn.disabled = false;
+            }, 3000);
+          }, 1200);
+        });
+      }
+
+      // Select All Checkboxes
+      const selectAll = document.getElementById('select-all-tickets');
+      const itemCheckboxes = document.querySelectorAll('.ticket-checkbox');
+      if (selectAll) {
+        selectAll.addEventListener('change', function() {
+          itemCheckboxes.forEach(cb => {
+            cb.checked = selectAll.checked;
+          });
+        });
+      }
+
+      // Filter chips interactive toggle
+      const chips = document.querySelectorAll('.filter-chip');
+      chips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          chips.forEach(c => {
+            c.classList.remove('bg-primary-container', 'text-on-primary');
+            c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          this.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+          this.classList.add('bg-primary-container', 'text-on-primary');
+        });
+      });
+
+      // Quick Search input filtering
+      const searchInput = document.getElementById('table-search-input');
+      const tableRows = document.querySelectorAll('#incidents-table tbody tr');
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          const query = e.target.value.toLowerCase();
+          tableRows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(query) ? '' : 'none';
+          });
+        });
+      }
+
+      // Quick CSV Export notification
+      const exportCSVBtn = document.getElementById('export-filtered-csv');
+      if (exportCSVBtn) {
+        exportCSVBtn.addEventListener('click', function() {
+          const originalText = exportCSVBtn.innerText;
+          exportCSVBtn.innerText = 'Generating CSV...';
+          setTimeout(function() {
+            exportCSVBtn.innerText = '✓ Download Ready';
+            setTimeout(function() {
+              exportCSVBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">table_view</span><span>Export CSV (Filtered 5 Records)</span>';
+            }, 2000);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

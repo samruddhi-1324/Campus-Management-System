@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "on-tertiary": "#ffffff", "surface-container": "#eceef0", "on-secondary-fixed-variant": "#003ea8", "tertiary-fixed": "#85f8c4", "outline-variant": "#c8c5d0", "on-surface-variant": "#47464f", "on-primary": "#ffffff", "primary-fixed": "#e3dfff", "outline": "#787680", "on-primary-fixed-variant": "#444173", "on-tertiary-fixed-variant": "#005137", "surface-dim": "#d8dadc", "on-secondary-container": "#fefcff", "inverse-on-surface": "#eff1f3", "inverse-surface": "#2d3133", "primary-container": "#1e1b4b", "secondary": "#0051d5", "surface-bright": "#f7f9fb", "on-background": "#191c1e", "secondary-container": "#316bf3", "on-tertiary-container": "#179c6e", "surface-container-low": "#f2f4f6", "surface-variant": "#e0e3e5", "on-secondary-fixed": "#00174b", "on-error-container": "#93000a", "tertiary": "#000f07", "primary-fixed-dim": "#c4c1fb", "inverse-primary": "#c4c1fb", "on-tertiary-fixed": "#002114", "surface-container-highest": "#e0e3e5", "surface": "#f7f9fb", "surface-tint": "#5b598c", "surface-container-high": "#e6e8ea", "surface-container-lowest": "#ffffff", "on-error": "#ffffff", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed": "#181445", "secondary-fixed": "#dbe1ff", "on-primary-container": "#8683ba", "tertiary-fixed-dim": "#68dba9", "primary": "#070235", "on-surface": "#191c1e", "tertiary-container": "#002819", "background": "#f7f9fb", "error": "#ba1a1a", "error-container": "#ffdad6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "gutter-mobile": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "margin": "2rem", "space-md": "1rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "gutter": "1.5rem", "margin-desktop": "3rem" }, fontFamily: { "headline-xl-mobile": ["Newsreader"], "code-sm": ["Manrope"], "label-sm": ["Manrope"], "headline-sm": ["Newsreader"], "label-lg": ["Manrope"], "headline-lg": ["Newsreader"], "display-lg-mobile": ["Newsreader"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "display-lg": ["Newsreader"], "headline-xl": ["Newsreader"], "title-md": ["Manrope"] }, fontSize: { "headline-xl-mobile": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.01em", fontWeight: "400" }], "code-sm": ["0.8125rem", { lineHeight: "1.2rem", fontWeight: "500" }], "label-sm": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.04em", fontWeight: "700" }], "headline-sm": ["1.375rem", { lineHeight: "1.75rem", fontWeight: "500" }], "label-lg": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.01em", fontWeight: "600" }], "headline-lg": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.01em", fontWeight: "500" }], "display-lg-mobile": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.01em", fontWeight: "400" }], "body-lg": ["1rem", { lineHeight: "1.6rem", fontWeight: "400" }], "body-md": ["0.875rem", { lineHeight: "1.45rem", fontWeight: "400" }], "display-lg": ["3.5rem", { lineHeight: "4rem", letterSpacing: "-0.02em", fontWeight: "400" }], "headline-xl": ["2.5rem", { lineHeight: "3rem", letterSpacing: "-0.015em", fontWeight: "400" }], "title-md": ["1.125rem", { lineHeight: "1.625rem", fontWeight: "600" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between gap-space-xs"><div class="flex items-center min-w-0"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center text-primary rounded-lg hover:bg-surface-container transition-colors shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex items-center gap-space-xs ml-space-xs min-w-0"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Xt48Izz3jtg8cZPzQSmyCYfhDwUt-pPVeCotsEUQIEyTNzl6f6QoSEUcVIXM4duRfJ4ZjoQeqsD9hbp5m9eD8LKRRSwMGyVbS_QBcnEYuQX7aUOJTX1VYmOxqQUA9dKWDZdkWZLTzqiCQUJVGA3bFt6NY-g4PLmNhLjMYYbEIxQoNjHYJ1ReS7ObSiFBUKx8Uek5v6Lqh06o3B8sp6gQ38UQS8RLlBnotl4O3jo7AyCYPe7sRoepxEVJgr"/><div class="flex items-center gap-space-sm min-w-0"><h1 class="font-headline-sm text-headline-sm text-primary truncate leading-none">Report Issue</h1><span class="hidden sm:inline-flex px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold shrink-0">Stanford</span></div></div></div><div class="flex items-center gap-space-xs shrink-0 pr-space-xs"><span class="inline-flex sm:hidden px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold shrink-0">Stanford</span><button aria-label="Options" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 px-gutter-mobile bg-surface min-h-screen"><div class="flex flex-col w-full space-y-space-md">
+<!-- Intake Header & AI Badge -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
+        AI Assisted Intake
+      </span>
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+        Campus Ops Hub
+      </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-1">File New Complaint</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Describe your maintenance issue or speak naturally. Stanford Facility AI will classify, prioritize, and dispatch immediately.</p>
+</section>
+<!-- Step 1: Issue Title & Category Selection -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<h3 class="font-title-md text-title-md text-primary">Issue Title &amp; Category</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Required</span>
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1.5" for="issue-title">Issue Summary</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md pr-10 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest transition-all" id="issue-title" type="text" value="Unusual grinding noise and vibration from ceiling unit"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">edit_note</span>
+</div>
+</div>
+<div>
+<span class="block font-label-lg text-label-lg text-on-surface mb-2">Category</span>
+<div class="grid grid-cols-2 gap-2" id="category-group">
+<!-- Active Pill -->
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">hvac</span>
+<span class="truncate">HVAC / AC</span>
+<span class="material-symbols-outlined text-[16px] ml-auto">check</span>
+</button>
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">videocam</span>
+<span class="truncate">Projector / AV</span>
+</button>
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">wifi</span>
+<span class="truncate">IT &amp; Wi-Fi</span>
+</button>
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">science</span>
+<span class="truncate">Lab Hoods</span>
+</button>
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">bolt</span>
+<span class="truncate">Electrical</span>
+</button>
+<button class="category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">plumbing</span>
+<span class="truncate">Plumbing</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Step 2: Location & Space -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+<h3 class="font-title-md text-title-md text-primary">Location &amp; Space</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">GPS Confirmed</span>
+</div>
+<!-- Interactive Room Card -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group" onclick="this.classList.toggle('bg-surface-container-high')" role="button" tabindex="0">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">apartment</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-primary truncate group-hover:text-secondary transition-colors">Packard Engineering Bldg · Room 204</p>
+<p class="font-code-sm text-code-sm text-on-surface-variant truncate">Zone B · Second Floor Lecture Hall · 92 Seats</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-0.5 transition-transform text-[20px] shrink-0 ml-2">arrow_forward_ios</span>
+</div>
+</section>
+<!-- Step 3: Media & Attachments -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">3</span>
+<h3 class="font-title-md text-title-md text-primary">Media &amp; Evidence</h3>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">1 File Attached</span>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 h-11 px-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+<span>Take Photo</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-11 px-space-sm rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">photo_library</span>
+<span>From Gallery</span>
+</button>
+</div>
+<!-- Thumbnail Preview Card -->
+<div class="relative rounded-xl overflow-hidden bg-surface-container p-2 flex items-center gap-3">
+<div class="relative w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up view of an industrial air conditioning vent on an academic ceiling, showing metal louvers and a subtle condensation drip under dramatic architectural classroom lighting, high-detail university campus engineering building interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI8KAwVkmS6Z4U9e91iglpkqnRaDV8sJaAQA_hL7ImRs0y8gq5o7eUnrOWBcrSsYZng-fM0tM06yhIWb_1A-FQH2-SvOjarOI4HekRCmN2GTTO8ho_gnDbAZ8iGYC95PgRaD85h8PrYmpoGM--Ni7fwyDIJrIc4UZmDWCmO3byKo0MKjHm2oUy0ZFKdxRE_67lq7HS0eSxkjG6anFJVxeCQZBpi3QYXYJAddkZxrdcDeMpYkuxkQnmeQ"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-primary/80 text-on-primary text-[10px] font-mono">IMG_0841</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-lg text-label-lg text-on-surface truncate">HVAC_CeilingVent_R204.jpg</p>
+<p class="font-code-sm text-code-sm text-on-surface-variant">2.8 MB · Stanford Vision Analyzed</p>
+<div class="mt-1 flex items-center gap-1 text-[11px] font-medium text-on-tertiary-container">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Acoustic vibration artifact found</span>
+</div>
+</div>
+<button aria-label="Delete attached image" class="w-8 h-8 rounded-full bg-surface-container-highest text-error hover:bg-error-container hover:text-on-error-container flex items-center justify-center transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</section>
+<!-- Step 4: Voice Input & Live Audio Bar -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">4</span>
+<h3 class="font-title-md text-title-md text-primary">Multimodal Voice Intake</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-ping"></span>
+        Transcribing...
+      </span>
+</div>
+<!-- Live Audio Recording Bar -->
+<div class="bg-primary p-space-md rounded-xl text-on-primary shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<!-- Mic with Pulse Rings -->
+<div class="relative flex items-center justify-center">
+<span class="absolute w-10 h-10 rounded-full bg-secondary/30 animate-ping"></span>
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center relative z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-on-secondary">mic</span>
+</div>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-bold">Capturing Audio</span>
+<p class="font-code-sm text-code-sm text-on-primary-container">Whisper-3 Campus Model Active</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm font-bold bg-primary-container text-tertiary-fixed px-2.5 py-1 rounded-full">00:24</span>
+<button aria-label="Pause Recording" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-surface/20 flex items-center justify-center text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">stop</span>
+</button>
+</div>
+</div>
+<!-- Animated Waveform Bars -->
+<div class="flex items-center justify-center gap-1 h-9 px-2 bg-primary-container/70 rounded-lg overflow-hidden">
+<span class="w-1 bg-secondary rounded-full animate-[bounce_0.8s_ease-in-out_infinite] h-4"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-[bounce_0.6s_ease-in-out_infinite_0.1s] h-7"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.9s_ease-in-out_infinite_0.2s] h-6"></span>
+<span class="w-1 bg-secondary rounded-full animate-[bounce_0.7s_ease-in-out_infinite_0.3s] h-8"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-[bounce_1.1s_ease-in-out_infinite_0.15s] h-5"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.25s] h-7"></span>
+<span class="w-1 bg-secondary rounded-full animate-[bounce_0.6s_ease-in-out_infinite_0.4s] h-3"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-[bounce_1.0s_ease-in-out_infinite_0.2s] h-8"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.7s_ease-in-out_infinite_0.35s] h-5"></span>
+<span class="w-1 bg-secondary rounded-full animate-[bounce_0.9s_ease-in-out_infinite_0.1s] h-4"></span>
+</div>
+</div>
+<!-- Transcript Preview Bubble -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">format_quote</span>
+<div class="flex-1">
+<p class="font-headline-sm text-headline-sm text-primary italic leading-snug">
+          "AC rattling loudly in room 204 before midterm. Louder during cycle startup."
+        </p>
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container">check_circle</span>
+          Confidence score 98.4% · Auto-appended to intake notes
+        </p>
+</div>
+</div>
+</section>
+<!-- Step 5: Urgency Selector -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">5</span>
+<h3 class="font-title-md text-title-md text-primary">Priority &amp; Impact</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SLA Driven</span>
+</div>
+<!-- Segmented Control -->
+<div class="grid grid-cols-4 gap-1.5 p-1 bg-surface-container rounded-lg" id="urgency-selector">
+<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+        Low
+      </button>
+<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+        Medium
+      </button>
+<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+        High
+      </button>
+<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold flex flex-col items-center justify-center" type="button">
+<span>Critical</span>
+<span class="text-[10px] text-primary-fixed">45m SLA</span>
+</button>
+</div>
+<!-- Active Urgency Context Tag -->
+<div class="flex items-center justify-between p-space-sm px-space-md rounded-lg bg-error-container text-on-error-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span class="font-label-lg text-label-lg font-bold">Exam in 45m · Rapid Response Tier 1</span>
+</div>
+<span class="font-code-sm text-code-sm">Immediate Alert</span>
+</div>
+</section>
+<!-- AI Triage Live Preview Card -->
+<section class="bg-surface-container-low p-space-md rounded-xl shadow-sm space-y-space-xs">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary text-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wider">AI Predictive Dispatch</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-mono font-bold">Ready</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+          ✨ <strong class="font-semibold text-primary">HVAC Malfunction</strong> detected with high vibration acoustic profile. Auto-routing work order to <strong class="font-semibold text-primary">Dave Kovacs</strong> (Lead Zone HVAC Specialist, currently at Spilker Bldg).
+        </p>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Bar Action Replacement Preview & Security Note -->
+<div class="pt-space-xs pb-space-sm text-center">
+<p class="font-code-sm text-code-sm text-on-surface-variant inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">lock</span>
+      Encrypted Stanford SSO Dispatch · Campus Facilities Security Standard
+    </p>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for chip toggles
+  document.querySelectorAll('#category-group .category-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#category-group .category-chip').forEach(b => {
+        b.className = 'category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-transform active:scale-95 text-left';
+        const icon = b.querySelector('.material-symbols-outlined:first-child');
+        if (icon) icon.className = 'material-symbols-outlined text-[18px] text-on-surface-variant';
+        const check = b.querySelector('.material-symbols-outlined:last-child');
+        if (check && check !== icon) check.remove();
+      });
+      btn.className = 'category-chip flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm transition-transform active:scale-95 text-left';
+      const activeIcon = btn.querySelector('.material-symbols-outlined:first-child');
+      if (activeIcon) activeIcon.className = 'material-symbols-outlined text-[18px] text-tertiary-fixed';
+      const check = document.createElement('span');
+      check.className = 'material-symbols-outlined text-[16px] ml-auto';
+      check.textContent = 'check';
+      btn.appendChild(check);
+    });
+  });
+
+  document.querySelectorAll('#urgency-selector .urgency-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#urgency-selector .urgency-btn').forEach(b => {
+        b.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all';
+      });
+      btn.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold';
+    });
+  });
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-gutter-mobile flex items-center justify-between gap-space-md"><button class="h-11 px-space-lg rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-colors flex items-center justify-center min-w-[44px]" onclick="history.back()" type="button">Cancel</button><button class="h-11 px-space-xl rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg transition-all shadow-[0_4px_6px_-1px_rgba(30,27,75,0.06)] flex items-center justify-center flex-1" type="submit">Submit Issue</button></div></div></body></html>

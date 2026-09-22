@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#2d3133", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed-variant": "#444173", "surface-dim": "#d8dadc", "primary-fixed": "#e3dfff", "on-surface": "#191c1e", "outline": "#787680", "on-secondary": "#ffffff", "background": "#f7f9fb", "primary-container": "#1e1b4b", "surface-container-low": "#f2f4f6", "secondary": "#0051d5", "on-tertiary-fixed": "#002114", "surface": "#f7f9fb", "primary-fixed-dim": "#c4c1fb", "on-primary-fixed": "#181445", "secondary-container": "#316bf3", "on-primary": "#ffffff", "on-surface-variant": "#47464f", "surface-tint": "#5b598c", "error": "#ba1a1a", "secondary-fixed": "#dbe1ff", "tertiary-fixed": "#85f8c4", "on-secondary-fixed-variant": "#003ea8", "on-error-container": "#93000a", "on-tertiary": "#ffffff", "on-tertiary-container": "#179c6e", "outline-variant": "#c8c5d0", "tertiary": "#000f07", "on-secondary-fixed": "#00174b", "inverse-on-surface": "#eff1f3", "surface-container": "#eceef0", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#68dba9", "surface-variant": "#e0e3e5", "on-tertiary-fixed-variant": "#005137", "on-secondary-container": "#fefcff", "primary": "#070235", "surface-bright": "#f7f9fb", "tertiary-container": "#002819", "on-error": "#ffffff", "surface-container-highest": "#e0e3e5", "on-primary-container": "#8683ba", "on-background": "#191c1e", "surface-container-high": "#e6e8ea", "error-container": "#ffdad6", "inverse-primary": "#c4c1fb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "margin-desktop": "3rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "margin-mobile": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": ["Newsreader"], "label-sm": ["Manrope"], "body-md": ["Manrope"], "headline-xl": ["Newsreader"], "headline-sm": ["Newsreader"], "body-lg": ["Manrope"], "display-lg-mobile": ["Newsreader"], "display-lg": ["Newsreader"], "title-md": ["Manrope"], "code-sm": ["Manrope"], "headline-xl-mobile": ["Newsreader"], "label-lg": ["Manrope"] }, "fontSize": { "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-md": ["0.875rem", { "lineHeight": "1.45rem", "fontWeight": "400" }], "headline-xl": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" }], "headline-sm": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "body-lg": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "display-lg": ["3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.02em", "fontWeight": "400" }], "title-md": ["1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" }], "code-sm": ["0.8125rem", { "lineHeight": "1.2rem", "fontWeight": "500" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WQ8juvh1jJ95dbI3iSmkv5rEjwVSROTCZZD8Z-5g2CUyMLv292EPKEr50WYBSGTJcIfi8-a-LTBinelflidWTNnyFiHBnwXsdHigLZgwVC2DUvEschBtqQcd1VKWhoT-y7A_v9h0400WnqZZkkS3e_A4yQG8CqV3TUcBjMByWWgNj15HQti_pIQiE3WJmagCnn0eFUeU2X99yOleA39zF6bYATMtFfHy4iN5Lucppym2sZOQPjHty5dYSo"/><div class="flex flex-col min-w-0"><span class="text-label-sm font-label-sm tracking-wider uppercase text-on-surface-variant truncate">Campus Care</span><h1 class="text-title-md font-title-md text-on-surface truncate">Ai Recommendations</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-gutter-mobile space-y-space-md pb-6">
+<!-- Header Context & Quick Filters -->
+<div class="flex flex-col space-y-space-xs pt-2">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">AI Recommendations</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-normal">Capital Replacement &amp; Maintenance Optimization</p>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container rounded-full text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">model_training</span>
+<span>v3.4 Active</span>
+</div>
+</div>
+<!-- Quick Filter Carousel (No borders) -->
+<div class="flex items-center gap-2 overflow-x-auto py-2 no-scrollbar -mx-gutter-mobile px-gutter-mobile">
+<button class="filter-btn active flex-shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm transition-all" data-filter="all" type="button">
+        All (4)
+      </button>
+<button class="filter-btn flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm shadow-sm transition-all" data-filter="high-conf" type="button">
+        High Conf (&gt;90%)
+      </button>
+<button class="filter-btn flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm shadow-sm transition-all" data-filter="replacement" type="button">
+        Replacement (3)
+      </button>
+<button class="filter-btn flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm shadow-sm transition-all" data-filter="process" type="button">
+        Process (1)
+      </button>
+</div>
+</div>
+<!-- Top Executive Summary Metric Card -->
+<div class="relative overflow-hidden bg-primary-container text-on-primary rounded-xl p-4 shadow-md">
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex h-2.5 w-2.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">Executive Review</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary-fixed-dim bg-white/10 px-2 py-0.5 rounded-full">SRS FR-AI-13</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-surface-lowest">4 Capital Recommendations Pending</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim mt-0.5">Asset fatigue indices suggest preemptive changeover prior to commencement.</p>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="bg-white/5 rounded-lg p-2.5">
+<span class="font-label-sm text-label-sm text-primary-fixed block">Est. Capex Savings</span>
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed font-semibold">$38.4k<span class="text-xs text-primary-fixed-dim font-normal">/yr</span></span>
+</div>
+<div class="bg-white/5 rounded-lg p-2.5">
+<span class="font-label-sm text-label-sm text-primary-fixed block">Avg ML Confidence</span>
+<span class="font-headline-sm text-headline-sm text-surface-lowest font-semibold">92%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stacked Recommendation Cards -->
+<div class="flex flex-col space-y-4" id="recommendation-list">
+<!-- Card 1: Chiller Unit (Emerald) -->
+<div class="rec-card bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col space-y-3 transition-all duration-200" data-confidence="94" data-type="replacement">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">
+            REPLACE ASSET · HIGH PRIORITY
+          </span>
+<span class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1 text-outline">location_on</span>
+            Science Block Lab 201
+          </span>
+</div>
+<button aria-label="More options" class="text-outline hover:text-on-surface p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Replace Chiller Unit in Main Auditorium &amp; Lab 201</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Compressor cycles indicate imminent secondary rotor binding under peak summer cooling load.</p>
+</div>
+<!-- Confidence Progress Bar -->
+<div class="bg-surface-container-low p-2.5 rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-emerald-700">verified</span>
+            Model Confidence
+          </span>
+<span class="font-semibold text-emerald-800">94% AI Confidence</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-emerald-600 h-2 rounded-full transition-all duration-500" style="width: 94%"></div>
+</div>
+</div>
+<!-- Key Metric Strip -->
+<div class="grid grid-cols-3 gap-2 py-1 text-center bg-surface-container-low rounded-lg p-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Frequency</span>
+<span class="font-title-md text-title-md text-primary font-bold">5 Failures</span>
+<span class="text-[10px] text-on-surface-variant">Last 30 days</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Repair Spent</span>
+<span class="font-title-md text-title-md text-error font-bold">$3,850</span>
+<span class="text-[10px] text-on-surface-variant">Trailing 6 mo</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">New Unit</span>
+<span class="font-title-md text-title-md text-primary font-bold">$4,200</span>
+<span class="text-[10px] text-emerald-700 font-semibold">91.6% threshold</span>
+</div>
+</div>
+<!-- Expandable Evidence Accordion (Open by Default) -->
+<div class="accordion-item bg-surface-container-low rounded-lg overflow-hidden">
+<button class="accordion-toggle w-full p-2.5 flex items-center justify-between text-left font-label-sm text-label-sm font-semibold text-primary" onclick="toggleAccordion(this)" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">analytics</span>
+            Deterministic Evidence Snapshot
+          </span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200 transform rotate-180 accordion-chevron">expand_more</span>
+</button>
+<div class="accordion-content p-2.5 pt-0 text-on-surface-variant font-body-md text-body-md space-y-2">
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-error text-[16px] flex-shrink-0 mt-0.5">warning</span>
+<span><strong>MTBF drop:</strong> Reduced to 4.8 days indicating critical mechanical fatigue.</span>
+</div>
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-emerald-700 text-[16px] flex-shrink-0 mt-0.5">trending_up</span>
+<span><strong>Capex Yield:</strong> Projected annual savings of $9,600/yr with an estimated 5.2 month break-even.</span>
+</div>
+<div class="flex items-center gap-1.5 pt-1 text-xs">
+<span class="font-label-sm text-label-sm text-outline">Correlated:</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-mono text-primary font-medium">#CC-8495</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-mono text-primary font-medium">#CC-8120</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-mono text-primary font-medium">#CC-7940</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-12 gap-2 pt-1">
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'accepted')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept</span>
+</button>
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-secondary hover:bg-secondary-container active:bg-primary-container text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'procurement')" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_cart_checkout</span>
+<span>Procurement</span>
+</button>
+<button class="col-span-2 flex items-center justify-center py-2.5 bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" onclick="handleCardAction(this, 'dismissed')" title="Dismiss Recommendation" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Card 2: High-Static Exhaust Fan (Bio-Safety / Crimson) -->
+<div class="rec-card bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col space-y-3 transition-all duration-200" data-confidence="96" data-type="replacement">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-900 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-error">gavel</span>
+            BIO-SAFETY HAZARD
+          </span>
+<span class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1 text-outline">location_on</span>
+            Stauffer Chem Lab 104
+          </span>
+</div>
+<button aria-label="More options" class="text-outline hover:text-on-surface p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Commission Direct-Drive High-Static Exhaust Fan</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Fume hood suction degraded 22% during peak chemistry research hours.</p>
+</div>
+<!-- Confidence Bar -->
+<div class="bg-surface-container-low p-2.5 rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-emerald-700">verified</span>
+            Model Confidence
+          </span>
+<span class="font-semibold text-emerald-800">96% AI Confidence</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-emerald-600 h-2 rounded-full" style="width: 96%"></div>
+</div>
+</div>
+<!-- Key Metric Strip -->
+<div class="grid grid-cols-3 gap-2 py-1 text-center bg-surface-container-low rounded-lg p-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Telemetry</span>
+<span class="font-title-md text-title-md text-primary font-bold">4 Faults</span>
+<span class="text-[10px] text-on-surface-variant">Airflow drops</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Spent</span>
+<span class="font-title-md text-title-md text-error font-bold">$4,100</span>
+<span class="text-[10px] text-on-surface-variant">YTD patches</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">New Fan</span>
+<span class="font-title-md text-title-md text-primary font-bold">$5,200</span>
+<span class="text-[10px] text-emerald-700 font-semibold">78.8% threshold</span>
+</div>
+</div>
+<!-- Collapsible Evidence -->
+<div class="accordion-item bg-surface-container-low rounded-lg overflow-hidden">
+<button class="accordion-toggle w-full p-2.5 flex items-center justify-between text-left font-label-sm text-label-sm font-semibold text-primary" onclick="toggleAccordion(this)" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">fact_check</span>
+            Compliance &amp; Cost Avoidance
+          </span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200 transform accordion-chevron">expand_more</span>
+</button>
+<div class="accordion-content hidden p-2.5 pt-0 text-on-surface-variant font-body-md text-body-md space-y-2">
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-error text-[16px] flex-shrink-0 mt-0.5">report_problem</span>
+<span><strong>Regulatory Exposure:</strong> High risk of OSHA &lt;80 FPM containment breach in undergraduate chemistry.</span>
+</div>
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] flex-shrink-0 mt-0.5">shield</span>
+<span><strong>Downtime Mitigation:</strong> Preemptively prevents estimated $14,000/day wet-lab shutdown expenses.</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-12 gap-2 pt-1">
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'accepted')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept Rec</span>
+</button>
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-secondary hover:bg-secondary-container text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'procurement')" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_cart_checkout</span>
+<span>Procurement</span>
+</button>
+<button class="col-span-2 flex items-center justify-center py-2.5 bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" onclick="handleCardAction(this, 'dismissed')" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Classroom Continuity (Amber) -->
+<div class="rec-card bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col space-y-3 transition-all duration-200" data-confidence="88" data-type="replacement">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-sm text-label-sm font-semibold">
+            CLASSROOM CONTINUITY
+          </span>
+<span class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1 text-outline">location_on</span>
+            Hewlett Ctr Rm 200
+          </span>
+</div>
+<button aria-label="More options" class="text-outline hover:text-on-surface p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Swap Optical Engine &amp; Laser Lumens Module</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Thermal throttling shutdowns during large CS lectures causing recurring AV dispatch.</p>
+</div>
+<!-- Confidence Bar -->
+<div class="bg-surface-container-low p-2.5 rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">tune</span>
+            Model Confidence
+          </span>
+<span class="font-semibold text-on-surface">88% AI Confidence</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Key Metric Strip -->
+<div class="grid grid-cols-3 gap-2 py-1 text-center bg-surface-container-low rounded-lg p-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Thermal Events</span>
+<span class="font-title-md text-title-md text-primary font-bold">4 Drops</span>
+<span class="text-[10px] text-on-surface-variant">Auto shutdown</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Spent</span>
+<span class="font-title-md text-title-md text-primary font-bold">$2,400</span>
+<span class="text-[10px] text-on-surface-variant">Tech on-site fees</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">New Module</span>
+<span class="font-title-md text-title-md text-primary font-bold">$3,600</span>
+<span class="text-[10px] text-secondary font-semibold">66.7% threshold</span>
+</div>
+</div>
+<!-- Expandable Accordion -->
+<div class="accordion-item bg-surface-container-low rounded-lg overflow-hidden">
+<button class="accordion-toggle w-full p-2.5 flex items-center justify-between text-left font-label-sm text-label-sm font-semibold text-primary" onclick="toggleAccordion(this)" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">school</span>
+            Academic Impact &amp; Payback
+          </span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200 transform accordion-chevron">expand_more</span>
+</button>
+<div class="accordion-content hidden p-2.5 pt-0 text-on-surface-variant font-body-md text-body-md space-y-2">
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-amber-600 text-[16px] flex-shrink-0 mt-0.5">event_busy</span>
+<span><strong>Classroom Integrity:</strong> 4 high-enrollment mid-lecture blackouts averted this quarter.</span>
+</div>
+<div class="flex items-start gap-2 text-xs">
+<span class="material-symbols-outlined text-emerald-700 text-[16px] flex-shrink-0 mt-0.5">price_check</span>
+<span><strong>Capital Lifecycle:</strong> 8.4 mo payback period replacing optical assembly versus whole projector.</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-12 gap-2 pt-1">
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'accepted')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept</span>
+</button>
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-secondary hover:bg-secondary-container text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'procurement')" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_cart_checkout</span>
+<span>Procurement</span>
+</button>
+<button class="col-span-2 flex items-center justify-center py-2.5 bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" onclick="handleCardAction(this, 'dismissed')" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Labor Disproportion (Purple) -->
+<div class="rec-card bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col space-y-3 transition-all duration-200" data-confidence="92" data-type="process">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900 font-label-sm text-label-sm font-semibold">
+            LABOR DISPROPORTION
+          </span>
+<span class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1 text-outline">location_on</span>
+            Green Library East Wing
+          </span>
+</div>
+<button aria-label="More options" class="text-outline hover:text-on-surface p-1 -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Upgrade to Multi-Gig POE+ Switch &amp; Mesh APs</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Repetitive manual port resets cost more in IT field technician labor than complete edge modernization.</p>
+</div>
+<!-- Confidence Bar -->
+<div class="bg-surface-container-low p-2.5 rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-emerald-700">verified</span>
+            Model Confidence
+          </span>
+<span class="font-semibold text-emerald-800">92% AI Confidence</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-emerald-600 h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Key Metric Strip -->
+<div class="grid grid-cols-2 gap-2 py-1 text-center bg-surface-container-low rounded-lg p-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Network Drift</span>
+<span class="font-title-md text-title-md text-primary font-bold">6 Micro-Outages</span>
+<span class="text-[10px] text-on-surface-variant">Last 2 weeks</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Labor / Capex Ratio</span>
+<span class="font-title-md text-title-md text-primary font-bold">Labor $1,250 &gt; $850</span>
+<span class="text-[10px] text-purple-700 font-semibold">147% Inversion Flip</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-12 gap-2 pt-1">
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'accepted')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept</span>
+</button>
+<button class="col-span-5 flex items-center justify-center gap-1.5 py-2.5 px-3 bg-secondary hover:bg-secondary-container text-white rounded-lg font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="handleCardAction(this, 'procurement')" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_cart_checkout</span>
+<span>Procurement</span>
+</button>
+<button class="col-span-2 flex items-center justify-center py-2.5 bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" onclick="handleCardAction(this, 'dismissed')" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Governance Notice Card (Footer anchored above bottom-nav) -->
+<div class="rounded-xl p-3 bg-surface-container text-on-surface-variant shadow-sm flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">policy</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+<strong>Human-in-the-loop:</strong> Accepting creates an auditable capital requisition for Executive Dean review per Stanford Ops Governance §5.4. Dismissed recommendations suppressed for 30 days.
+    </p>
+</div>
+</div>
+<script>
+  function toggleAccordion(btn) {
+    const parent = btn.closest('.accordion-item');
+    const content = parent.querySelector('.accordion-content');
+    const chevron = btn.querySelector('.accordion-chevron');
+    
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      chevron.classList.add('rotate-180');
+    } else {
+      content.classList.add('hidden');
+      chevron.classList.remove('rotate-180');
+    }
+  }
+
+  function handleCardAction(button, actionType) {
+    const card = button.closest('.rec-card');
+    if (!card) return;
+
+    if (actionType === 'accepted') {
+      card.classList.add('scale-[0.98]', 'opacity-60', 'pointer-events-none');
+      button.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Requisitioned';
+      setTimeout(() => {
+        card.style.display = 'none';
+        updateMetrics();
+      }, 400);
+    } else if (actionType === 'dismissed') {
+      card.classList.add('opacity-0', 'translate-x-4');
+      setTimeout(() => {
+        card.style.display = 'none';
+        updateMetrics();
+      }, 300);
+    } else if (actionType === 'procurement') {
+      // Direct action feedback
+      const original = button.innerHTML;
+      button.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span> Sent to ERP';
+      setTimeout(() => {
+        button.innerHTML = original;
+      }, 1500);
+    }
+  }
+
+  function updateMetrics() {
+    const visibleCards = document.querySelectorAll('.rec-card:not([style*="display: none"])');
+    const execTitle = document.querySelector('h3.font-headline-sm');
+    if (execTitle) {
+      execTitle.innerText = `${visibleCards.length} Capital Recommendations Pending`;
+    }
+  }
+
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary');
+      btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+      const filter = btn.getAttribute('data-filter');
+      const cards = document.querySelectorAll('.rec-card');
+
+      cards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        const conf = parseInt(card.getAttribute('data-confidence') || '0', 10);
+
+        if (filter === 'all') {
+          card.style.display = 'flex';
+        } else if (filter === 'high-conf') {
+          card.style.display = conf > 90 ? 'flex' : 'none';
+        } else if (filter === 'replacement') {
+          card.style.display = type === 'replacement' ? 'flex' : 'none';
+        } else if (filter === 'process') {
+          card.style.display = type === 'process' ? 'flex' : 'none';
+        }
+      });
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(30,27,75,0.04)]" data-active-classes="text-secondary font-semibold"><div class="h-16 flex items-center justify-around px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[24px]">analytics</span><span class="text-label-sm font-label-sm mt-0.5">Analytics</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="fatigue" href="#"><span class="material-symbols-outlined text-[24px]">hotel_class</span><span class="text-label-sm font-label-sm mt-0.5">Fatigue</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 transition-colors text-secondary font-semibold" data-path="ai-recommendations" href="#"><span class="material-symbols-outlined text-[24px]">auto_awesome</span><span class="text-label-sm font-label-sm mt-0.5">Recommendations</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="assets" href="#"><span class="material-symbols-outlined text-[24px]">inventory_2</span><span class="text-label-sm font-label-sm mt-0.5">Assets</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">manage_accounts</span><span class="text-label-sm font-label-sm mt-0.5">Profile</span></a></div></nav></body></html>

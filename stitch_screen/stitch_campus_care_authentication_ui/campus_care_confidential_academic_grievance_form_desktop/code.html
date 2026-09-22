@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#000f07",
+          "on-secondary-container": "#fefcff",
+          "surface-variant": "#e0e3e5",
+          "tertiary-fixed-dim": "#68dba9",
+          "surface-container-high": "#e6e8ea",
+          "tertiary-container": "#002819",
+          "surface-container-low": "#f2f4f6",
+          "tertiary-fixed": "#85f8c4",
+          "inverse-surface": "#2d3133",
+          "surface-dim": "#d8dadc",
+          "on-secondary": "#ffffff",
+          "surface-container-highest": "#e0e3e5",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#47464f",
+          "on-primary-fixed": "#181445",
+          "error-container": "#ffdad6",
+          "surface-container": "#eceef0",
+          "primary": "#070235",
+          "on-background": "#191c1e",
+          "primary-container": "#1e1b4b",
+          "inverse-on-surface": "#eff1f3",
+          "on-error-container": "#93000a",
+          "outline": "#787680",
+          "on-secondary-fixed-variant": "#003ea8",
+          "on-error": "#ffffff",
+          "surface-bright": "#f7f9fb",
+          "on-tertiary": "#ffffff",
+          "on-primary-fixed-variant": "#444173",
+          "on-tertiary-container": "#179c6e",
+          "outline-variant": "#c8c5d0",
+          "inverse-primary": "#c4c1fb",
+          "secondary": "#0051d5",
+          "on-secondary-fixed": "#00174b",
+          "error": "#ba1a1a",
+          "surface-tint": "#5b598c",
+          "on-primary-container": "#8683ba",
+          "on-surface": "#191c1e",
+          "on-tertiary-fixed-variant": "#005137",
+          "on-tertiary-fixed": "#002114",
+          "secondary-fixed": "#dbe1ff",
+          "surface": "#f7f9fb",
+          "secondary-container": "#316bf3",
+          "surface-container-lowest": "#ffffff",
+          "background": "#f7f9fb",
+          "secondary-fixed-dim": "#b4c5ff",
+          "primary-fixed-dim": "#c4c1fb",
+          "primary-fixed": "#e3dfff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xl": "2.5rem",
+          "gutter-mobile": "1rem",
+          "space-md": "1rem",
+          "margin": "2rem",
+          "margin-mobile": "1rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1.5rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem",
+          "margin-desktop": "3rem"
+        },
+        "fontFamily": {
+          "body-lg": [
+            "Manrope"
+          ],
+          "display-lg-mobile": [
+            "Newsreader"
+          ],
+          "headline-xl-mobile": [
+            "Newsreader"
+          ],
+          "headline-xl": [
+            "Newsreader"
+          ],
+          "label-lg": [
+            "Manrope"
+          ],
+          "label-sm": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Manrope"
+          ],
+          "headline-sm": [
+            "Newsreader"
+          ],
+          "headline-lg": [
+            "Newsreader"
+          ],
+          "code-sm": [
+            "Manrope"
+          ],
+          "display-lg": [
+            "Newsreader"
+          ],
+          "title-md": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "body-lg": [
+            "1rem",
+            {
+              "lineHeight": "1.6rem",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "2.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.75rem",
+            {
+              "lineHeight": "2.25rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "3rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.45rem",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "1.375rem",
+            {
+              "lineHeight": "1.75rem",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "code-sm": [
+            "0.8125rem",
+            {
+              "lineHeight": "1.2rem",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "4rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-md": [
+            "1.125rem",
+            {
+              "lineHeight": "1.625rem",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,27,75,0.04)]"><div class="h-20 w-full px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xt48Izz3jtg8cZPzQSmyCYfhDwUt-pPVeCotsEUQIEyTNzl6f6QoSEUcVIXM4duRfJ4ZjoQeqsD9hbp5m9eD8LKRRSwMGyVbS_QBcnEYuQX7aUOJTX1VYmOxqQUA9dKWDZdkWZLTzqiCQUJVGA3bFt6NY-g4PLmNhLjMYYbEIxQoNjHYJ1ReS7ObSiFBUKx8Uek5v6Lqh06o3B8sp6gQ38UQS8RLlBnotl4O3jo7AyCYPe7sRoepxEVJgr"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Campus Care</span></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-full shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]"><span class="material-symbols-outlined text-secondary text-[16px]">school</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">Stanford University</span><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div><div class="hidden md:flex items-center flex-1 max-w-xs lg:max-w-sm relative"><span class="material-symbols-outlined absolute left-space-sm text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all shadow-[0_1px_2px_rgba(30,27,75,0.02)]" placeholder="Search cases, records, facilities..." type="text"/></div><nav class="hidden 2xl:flex items-center gap-space-xs" data-active-classes="bg-primary text-on-primary rounded-lg"><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Dashboard</a><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-issue" href="#">Report Issue</a><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="tickets" href="#">Tickets</a><a aria-current="page" class="px-space-sm py-space-xs font-label-lg transition-colors bg-primary text-on-primary rounded-lg" data-path="academic-affairs" href="#">Academic Affairs</a><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="facilities-map" href="#">Facilities Map</a><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="status" href="#">Status</a><a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="account" href="#">Account</a></nav><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Confidential Academic Affairs Security Header Bar -->
+<section class="w-full bg-primary text-on-primary shadow-md relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#85f8c4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="w-full px-margin-desktop py-space-md flex flex-wrap items-center justify-between gap-space-md relative z-10">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/10 flex items-center justify-center text-tertiary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]">enhanced_encryption</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary-fixed tracking-wider uppercase">SRS FR-2.1 / FR-2.2 Certified</span>
+<span class="inline-block w-1 h-1 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-sm text-label-sm text-surface-container-highest opacity-80">Vault Partition: academic_grievance_vault</span>
+</div>
+<p class="font-title-md text-title-md text-on-primary">
+            Strictly Confidential — Isolated from General Facilities &amp; Operations Queue
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-lowest/10 font-label-sm text-label-sm text-on-primary">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed">verified_user</span>
+          FERPA &amp; Title IX Compliant
+        </span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container/30 font-code-sm text-code-sm text-on-primary">
+<span class="material-symbols-outlined text-[14px]">key</span>
+          RLS Encrypted
+        </span>
+</div>
+</div>
+</section>
+<!-- Main Canvas -->
+<section class="w-full px-margin-desktop py-space-xl">
+<div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter">
+<!-- Primary Form Column (8 Cols) -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Breadcrumb & Header Unit -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>Academic Affairs</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Student Ombudsman</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Form AA-204: Formal Grievance</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">
+            Academic Concern &amp; Integrity Redress
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            This dossier routes straight to the Academic Affairs Dean's office. Submissions are encrypted client-side and remain inaccessible to physical plant operations or standard ticket triage.
+          </p>
+</div>
+<!-- Academic Grievance Form Container -->
+<form class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-sm" id="grievanceForm">
+<!-- 1. Academic Concern Type -->
+<fieldset class="flex flex-col gap-space-sm">
+<legend class="font-title-md text-title-md text-primary flex items-center justify-between w-full">
+<span>1. Select Grievance Category</span>
+<span class="font-label-sm text-label-sm text-outline font-normal">Mandatory • Select one primary concern</span>
+</legend>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-sm pt-space-xs" id="concernSelector">
+<label class="concern-card relative flex flex-col gap-space-xs p-space-md rounded-lg cursor-pointer transition-all bg-surface-container-lowest shadow-sm hover:shadow-md" data-active="true">
+<input checked="" class="sr-only" name="concern_type" type="radio" value="grade_dispute"/>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">grading</span>
+</div>
+<span class="indicator-dot w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="mt-space-xs">
+<p class="font-label-lg text-label-lg text-primary leading-tight">Grade Dispute &amp; Evaluation</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-normal">Arbitrary scoring, syllabus policy breach</p>
+</div>
+</label>
+<label class="concern-card relative flex flex-col gap-space-xs p-space-md rounded-lg cursor-pointer transition-all bg-surface-container-low hover:bg-surface-container shadow-sm hover:shadow-md" data-active="false">
+<input class="sr-only" name="concern_type" type="radio" value="thesis_advising"/>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<span class="indicator-dot w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+<div class="mt-space-xs">
+<p class="font-label-lg text-label-lg text-on-surface leading-tight">Thesis &amp; Advising Conflict</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-normal">Milestone blocks, advisor negligence</p>
+</div>
+</label>
+<label class="concern-card relative flex flex-col gap-space-xs p-space-md rounded-lg cursor-pointer transition-all bg-surface-container-low hover:bg-surface-container shadow-sm hover:shadow-md" data-active="false">
+<input class="sr-only" name="concern_type" type="radio" value="accommodations"/>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<span class="indicator-dot w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+<div class="mt-space-xs">
+<p class="font-label-lg text-label-lg text-on-surface leading-tight">Exam Scheduling &amp; Accommodations</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-normal">OAE refusal, exam overlap violations</p>
+</div>
+</label>
+<label class="concern-card relative flex flex-col gap-space-xs p-space-md rounded-lg cursor-pointer transition-all bg-surface-container-low hover:bg-surface-container shadow-sm hover:shadow-md" data-active="false">
+<input class="sr-only" name="concern_type" type="radio" value="integrity_appeal"/>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<span class="indicator-dot w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+<div class="mt-space-xs">
+<p class="font-label-lg text-label-lg text-on-surface leading-tight">Academic Integrity Appeal</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-normal">Dispute honor code citations or penalties</p>
+</div>
+</label>
+<label class="concern-card relative flex flex-col gap-space-xs p-space-md rounded-lg cursor-pointer transition-all bg-surface-container-low hover:bg-surface-container shadow-sm hover:shadow-md md:col-span-2 lg:col-span-2" data-active="false">
+<input class="sr-only" name="concern_type" type="radio" value="faculty_conduct"/>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">balance</span>
+</div>
+<span class="indicator-dot w-2 h-2 rounded-full bg-transparent"></span>
+</div>
+<div class="mt-space-xs">
+<p class="font-label-lg text-label-lg text-on-surface leading-tight">Faculty Conduct &amp; Professional Standard Concern</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-normal">Hostile instructional climate, retributive actions, or discriminatory pedagogy</p>
+</div>
+</label>
+</div>
+</fieldset>
+<!-- 2. Course & Department Info -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<h2 class="font-title-md text-title-md text-primary">2. Course &amp; Department Coordinates</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface" for="courseCode">Course Identification</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">menu_book</span>
+<input class="w-full pl-10 pr-space-sm py-space-xs bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="courseCode" type="text" value="CS301: Advanced Algorithms &amp; Complexity"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface" for="deptSelect">Department Registry</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">domain</span>
+<select class="w-full pl-10 pr-8 py-space-xs bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm appearance-none cursor-pointer" id="deptSelect">
+<option selected="">Computer Science &amp; Engineering</option>
+<option>Electrical Engineering</option>
+<option>Mathematics &amp; Statistics</option>
+<option>School of Medicine</option>
+<option>Law &amp; Public Policy</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 text-outline pointer-events-none text-[18px]">unfold_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface" for="instructorName">Primary Instructor / Advisor</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">badge</span>
+<input class="w-full pl-10 pr-space-sm py-space-xs bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm" id="instructorName" type="text" value="Prof. Alexander Vance"/>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Academic Term Selector -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-primary">3. Incident Academic Term</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active census cycle</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs p-1 bg-surface-container-low rounded-lg" id="termGroup">
+<button class="term-btn flex-1 py-space-xs px-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all text-center" type="button">Autumn 2024</button>
+<button class="term-btn flex-1 py-space-xs px-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all text-center" type="button">Winter 2025</button>
+<button class="term-btn active flex-1 py-space-xs px-space-sm rounded-lg font-label-lg text-label-lg bg-surface-container-lowest text-primary shadow-sm transition-all text-center" type="button">Spring 2025 (Current)</button>
+<button class="term-btn flex-1 py-space-xs px-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all text-center" type="button">Summer 2025</button>
+</div>
+</div>
+<!-- 4. Grievance Severity & Redress Timeline -->
+<div class="flex flex-col gap-space-sm pt-space-sm">
+<span class="font-title-md text-title-md text-primary">4. Severity &amp; Procedural Redress Timeline</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<label class="timeline-card p-space-md rounded-lg cursor-pointer bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs transition-all" data-checked="true">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary">Formal Review</span>
+<input checked="" class="accent-primary" name="severity_level" type="radio" value="formal_10d"/>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                  Standard 10-Day SLA
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant">Full board inquiry with written hearing documentation.</p>
+</label>
+<label class="timeline-card p-space-md rounded-lg cursor-pointer bg-surface-container-low hover:bg-surface-container shadow-sm flex flex-col gap-space-xs transition-all" data-checked="false">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Time-Sensitive Appeal</span>
+<input class="accent-primary" name="severity_level" type="radio" value="urgent_48h"/>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-error font-semibold">
+<span class="material-symbols-outlined text-[16px]">emergency</span>
+                  48-Hour Priority Intake
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant">For impending degree conferral or registration drops.</p>
+</label>
+<label class="timeline-card p-space-md rounded-lg cursor-pointer bg-surface-container-low hover:bg-surface-container shadow-sm flex flex-col gap-space-xs transition-all" data-checked="false">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Informal Mediation</span>
+<input class="accent-primary" name="severity_level" type="radio" value="ombuds_informal"/>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-[16px]">handshake</span>
+                  Ombuds Directed
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant">Non-binding confidential resolution via faculty ombud.</p>
+</label>
+</div>
+</div>
+<!-- 5. Detailed Statement Editor -->
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-title-md text-title-md text-primary" for="statementEditor">5. Statement of Record &amp; Evidence Log</label>
+<span class="font-code-sm text-code-sm text-outline" id="charCount">324 / 4,000 characters</span>
+</div>
+<div class="rounded-lg bg-surface-container-low overflow-hidden shadow-sm">
+<!-- Formatting Toolbar -->
+<div class="flex flex-wrap items-center gap-space-xs p-space-xs bg-surface-container-high/60">
+<button class="p-1 rounded text-on-surface hover:bg-surface-container-lowest transition-colors" title="Bold" type="button">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1 rounded text-on-surface hover:bg-surface-container-lowest transition-colors" title="Italic" type="button">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="p-1 rounded text-on-surface hover:bg-surface-container-lowest transition-colors" title="Bulleted List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="p-1 rounded text-on-surface hover:bg-surface-container-lowest transition-colors" title="Numbered List" type="button">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<div class="w-px h-5 bg-outline-variant mx-1"></div>
+<button class="p-1 rounded text-on-surface hover:bg-surface-container-lowest transition-colors" title="Quote Block" type="button">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+<button class="flex items-center gap-1 px-2 py-0.5 rounded text-primary hover:bg-surface-container-lowest font-label-sm text-label-sm transition-colors" title="Reference Exhibit" type="button">
+<span class="material-symbols-outlined text-[16px]">attach_file</span>
+                  Insert Exhibit Ref
+                </button>
+</div>
+<!-- Statement TextArea -->
+<textarea class="w-full p-space-md bg-surface-container-lowest font-body-md text-body-md text-on-surface focus:outline-none resize-y" id="statementEditor" placeholder="State the objective facts, chronology of instructor communications, specific syllabus violations, and your requested academic remedy (e.g., neutral third-party exam regrade or committee reassessment)..." rows="7">On October 14, 2024, during Midterm 2 of CS301, Question 4B contained an undocumented mathematical lemma not included in course readings or lecture slides. Following initial email inquiry on Oct 16, Professor Vance rejected the regrade request without reviewing the rubric divergence cited in Exhibit A. I am requesting an independent evaluation by the departmental curriculum committee per Academic Policy Section 4.2.A.</textarea>
+</div>
+</div>
+<!-- 6. Encrypted File Attachment Dropzone -->
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<label class="font-title-md text-title-md text-primary">6. Encrypted Evidentiary Exhibits</label>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Client-side zero-knowledge encryption before transmission via WebCrypto AES-GCM-256.</p>
+<div class="w-full p-space-lg rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center gap-space-sm cursor-pointer hover:bg-surface-container transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">lock_clock</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary">Drag &amp; drop grade sheets, email threads, exam papers, or syllabi</p>
+<p class="font-label-sm text-label-sm text-outline mt-0.5">PDF, DOCX, PNG up to 25MB total. Automatic SHA-256 integrity seal applied.</p>
+</div>
+<button class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg font-label-sm text-label-sm text-primary shadow-sm hover:bg-surface-container transition-colors" type="button">
+                Browse Secure Enclave
+              </button>
+</div>
+<!-- Attached File Chip Preview -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<p class="font-label-lg text-label-lg text-on-surface truncate">CS301_Midterm2_Regrade_Request.pdf</p>
+<p class="font-code-sm text-code-sm text-outline">1.4 MB • SHA-256: 4f8d9b...e21c • Client Encrypted</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-fixed/40 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Verified
+                  </span>
+<button class="p-1 text-outline hover:text-error transition-colors" title="Remove attachment" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 7. Privacy & Disclosure Consent -->
+<div class="flex flex-col gap-space-md pt-space-md bg-surface-container-low p-space-md rounded-xl">
+<h2 class="font-title-md text-title-md text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">shield</span>
+              7. Disclosure Authorization &amp; FERPA Seal
+            </h2>
+<!-- Dean Seal Anonymity Toggle -->
+<label class="flex items-start gap-space-md cursor-pointer p-space-xs">
+<div class="relative flex items-center mt-1">
+<input checked="" class="sr-only peer" id="anonToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary">Submit with Dean Confidentiality Seal</span>
+<span class="font-body-md text-body-md text-on-surface-variant">The course instructor will not receive your name or student ID during initial ombuds assessment and administrative fact-gathering. Identity is revealed only upon consensual escalation.</span>
+</div>
+</label>
+<!-- FERPA Checkbox -->
+<label class="flex items-start gap-space-sm cursor-pointer p-space-xs">
+<input checked="" class="mt-1 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="ferpaConsent" required="" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">
+                I certify under the University Academic Charter that this statement is an accurate reflection of facts. I understand this filing constitutes a protected educational record regulated under FERPA regulations (34 CFR Part 99).
+              </span>
+</label>
+</div>
+<!-- 8. Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-surface-container-low text-primary hover:bg-surface-container transition-all flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+                Save Draft to Secure Locker
+              </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" type="button">
+                Cancel
+              </button>
+</div>
+<button class="px-space-lg py-space-sm rounded-lg font-label-lg text-label-lg bg-primary text-on-primary hover:bg-primary-container shadow-md hover:shadow-lg transition-all flex items-center gap-space-xs" type="submit">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">lock_open</span>
+<span>Submit Confidential Concern →</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Side Security Informational Widget / Drawer (4 Cols) -->
+<aside class="col-span-12 xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Trust & Dual-Track Isolation Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">How Privacy Shield Protects You</h3>
+<p class="font-label-sm text-label-sm text-outline">Dual-Track Routing Architecture</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Campus Care operates strict infrastructural segregation between maintenance facilities and academic rights modules. This grievance bypasses physical maintenance worklists, campus security dispatch, and IT helpdesk agents.
+          </p>
+<!-- Segregation SVG Diagram -->
+<div class="w-full bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>Traffic Ingress</span>
+<span>Vault Partitioning</span>
+</div>
+<div class="flex items-center justify-between gap-space-xs py-space-xs">
+<!-- Route A: General -->
+<div class="flex-1 flex flex-col items-center gap-1 p-2 rounded bg-surface-variant/40 opacity-50">
+<span class="material-symbols-outlined text-[20px] text-outline">domain</span>
+<span class="text-[11px] font-semibold text-outline text-center">General Campus Line</span>
+<span class="text-[10px] text-error font-medium">Bypassed</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">alt_route</span>
+<!-- Route B: Shield -->
+<div class="flex-1 flex flex-col items-center gap-1 p-2 rounded bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">verified_user</span>
+<span class="text-[11px] font-semibold text-primary text-center">Academic Vault</span>
+<span class="text-[10px] text-on-tertiary-container font-semibold">Active Isolation</span>
+</div>
+</div>
+<div class="text-[11px] font-code-sm text-code-sm text-on-surface-variant bg-surface-container-highest/60 p-2 rounded">
+              Access Token: <span class="text-primary font-bold">DEAN_OF_STUDENTS_SIG_256</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">task_alt</span>
+<p class="font-body-md text-body-md text-on-surface">
+<strong class="font-semibold text-primary">Decryption Authority:</strong> Strictly restricted to appointed Faculty Ombudspersons and the Senior Associate Dean.
+              </p>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] shrink-0 mt-0.5">task_alt</span>
+<p class="font-body-md text-body-md text-on-surface">
+<strong class="font-semibold text-primary">Retaliation Safeguards:</strong> Under Stanford Faculty Senate Bylaws §14.B, punitive academic actions following an ombuds docket trigger immediate tenure inquiry.
+              </p>
+</div>
+</div>
+</div>
+<!-- Campus Ombuds Office Contact Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md">
+<img class="w-12 h-12 rounded-full object-cover shrink-0" data-alt="Portrait of an approachable university academic ombudsperson in a sunlit scholarly office lined with books, natural warm lighting, editorial corporate style, dressed in professional indigo attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAH5GchRCtYnbqnBrFIHv56eCpX_21rmXCLtOWDggaVsIPWMK6BtoWluEkpEJmAuK0ZWFRx8nLTEyFM8dmq9KnntRc9DIBTcZGczi5qhGQvNWD4tkFS0olBPE3q9aTef-AeYHx6F7_hHpvUhY_8pjQzGowY4g8TLIhv1X2b2BNpkCPNQGbJq4iKRGJHOOmkAWOCspZAFtJrhWMHgLeap3XmbjPXIkcB047gDbTw5HLJULLz6BAJtRKgw"/>
+<div>
+<p class="font-title-md text-title-md text-primary">Dr. Elena Rostova</p>
+<p class="font-label-sm text-label-sm text-outline">Lead University Ombudsman • Academic Rights</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Prefer confidential voice dialogue before filing formal paperwork? Office hours are open for walk-in advisory.
+          </p>
+<div class="flex flex-col gap-space-xs font-label-sm text-label-sm text-primary bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+<span>Tressider Memorial Union, Suite 410</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">phone_in_talk</span>
+<span>(650) 723-3682 (Secure Direct Line)</span>
+</div>
+</div>
+</div>
+<!-- SLA Resolution Timeline Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-title-md text-title-md text-primary">Standard Adjudication Flow</h3>
+<ol class="flex flex-col gap-space-sm mt-space-xs">
+<li class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+<div>
+<p class="font-label-lg text-label-lg text-primary">Intake &amp; Decryption (24h)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Ombuds officer reviews docket jurisdiction and checks for grade deadlines.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-on-surface text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Faculty Inquiry Window (5-7 days)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Department chair collects rubric rationale without disclosing identity if sealed.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-on-surface text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Dean Formal Finding (Day 10)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Written disposition issued with binding grade adjustment or hearing scheduled.</p>
+</div>
+</li>
+</ol>
+</div>
+</aside>
+</div>
+</section>
+<!-- Interactive behavior script -->
+<script>
+    (function() {
+      // 1. Radio Card Selection Logic
+      const cards = document.querySelectorAll('.concern-card');
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          cards.forEach(c => {
+            c.setAttribute('data-active', 'false');
+            c.classList.remove('bg-surface-container-lowest', 'shadow-md');
+            c.classList.add('bg-surface-container-low');
+            const dot = c.querySelector('.indicator-dot');
+            if (dot) dot.classList.replace('bg-secondary', 'bg-transparent');
+            const radio = c.querySelector('input[type="radio"]');
+            if (radio) radio.checked = false;
+          });
+
+          this.setAttribute('data-active', 'true');
+          this.classList.remove('bg-surface-container-low');
+          this.classList.add('bg-surface-container-lowest', 'shadow-md');
+          const activeDot = this.querySelector('.indicator-dot');
+          if (activeDot) activeDot.classList.replace('bg-transparent', 'bg-secondary');
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+        });
+      });
+
+      // 2. Term Pill Selector
+      const termBtns = document.querySelectorAll('.term-btn');
+      termBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          termBtns.forEach(b => {
+            b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+            b.classList.add('text-on-surface-variant');
+          });
+          this.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+          this.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // 3. Severity Selection
+      const timelineCards = document.querySelectorAll('.timeline-card');
+      timelineCards.forEach(card => {
+        card.addEventListener('click', function() {
+          timelineCards.forEach(c => {
+            c.setAttribute('data-checked', 'false');
+            c.classList.replace('bg-surface-container-lowest', 'bg-surface-container-low');
+            const r = c.querySelector('input[type="radio"]');
+            if (r) r.checked = false;
+          });
+          this.setAttribute('data-checked', 'true');
+          this.classList.replace('bg-surface-container-low', 'bg-surface-container-lowest');
+          const activeRadio = this.querySelector('input[type="radio"]');
+          if (activeRadio) activeRadio.checked = true;
+        });
+      });
+
+      // 4. Character Counter
+      const textarea = document.getElementById('statementEditor');
+      const counter = document.getElementById('charCount');
+      if (textarea && counter) {
+        textarea.addEventListener('input', function() {
+          const len = this.value.length;
+          counter.textContent = `${len} / 4,000 characters`;
+        });
+      }
+
+      // 5. Submit Handler Demonstration
+      const form = document.getElementById('grievanceForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert("Grievance Encrypted & Submitted under Dean of Students Privacy Shield.\n\nDocket Ref: Stanford-AA-2025-" + Math.floor(100000 + Math.random() * 900000) + "\nRLS Partition: academic_grievance_vault");
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">Campus Care Enterprise</span><span class="font-body-md text-body-md text-outline">— Higher Education Operational Infrastructure</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-sm text-label-sm"><a class="hover:text-primary transition-colors" href="#">Academic Integrity Policy</a><a class="hover:text-primary transition-colors" href="#">Student Privacy &amp; FERPA</a><a class="hover:text-primary transition-colors" href="#">Facilities Ops Service SLA</a><a class="hover:text-primary transition-colors" href="#">Institutional Ombudsman</a></div></div></footer></body></html>

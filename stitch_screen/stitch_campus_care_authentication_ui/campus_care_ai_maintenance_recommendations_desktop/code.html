@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-surface": "#2d3133",
+          "secondary-fixed-dim": "#b4c5ff",
+          "on-primary-fixed-variant": "#444173",
+          "surface-dim": "#d8dadc",
+          "primary-fixed": "#e3dfff",
+          "on-surface": "#191c1e",
+          "outline": "#787680",
+          "on-secondary": "#ffffff",
+          "background": "#f7f9fb",
+          "primary-container": "#1e1b4b",
+          "surface-container-low": "#f2f4f6",
+          "secondary": "#0051d5",
+          "on-tertiary-fixed": "#002114",
+          "surface": "#f7f9fb",
+          "primary-fixed-dim": "#c4c1fb",
+          "on-primary-fixed": "#181445",
+          "secondary-container": "#316bf3",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#47464f",
+          "surface-tint": "#5b598c",
+          "error": "#ba1a1a",
+          "secondary-fixed": "#dbe1ff",
+          "tertiary-fixed": "#85f8c4",
+          "on-secondary-fixed-variant": "#003ea8",
+          "on-error-container": "#93000a",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-container": "#179c6e",
+          "outline-variant": "#c8c5d0",
+          "tertiary": "#000f07",
+          "on-secondary-fixed": "#00174b",
+          "inverse-on-surface": "#eff1f3",
+          "surface-container": "#eceef0",
+          "surface-container-lowest": "#ffffff",
+          "tertiary-fixed-dim": "#68dba9",
+          "surface-variant": "#e0e3e5",
+          "on-tertiary-fixed-variant": "#005137",
+          "on-secondary-container": "#fefcff",
+          "primary": "#070235",
+          "surface-bright": "#f7f9fb",
+          "tertiary-container": "#002819",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#e0e3e5",
+          "on-primary-container": "#8683ba",
+          "on-background": "#191c1e",
+          "surface-container-high": "#e6e8ea",
+          "error-container": "#ffdad6",
+          "inverse-primary": "#c4c1fb"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "margin-desktop": "3rem",
+          "space-xl": "2.5rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin-mobile": "1rem",
+          "gutter": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Newsreader"
+          ],
+          "label-sm": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Manrope"
+          ],
+          "headline-xl": [
+            "Newsreader"
+          ],
+          "headline-sm": [
+            "Newsreader"
+          ],
+          "body-lg": [
+            "Manrope"
+          ],
+          "display-lg-mobile": [
+            "Newsreader"
+          ],
+          "display-lg": [
+            "Newsreader"
+          ],
+          "title-md": [
+            "Manrope"
+          ],
+          "code-sm": [
+            "Manrope"
+          ],
+          "headline-xl-mobile": [
+            "Newsreader"
+          ],
+          "label-lg": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "label-sm": [
+            "0.75rem",
+            {
+              "lineHeight": "1rem",
+              "letterSpacing": "0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "0.875rem",
+            {
+              "lineHeight": "1.45rem",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "3rem",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "1.375rem",
+            {
+              "lineHeight": "1.75rem",
+              "fontWeight": "500"
+            }
+          ],
+          "body-lg": [
+            "1rem",
+            {
+              "lineHeight": "1.6rem",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "2.75rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "4rem",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-md": [
+            "1.125rem",
+            {
+              "lineHeight": "1.625rem",
+              "fontWeight": "600"
+            }
+          ],
+          "code-sm": [
+            "0.8125rem",
+            {
+              "lineHeight": "1.2rem",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.75rem",
+            {
+              "lineHeight": "2.25rem",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25rem",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,27,75,0.04)]"><div class="h-16 w-full px-8 flex items-center justify-between gap-6"><div class="flex items-center gap-8"><div class="flex items-center gap-3 shrink-0"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AOf_eGNPt8y0nN9q97a3Bf1YfP7lT9c1pX8O=s100"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-none">Campus Care</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Institutional Operations</span></div></div><nav class="hidden xl:flex items-center gap-6" data-active-classes="text-secondary font-semibold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Dashboard</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="operations-analytics" href="#">Operations Analytics</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="sla-radar" href="#">SLA Radar</a><a aria-current="page" class="transition-colors text-secondary font-semibold" data-path="ai-recommendations" href="#">AI Recommendations</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="capital-asset-planning" href="#">Capital Asset Planning</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="facilities-map" href="#">Facilities Map</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="reports" href="#">Reports</a></nav></div><div class="flex items-center gap-4 shrink-0"><div class="hidden md:flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Dr. Elena Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant">Operations Head</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-72 bg-surface-container-low/70 backdrop-blur-md z-40 flex flex-col justify-between py-6 px-4 shadow-[1px_0_12px_rgba(30,27,75,0.03)]"><div class="flex flex-col gap-6"><div class="px-3"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Operations Management</span></div><nav class="flex flex-col gap-1.5" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="equipment-fatigue" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span>Equipment Fatigue</span></a><a aria-current="page" class="flex items-center justify-between px-3.5 py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold shadow-sm" data-path="ai-recommendations" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">auto_awesome</span><span>AI Recommendations</span></div><span class="w-2 h-2 rounded-full bg-secondary-container"></span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="procurement-pipeline" href="#"><span class="material-symbols-outlined text-[20px]">shopping_cart_checkout</span><span>Procurement Pipeline</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="asset-registry" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Asset Registry</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="governance-audit" href="#"><span class="material-symbols-outlined text-[20px]">verified_user</span><span>Governance Audit</span></a></nav></div><div class="px-3 pt-4 bg-surface-container/50 rounded-xl p-3 flex flex-col gap-2"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase">Operational Health</span><span class="font-code-sm text-code-sm text-on-tertiary-container font-semibold">98.4%</span></div><div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-secondary w-[98.4%]"></div></div></div></aside><div class="pl-72"><main class="relative w-full pt-16 bg-surface px-8 pb-12"><div class="flex flex-col w-full gap-8">
+<!-- Top Meta & Title Block -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-bold">Stanford Operations</span>
+<span class="text-outline-variant font-body-md text-body-md">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-bold">Capital Asset Planning &amp; Lifecycle</span>
+<span class="text-outline-variant font-body-md text-body-md">/</span>
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-secondary-fixed/50 px-2 py-0.5 rounded">SRS FR-AI-13–20</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+<div class="flex flex-col gap-1.5 max-w-4xl">
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">Autonomous Maintenance &amp; Capital Replacement Recommendations</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Deterministic evidence models feeding executive capital allocation. All recommendations require Human-in-the-Loop decision governance.
+        </p>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Model Telemetry &amp; Prompts (§8.1)</span>
+</button>
+<button class="px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Batch Export Dossier (CSV/PDF)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Control & Filter Bar -->
+<section class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center flex-wrap gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-2 font-bold">Class:</span>
+<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm">All (6)</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Preventive Replacement (3)</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Resolution Optimization (2)</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm transition-colors">Resourcing Reallocation (1)</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-2 font-bold">Filters:</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm cursor-pointer hover:bg-surface-dim">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        High Confidence (&gt;90%)
+      </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm cursor-pointer hover:bg-surface-dim">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+        Capex Threshold Exceeded
+      </span>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</section>
+<!-- Executive KPI Bar -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Pending Decisions</span>
+<span class="material-symbols-outlined text-secondary text-[22px]">pending_actions</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary">4 Active</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Total Capex Allocation: <strong class="text-on-surface">$24,800</strong></span>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/40 rounded-lg px-2.5 py-1.5 flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>SLA Impact Index</span>
+<span class="font-bold text-primary">Crit-2 / Med-2</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-fixed-dim"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Mean Confidence</span>
+<span class="material-symbols-outlined text-on-tertiary-container text-[22px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary">91.8%</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Model v4.2 Deterministic Grounding</span>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/40 rounded-lg px-2.5 py-1.5 flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>Variance spread</span>
+<span class="font-bold text-on-tertiary-container">±2.4%</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Net Annual Savings</span>
+<span class="material-symbols-outlined text-secondary text-[22px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary">$38,400</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Break-even: <strong>7.2 months avg</strong></span>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/40 rounded-lg px-2.5 py-1.5 flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>Reactive spend avoided</span>
+<span class="font-bold text-secondary">82.4%</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">SLA Risk Reduction</span>
+<span class="material-symbols-outlined text-primary text-[22px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary">-42%</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-1">Projected Failures Avoided</span>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/40 rounded-lg px-2.5 py-1.5 flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>Audited MTBF Impact</span>
+<span class="font-bold text-primary">+310 hrs</span>
+</div>
+</div>
+</section>
+<!-- Main Recommendation Cards Grid (2x2 Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Card 1: Science Block Chiller -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-shadow relative">
+<div class="flex flex-col gap-4">
+<!-- Top Metadata & Score Gauge -->
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                PREVENTIVE REPLACEMENT • HIGH PRIORITY
+              </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-semibold">
+              Science Block Lab 201 — Chiller AC Compressor (#AC-201-B)
+            </span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Replace Chiller Unit in Main Auditorium &amp; Lab 201</h2>
+</div>
+<!-- Circular Gauge 94% -->
+<div class="flex flex-col items-center shrink-0">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-code-sm text-code-sm font-bold text-primary leading-tight">94%</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] mt-0.5 uppercase tracking-wide">Confidence</span>
+</div>
+</div>
+<!-- Evidence Summary Matrix -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col gap-3 font-body-md text-body-md text-on-surface">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error text-[18px] mt-0.5">error_outline</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Failure Logs &amp; MTBF:</strong>
+              5 critical compressor breakdowns in 30 days. MTBF condensed from 45 days down to 4.8 days.
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">account_balance</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Financial &amp; Sunk Spend:</strong>
+              Cumulative repairs: $3,850 vs. New VRF high-efficiency unit: $4,200. Sunk repair equals <span class="font-semibold text-error">91.6%</span> of asset value.
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px] mt-0.5">trending_up</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Payback &amp; Net Benefit:</strong>
+              Projected annual savings: $9,600/year. Break-even amortization period: <span class="font-semibold text-on-tertiary-container">5.2 months</span>.
+            </div>
+</div>
+</div>
+<!-- Hash & Telemetry Signature -->
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span>SHA256: 8a4f...31c9 • Snapshot v2.4 (FR-AI-16)</span>
+</div>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Validated</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-emerald-700 text-white font-label-lg text-label-lg shadow-sm hover:bg-emerald-800 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept Recommendation</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Export to Procurement</span>
+</button>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-dim hover:text-on-surface transition-colors flex items-center gap-1.5" title="30-day suppression notice per FR-AI-18">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Dismiss</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Stauffer Chemistry Fume Hood -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-shadow relative">
+<div class="flex flex-col gap-4">
+<!-- Top Metadata & Score Gauge -->
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                PREVENTIVE REPLACEMENT • SAFETY CRITICAL
+              </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-semibold">
+              Stauffer Chemistry Lab 104 — Fume Hood Exhaust Fan (#FH-104-B)
+            </span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Commission Direct-Drive High-Static VAV Exhaust Fan</h2>
+</div>
+<!-- Circular Gauge 96% -->
+<div class="flex flex-col items-center shrink-0">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-error" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="96, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-code-sm text-code-sm font-bold text-primary leading-tight">96%</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] mt-0.5 uppercase tracking-wide">Confidence</span>
+</div>
+</div>
+<!-- Evidence Summary Matrix -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col gap-3 font-body-md text-body-md text-on-surface">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error text-[18px] mt-0.5">warning</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">OSHA &amp; Airflow Breaches:</strong>
+              4 airflow dropouts below 80 FPM regulatory threshold. Severe motor bearing oscillation.
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">account_balance</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Financial &amp; Risk Threshold:</strong>
+              Reactive spend: $4,100 vs new explosion-proof direct-drive fan: $5,200 (78.8% threshold).
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px] mt-0.5">verified_user</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Regulatory &amp; Research Defense:</strong>
+              Averts EH&amp;S audit citations and prevents unplanned lab shutdowns ($14,000/day impact). Payback: <span class="font-semibold text-on-tertiary-container">6.1 months</span>.
+            </div>
+</div>
+</div>
+<!-- Hash & Telemetry Signature -->
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span>SHA256: d91c...81fa • Snapshot v2.4 (FR-AI-16)</span>
+</div>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Validated</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-emerald-700 text-white font-label-lg text-label-lg shadow-sm hover:bg-emerald-800 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept Recommendation</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Export to Procurement</span>
+</button>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-dim hover:text-on-surface transition-colors flex items-center gap-1.5" title="30-day suppression notice per FR-AI-18">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Dismiss</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Hewlett Teaching Center Laser Projector -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-shadow relative">
+<div class="flex flex-col gap-4">
+<!-- Top Metadata & Score Gauge -->
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                PREVENTIVE REPLACEMENT • CLASSROOM CONTINUITY
+              </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-semibold">
+              Hewlett Teaching Center Rm 200 — Christie 4K Laser Projector (#PRJ-HW-02)
+            </span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Swap Optical Engine &amp; Laser Lumens Module</h2>
+</div>
+<!-- Circular Gauge 88% -->
+<div class="flex flex-col items-center shrink-0">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-code-sm text-code-sm font-bold text-primary leading-tight">88%</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] mt-0.5 uppercase tracking-wide">Confidence</span>
+</div>
+</div>
+<!-- Evidence Summary Matrix -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col gap-3 font-body-md text-body-md text-on-surface">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">school</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Academic Interruptions:</strong>
+              4 thermal throttling shutoffs during 300+ student lecture hours. Average incident MTTR is 32 minutes.
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">account_balance</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Emergency Overtime Cost:</strong>
+              $2,400 spent in emergency call-out dispatches vs $3,600 laser core module overhaul (66.7% threshold).
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px] mt-0.5">savings</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Class Continuity Protection:</strong>
+              Pre-empts mid-term and finals examination blackouts. Payback period amortized at <span class="font-semibold text-on-tertiary-container">8.4 months</span>.
+            </div>
+</div>
+</div>
+<!-- Hash & Telemetry Signature -->
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span>SHA256: 7e22...49db • Snapshot v2.4 (FR-AI-16)</span>
+</div>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Validated</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-emerald-700 text-white font-label-lg text-label-lg shadow-sm hover:bg-emerald-800 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept Recommendation</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Export to Procurement</span>
+</button>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-dim hover:text-on-surface transition-colors flex items-center gap-1.5" title="30-day suppression notice per FR-AI-18">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Dismiss</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Green Library AP Array -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-shadow relative">
+<div class="flex flex-col gap-4">
+<!-- Top Metadata & Score Gauge -->
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                RESOLUTION OPTIMIZATION • LABOR REALLOCATION
+              </span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-semibold">
+              Green Library East Wing — AP-GL-2E-09 Wi-Fi Beacon Array
+            </span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Upgrade to Multi-Gig POE+ Switch &amp; Centralized Mesh APs</h2>
+</div>
+<!-- Circular Gauge 92% -->
+<div class="flex flex-col items-center shrink-0">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-code-sm text-code-sm font-bold text-primary leading-tight">92%</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] mt-0.5 uppercase tracking-wide">Confidence</span>
+</div>
+</div>
+<!-- Evidence Summary Matrix -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col gap-3 font-body-md text-body-md text-on-surface">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">wifi_off</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Frequent Micro-Outages:</strong>
+              6 manual power cycles logged in 14 days. 147% labor disproportion ($1,250 labor vs $850 AP hardware value).
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">engineering</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Sunk Labor vs Replacement:</strong>
+              Field technician site visits exceed total hardware value. Enterprise POE+ architecture removes recurring visits.
+            </div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px] mt-0.5">bolt</span>
+<div>
+<strong class="font-label-lg text-label-lg text-primary">Labor Efficiency Gain:</strong>
+              Saves $3,800 annually in avoided network ops callouts. Rapid break-even at <span class="font-semibold text-on-tertiary-container">2.8 months</span>.
+            </div>
+</div>
+</div>
+<!-- Hash & Telemetry Signature -->
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span>SHA256: 3c5a...08bb • Snapshot v2.4 (FR-AI-16)</span>
+</div>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-medium text-on-surface-variant">Validated</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-4 flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-emerald-700 text-white font-label-lg text-label-lg shadow-sm hover:bg-emerald-800 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Accept Recommendation</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Export to Procurement</span>
+</button>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-dim hover:text-on-surface transition-colors flex items-center gap-1.5" title="30-day suppression notice per FR-AI-18">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Dismiss</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Governance, Privacy & Compliance Audit Trail Footer -->
+<footer class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">Institutional AI Governance &amp; Audit Trail</span>
+<span class="font-body-md text-body-md text-on-surface-variant">
+          Strictly compliant with SRS FR-AI-14 through FR-AI-20. Deterministic telemetry verified prior to synthesis. Zero PII transmitted.
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-code-sm text-code-sm shrink-0">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Audit Logging Active</span>
+</div>
+<span>•</span>
+<span>Suppression Period: 30 Days (FR-AI-18)</span>
+<span>•</span>
+<a class="text-secondary hover:underline font-semibold flex items-center gap-1" href="#">
+<span>View Audit Ledger</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</footer>
+</div>
+<script>
+  // Micro-interaction handlers for executive decision actions
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const text = this.innerText.trim();
+      if (text.includes('Accept Recommendation')) {
+        const card = this.closest('article');
+        this.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> Accepted & Dispatched';
+        this.classList.remove('bg-emerald-700', 'hover:bg-emerald-800');
+        this.classList.add('bg-surface-container-high', 'text-on-surface-variant', 'cursor-default');
+        this.disabled = true;
+      } else if (text.includes('Dismiss')) {
+        const card = this.closest('article');
+        if (confirm("Suppress this recommendation for 30 calendar days per FR-AI-18?")) {
+          card.style.opacity = '0.45';
+          card.style.pointerEvents = 'none';
+          this.innerText = 'Suppressed (30d)';
+        }
+      } else if (text.includes('Export to Procurement')) {
+        this.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Dossier Queued';
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-[18px]">shopping_bag</span> Export to Procurement';
+        }, 2200);
+      }
+    });
+  });
+</script></main></div></body></html>

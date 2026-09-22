@@ -115,10 +115,25 @@ final GoRouter appRouter = GoRouter(
       path: '/ops/historical-trends',
       builder: (context, state) => const MultiYearTrendsScreen(),
     ),
-    // Phase 3: Multi-Institution Selector Route
+    // Multi-Institution Selector Route
     GoRoute(
       path: '/institution/select',
       builder: (context, state) => const TenantSelectorScreen(),
     ),
+    GoRoute(
+      path: '/tenant/select',
+      builder: (context, state) => const TenantSelectorScreen(),
+    ),
+    GoRoute(
+      path: '/issues/report',
+      builder: (context, state) => const ReportIssueScreen(),
+    ),
+    GoRoute(
+      path: '/issues/:id',
+      builder: (context, state) => IssueDetailScreen(
+        issueId: state.pathParameters['id'] ?? '',
+      ),
+    ),
   ],
 );
+

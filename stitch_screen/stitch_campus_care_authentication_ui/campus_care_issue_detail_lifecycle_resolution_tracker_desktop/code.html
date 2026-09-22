@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#787680", "on-primary-container": "#8683ba", "on-surface-variant": "#47464f", "primary-fixed-dim": "#c4c1fb", "surface-container-low": "#f2f4f6", "on-error-container": "#93000a", "on-secondary-container": "#fefcff", "on-primary": "#ffffff", "surface-variant": "#e0e3e5", "surface-bright": "#f7f9fb", "inverse-on-surface": "#eff1f3", "surface-dim": "#d8dadc", "surface-container-high": "#e6e8ea", "on-tertiary-container": "#179c6e", "on-secondary-fixed": "#00174b", "surface-container-lowest": "#ffffff", "surface-container": "#eceef0", "outline-variant": "#c8c5d0", "background": "#f7f9fb", "on-tertiary-fixed-variant": "#005137", "on-background": "#191c1e", "on-primary-fixed-variant": "#444173", "surface-container-highest": "#e0e3e5", "primary": "#070235", "on-secondary": "#ffffff", "inverse-primary": "#c4c1fb", "secondary-fixed": "#dbe1ff", "secondary-fixed-dim": "#b4c5ff", "error-container": "#ffdad6", "tertiary-container": "#002819", "secondary": "#0051d5", "on-secondary-fixed-variant": "#003ea8", "error": "#ba1a1a", "primary-fixed": "#e3dfff", "on-surface": "#191c1e", "surface": "#f7f9fb", "secondary-container": "#316bf3", "primary-container": "#1e1b4b", "surface-tint": "#5b598c", "tertiary": "#000f07", "on-tertiary-fixed": "#002114", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#68dba9", "tertiary-fixed": "#85f8c4", "on-error": "#ffffff", "inverse-surface": "#2d3133", "on-primary-fixed": "#181445" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "margin": "2rem", "space-xl": "2.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "margin-desktop": "3rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem" }, "fontFamily": { "headline-xl-mobile": ["Newsreader"], "display-lg": ["Newsreader"], "headline-lg": ["Newsreader"], "body-md": ["Manrope"], "headline-xl": ["Newsreader"], "headline-sm": ["Newsreader"], "label-sm": ["Manrope"], "display-lg-mobile": ["Newsreader"], "code-sm": ["Manrope"], "label-lg": ["Manrope"], "title-md": ["Manrope"], "body-lg": ["Manrope"] }, "fontSize": { "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "display-lg": ["3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.45rem", "fontWeight": "400" }], "headline-xl": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.015em", "fontWeight": "400" }], "headline-sm": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "700" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "code-sm": ["0.8125rem", { "lineHeight": "1.2rem", "fontWeight": "500" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }], "title-md": ["1.125rem", { "lineHeight": "1.625rem", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(30,27,75,0.04)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="Brand logo. - Primary color: #1e1b4b
+- Font: newsreader
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xt48Izz3jtg8cZPzQSmyCYfhDwUt-pPVeCotsEUQIEyTNzl6f6QoSEUcVIXM4duRfJ4ZjoQeqsD9hbp5m9eD8LKRRSwMGyVbS_QBcnEYuQX7aUOJTX1VYmOxqQUA9dKWDZdkWZLTzqiCQUJVGA3bFt6NY-g4PLmNhLjMYYbEIxQoNjHYJ1ReS7ObSiFBUKx8Uek5v6Lqh06o3B8sp6gQ38UQS8RLlBnotl4O3jo7AyCYPe7sRoepxEVJgr"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Campus Care</span></div><div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-space-xs rounded-full ml-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">account_balance</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Stanford University</span></div></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="relative w-full flex items-center bg-surface-container-lowest rounded-lg px-space-md py-space-xs shadow-[0_1px_3px_0_rgba(30,27,75,0.04)]"><span class="material-symbols-outlined text-outline text-[18px] mr-space-sm">search</span><input class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline" placeholder="Search work orders, buildings, assets..." type="text"/></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg"><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#">Dashboard</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="report-issue" href="#">Report Issue</a><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg" data-path="tickets" href="#">Tickets</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="facilities-map" href="#">Facilities Map</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="system-status" href="#">Status</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="account-settings" href="#">Account</a></nav><div class="flex items-center gap-space-md shrink-0"><button class="relative p-space-xs rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(30,27,75,0.04)] z-40 flex flex-col py-space-lg"><div class="px-space-lg mb-space-md"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Operations Command</span></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container rounded-lg font-label-lg text-label-lg"><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">space_dashboard</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="report-issue" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">add_alert</span><span class="font-label-lg text-label-lg">Report Issue</span></a><a aria-current="page" class="flex items-center px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container rounded-lg font-label-lg text-label-lg" data-path="tickets" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">confirmation_number</span><span class="font-label-lg text-label-lg">Tickets</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="facilities-map" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">map</span><span class="font-label-lg text-label-lg">Facilities Map</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="system-status" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">sync_saved_locally</span><span class="font-label-lg text-label-lg">Status</span></a><a class="flex items-center px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="account-settings" href="#"><span class="material-symbols-outlined text-[20px] mr-space-md">settings</span><span class="font-label-lg text-label-lg">Account</span></a></nav><div class="px-space-md pt-space-md"><div class="p-space-md rounded-xl bg-surface-container-low"><div class="flex items-center gap-space-xs text-on-tertiary-container font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span>Network Operational</span></div><p class="font-code-sm text-code-sm text-on-surface-variant mt-space-xs">Dispatch Desk Active</p></div></div></aside><div class="pl-64"><main class="w-full pt-16 bg-surface px-margin-desktop py-space-xl min-h-screen"><div class="flex flex-col w-full">
+<!-- Breadcrumb & Top Executive Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<a class="font-label-lg text-label-lg text-secondary hover:underline flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        Active Tickets
+      </a>
+<span class="text-outline">/</span>
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Zone B · Packard Bldg</span>
+<span class="text-outline">/</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">#CC-8492</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="px-space-md py-space-xs rounded-full bg-surface-container-high flex items-center gap-space-xs text-primary font-code-sm text-code-sm shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>Auto-Sync: Connected</span>
+</div>
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-container transition-all flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Manifest</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-all flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Escalate Direct</span>
+</button>
+</div>
+</div>
+<!-- 2-Column Responsive Layout: 40% Left / 60% Right -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (Approx 40% -> 5 cols on lg, 12 on mobile) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Ticket Metadata Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Status & Urgency Badges -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-highest text-primary font-code-sm text-code-sm font-bold tracking-tight">
+              #CC-8492
+            </span>
+<span class="px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">mode_fan</span>
+              HVAC Infrastructure
+            </span>
+</div>
+<span class="px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+            Critical · Exam in 45m
+          </span>
+</div>
+<!-- Issue Title -->
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">
+            Classroom 204 AC Unit Malfunctioning &amp; Metallic Noise
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            High-amplitude acoustic rattle occurring directly above podium during lecture setup.
+          </p>
+</div>
+<!-- Primary Resolution Pill Indicator -->
+<div class="p-space-md rounded-xl bg-tertiary-fixed/40 flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-tertiary font-bold">Resolved — Awaiting Reporter Sign-off</p>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Air balance verified at 100 FPM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span>
+</div>
+<!-- Location & Space Badge with Map Micro-Module -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary font-bold">Packard Engineering Building</p>
+<p class="font-code-sm text-code-sm text-on-surface-variant">2nd Floor, Room 204 (Lecture Hall)</p>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-primary font-code-sm text-code-sm">
+              Zone B
+            </span>
+</div>
+<!-- Static interactive location preview -->
+<div class="w-full h-32 bg-cover bg-center rounded-lg relative overflow-hidden group cursor-pointer shadow-sm" data-location="Packard Electrical Engineering Building, Stanford University, CA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAWG3aixs0U3HfZyLFSyMNbGKYvkMFu2auBH5Nr-uOmiITYal5IqC0XEViFLaF24y-JaA_CYHbr7W9c6r41fsGVCVRpgF-zG34S4fLFXfTL_loqGZJhmpiwE-HvrmiZ30j-13UGDs3n8pzQCNbnppInX8yIcw05MZOBOy0epBwAcobOtVmECzgHVrxYlOVXbUiYuXyxq_rLxe6-rvvGPRnHIWNrZgyB4sDIjHj4YJb2RPbbl2HLgSelQ')">
+<div class="absolute inset-0 bg-primary/25 group-hover:bg-primary/10 transition-colors flex items-end p-space-sm justify-between">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-1 rounded-md flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-code-sm text-code-sm text-primary font-bold">Node: AHU-02-B</span>
+</div>
+<span class="bg-primary text-on-primary text-[11px] px-space-sm py-0.5 rounded shadow">Expand CAD Floorplan</span>
+</div>
+</div>
+</div>
+<!-- Reporter Metadata Row -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Reported By</span>
+<span class="font-label-lg text-label-lg text-primary mt-1">Prof. Sarah Lin</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Dept. of Electrical Eng.</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Intake Protocol</span>
+<span class="font-label-lg text-label-lg text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">record_voice_over</span>
+              Voice AI Memo
+            </span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Oct 24, 10:12 AM</span>
+</div>
+</div>
+<!-- Diagnostic Photo & Audio Evidence Carousel -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">photo_library</span>
+              Diagnostic Field Evidence
+            </span>
+<span class="font-code-sm text-code-sm text-outline">3 Assets</span>
+</div>
+<div class="relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-48 object-cover" data-alt="A clean industrial close-up of a commercial HVAC overhead ceiling cassette unit with acoustic diagnostic crosshairs and mechanical blower intake grill in a modern university lecture hall, subtle blue tint lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPE_n1l6wyhFoAbmCa3K3Jzo0emlgStCFwKJyGu0DRqs2UU9wGtYPpFdrRHKY9p8LWiMlMEVg2eo0W87Q4yqFtlUo0Ruyur8YRPjVaq7_FOu0TF0An9o6qml-0NyCNhfvg-27P1R7Hn5luELuyGh6BBTKCxk39SqoxcTJIizLcawW28HGFaQHDOhASuTpmFPnuWj7bqSQOHO_b7ak_b8T9DuijKW0kf1mmmUFufwb7KP3xZuk_V1e9Ug"/>
+<div class="absolute top-space-sm left-space-sm px-space-sm py-1 rounded-full bg-primary/80 backdrop-blur-md text-on-primary font-code-sm text-code-sm flex items-center gap-1 shadow">
+<span class="material-symbols-outlined text-[14px] text-secondary-fixed">graphic_eq</span>
+<span>Acoustic Spike: 68 dB</span>
+</div>
+<button class="absolute bottom-space-sm right-space-sm bg-surface-container-lowest/90 backdrop-blur-md hover:bg-surface-container-lowest text-primary px-space-sm py-1 rounded-md font-label-sm text-label-sm shadow-sm flex items-center gap-1 transition-all">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span>
+              Full Inspection
+            </button>
+</div>
+<!-- Micro Thumbnails -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-xs">
+<div class="h-14 rounded-lg overflow-hidden relative cursor-pointer ring-2 ring-secondary">
+<img class="w-full h-full object-cover" data-alt="Close up view of fractured rubber belt assembly on industrial rooftop air handling mechanism with inspection markers in white and blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_hHSbXP8E84Dv_gjLj9TjzE5dssODeWRMfjnsJsq0DsJsu_5DsdAWpdK4x5J-5xzO8kxDVGXQNQQFpYyILjOJHnxH1LQNK11SBFLv9q2x-spOh_cY97VNfckRJCdyZLwe5M5V5RxuLvB-5PhYvDMD7EWNb3LQa0kt7ToXlPJAE_Mj4fy26b_6pcNlId4Uv4Ybs9GtdCDP2vIxC1BMqY0E8_xaU_lrMxeSebTSdgL0NzQeCmL44yM3lg"/>
+<span class="absolute bottom-1 right-1 text-[9px] bg-primary text-on-primary px-1 rounded">IMG_0841</span>
+</div>
+<div class="h-14 rounded-lg overflow-hidden relative cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Decibel meter reading tool placed on lecture hall desk showing acoustic vibration waveform spectrum readout in laboratory lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj5xpVOSxBsaDc9903hyQLzEuqZ_9gbT-SVGoHbINNzBpnK9Iq9bXJFrZ_qOdSaRinFsoYnUkqBXHtrOMzyCiOzegdzgxpTTxUUmdy5O_LiG3HMqnmLUi5BVRSSXy2-Ax8vN_blGGqhOmHpqUq4sKtg_Ly2_apdydKk8cajdTf5ehekNNIYUJGA1GmH0kvzMhNK4zw3GUPKsPP4RlIg001LOc7kTKJ8La9ZKOiREbc_JU9E8v2Q2aZwA"/>
+<span class="absolute bottom-1 right-1 text-[9px] bg-primary text-on-primary px-1 rounded">SPECT_42</span>
+</div>
+<div class="h-14 rounded-lg overflow-hidden relative cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Completed repair snapshot of balanced blower motor housing with fresh tension dampener installed inside classroom ceiling duct." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc2Q9kA0QoavUUszDPPMris_2bYtUGV2tDp4CCLca5A3uzVLeAcy65wSzis0MzAwmXanJd8CpIZRmRhxL-mpeydWsgfu260g0tUKV4VHdMWRV9rzn7XWVyimgqy__dXe8gmA1--VL_hlX5CBlW9S2o-nzevReB5xW_wQtA_ZmyuaWLJBUw9hugamRaWV_f_zUK0vg3HafPo9SMzE-FZ47TPBHVTbT9-0ppZYtN-kGnDCnDGg8OXJ18vA"/>
+<span class="absolute bottom-1 right-1 text-[9px] bg-primary text-on-primary px-1 rounded">POST_FIX</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Assigned Field Technician Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Assigned Specialist</span>
+<span class="font-code-sm text-code-sm text-secondary font-bold">WO #99142</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Portrait photo of an experienced collegiate facility engineer wearing high visibility navy work attire with campus safety badge, professional smiling expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCacb0--Q8ZdsP6QvQ8hXx9EFw6UHof7z8W_My3SeIAOCXaTxjOSklnKgOYHDLMjkIm9Yf4tsBacBx22hPajYfi5ZADwmfYPTcnbukiHYt9l_2pjNamF-uborJ4XzHl5cOXfX8DgECHckAUztx9yhsLagSIt_-Tkh6K14gRVsaB3V0QfRhiiDn9juCoKQgQH2sYJ-nSDOg8ecrd4M4W5KLbpQITkEVZIKDwjvHFKG947ZV1-viEw4K7xA"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-on-tertiary-container rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-title-md text-title-md text-primary truncate">Dave Kovacs</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant truncate">Lead Zone HVAC Specialist</p>
+<div class="flex items-center gap-1 mt-1 text-on-tertiary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+<span>Work Order Executed On-Site</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="py-space-xs px-space-sm bg-surface-container-low hover:bg-surface-container text-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">call</span>
+<span>Ext. x4920</span>
+</button>
+<button class="py-space-xs px-space-sm bg-surface-container-low hover:bg-surface-container text-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">chat</span>
+<span>Direct Radio</span>
+</button>
+</div>
+</div>
+<!-- SLA Performance Summary Widget -->
+<div class="bg-primary text-on-primary rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-secondary/20 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed">SLA Benchmark</span>
+<span class="font-code-sm text-code-sm bg-on-primary-fixed/40 text-tertiary-fixed px-space-sm py-0.5 rounded-full font-bold">
+            +18m Ahead of Schedule
+          </span>
+</div>
+<div class="relative z-10 flex items-baseline justify-between">
+<div>
+<span class="font-headline-xl text-headline-xl leading-none">1h 12m</span>
+<p class="font-code-sm text-code-sm text-outline-variant mt-1">Total Turnaround Duration</p>
+</div>
+<div class="text-right">
+<span class="font-title-md text-title-md text-surface-container-highest">1h 30m</span>
+<p class="font-code-sm text-code-sm text-outline-variant mt-1">Allowed Target SLA</p>
+</div>
+</div>
+<!-- Micro SVG Progress Bar for SLA Efficiency -->
+<div class="w-full bg-on-primary-fixed-variant/40 rounded-full h-2 overflow-hidden relative z-10">
+<div class="bg-tertiary-fixed h-full rounded-full" style="width: 80%;"></div>
+</div>
+<p class="font-body-md text-body-md text-outline-variant relative z-10 text-xs">
+          Mitigated before 11:30 AM EE214 Midterm Examination occupancy. Airflow certification certified by Campus Dispatch.
+        </p>
+</div>
+</div>
+<!-- RIGHT COLUMN (Approx 60% -> 7 cols on lg, 12 on mobile) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Reporter Final Resolution Action Alert Banner -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md border-l-4 border-l-secondary">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">campaign</span>
+</div>
+<div class="flex-1">
+<h2 class="font-title-md text-title-md text-primary">Classroom Status Awaiting Professor Sign-Off</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+              Dave Kovacs has marked mechanical maintenance complete. Please verify if the sound and temperature levels in Room 204 are conducive for the pending examination.
+            </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-end gap-space-md pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-lg bg-surface-container text-error hover:bg-error-container hover:text-on-error-container font-label-lg text-label-lg flex items-center gap-space-xs transition-colors shadow-sm" id="reopenBtn" onclick="alert('Ticket Reopened. Notification dispatched to Zone Lead.')">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Reopen Ticket (Still Rattling)</span>
+</button>
+<button class="px-space-xl py-space-sm rounded-lg bg-primary text-on-primary hover:bg-secondary transition-all font-label-lg text-label-lg flex items-center gap-space-xs shadow-md" id="confirmBtn" onclick="this.classList.add('bg-on-tertiary-container'); this.innerHTML='&lt;span class=\'material-symbols-outlined text-[18px]\'&gt;check&lt;/span&gt; Confirmed Closed'; document.getElementById('state-6-title').innerText='Closed &amp; Verified (Completed)';">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span>Confirm Resolution (Satisfied)</span>
+</button>
+</div>
+</div>
+<!-- Lifecycle Resolution Tracker -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">SRS v3.0 Protocol</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Lifecycle Resolution Tracker</h2>
+</div>
+<span class="px-space-md py-space-xs rounded-full bg-surface-container text-primary font-code-sm text-code-sm font-semibold">
+            Stage 5 of 6 Complete
+          </span>
+</div>
+<!-- Vertical Stepper Steps -->
+<div class="relative pl-6 space-y-space-lg before:content-[''] before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-surface-container-highest">
+<!-- STEP 1: Reported -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-[13px] shadow">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-primary font-bold">1. Reported via Smart Intake</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Oct 24 · 10:12 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Audio voice memo received from Prof. Sarah Lin: <em>"Substantial rattling noise right before midterm in Packard 204."</em> Acoustic signature parsed and transcribed with 99.4% accuracy.
+              </p>
+</div>
+</div>
+<!-- STEP 2: Triage & Classified -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-[13px] shadow">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-primary font-bold">2. Automated Triage &amp; Classification</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Oct 24 · 10:13 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Classified as <span class="font-semibold text-primary">HVAC Mechanical Failure</span>. Cross-referenced with Registrar schedule: <span class="font-semibold text-primary">EE214 Midterm scheduled at 11:30 AM</span>. System boosted priority index to <strong>9.2/10 Critical</strong>.
+              </p>
+</div>
+</div>
+<!-- STEP 3: Investigating & Assigned -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-[13px] shadow">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-primary font-bold">3. Investigating &amp; Dispatched</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Oct 24 · 10:18 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Zone B dispatch supervisor routed ticket to nearest mobile crew. Lead Technician Dave Kovacs acknowledged work order via hand-held terminal and arrived on-site at 10:27 AM.
+              </p>
+</div>
+</div>
+<!-- STEP 4: Action Taken -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-[13px] shadow">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-primary font-bold">4. Action Taken &amp; Component Replacement</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Oct 24 · 10:45 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Disassembled ceiling diffuser cowling. Replaced frayed fan rotor belt with SKU <span class="font-code-sm text-code-sm text-primary font-bold">#CC-7210</span>. Fastened internal acoustic rubber isolators and re-lubricated bearing spindle.
+              </p>
+</div>
+</div>
+<!-- STEP 5: Resolved (Active/Latest) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[13px] shadow-md ring-4 ring-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-space-md rounded-lg shadow-sm border-l-2 border-secondary">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-secondary font-bold">5. Marked Resolved by Technician</span>
+<span class="font-code-sm text-code-sm text-primary font-bold">Oct 24 · 11:24 AM</span>
+</div>
+<p class="font-body-md text-body-md text-primary mt-1">
+                Sound level measured at podium: <strong>41.8 dB</strong> (Standard threshold: &lt;48 dB). Static airflow normalized to 100 FPM at diffuser duct. Technician marked unit clear for lecture operations.
+              </p>
+</div>
+</div>
+<!-- STEP 6: Closed & Verified -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 top-1 w-6 h-6 rounded-full bg-surface-container-highest text-outline flex items-center justify-center text-[13px]">
+<span class="material-symbols-outlined text-[14px]">lock_open</span>
+</div>
+<div class="flex-1 p-space-md rounded-lg bg-surface-container-low opacity-85">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-bold" id="state-6-title">6. Closed &amp; Verified (Pending Sign-off)</span>
+<span class="font-code-sm text-code-sm text-outline">Awaiting Reporter</span>
+</div>
+<p class="font-body-md text-body-md text-outline mt-1">
+                Final archival closure occurs once Prof. Sarah Lin confirms sound environment stability or after automatic 2-hour quiet-period expiration.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity, Staff Notes & Communications Feed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-xs">
+<div>
+<h3 class="font-title-md text-title-md text-primary">Communications &amp; Case Log</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Real-time collaboration across facility staff and instructors</p>
+</div>
+<!-- Staff Only Mode Toggle -->
+<label class="flex items-center gap-space-xs cursor-pointer select-none bg-surface-container-high px-space-md py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">lock</span>
+<span class="font-label-sm text-label-sm text-primary">Staff Notes</span>
+<input checked="" class="hidden" id="staffToggle" onchange="document.getElementById('staffCard').classList.toggle('hidden')" type="checkbox"/>
+<span class="w-8 h-4 bg-secondary rounded-full relative flex items-center p-0.5 ml-1 transition-colors">
+<span class="w-3 h-3 bg-on-secondary rounded-full shadow transform translate-x-4 transition-transform"></span>
+</span>
+</label>
+</div>
+<!-- Feed List -->
+<div class="flex flex-col gap-space-md">
+<!-- Internal Staff Note (Dismissable/Toggled) -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-space-md transition-all" id="staffCard">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">
+                  Internal Staff Note · Lead Tech
+                </span>
+<span class="font-code-sm text-code-sm text-outline">10:48 AM</span>
+</div>
+<p class="font-body-md text-body-md text-primary mt-1 font-medium">
+                "Vibration dampener installed as immediate patch for midterm. Recommend full blower replacement during upcoming winter recess maintenance shutdown."
+              </p>
+<div class="mt-2 flex items-center gap-space-xs text-outline font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px]">visibility_off</span>
+<span>Restricted from student view</span>
+</div>
+</div>
+</div>
+<!-- Public Message: Professor Lin -->
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs shrink-0">
+              SL
+            </div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-2xl rounded-tl-none">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary font-bold">Prof. Sarah Lin</span>
+<span class="font-code-sm text-code-sm text-outline">10:14 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+                Students are starting to queue outside the lecture room early for study check-in. Any chance the noise can be eliminated before 11:20 AM?
+              </p>
+</div>
+</div>
+<!-- Public Response: Dispatch Center -->
+<div class="flex items-start gap-space-md flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0">
+              CC
+            </div>
+<div class="flex-1 bg-surface-container-highest/60 p-space-md rounded-2xl rounded-tr-none text-right">
+<div class="flex items-center justify-between flex-row-reverse">
+<span class="font-label-lg text-label-lg text-primary font-bold">Campus Care Dispatch Desk</span>
+<span class="font-code-sm text-code-sm text-outline">10:19 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 text-left">
+                Dave Kovacs is already on-site with replacement belts in Room 204. Target resolution is 11:20 AM. We will keep this live tracker updated.
+              </p>
+</div>
+</div>
+<!-- Public Response: Dave Kovacs -->
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-primary flex items-center justify-center font-bold text-xs shrink-0">
+              DK
+            </div>
+<div class="flex-1 bg-surface-container-low p-space-md rounded-2xl rounded-tl-none">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary font-bold">Dave Kovacs (HVAC Crew)</span>
+<span class="font-code-sm text-code-sm text-outline">11:25 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+                Belt replaced and air duct balanced. Decibel reading is down to 41 dB. Hall is quiet and exam-ready. Leaving site now.
+              </p>
+</div>
+</div>
+</div>
+<!-- Quick Reply Box -->
+<div class="pt-space-sm">
+<div class="relative bg-surface-container-low rounded-xl p-space-sm flex flex-col gap-space-sm focus-within:bg-surface-container-lowest focus-within:shadow-sm transition-all">
+<textarea class="w-full bg-transparent border-none outline-none resize-none font-body-md text-body-md text-on-surface placeholder:text-outline p-space-xs" placeholder="Write a status update, note, or reply..." rows="2"></textarea>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</button>
+<button class="p-space-xs rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+<button class="px-space-lg py-1.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-secondary transition-all flex items-center gap-space-xs shadow-sm" type="button">
+<span>Send Update</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
