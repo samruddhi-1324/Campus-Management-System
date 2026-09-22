@@ -6,8 +6,8 @@ class AdminSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Admin System Configuration')),
-      body: const Center(
+      appBar: AppBar(title: Text('Admin System Configuration')),
+      body: Center(
         child: Text('Manage system settings, users, and teams.'),
       ),
     );

@@ -196,7 +196,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                 _buildFilterBar(),
                 const SizedBox(height: 20),
                 if (_isLoading)
-                  const Center(
+                  Center(
                     child: Padding(
                       padding: const EdgeInsets.all(48.0),
                       child: const CircularProgressIndicator(),
@@ -241,7 +241,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                     Container(
                       width: 4,
                       height: 4,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: AppTheme.outlineVariant,
                       ),
@@ -271,7 +271,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
             ElevatedButton.icon(
               onPressed: () => context.push('/issues/report'),
               icon: const Icon(Icons.mic, color: AppTheme.tertiaryMint, size: 18),
-              label: const Text('Voice / AI Report'),
+              label: Text('Voice / AI Report'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.primaryIndigo,
               ),
@@ -571,7 +571,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppTheme.surfaceContainerLow,
                 shape: BoxShape.circle,
               ),
@@ -598,7 +598,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
             ElevatedButton.icon(
               onPressed: () => context.push('/issues/report'),
               icon: const Icon(Icons.add, size: 18),
-              label: const Text('Report New Issue'),
+              label: Text('Report New Issue'),
             ),
           ],
         ),
@@ -622,7 +622,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _fetchMyIssues,
-              child: const Text('Try Again'),
+              child: Text('Try Again'),
             ),
           ],
         ),

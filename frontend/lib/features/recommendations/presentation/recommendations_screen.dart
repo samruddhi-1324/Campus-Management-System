@@ -213,7 +213,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                             Row(
                               children: [
                                 Text('STANFORD OPERATIONS', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
-                                const Text(' / '),
+                                Text(' / '),
                                 Text('CAPITAL ASSET PLANNING', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.secondaryCobalt)),
                               ],
                             ),
@@ -283,7 +283,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
 
                   // Recommendations List
                   if (_isLoading)
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.all(40),
                       child: Center(child: const CircularProgressIndicator()),
                     )
@@ -419,13 +419,13 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
-                                        child: const Text('Dismiss Advisory'),
+                                        child: Text('Dismiss Advisory'),
                                       ),
                                       const SizedBox(width: 12),
                                       ElevatedButton.icon(
                                         onPressed: () => _recordDecision(recId, 'accepted'),
                                         icon: const Icon(Icons.check, size: 16),
-                                        label: const Text('Accept & Stage Capital PO'),
+                                        label: Text('Accept & Stage Capital PO'),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.primaryIndigo,
                                           foregroundColor: Colors.white,
@@ -440,7 +440,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                     alignment: Alignment.centerRight,
                                     child: ElevatedButton.icon(
                                       icon: const Icon(Icons.check_circle_outline, size: 16),
-                                      label: const Text('Confirm Procurement Initiated'),
+                                      label: Text('Confirm Procurement Initiated'),
                                       onPressed: () => _recordDecision(recId, 'acted'),
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: const Color(0xFF005137),

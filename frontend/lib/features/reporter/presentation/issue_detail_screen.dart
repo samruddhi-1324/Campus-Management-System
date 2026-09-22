@@ -175,7 +175,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
         ],
       ),
       body: _isLoading
-          ? const Center(child: const CircularProgressIndicator())
+          ? Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
@@ -445,7 +445,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
               ElevatedButton.icon(
                 onPressed: _confirmResolution,
                 icon: const Icon(Icons.check_circle_outline, size: 16, color: AppTheme.tertiaryMint),
-                label: const Text('Confirm Resolution'),
+                label: Text('Confirm Resolution'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryIndigo,
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),

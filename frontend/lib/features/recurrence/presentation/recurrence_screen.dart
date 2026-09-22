@@ -351,7 +351,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
 
                   // Hotspot Equipment Cards: 2x2 Grid
                   if (_isLoading)
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.all(40),
                       child: Center(child: const CircularProgressIndicator()),
                     )
@@ -518,7 +518,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('• ', style: TextStyle(color: AppTheme.statusCritical, fontWeight: FontWeight.bold)),
+                            Text('• ', style: TextStyle(color: AppTheme.statusCritical, fontWeight: FontWeight.bold)),
                             Expanded(child: Text(t.toString(), style: GoogleFonts.manrope(fontSize: 12, color: AppTheme.textPrimary))),
                           ],
                         ),
@@ -532,7 +532,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () => _convertToRecommendation(p),
                     icon: const Icon(Icons.auto_fix_high, size: 16),
-                    label: const Text('Propose Replacement Proposal'),
+                    label: Text('Propose Replacement Proposal'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.primaryIndigo,
                       foregroundColor: Colors.white,

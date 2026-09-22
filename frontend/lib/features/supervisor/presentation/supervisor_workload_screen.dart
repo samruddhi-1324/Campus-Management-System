@@ -6,8 +6,8 @@ class SupervisorWorkloadScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Team Workload Overview')),
-      body: const Center(
+      appBar: AppBar(title: Text('Team Workload Overview')),
+      body: Center(
         child: Text('Coordinator workload distribution & reassignments.'),
       ),
     );

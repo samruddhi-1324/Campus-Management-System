@@ -101,7 +101,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(6),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),

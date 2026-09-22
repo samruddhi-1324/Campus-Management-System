@@ -219,7 +219,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: AppTheme.statusCritical,
                             shape: BoxShape.circle,
                           ),
@@ -308,7 +308,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
 
                   // Risk Items List
                   if (_isLoading)
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.all(40),
                       child: Center(child: const CircularProgressIndicator()),
                     )
@@ -483,12 +483,12 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                             shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                           ),
-                                          child: const Text('View Ticket'),
+                                          child: Text('View Ticket'),
                                         ),
                                         ElevatedButton.icon(
                                           onPressed: () => _escalateIssue(issueId),
                                           icon: const Icon(Icons.bolt, size: 15),
-                                          label: const Text('Escalate Urgency'),
+                                          label: Text('Escalate Urgency'),
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: AppTheme.statusCritical,
                                             foregroundColor: Colors.white,

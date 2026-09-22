@@ -265,7 +265,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                               shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
                             ),
-                            child: const Text('Ask AI'),
+                            child: Text('Ask AI'),
                           ),
                         ],
                       ),
@@ -366,7 +366,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
 
                 // Results Header
                 if (_isSearching)
-                  const Padding(
+                  Padding(
                     padding: const EdgeInsets.all(40),
                     child: Center(child: const CircularProgressIndicator()),
                   )

@@ -449,7 +449,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               hintText: 'Describe symptoms, impact on students/classes, and physical damage observed...',
               alignLabelWithHint: true,
               suffixIcon: _isAnalyzingAI
-                  ? const Padding(
+                  ? Padding(
                       padding: const EdgeInsets.all(12),
                       child: SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2)),
                     )

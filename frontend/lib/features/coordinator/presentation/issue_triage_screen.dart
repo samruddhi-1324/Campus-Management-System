@@ -9,7 +9,7 @@ class IssueTriageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Triage Issue #$issueId')),
-      body: const Center(
+      body: Center(
         child: Text('AI Insights, Internal Notes & Status Updates.'),
       ),
     );

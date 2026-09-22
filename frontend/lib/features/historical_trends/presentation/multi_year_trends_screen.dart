@@ -7,7 +7,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Longitudinal & Multi-Year Pattern Mining'),
+        title: Text('Longitudinal & Multi-Year Pattern Mining'),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -40,7 +40,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Seasonal Patterns Card
-            const Text(
+            Text(
               'Identified Seasonal Failure Patterns (FR-3.5)',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
@@ -69,7 +69,7 @@ class MultiYearTrendsScreen extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Preventive Strategic Recommendations
-            const Text(
+            Text(
               'Long-Term Capital & Maintenance Recommendations',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),

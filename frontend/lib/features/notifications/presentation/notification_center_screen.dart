@@ -192,7 +192,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                     Row(
                       children: [
                         Text('STANFORD OPERATIONS', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
-                        const Text(' / '),
+                        Text(' / '),
                         Text('MULTI-CHANNEL HUB', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.secondaryCobalt)),
                       ],
                     ),
@@ -204,7 +204,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       ),
                       child: Row(
                         children: [
-                          Container(width: 8, height: 8, decoration: const BoxDecoration(color: const Color(0xFF005137), shape: BoxShape.circle)),
+                          Container(width: 8, height: 8, decoration: BoxDecoration(color: const Color(0xFF005137), shape: BoxShape.circle)),
                           const SizedBox(width: 6),
                           Text('All 5 Channels Operational (99.94% SLA)', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w700, color: const Color(0xFF005137))),
                         ],
@@ -244,7 +244,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       ElevatedButton.icon(
                         onPressed: _markAllAsRead,
                         icon: const Icon(Icons.done_all, size: 16),
-                        label: const Text('Mark all as read'),
+                        label: Text('Mark all as read'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppTheme.primaryIndigo,
                           foregroundColor: Colors.white,
@@ -306,7 +306,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
 
                 // Notification Stream List
                 if (_isLoading)
-                  const Padding(
+                  Padding(
                     padding: const EdgeInsets.all(40),
                     child: Center(child: const CircularProgressIndicator()),
                   )
@@ -385,7 +385,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                               Container(
                                                 width: 8,
                                                 height: 8,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: AppTheme.statusCritical,
                                                   shape: BoxShape.circle,
                                                 ),
@@ -417,7 +417,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                         if (issueId.isNotEmpty)
                                           OutlinedButton.icon(
                                             icon: const Icon(Icons.open_in_new, size: 14),
-                                            label: const Text('Open Incident Dossier'),
+                                            label: Text('Open Incident Dossier'),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: AppTheme.primaryIndigo,
                                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -428,7 +428,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                         if (!isRead)
                                           TextButton(
                                             onPressed: () => _markSingleRead(id),
-                                            child: const Text('Mark Read'),
+                                            child: Text('Mark Read'),
                                           ),
                                       ],
                                     ),

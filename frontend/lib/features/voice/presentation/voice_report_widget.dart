@@ -20,7 +20,7 @@ class _VoiceReportWidgetState extends State<VoiceReportWidget> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            const Text(
+            Text(
               'Voice Input (AI-Transcribed)',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),

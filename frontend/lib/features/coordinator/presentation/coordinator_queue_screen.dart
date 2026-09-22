@@ -253,9 +253,9 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                           const Icon(Icons.account_balance_outlined, size: 16, color: AppTheme.textSecondary),
                           const SizedBox(width: 6),
                           Text('Facilities HQ', style: GoogleFonts.manrope(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.primaryIndigo)),
-                          const Text(' / ', style: TextStyle(color: AppTheme.neutralLightOutline)),
+                          Text(' / ', style: TextStyle(color: AppTheme.neutralLightOutline)),
                           Text('Operations Dispatch', style: GoogleFonts.manrope(fontSize: 12, color: AppTheme.textSecondary)),
-                          const Text(' / ', style: TextStyle(color: AppTheme.neutralLightOutline)),
+                          Text(' / ', style: TextStyle(color: AppTheme.neutralLightOutline)),
                           Text('AI Triage Stream', style: GoogleFonts.manrope(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.secondaryCobalt)),
                         ],
                       ),
@@ -271,7 +271,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                             Container(
                               width: 8,
                               height: 8,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: const Color(0xFF005137),
                                 shape: BoxShape.circle,
                               ),
@@ -315,7 +315,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                         ElevatedButton.icon(
                           onPressed: _fetchQueue,
                           icon: const Icon(Icons.bolt, size: 18),
-                          label: const Text('Run Auto-Triage Batch'),
+                          label: Text('Run Auto-Triage Batch'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppTheme.secondaryCobalt,
                             foregroundColor: Colors.white,
@@ -401,7 +401,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
 
                   // Tickets List
                   if (_isLoading)
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.all(40),
                       child: Center(child: const CircularProgressIndicator()),
                     )
@@ -574,7 +574,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     if (status == 'reported')
                                       ElevatedButton.icon(
                                         icon: const Icon(Icons.send_rounded, size: 15),
-                                        label: const Text('Dispatch Field Crew'),
+                                        label: Text('Dispatch Field Crew'),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.secondaryCobalt,
                                           foregroundColor: Colors.white,
@@ -586,7 +586,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     if (status == 'assigned')
                                       ElevatedButton.icon(
                                         icon: const Icon(Icons.search, size: 15),
-                                        label: const Text('Confirm On-Site Inspection'),
+                                        label: Text('Confirm On-Site Inspection'),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.primaryIndigo,
                                           foregroundColor: Colors.white,
@@ -598,7 +598,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     if (status == 'investigating')
                                       ElevatedButton.icon(
                                         icon: const Icon(Icons.build_outlined, size: 15),
-                                        label: const Text('Record Action Taken'),
+                                        label: Text('Record Action Taken'),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.amber.shade800,
                                           foregroundColor: Colors.white,
@@ -610,7 +610,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     if (status == 'action_taken')
                                       ElevatedButton.icon(
                                         icon: const Icon(Icons.check_circle_outline, size: 15),
-                                        label: const Text('Complete & Resolve'),
+                                        label: Text('Complete & Resolve'),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: const Color(0xFF005137),
                                           foregroundColor: Colors.white,
@@ -621,7 +621,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                       ),
                                     OutlinedButton.icon(
                                       icon: const Icon(Icons.open_in_new, size: 15),
-                                      label: const Text('View Full Dossier'),
+                                      label: Text('View Full Dossier'),
                                       style: OutlinedButton.styleFrom(
                                         foregroundColor: AppTheme.primaryIndigo,
                                         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),

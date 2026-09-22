@@ -136,7 +136,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primaryIndigo),
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Dismiss'),
+              child: Text('Dismiss'),
             ),
           ],
         ),
@@ -237,7 +237,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                           children: [
                             Row(
                               children: [
-                                Container(width: 8, height: 8, decoration: const BoxDecoration(color: AppTheme.secondaryCobalt, shape: BoxShape.circle)),
+                                Container(width: 8, height: 8, decoration: BoxDecoration(color: AppTheme.secondaryCobalt, shape: BoxShape.circle)),
                                 const SizedBox(width: 6),
                                 Text('REAL-TIME OPERATIONAL SYNCHRONIZER', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.secondaryCobalt)),
                               ],
@@ -265,7 +265,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                             icon: _isExporting
                                 ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2))
                                 : const Icon(Icons.file_download_outlined, size: 16),
-                            label: const Text('Export Dossier'),
+                            label: Text('Export Dossier'),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: AppTheme.primaryIndigo,
                               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
@@ -275,7 +275,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                           ElevatedButton.icon(
                             onPressed: _fetchAnalytics,
                             icon: const Icon(Icons.auto_awesome, size: 16),
-                            label: const Text('Run AI Leadership Digest'),
+                            label: Text('Run AI Leadership Digest'),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppTheme.primaryIndigo,
                               foregroundColor: Colors.white,

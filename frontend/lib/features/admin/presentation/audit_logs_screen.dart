@@ -6,8 +6,8 @@ class AuditLogsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('System Audit Logs')),
-      body: const Center(
+      appBar: AppBar(title: Text('System Audit Logs')),
+      body: Center(
         child: Text('Immutable audit log entries (FR-1.27).'),
       ),
     );

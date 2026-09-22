@@ -245,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         width: 8,
                         height: 8,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: AppTheme.tertiaryMint,
                         ),
@@ -471,7 +471,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     width: 6,
                     height: 6,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppTheme.tertiaryMint,
                     ),

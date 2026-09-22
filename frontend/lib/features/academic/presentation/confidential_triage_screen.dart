@@ -122,7 +122,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(6),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
@@ -176,7 +176,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
         ],
       ),
       body: _isLoading
-          ? const Center(child: const CircularProgressIndicator())
+          ? Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(

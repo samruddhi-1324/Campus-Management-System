@@ -129,7 +129,7 @@ class AppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: const BorderRadius.circular(16),
-          side: const BorderSide(color: const Color(0xFFE2E8F0)),
+          side: BorderSide(color: const Color(0xFFE2E8F0)),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -138,19 +138,19 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(
           borderRadius: const BorderRadius.circular(12),
-          borderSide: const BorderSide(color: outlineVariant),
+          borderSide: BorderSide(color: outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.circular(12),
-          borderSide: const BorderSide(color: outlineVariant),
+          borderSide: BorderSide(color: outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.circular(12),
-          borderSide: const BorderSide(color: secondaryCobalt, width: 1.8),
+          borderSide: BorderSide(color: secondaryCobalt, width: 1.8),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.circular(12),
-          borderSide: const BorderSide(color: statusUrgent),
+          borderSide: BorderSide(color: statusUrgent),
         ),
         hintStyle: GoogleFonts.manrope(
           fontSize: 14,
@@ -178,7 +178,7 @@ class AppTheme {
           foregroundColor: primaryIndigo,
           minimumSize: const Size(0, 48),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-          side: const BorderSide(color: outlineVariant),
+          side: BorderSide(color: outlineVariant),
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.circular(12),
           ),
