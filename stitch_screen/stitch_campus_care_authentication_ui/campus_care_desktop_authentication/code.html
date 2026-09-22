@@ -128,7 +128,7 @@
 </div>
 <!-- SSO Quick Identity Providers -->
 <div class="grid grid-cols-2 gap-space-sm mb-space-md">
-<button class="flex items-center justify-center space-x-2 h-10 px-3 bg-surface-container-low hover:bg-surface-container rounded-lg font-label-lg text-label-lg text-on-surface transition-all" type="button">
+<button onclick="handleLogin()" class="flex items-center justify-center space-x-2 h-10 px-3 bg-surface-container-low hover:bg-surface-container rounded-lg font-label-lg text-label-lg text-on-surface transition-all cursor-pointer" type="button">
 <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
@@ -137,7 +137,7 @@
 </svg>
 <span class="truncate">Google SSO</span>
 </button>
-<button class="flex items-center justify-center space-x-2 h-10 px-3 bg-surface-container-low hover:bg-surface-container rounded-lg font-label-lg text-label-lg text-on-surface transition-all" type="button">
+<button onclick="handleLogin()" class="flex items-center justify-center space-x-2 h-10 px-3 bg-surface-container-low hover:bg-surface-container rounded-lg font-label-lg text-label-lg text-on-surface transition-all cursor-pointer" type="button">
 <svg class="w-4 h-4" viewbox="0 0 23 23">
 <path d="M1 1h10v10H1z" fill="#f35325"></path>
 <path d="M12 1h10v10H12z" fill="#81bc06"></path>
@@ -153,7 +153,7 @@
 <span class="absolute bg-surface-container-lowest px-3 font-label-sm text-label-sm text-outline">or credentials</span>
 </div>
 <!-- Credential Form -->
-<form class="space-y-space-sm" id="auth-form" onsubmit="event.preventDefault();">
+<form class="space-y-space-sm" id="auth-form" onsubmit="handleLogin(event)">
 <div>
 <label class="block font-label-lg text-label-lg text-on-surface mb-1" for="campus-netid">Campus ID / Institutional Email</label>
 <div class="relative">
@@ -181,14 +181,14 @@
 </label>
 <a class="font-label-lg text-label-lg text-secondary hover:underline" href="#">Forgot password?</a>
 </div>
-<button class="w-full h-11 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-lg shadow-md flex items-center justify-center space-x-2 transition-all mt-space-sm group" type="submit">
+<button class="w-full h-11 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-lg shadow-md flex items-center justify-center space-x-2 transition-all mt-space-sm group cursor-pointer" type="submit">
 <span>Sign In to Campus Care</span>
 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </form>
 <p class="text-center font-label-sm text-label-sm text-outline mt-2">
-          Protected by Supabase Encrypted Auth &amp; Row-Level Security • 256-bit SSL
-        </p>
+Protected by Supabase Encrypted Auth &amp; Row-Level Security • 256-bit SSL
+</p>
 </div>
 <!-- Institutional Role Persona Switcher -->
 <div class="mt-space-md pt-space-sm bg-surface-container-low p-space-sm rounded-xl">
@@ -197,25 +197,25 @@
 <span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full" id="role-pill">STUDENT / STAFF</span>
 </div>
 <div class="grid grid-cols-5 gap-1 bg-surface-container-high p-1 rounded-lg" id="role-container">
-<button class="role-btn active-role py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all bg-surface-container-lowest text-primary shadow-sm" onclick="setRole('reporter', 'Student / Staff (Reporter)', 'STUDENT / STAFF', 'Student / Staff Reporter — Submit issues, track real-time resolution status, and confirm fixes.')" type="button">
-            Reporter
-          </button>
-<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface" onclick="setRole('coordinator', 'Coordinator (Operator)', 'COORDINATOR', 'Coordinator — Triages alerts, verifies AI severity ratings, and dispatches field trades.')" type="button">
-            Operator
-          </button>
-<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface" onclick="setRole('supervisor', 'Supervisor (Team Lead)', 'SUPERVISOR', 'Supervisor — Oversees zone assignments, parts inventory approvals, and contractor SLA compliance.')" type="button">
-            Lead
-          </button>
-<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface" onclick="setRole('manager', 'Ops Head (Director)', 'OPS HEAD', 'Ops Head — Strategic analytics, university campus sustainability metrics, and capital budget planning.')" type="button">
-            Manager
-          </button>
-<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface" onclick="setRole('admin', 'Admin (System)', 'SYS ADMIN', 'Admin — Central SSO integration, tenant isolation policies, automated webhook dispatchers.')" type="button">
-            System
-          </button>
+<button class="role-btn active-role py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all bg-surface-container-lowest text-primary shadow-sm cursor-pointer" onclick="setRole('reporter', 'Student / Staff (Reporter)', 'STUDENT / STAFF', 'Student / Staff Reporter — Submit issues, track real-time resolution status, and confirm fixes.')" type="button">
+Reporter
+</button>
+<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface cursor-pointer" onclick="setRole('coordinator', 'Coordinator (Operator)', 'COORDINATOR', 'Coordinator — Triages alerts, verifies AI severity ratings, and dispatches field trades.')" type="button">
+Operator
+</button>
+<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface cursor-pointer" onclick="setRole('supervisor', 'Supervisor (Team Lead)', 'SUPERVISOR', 'Supervisor — Oversees zone assignments, parts inventory approvals, and contractor SLA compliance.')" type="button">
+Lead
+</button>
+<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface cursor-pointer" onclick="setRole('manager', 'Ops Head (Director)', 'OPS HEAD', 'Ops Head — Strategic analytics, university campus sustainability metrics, and capital budget planning.')" type="button">
+Manager
+</button>
+<button class="role-btn py-1.5 px-1 rounded font-label-sm text-label-sm text-center transition-all text-on-surface-variant hover:text-on-surface cursor-pointer" onclick="setRole('admin', 'Admin (System)', 'SYS ADMIN', 'Admin — Central SSO integration, tenant isolation policies, automated webhook dispatchers.')" type="button">
+System
+</button>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-2 px-1" id="role-desc">
-          Currently configured as: Student / Staff Reporter — Submit issues, track real-time resolution status, and confirm fixes.
-        </p>
+Currently configured as: Student / Staff Reporter — Submit issues, track real-time resolution status, and confirm fixes.
+</p>
 <div class="mt-space-sm pt-space-xs text-center">
 <span class="font-body-md text-body-md text-outline">New to Campus Care? Institutional accounts are provisioned via your university registrar. <a class="text-secondary font-semibold hover:underline" href="#">Learn more</a></span>
 </div>
@@ -223,31 +223,49 @@
 </div>
 </div>
 <script>
-    function togglePassVisibility() {
-      const input = document.getElementById('campus-pass');
-      const icon = document.getElementById('pass-icon');
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.innerText = 'visibility_off';
-      } else {
-        input.type = 'password';
-        icon.innerText = 'visibility';
-      }
-    }
+let currentRole = 'reporter';
 
-    function setRole(id, title, tag, desc) {
-      document.getElementById('role-pill').innerText = tag;
-      document.getElementById('role-desc').innerText = 'Currently configured as: ' + desc;
-      
-      const buttons = document.querySelectorAll('#role-container .role-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
-        btn.classList.add('text-on-surface-variant');
-      });
+function togglePassVisibility() {
+  const input = document.getElementById('campus-pass');
+  const icon = document.getElementById('pass-icon');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.innerText = 'visibility_off';
+  } else {
+    input.type = 'password';
+    icon.innerText = 'visibility';
+  }
+}
 
-      const current = event.currentTarget;
-      current.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
-      current.classList.remove('text-on-surface-variant');
-    }
-  </script>
+function setRole(id, title, tag, desc) {
+  currentRole = id;
+  document.getElementById('role-pill').innerText = tag;
+  document.getElementById('role-desc').innerText = 'Currently configured as: ' + desc;
+  
+  const buttons = document.querySelectorAll('#role-container .role-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+    btn.classList.add('text-on-surface-variant');
+  });
+
+  const current = event.currentTarget;
+  current.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+  current.classList.remove('text-on-surface-variant');
+}
+
+function handleLogin(e) {
+  if (e) e.preventDefault();
+  if (currentRole === 'coordinator') {
+    window.location.href = '../campus_care_coordinator_triage_workspace_desktop/code.html';
+  } else if (currentRole === 'supervisor') {
+    window.location.href = '../campus_care_maintenance_supervisor_sla_risk_radar_desktop/code.html';
+  } else if (currentRole === 'manager') {
+    window.location.href = '../campus_care_executive_operations_analytics_dashboard_desktop/code.html';
+  } else if (currentRole === 'admin') {
+    window.location.href = '../campus_care_institution_workspace_switcher_desktop/code.html';
+  } else {
+    window.location.href = '../campus_care_complaints_dashboard_desktop/code.html';
+  }
+}
+</script>
 </div></main></body></html>
