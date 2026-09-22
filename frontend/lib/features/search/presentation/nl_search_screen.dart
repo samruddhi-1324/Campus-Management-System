@@ -173,13 +173,13 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: isDesktop ? 32 : 16,
           vertical: 20,
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1100),
+            constraints: BoxConstraints(maxWidth: 1100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -262,7 +262,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppTheme.primaryIndigo,
                               foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                               shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
                             ),
                             child: Text('Ask AI'),
@@ -296,7 +296,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                   ),
                                   const SizedBox(width: 8),
                                   Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
                                       color: AppTheme.accentMint.withOpacity(0.3),
                                       borderRadius: const BorderRadius.circular(4),
@@ -344,7 +344,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                         child: Row(
                           children: _suggestedPrompts.map((q) {
                             return Padding(
-                              padding: const EdgeInsets.only(right: 8),
+                              padding: EdgeInsets.only(right: 8),
                               child: ActionChip(
                                 label: Text(q),
                                 onPressed: () => _executeSearch(q),
@@ -422,7 +422,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
                                     color: AppTheme.primaryIndigo.withOpacity(0.08),
                                     borderRadius: const BorderRadius.circular(6),
@@ -433,7 +433,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
                                     color: AppTheme.secondaryCobalt.withOpacity(0.1),
                                     borderRadius: const BorderRadius.circular(6),
@@ -503,7 +503,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
 
   Widget _buildEntityChip(IconData icon, String label, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
         borderRadius: const BorderRadius.circular(6),

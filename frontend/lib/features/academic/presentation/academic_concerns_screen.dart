@@ -142,10 +142,10 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
+            constraints: BoxConstraints(maxWidth: 1200),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final isDesktop = constraints.maxWidth >= 900;
@@ -221,7 +221,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
 
           // Anonymity Toggle Strip
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
               borderRadius: const BorderRadius.circular(12),
@@ -299,7 +299,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
           const SizedBox(height: 6),
           TextField(
             controller: _titleController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'e.g. Unfair grading criteria deviation on Midterm exam weighting',
               prefixIcon: Icon(Icons.edit_note, size: 20),
             ),
@@ -314,7 +314,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
                   children: [
                     Text('COURSE CODE', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
                     const SizedBox(height: 6),
-                    TextField(controller: _courseCodeController, decoration: const InputDecoration(hintText: 'e.g. CS-482')),
+                    TextField(controller: _courseCodeController, decoration: InputDecoration(hintText: 'e.g. CS-482')),
                   ],
                 ),
               ),
@@ -325,7 +325,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
                   children: [
                     Text('ACADEMIC TERM', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
                     const SizedBox(height: 6),
-                    TextField(controller: _termController, decoration: const InputDecoration(hintText: 'e.g. Fall 2026')),
+                    TextField(controller: _termController, decoration: InputDecoration(hintText: 'e.g. Fall 2026')),
                   ],
                 ),
               ),
@@ -335,7 +335,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
 
           Text('FACULTY / COMMITTEE INVOLVED', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
           const SizedBox(height: 6),
-          TextField(controller: _facultyController, decoration: const InputDecoration(hintText: 'e.g. Prof. Henderson · Dept Chair')),
+          TextField(controller: _facultyController, decoration: InputDecoration(hintText: 'e.g. Prof. Henderson · Dept Chair')),
           const SizedBox(height: 18),
 
           Text('DETAILED STATEMENT & TIMELINE OF EVENTS', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w800, color: AppTheme.textSecondary)),
@@ -343,7 +343,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
           TextField(
             controller: _descriptionController,
             maxLines: 4,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Provide specific dates, syllabus clauses violated, and prior informal communications attempted...',
               alignLabelWithHint: true,
             ),
@@ -353,12 +353,12 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
           ElevatedButton.icon(
             onPressed: _isLoading ? null : _submitAcademicConcern,
             icon: _isLoading
-                ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
                 : const Icon(Icons.lock_outline, size: 18),
             label: Text(_isLoading ? 'Submitting Encrypted Dossier...' : 'File Confidential Academic Grievance'),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.primaryIndigo,
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              padding: EdgeInsets.symmetric(vertical: 16),
               minimumSize: const Size(double.infinity, 50),
             ),
           ),

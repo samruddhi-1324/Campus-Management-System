@@ -135,7 +135,7 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: surfaceWhite,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(
           borderRadius: const BorderRadius.circular(12),
           borderSide: BorderSide(color: outlineVariant),
@@ -163,7 +163,7 @@ class AppTheme {
           backgroundColor: primaryIndigo,
           foregroundColor: Colors.white,
           minimumSize: const Size(0, 48),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.circular(12),
           ),
@@ -177,7 +177,7 @@ class AppTheme {
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryIndigo,
           minimumSize: const Size(0, 48),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           side: BorderSide(color: outlineVariant),
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.circular(12),

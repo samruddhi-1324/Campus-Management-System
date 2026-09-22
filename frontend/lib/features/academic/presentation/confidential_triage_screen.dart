@@ -155,8 +155,8 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
         ),
         actions: [
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 12),
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            margin: EdgeInsets.symmetric(vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.tertiaryMint.withOpacity(0.2),
               borderRadius: const BorderRadius.circular(12),
@@ -178,10 +178,10 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       body: _isLoading
           ? Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1200),
+                  constraints: BoxConstraints(maxWidth: 1200),
                   child: Column(
                     children: [
                       _buildLedgerBanner(caseId),
@@ -250,7 +250,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             ],
           ),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.primaryContainer,
               borderRadius: const BorderRadius.circular(12),
@@ -292,7 +292,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
               ),
               if (isAnonymous)
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceContainerLow,
                     borderRadius: const BorderRadius.circular(10),
@@ -395,7 +395,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                 .map((d) => DropdownMenuItem(value: d['key'], child: Text(d['label']!, style: GoogleFonts.manrope(fontSize: 12))))
                 .toList(),
             onChanged: (val) => setState(() => _selectedDisposition = val ?? _selectedDisposition),
-            decoration: const InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
+            decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
           ),
           const SizedBox(height: 18),
 
@@ -404,7 +404,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
           TextField(
             controller: _privateNotesController,
             maxLines: 3,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Internal review remarks (only visible to Ombuds and Dean panel)...',
               alignLabelWithHint: true,
             ),
@@ -416,7 +416,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
           TextField(
             controller: _resolutionNotesController,
             maxLines: 3,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Official statement transmitted to student upon disposition seal...',
               alignLabelWithHint: true,
             ),
@@ -426,12 +426,12 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
           ElevatedButton.icon(
             onPressed: _isSaving ? null : _saveDisposition,
             icon: _isSaving
-                ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
                 : const Icon(Icons.gavel_outlined, size: 18),
             label: Text(_isSaving ? 'Sealing Disposition...' : 'Seal & Execute Formal Disposition'),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.primaryIndigo,
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              padding: EdgeInsets.symmetric(vertical: 16),
               minimumSize: const Size(double.infinity, 50),
             ),
           ),

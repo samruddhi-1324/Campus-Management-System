@@ -191,13 +191,13 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
         onRefresh: _fetchRecommendations,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1200),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -343,7 +343,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                       decoration: BoxDecoration(
                                         color: AppTheme.primaryIndigo.withOpacity(0.08),
                                         borderRadius: const BorderRadius.circular(8),
@@ -416,7 +416,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                         onPressed: () => _recordDecision(recId, 'dismissed'),
                                         style: OutlinedButton.styleFrom(
                                           foregroundColor: AppTheme.statusCritical,
-                                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                         child: Text('Dismiss Advisory'),
@@ -429,7 +429,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.primaryIndigo,
                                           foregroundColor: Colors.white,
-                                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                       ),
@@ -445,7 +445,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: const Color(0xFF005137),
                                         foregroundColor: Colors.white,
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                                         shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                       ),
                                     ),

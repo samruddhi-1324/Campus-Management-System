@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
           final isDesktop = constraints.maxWidth >= 960;
           return Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: isDesktop ? 32 : 16,
                 vertical: isDesktop ? 40 : 20,
               ),
@@ -217,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                    padding: EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
                       color: AppTheme.primaryContainer,
                       borderRadius: const BorderRadius.circular(20),
@@ -438,7 +438,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       width: double.infinity,
       color: AppTheme.primaryIndigo,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -446,7 +446,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
                   borderRadius: const BorderRadius.circular(16),
@@ -593,7 +593,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           if (_errorMessage != null) ...[
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
                 borderRadius: const BorderRadius.circular(10),
@@ -622,7 +622,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (_isRegistering) ...[
             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Full Name',
                 prefixIcon: Icon(Icons.person_outline, size: 20),
               ),
@@ -633,7 +633,7 @@ class _LoginScreenState extends State<LoginScreen> {
           TextField(
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Institutional Email ID',
               prefixIcon: Icon(Icons.alternate_email, size: 20),
             ),
@@ -643,7 +643,7 @@ class _LoginScreenState extends State<LoginScreen> {
           TextField(
             controller: _passwordController,
             obscureText: true,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Password / Security PIN',
               prefixIcon: Icon(Icons.lock_outline, size: 20),
             ),
@@ -653,7 +653,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ElevatedButton(
             onPressed: _isLoading ? null : _handleAuth,
             child: _isLoading
-                ? const SizedBox(
+                ? SizedBox(
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),

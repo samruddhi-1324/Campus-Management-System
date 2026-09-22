@@ -211,13 +211,13 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
         onRefresh: _fetchRecurrencePatterns,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1200),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -236,7 +236,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                         ],
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: AppTheme.surfaceWhite,
                           borderRadius: const BorderRadius.circular(20),
@@ -469,7 +469,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: (isCritical ? AppTheme.statusCritical : AppTheme.secondaryCobalt).withOpacity(0.1),
                         borderRadius: const BorderRadius.circular(6),
@@ -514,7 +514,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   Text('Recent Repeated Failure Events:', style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w700, color: AppTheme.textSecondary)),
                   const SizedBox(height: 4),
                   ...sampleTitles.take(2).map((t) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(vertical: 2),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -536,7 +536,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppTheme.primaryIndigo,
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                       shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                     ),
                   ),

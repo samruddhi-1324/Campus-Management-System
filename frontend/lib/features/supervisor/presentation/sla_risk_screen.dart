@@ -195,13 +195,13 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
         onRefresh: _fetchSlaRisks,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1200),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -254,7 +254,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppTheme.primaryIndigo,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                             shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
                           ),
                         ),
@@ -414,7 +414,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
                                               Container(
-                                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                                 decoration: BoxDecoration(
                                                   color: (isCritical ? AppTheme.statusCritical : AppTheme.secondaryCobalt).withOpacity(0.1),
                                                   borderRadius: const BorderRadius.circular(6),
@@ -480,7 +480,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                           onPressed: () => context.push('/issues/$issueId'),
                                           style: OutlinedButton.styleFrom(
                                             foregroundColor: AppTheme.primaryIndigo,
-                                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                             shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                           ),
                                           child: Text('View Ticket'),
@@ -492,7 +492,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: AppTheme.statusCritical,
                                             foregroundColor: Colors.white,
-                                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                             shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                           ),
                                         ),

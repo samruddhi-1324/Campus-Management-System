@@ -185,9 +185,9 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
         onRefresh: _fetchMyIssues,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
+            constraints: BoxConstraints(maxWidth: 1200),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -299,7 +299,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
 
   Widget _buildKpiPill(String label, String count, Color bgColor, Color textColor, IconData icon) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: const BorderRadius.circular(24),
@@ -353,7 +353,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                 borderRadius: const BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             ),
           ),
           const SizedBox(height: 10),
@@ -440,7 +440,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceContainerLow,
                             borderRadius: const BorderRadius.circular(6),
@@ -457,7 +457,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                         ),
                         const SizedBox(width: 8),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
                             color: AppTheme.primaryContainer.withOpacity(0.08),
                             borderRadius: const BorderRadius.circular(6),
@@ -474,7 +474,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                       ],
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: _getStatusColor(status).withOpacity(0.12),
                         borderRadius: const BorderRadius.circular(12),
@@ -565,7 +565,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
   Widget _buildEmptyState() {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 48),
+        padding: EdgeInsets.symmetric(vertical: 48),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -609,7 +609,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
   Widget _buildErrorState() {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 48),
+        padding: EdgeInsets.symmetric(vertical: 48),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

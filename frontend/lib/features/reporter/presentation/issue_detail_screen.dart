@@ -177,10 +177,10 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       body: _isLoading
           ? Center(child: const CircularProgressIndicator())
           : SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1200),
+                  constraints: BoxConstraints(maxWidth: 1200),
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       final isDesktop = constraints.maxWidth >= 900;
@@ -237,7 +237,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
                   borderRadius: const BorderRadius.circular(12),
@@ -252,7 +252,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.statusUrgent.withOpacity(0.1),
                   borderRadius: const BorderRadius.circular(12),
@@ -387,7 +387,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.tertiaryMint.withOpacity(0.2),
                         borderRadius: const BorderRadius.circular(8),
@@ -448,7 +448,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 label: Text('Confirm Resolution'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryIndigo,
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                 ),
               ),
             ],
@@ -497,7 +497,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                   const SizedBox(width: 14),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 24),
+                      padding: EdgeInsets.only(bottom: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -514,7 +514,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                               if (isCurrent) ...[
                                 const SizedBox(width: 8),
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                   decoration: BoxDecoration(
                                     color: AppTheme.secondaryCobalt.withOpacity(0.1),
                                     borderRadius: const BorderRadius.circular(10),
@@ -561,9 +561,9 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
               Expanded(
                 child: TextField(
                   controller: _commentController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Type an update for the field technician or coordinator...',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                   ),
                 ),
               ),
@@ -577,7 +577,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                     _commentController.clear();
                   }
                 },
-                style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14)),
+                style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14)),
                 child: const Icon(Icons.send, size: 16),
               ),
             ],

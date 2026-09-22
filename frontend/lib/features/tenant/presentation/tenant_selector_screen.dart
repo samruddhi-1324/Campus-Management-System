@@ -145,9 +145,9 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
           children: [
             _buildHeroHeader(context),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1200),
+                constraints: BoxConstraints(maxWidth: 1200),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -177,7 +177,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                           ],
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceContainerLow,
                             borderRadius: const BorderRadius.circular(20),
@@ -210,10 +210,10 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
     return Container(
       width: double.infinity,
       color: AppTheme.primaryIndigo,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 36),
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 36),
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1200),
+          constraints: BoxConstraints(maxWidth: 1200),
           child: LayoutBuilder(
             builder: (context, constraints) {
               final isWide = constraints.maxWidth >= 840;
@@ -248,7 +248,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
         Row(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.12),
                 borderRadius: const BorderRadius.circular(16),
@@ -334,7 +334,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
                   color: AppTheme.tertiaryMint,
                   borderRadius: const BorderRadius.circular(12),
@@ -436,7 +436,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                 borderRadius: const BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             ),
           ),
           const SizedBox(height: 12),
@@ -563,7 +563,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                       ),
                       if (isSelected)
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
                             color: AppTheme.secondaryCobalt.withOpacity(0.1),
                             borderRadius: const BorderRadius.circular(12),
@@ -620,7 +620,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: isSelected ? AppTheme.primaryIndigo : AppTheme.surfaceContainerLow,
                           foregroundColor: isSelected ? Colors.white : AppTheme.textPrimary,
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           minimumSize: const Size(0, 36),
                         ),
                         child: Text(
@@ -641,7 +641,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
 
   Widget _buildMetricPill(String label, String value, Color valueColor) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: AppTheme.surfaceContainerLow,
         borderRadius: const BorderRadius.circular(8),

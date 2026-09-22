@@ -233,13 +233,13 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
         onRefresh: _fetchQueue,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1200),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -260,7 +260,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                         ],
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: AppTheme.accentMint.withOpacity(0.15),
                           borderRadius: const BorderRadius.circular(20),
@@ -319,7 +319,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppTheme.secondaryCobalt,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                             shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
                           ),
                         ),
@@ -367,7 +367,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                   filled: true,
                                   fillColor: AppTheme.backgroundLight,
                                   isDense: true,
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
                                   border: OutlineInputBorder(
                                     borderRadius: const BorderRadius.circular(8),
                                     borderSide: BorderSide.none,
@@ -465,7 +465,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     Row(
                                       children: [
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                           decoration: BoxDecoration(
                                             color: AppTheme.primaryIndigo.withOpacity(0.08),
                                             borderRadius: const BorderRadius.circular(6),
@@ -481,7 +481,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                         ),
                                         const SizedBox(width: 8),
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                           decoration: BoxDecoration(
                                             color: urgencyColor.withOpacity(0.12),
                                             borderRadius: const BorderRadius.circular(6),
@@ -552,7 +552,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                     const Spacer(),
                                     if (item['assigned_crew'] != null)
                                       Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                         decoration: BoxDecoration(
                                           color: AppTheme.secondaryCobalt.withOpacity(0.08),
                                           borderRadius: const BorderRadius.circular(6),
@@ -578,7 +578,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.secondaryCobalt,
                                           foregroundColor: Colors.white,
-                                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                         onPressed: () => _advanceStatus(issueId, 'assigned'),
@@ -590,7 +590,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: AppTheme.primaryIndigo,
                                           foregroundColor: Colors.white,
-                                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                         onPressed: () => _advanceStatus(issueId, 'investigating'),
@@ -602,7 +602,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.amber.shade800,
                                           foregroundColor: Colors.white,
-                                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                         onPressed: () => _advanceStatus(issueId, 'action_taken'),
@@ -614,7 +614,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: const Color(0xFF005137),
                                           foregroundColor: Colors.white,
-                                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                         ),
                                         onPressed: () => _advanceStatus(issueId, 'resolved'),
@@ -624,7 +624,7 @@ class _CoordinatorQueueScreenState extends State<CoordinatorQueueScreen> {
                                       label: Text('View Full Dossier'),
                                       style: OutlinedButton.styleFrom(
                                         foregroundColor: AppTheme.primaryIndigo,
-                                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                                        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                                         shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                       ),
                                       onPressed: () => context.push('/issues/$issueId'),

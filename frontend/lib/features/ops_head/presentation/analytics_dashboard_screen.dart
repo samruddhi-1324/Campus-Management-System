@@ -216,13 +216,13 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
         onRefresh: _fetchAnalytics,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: isDesktop ? 32 : 16,
             vertical: 20,
           ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1200),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -263,12 +263,12 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                           OutlinedButton.icon(
                             onPressed: _exportCsv,
                             icon: _isExporting
-                                ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2))
+                                ? SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2))
                                 : const Icon(Icons.file_download_outlined, size: 16),
                             label: Text('Export Dossier'),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: AppTheme.primaryIndigo,
-                              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                               shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                             ),
                           ),
@@ -279,7 +279,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppTheme.primaryIndigo,
                               foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                               shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                             ),
                           ),
@@ -337,7 +337,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                                   ),
                                   const SizedBox(width: 8),
                                   Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
                                       color: Colors.white.withOpacity(0.1),
                                       borderRadius: const BorderRadius.circular(4),
@@ -502,7 +502,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
                                 color: AppTheme.secondaryCobalt.withOpacity(0.1),
                                 borderRadius: const BorderRadius.circular(6),

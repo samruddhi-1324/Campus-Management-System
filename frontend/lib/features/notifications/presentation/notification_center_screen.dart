@@ -175,13 +175,13 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: isDesktop ? 32 : 16,
           vertical: 20,
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1100),
+            constraints: BoxConstraints(maxWidth: 1100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -197,7 +197,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       ],
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.accentMint.withOpacity(0.2),
                         borderRadius: const BorderRadius.circular(20),
@@ -248,7 +248,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppTheme.primaryIndigo,
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                           shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                         ),
                       ),
@@ -420,7 +420,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                             label: Text('Open Incident Dossier'),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: AppTheme.primaryIndigo,
-                                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                               shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
                                             ),
                                             onPressed: () => context.push('/issues/$issueId'),
@@ -503,7 +503,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: color.withOpacity(0.08),
         borderRadius: const BorderRadius.circular(4),

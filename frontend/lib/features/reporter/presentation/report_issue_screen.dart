@@ -210,10 +210,10 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
+            constraints: BoxConstraints(maxWidth: 1200),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final isDesktop = constraints.maxWidth >= 900;
@@ -280,7 +280,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 ],
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer.withOpacity(0.08),
                   borderRadius: const BorderRadius.circular(12),
@@ -331,7 +331,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
           TextField(
             controller: _titleController,
             onChanged: (_) => _analyzeWithAI(),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'e.g. Packard 204 AC emitting loud metallic grinding during lecture',
               prefixIcon: Icon(Icons.title, size: 20),
             ),
@@ -376,7 +376,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                       value: _selectedBuilding,
                       items: _buildings.map((b) => DropdownMenuItem(value: b, child: Text(b, style: GoogleFonts.manrope(fontSize: 13)))).toList(),
                       onChanged: (val) => setState(() => _selectedBuilding = val ?? _selectedBuilding),
-                      decoration: const InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
+                      decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
                     ),
                   ],
                 ),
@@ -390,7 +390,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                     const SizedBox(height: 6),
                     TextField(
                       controller: _locationController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         hintText: 'e.g. Room 304, Near East Window',
                         prefixIcon: Icon(Icons.location_on_outlined, size: 20),
                       ),
@@ -410,7 +410,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 onTap: _toggleVoiceDictation,
                 borderRadius: const BorderRadius.circular(16),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: _isVoiceRecording ? AppTheme.statusUrgent.withOpacity(0.1) : AppTheme.secondaryCobalt.withOpacity(0.08),
                     borderRadius: const BorderRadius.circular(16),
@@ -464,12 +464,12 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 child: ElevatedButton.icon(
                   onPressed: _isLoading ? null : _submitIssue,
                   icon: _isLoading
-                      ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                      ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
                       : const Icon(Icons.send_rounded, size: 18),
                   label: Text(_isLoading ? 'Dispatching Ticket...' : 'Submit Work Order Incident'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primaryIndigo,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: 16),
                   ),
                 ),
               ),
@@ -518,7 +518,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                     ],
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                       color: AppTheme.primaryContainer,
                       borderRadius: const BorderRadius.circular(10),
