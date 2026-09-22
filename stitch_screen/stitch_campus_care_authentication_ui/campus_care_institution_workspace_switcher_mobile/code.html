@@ -308,21 +308,44 @@
     const confirmBtn = document.getElementById('confirmWorkspaceBtn');
     const confirmBtnLabel = document.getElementById('confirmBtnLabel');
     const clusterStatus = document.getElementById('clusterStatusText');
+    const sessionEmail = document.querySelector('.font-code-sm.text-primary-fixed');
 
     let activeFilter = 'all';
-    let currentSelectedTenant = 'apex';
+    let currentSelectedTenant = localStorage.getItem('active_tenant') || 'apex';
 
-    const tenantNames = {
-      apex: 'Apex Univ. of Technology',
-      stanford: 'Stanford University',
-      mit: 'Mass. Institute of Technology',
-      berkeley: 'University of California, Berkeley',
-      cmu: 'Carnegie Mellon University'
+    const tenantDetails = {
+      apex: { name: 'Apex Univ. of Technology', email: 'j.holloway@apex.edu' },
+      stanford: { name: 'Stanford University', email: 'j.holloway@stanford.edu' },
+      mit: { name: 'Mass. Institute of Technology', email: 'j.holloway@mit.edu' },
+      berkeley: { name: 'UC Berkeley', email: 'j.holloway@berkeley.edu' },
+      cmu: { name: 'Carnegie Mellon University', email: 'j.holloway@cmu.edu' }
     };
 
-    function selectCard(card) {
-      const tenantKey = card.getAttribute('data-tenant');
+    function showToast(message, icon = 'check_circle') {
+      let toast = document.getElementById('mobile-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'mobile-toast';
+        toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 -translate-y-8 opacity-0 pointer-events-none';
+        document.body.appendChild(toast);
+      }
+      toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 translate-y-0 opacity-100';
+      toast.innerHTML = `<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">${icon}</span><span class="font-label-sm text-label-sm font-semibold">${message}</span>`;
+      setTimeout(() => {
+        toast.className = 'fixed top-20 left-4 right-4 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-on-primary bg-primary transform transition-all duration-300 -translate-y-8 opacity-0 pointer-events-none';
+      }, 2200);
+    }
+
+    function selectCard(card, autoNavigate = false) {
+      const tenantKey = card.getAttribute('data-tenant') || 'apex';
       currentSelectedTenant = tenantKey;
+
+      localStorage.setItem('active_tenant', tenantKey);
+      localStorage.setItem('active_tenant_name', tenantDetails[tenantKey]?.name || 'Apex Univ. of Technology');
+
+      if (sessionEmail && tenantDetails[tenantKey]) {
+        sessionEmail.textContent = tenantDetails[tenantKey].email;
+      }
 
       cards.forEach(c => {
         const isCurrent = c === card;
@@ -350,14 +373,48 @@
         }
       });
 
+      const name = tenantDetails[tenantKey]?.name || 'Workspace';
       if (confirmBtnLabel) {
-        confirmBtnLabel.textContent = 'Switch to ' + (tenantNames[tenantKey] || 'Workspace');
+        confirmBtnLabel.textContent = 'Switch to ' + name;
       }
+
+      showToast(`Selected: ${name}`, 'domain');
+
+      if (autoNavigate) {
+        confirmWorkspaceSwitch();
+      }
+    }
+
+    function confirmWorkspaceSwitch() {
+      if (!confirmBtn) return;
+      confirmBtn.disabled = true;
+      confirmBtn.classList.add('opacity-90');
+      confirmBtnLabel.textContent = 'Connecting RLS Partition...';
+
+      setTimeout(() => {
+        confirmBtnLabel.textContent = 'Workspace Connected ✓';
+        confirmBtn.classList.remove('bg-primary');
+        confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        showToast('Partition Loaded • Redirecting...', 'sync_saved_locally');
+        setTimeout(() => {
+          window.location.href = `../campus_care_complaints_dashboard_mobile/code.html?tenant=${currentSelectedTenant}`;
+        }, 500);
+      }, 700);
     }
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
         selectCard(card);
+      });
+      // Double tap to enter immediately
+      let lastTap = 0;
+      card.addEventListener('touchend', () => {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTap;
+        if (tapLength < 500 && tapLength > 0) {
+          selectCard(card, true);
+        }
+        lastTap = currentTime;
       });
     });
 
@@ -426,24 +483,13 @@
     });
 
     if (confirmBtn) {
-      confirmBtn.addEventListener('click', () => {
-        const originalText = confirmBtnLabel.textContent;
-        confirmBtn.disabled = true;
-        confirmBtn.classList.add('opacity-80');
-        confirmBtnLabel.textContent = 'Connecting RLS Context...';
+      confirmBtn.addEventListener('click', confirmWorkspaceSwitch);
+    }
 
-        setTimeout(() => {
-          confirmBtnLabel.textContent = 'Workspace Connected ✓';
-          confirmBtn.classList.remove('bg-primary');
-          confirmBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
-          setTimeout(() => {
-            confirmBtn.classList.remove('opacity-80', 'bg-tertiary-container', 'text-on-tertiary-container');
-            confirmBtn.classList.add('bg-primary');
-            confirmBtn.disabled = false;
-            confirmBtnLabel.textContent = originalText;
-          }, 1400);
-        }, 800);
-      });
+    // Auto-select initial tenant
+    const initialCard = document.querySelector(`.tenant-card[data-tenant="${currentSelectedTenant}"]`);
+    if (initialCard) {
+      selectCard(initialCard);
     }
   })();
 </script></main></body></html>
