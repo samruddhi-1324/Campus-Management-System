@@ -169,13 +169,13 @@
 <div class="flex flex-col gap-space-xs">
 <div class="flex justify-between items-baseline">
 <label class="font-label-lg text-label-lg text-primary font-bold">Priority Assessment</label>
-<span class="font-code-sm text-code-sm text-error font-medium flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">event_busy</span> Midterm Exam Today in this Room
-              </span>
+<span id="priority-context-badge" class="font-code-sm text-code-sm text-error font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">event_busy</span> Midterm Exam Today in this Room (<2h SLA)
+</span>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm" id="priority-cards-grid">
 <!-- Low -->
-<label class="relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<label onclick="selectDesktopUrgency(this, 'low')" class="priority-card relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
 <input class="sr-only" name="urgency" type="radio" value="low"/>
 <div class="flex items-center gap-1.5 mb-1">
 <span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span>
@@ -184,7 +184,7 @@
 <span class="font-code-sm text-code-sm text-on-surface-variant">72h SLA Target</span>
 </label>
 <!-- Medium -->
-<label class="relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<label onclick="selectDesktopUrgency(this, 'medium')" class="priority-card relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
 <input class="sr-only" name="urgency" type="radio" value="medium"/>
 <div class="flex items-center gap-1.5 mb-1">
 <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
@@ -193,7 +193,7 @@
 <span class="font-code-sm text-code-sm text-on-surface-variant">24h SLA Target</span>
 </label>
 <!-- High -->
-<label class="relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<label onclick="selectDesktopUrgency(this, 'high')" class="priority-card relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
 <input class="sr-only" name="urgency" type="radio" value="high"/>
 <div class="flex items-center gap-1.5 mb-1">
 <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
@@ -201,8 +201,8 @@
 </div>
 <span class="font-code-sm text-code-sm text-on-surface-variant">8h Rapid SLA</span>
 </label>
-<!-- Critical (Selected) -->
-<label class="relative flex flex-col p-space-sm rounded-lg bg-error-container text-on-error-container cursor-pointer shadow-sm transition-all ring-2 ring-error">
+<!-- Critical (Selected by default) -->
+<label onclick="selectDesktopUrgency(this, 'critical')" class="priority-card relative flex flex-col p-space-sm rounded-lg bg-error-container text-on-error-container cursor-pointer shadow-sm transition-all ring-2 ring-error">
 <input checked="" class="sr-only" name="urgency" type="radio" value="critical"/>
 <div class="flex items-center justify-between mb-1">
 <div class="flex items-center gap-1.5">
@@ -283,13 +283,13 @@
 <h3 class="font-headline-sm text-headline-sm text-on-primary font-medium mt-1">Multimodal Voice Input</h3>
 </div>
 <div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md">
-<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-primary font-semibold tracking-wide">MIC LIVE</span>
+<span id="mic-status-dot" class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span id="mic-status-text" class="font-label-sm text-label-sm text-on-primary font-semibold tracking-wide">MIC LIVE</span>
 </div>
 </div>
 <!-- Waveform Visualizer & Timer -->
 <div class="flex flex-col gap-space-xs relative z-10">
-<div class="h-14 w-full bg-primary/60 rounded-lg flex items-center justify-center gap-1 px-4 overflow-hidden shadow-inner">
+<div class="waveform-container h-14 w-full bg-primary/60 rounded-lg flex items-center justify-center gap-1 px-4 overflow-hidden shadow-inner">
 <!-- Audio waveform animated bars -->
 <span class="w-1 bg-secondary rounded-full h-3 animate-pulse"></span>
 <span class="w-1 bg-secondary-container rounded-full h-6 animate-pulse" style="animation-delay: 150ms;"></span>
@@ -310,25 +310,25 @@
 <span class="w-1 bg-secondary-container rounded-full h-2 animate-pulse"></span>
 </div>
 <div class="flex justify-between items-center px-1 font-code-sm text-code-sm text-on-primary-container">
-<span>Dynamic Noise Cancellation Active</span>
-<span class="font-bold text-on-primary tracking-wider">00:38 / 02:00</span>
+<span id="noise-status">Dynamic Noise Cancellation Active</span>
+<span id="voice-timer" class="font-bold text-on-primary tracking-wider">00:38 / 02:00</span>
 </div>
 </div>
 <!-- Live Transcribed Snippet -->
-<div class="p-space-sm rounded-lg bg-primary/80 text-on-primary-container font-body-md text-[13px] leading-relaxed relative z-10 italic">
+<div id="transcript-box" class="p-space-sm rounded-lg bg-primary/80 text-on-primary-container font-body-md text-[13px] leading-relaxed relative z-10 italic">
             “The blower motor in Packard 204 has a loose belt and is vibrating excessively, making it difficult for students to hear the professor.”
           </div>
 <!-- Voice Control Buttons -->
 <div class="flex items-center gap-space-sm relative z-10">
-<button class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1" type="button">
+<button onclick="togglePauseRecording(this)" class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px]">pause</span>
               Pause
             </button>
-<button class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1" type="button">
+<button onclick="reRecordVoice()" class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px]">refresh</span>
               Re-record
             </button>
-<button class="ml-auto px-space-md py-space-xs rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary-container font-label-sm text-label-sm font-bold transition-all shadow-md flex items-center gap-1.5" type="button">
+<button onclick="autoFillTranscription()" class="ml-auto px-space-md py-space-xs rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary-container font-label-sm text-label-sm font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer" type="button">
 <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
               AI Transcribe &amp; Auto-Fill
             </button>
@@ -351,7 +351,7 @@
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">verified_user</span>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-primary font-bold">Auto-detected Category</span>
-<span class="font-body-md text-body-md text-on-surface">HVAC Infrastructure (Confidence 98%)</span>
+<span id="ai-category-text" class="font-body-md text-body-md text-on-surface">HVAC Infrastructure (Confidence 98%)</span>
 </div>
 </div>
 <!-- Schedule Impact -->
@@ -359,7 +359,7 @@
 <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">warning</span>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm font-bold text-on-error-container">Academic Schedule Impact</span>
-<span class="font-body-md text-body-md text-on-error-container">EE214 Midterm in 45 min detected in Room 204 schedule. Urgency elevated to Critical.</span>
+<span id="ai-schedule-text" class="font-body-md text-body-md text-on-error-container">EE214 Midterm in 45 min detected in Room 204 schedule. Urgency elevated to Critical.</span>
 </div>
 </div>
 <!-- Resolution Window -->
@@ -367,7 +367,7 @@
 <span class="material-symbols-outlined text-on-tertiary-container text-[20px] shrink-0 mt-0.5">schedule</span>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-primary font-bold">Estimated Resolution Window</span>
-<span class="font-body-md text-body-md text-on-surface">1.5 – 2.0 hours (Technician Dave Kovacs available in Central Yard)</span>
+<span id="ai-resolution-text" class="font-body-md text-body-md text-on-surface">1.5 – 2.0 hours (Technician Dave Kovacs available in Central Yard)</span>
 </div>
 </div>
 <!-- Historical Match -->
@@ -381,11 +381,11 @@
 </div>
 <!-- Bottom Action Buttons inside Sticky Advisory -->
 <div class="pt-space-sm flex flex-col sm:flex-row items-center gap-space-sm">
-<button class="w-full sm:w-auto px-space-md py-space-sm rounded-lg bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" type="button">
+<button class="w-full sm:w-auto px-space-md py-space-sm rounded-lg bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="saveDraft()" type="button">
               Save as Draft
             </button>
-<button class="w-full sm:flex-1 h-12 px-space-lg rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-xs group" type="button">
-<span>Submit Issue &amp; Dispatch AI Triage</span>
+<button class="w-full sm:flex-1 h-12 px-space-lg rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-xs group cursor-pointer" onclick="submitDesktopIssue()" type="button" id="submitIssueBtn">
+<span id="submitBtnText">Submit Issue &amp; Dispatch AI Triage</span>
 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </div>
@@ -393,4 +393,189 @@
 </div>
 </div>
 </div>
-</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(30,27,75,0.02)]"><div class="w-full px-margin-mobile md:px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-primary font-medium">Campus Care</span><span class="text-outline-variant text-body-md">|</span><span class="font-body-md text-body-md text-on-surface-variant">© 2024 Stanford University Operations &amp; Facilities. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Emergency Dispatch</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Operational Protocol</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Accessibility</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Institutional Privacy</a></div></div></footer></body></html>
+</div>
+<script>
+  // Category Selection
+  document.querySelectorAll('#category-selector .category-card').forEach(card => {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('#category-selector .category-card').forEach(c => {
+        c.className = 'category-card relative p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container shadow-sm cursor-pointer transition-all flex flex-col justify-between h-28 group';
+        const title = c.querySelector('h4');
+        const icon = c.querySelector('.material-symbols-outlined:first-child');
+        const check = c.querySelector('.material-symbols-outlined:last-child');
+        if (title) title.className = 'font-title-md text-title-md text-on-surface font-semibold leading-tight';
+        if (icon) icon.className = 'material-symbols-outlined text-on-surface-variant text-[28px] group-hover:scale-110 transition-transform';
+        if (check && check !== icon) check.remove();
+      });
+
+      this.className = 'category-card relative p-space-md rounded-xl bg-primary-fixed/30 shadow-sm cursor-pointer transition-all flex flex-col justify-between h-28 group';
+      const title = this.querySelector('h4');
+      const icon = this.querySelector('.material-symbols-outlined:first-child');
+      if (title) title.className = 'font-title-md text-title-md text-primary font-bold leading-tight';
+      if (icon) icon.className = 'material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform';
+
+      const check = document.createElement('span');
+      check.className = 'material-symbols-outlined text-primary text-[20px]';
+      check.style.fontVariationSettings = "'FILL' 1";
+      check.textContent = 'check_circle';
+      this.querySelector('div:first-child').appendChild(check);
+
+      const catName = title ? title.textContent : 'Facility Issue';
+      const aiCat = document.getElementById('ai-category-text');
+      if (aiCat) aiCat.textContent = `${catName} (Confidence 98%)`;
+    });
+  });
+
+  // Priority Assessment Selector
+  function selectDesktopUrgency(el, level) {
+    document.querySelectorAll('#priority-cards-grid .priority-card').forEach(c => {
+      c.className = 'priority-card relative flex flex-col p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all';
+      const radio = c.querySelector('input[type="radio"]');
+      if (radio) radio.checked = false;
+      const title = c.querySelector('.font-label-sm');
+      if (title) title.className = 'font-label-sm text-label-sm font-bold text-on-surface';
+      const desc = c.querySelector('.font-code-sm');
+      if (desc) desc.className = 'font-code-sm text-code-sm text-on-surface-variant';
+    });
+
+    const radio = el.querySelector('input[type="radio"]');
+    if (radio) radio.checked = true;
+
+    const badge = document.getElementById('priority-context-badge');
+    const resWindow = document.getElementById('ai-resolution-text');
+
+    if (level === 'critical') {
+      el.className = 'priority-card relative flex flex-col p-space-sm rounded-lg bg-error-container text-on-error-container cursor-pointer shadow-sm transition-all ring-2 ring-error';
+      if (badge) {
+        badge.className = 'font-code-sm text-code-sm text-error font-medium flex items-center gap-1';
+        badge.innerHTML = '<span class="material-symbols-outlined text-[14px]">event_busy</span> Midterm Exam Today (<2h SLA)';
+      }
+      if (resWindow) resWindow.textContent = '< 2.0 hours (Technician Dave Kovacs dispatched immediately)';
+    } else if (level === 'high') {
+      el.className = 'priority-card relative flex flex-col p-space-sm rounded-lg bg-primary-fixed/40 text-on-primary-fixed cursor-pointer shadow-sm transition-all ring-2 ring-primary';
+      if (badge) {
+        badge.className = 'font-code-sm text-code-sm text-primary font-medium flex items-center gap-1';
+        badge.innerHTML = '<span class="material-symbols-outlined text-[14px]">bolt</span> Rapid Response (8h SLA)';
+      }
+      if (resWindow) resWindow.textContent = '4.0 – 8.0 hours (Queue priority elevated)';
+    } else if (level === 'medium') {
+      el.className = 'priority-card relative flex flex-col p-space-sm rounded-lg bg-secondary-fixed/40 text-on-secondary-fixed cursor-pointer shadow-sm transition-all ring-2 ring-secondary';
+      if (badge) {
+        badge.className = 'font-code-sm text-code-sm text-secondary font-medium flex items-center gap-1';
+        badge.innerHTML = '<span class="material-symbols-outlined text-[14px]">schedule</span> Standard Response (24h SLA)';
+      }
+      if (resWindow) resWindow.textContent = '12 – 24 hours (Scheduled next shift)';
+    } else {
+      el.className = 'priority-card relative flex flex-col p-space-sm rounded-lg bg-surface-container-high text-on-surface cursor-pointer shadow-sm transition-all ring-2 ring-outline';
+      if (badge) {
+        badge.className = 'font-code-sm text-code-sm text-on-surface-variant font-medium flex items-center gap-1';
+        badge.innerHTML = '<span class="material-symbols-outlined text-[14px]">calendar_today</span> Routine Maintenance (72h SLA)';
+      }
+      if (resWindow) resWindow.textContent = '48 – 72 hours (Standard facilities queue)';
+    }
+  }
+
+  // Voice Controls
+  let isRecordingPaused = false;
+  function togglePauseRecording(btn) {
+    isRecordingPaused = !isRecordingPaused;
+    const waveBars = document.querySelectorAll('.waveform-container span');
+    const micDot = document.getElementById('mic-status-dot');
+    const micText = document.getElementById('mic-status-text');
+    const noiseStatus = document.getElementById('noise-status');
+
+    waveBars.forEach(b => {
+      if (isRecordingPaused) {
+        b.classList.remove('animate-pulse');
+        b.style.opacity = '0.25';
+        b.style.transform = 'scaleY(0.4)';
+      } else {
+        b.classList.add('animate-pulse');
+        b.style.opacity = '1';
+        b.style.transform = 'scaleY(1)';
+      }
+    });
+
+    if (isRecordingPaused) {
+      if (micDot) micDot.classList.remove('animate-pulse');
+      if (micText) micText.textContent = 'MIC PAUSED';
+      if (noiseStatus) noiseStatus.textContent = 'Audio buffer paused';
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">play_arrow</span> Resume';
+    } else {
+      if (micDot) micDot.classList.add('animate-pulse');
+      if (micText) micText.textContent = 'MIC LIVE';
+      if (noiseStatus) noiseStatus.textContent = 'Dynamic Noise Cancellation Active';
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">pause</span> Pause';
+    }
+  }
+
+  function reRecordVoice() {
+    isRecordingPaused = false;
+    const waveBars = document.querySelectorAll('.waveform-container span');
+    const micDot = document.getElementById('mic-status-dot');
+    const micText = document.getElementById('mic-status-text');
+    const timer = document.getElementById('voice-timer');
+    
+    waveBars.forEach(b => { 
+      b.classList.add('animate-pulse'); 
+      b.style.opacity = '1'; 
+      b.style.transform = 'scaleY(1)';
+    });
+    if (micDot) micDot.classList.add('animate-pulse');
+    if (micText) micText.textContent = 'MIC LIVE';
+    if (timer) timer.textContent = '00:01 / 02:00';
+    
+    const transcriptBox = document.getElementById('transcript-box');
+    if (transcriptBox) {
+      transcriptBox.textContent = '“Listening for voice input... (speak clearly near your microphone)”';
+      transcriptBox.classList.add('opacity-70');
+      setTimeout(() => {
+        transcriptBox.textContent = '“The blower motor in Packard 204 has a loose belt and is vibrating excessively...”';
+        transcriptBox.classList.remove('opacity-70');
+      }, 1500);
+    }
+  }
+
+  function autoFillTranscription() {
+    const titleInput = document.getElementById('issue-title');
+    const descTextarea = document.getElementById('problem-description');
+    
+    if (titleInput) {
+      titleInput.value = 'Packard 204 AC emitting loud metallic grinding during lecture';
+      titleInput.classList.add('ring-2', 'ring-secondary');
+      setTimeout(() => titleInput.classList.remove('ring-2', 'ring-secondary'), 1200);
+    }
+    if (descTextarea) {
+      descTextarea.value = 'Acoustic transcription (Confidence 99.4%): The blower motor in Packard 204 has a loose belt and is vibrating excessively, making it difficult for students to hear the professor. The noise intensifies when cooling activates.';
+      descTextarea.classList.add('ring-2', 'ring-secondary');
+      setTimeout(() => descTextarea.classList.remove('ring-2', 'ring-secondary'), 1200);
+    }
+
+    const transcriptBox = document.getElementById('transcript-box');
+    if (transcriptBox) {
+      transcriptBox.innerHTML = '<span class="text-on-secondary-container font-semibold">✓ Synchronized with Issue Title & Description fields.</span>';
+    }
+  }
+
+  function saveDraft() {
+    alert('💾 Draft saved successfully to your offline local storage buffer.');
+  }
+
+  function submitDesktopIssue() {
+    const btn = document.getElementById('submitIssueBtn');
+    const text = document.getElementById('submitBtnText');
+    if (btn && text) {
+      btn.disabled = true;
+      text.textContent = 'Dispatching AI Triage & RLS Routing...';
+      btn.classList.add('opacity-90');
+      setTimeout(() => {
+        text.textContent = 'Incident #CC-8493 Dispatched ✓';
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-on-tertiary-container');
+        setTimeout(() => {
+          window.location.href = '../campus_care_complaints_dashboard_desktop/code.html?tenant=stanford';
+        }, 800);
+      }, 900);
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_6px_rgba(30,27,75,0.02)]"><div class="w-full px-margin-mobile md:px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-primary font-medium">Campus Care</span><span class="text-outline-variant text-body-md">|</span><span class="font-body-md text-body-md text-on-surface-variant">© 2024 Stanford University Operations &amp; Facilities. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Emergency Dispatch</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Operational Protocol</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Accessibility</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider" href="#">Institutional Privacy</a></div></div></footer></body></html>

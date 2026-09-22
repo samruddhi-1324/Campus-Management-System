@@ -144,7 +144,7 @@
 <span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">4</span>
 <h3 class="font-title-md text-title-md text-primary">Multimodal Voice Intake</h3>
 </div>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">
+<span id="mobile-transcribe-status" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">
 <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-ping"></span>
         Transcribing...
       </span>
@@ -155,42 +155,57 @@
 <div class="flex items-center gap-3">
 <!-- Mic with Pulse Rings -->
 <div class="relative flex items-center justify-center">
-<span class="absolute w-10 h-10 rounded-full bg-secondary/30 animate-ping"></span>
+<span id="mobile-mic-ring" class="absolute w-10 h-10 rounded-full bg-secondary/30 animate-ping"></span>
 <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center relative z-10 shadow-sm">
 <span class="material-symbols-outlined text-[20px] text-on-secondary">mic</span>
 </div>
 </div>
 <div>
-<span class="font-label-lg text-label-lg font-bold">Capturing Audio</span>
-<p class="font-code-sm text-code-sm text-on-primary-container">Whisper-3 Campus Model Active</p>
+<span id="mobile-mic-title" class="font-label-lg text-label-lg font-bold">Capturing Audio</span>
+<p id="mobile-mic-sub" class="font-code-sm text-code-sm text-on-primary-container">Whisper-3 Campus Model Active</p>
 </div>
 </div>
 <div class="flex items-center gap-2">
-<span class="font-code-sm text-code-sm font-bold bg-primary-container text-tertiary-fixed px-2.5 py-1 rounded-full">00:24</span>
-<button aria-label="Pause Recording" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-surface/20 flex items-center justify-center text-on-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">stop</span>
+<span id="mobile-timer" class="font-code-sm text-code-sm font-bold bg-primary-container text-tertiary-fixed px-2.5 py-1 rounded-full">00:24</span>
+<button onclick="toggleMobileVoicePause(this)" aria-label="Pause Recording" class="w-8 h-8 rounded-full bg-surface/10 hover:bg-surface/20 flex items-center justify-center text-on-primary transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[18px]">pause</span>
 </button>
 </div>
 </div>
 <!-- Animated Waveform Bars -->
-<div class="flex items-center justify-center gap-1 h-9 px-2 bg-primary-container/70 rounded-lg overflow-hidden">
-<span class="w-1 bg-secondary rounded-full animate-[bounce_0.8s_ease-in-out_infinite] h-4"></span>
-<span class="w-1 bg-secondary-container rounded-full animate-[bounce_0.6s_ease-in-out_infinite_0.1s] h-7"></span>
-<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.9s_ease-in-out_infinite_0.2s] h-6"></span>
-<span class="w-1 bg-secondary rounded-full animate-[bounce_0.7s_ease-in-out_infinite_0.3s] h-8"></span>
-<span class="w-1 bg-secondary-container rounded-full animate-[bounce_1.1s_ease-in-out_infinite_0.15s] h-5"></span>
-<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.25s] h-7"></span>
-<span class="w-1 bg-secondary rounded-full animate-[bounce_0.6s_ease-in-out_infinite_0.4s] h-3"></span>
-<span class="w-1 bg-secondary-container rounded-full animate-[bounce_1.0s_ease-in-out_infinite_0.2s] h-8"></span>
-<span class="w-1 bg-tertiary-fixed rounded-full animate-[bounce_0.7s_ease-in-out_infinite_0.35s] h-5"></span>
-<span class="w-1 bg-secondary rounded-full animate-[bounce_0.9s_ease-in-out_infinite_0.1s] h-4"></span>
+<div id="mobile-waveform" class="flex items-center justify-center gap-1 h-9 px-2 bg-primary-container/70 rounded-lg overflow-hidden">
+<span class="w-1 bg-secondary rounded-full animate-pulse h-4"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-pulse h-7" style="animation-delay: 150ms;"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-pulse h-6" style="animation-delay: 300ms;"></span>
+<span class="w-1 bg-secondary rounded-full animate-pulse h-8" style="animation-delay: 75ms;"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-pulse h-5" style="animation-delay: 220ms;"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-pulse h-7" style="animation-delay: 180ms;"></span>
+<span class="w-1 bg-secondary rounded-full animate-pulse h-3" style="animation-delay: 90ms;"></span>
+<span class="w-1 bg-secondary-container rounded-full animate-pulse h-8" style="animation-delay: 350ms;"></span>
+<span class="w-1 bg-tertiary-fixed rounded-full animate-pulse h-5" style="animation-delay: 120ms;"></span>
+<span class="w-1 bg-secondary rounded-full animate-pulse h-4" style="animation-delay: 400ms;"></span>
+</div>
+<!-- Mobile Voice Action Controls -->
+<div class="flex items-center gap-2 pt-1">
+<button onclick="toggleMobileVoicePause(document.querySelector('button[aria-label=\'Pause Recording\']'))" class="flex-1 py-1 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-on-primary text-label-sm font-semibold flex items-center justify-center gap-1 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[14px]">pause</span>
+<span id="mobile-pause-text">Pause</span>
+</button>
+<button onclick="reRecordMobileVoice()" class="flex-1 py-1 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-on-primary text-label-sm font-semibold flex items-center justify-center gap-1 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Re-record</span>
+</button>
+<button onclick="autoFillMobileTranscript()" class="flex-1 py-1 px-2 rounded-lg bg-secondary-container text-on-secondary-container text-label-sm font-bold flex items-center justify-center gap-1 cursor-pointer shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Auto-fill</span>
+</button>
 </div>
 </div>
 <!-- Transcript Preview Bubble -->
 <div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-2.5">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">format_quote</span>
 <div class="flex-1">
-<p class="font-headline-sm text-headline-sm text-primary italic leading-snug">
+<p id="mobile-transcript-text" class="font-headline-sm text-headline-sm text-primary italic leading-snug">
           "AC rattling loudly in room 204 before midterm. Louder during cycle startup."
         </p>
 <p class="font-code-sm text-code-sm text-on-surface-variant mt-1.5 flex items-center gap-1">
@@ -207,31 +222,31 @@
 <span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm flex items-center justify-center font-bold">5</span>
 <h3 class="font-title-md text-title-md text-primary">Priority &amp; Impact</h3>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">SLA Driven</span>
+<span id="mobile-sla-badge" class="font-label-sm text-label-sm text-error font-bold">&lt;2h Urgent SLA</span>
 </div>
 <!-- Segmented Control -->
 <div class="grid grid-cols-4 gap-1.5 p-1 bg-surface-container rounded-lg" id="urgency-selector">
-<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+<button onclick="selectMobileUrgency(this, 'low')" class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" type="button">
         Low
       </button>
-<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+<button onclick="selectMobileUrgency(this, 'medium')" class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" type="button">
         Medium
       </button>
-<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all" type="button">
+<button onclick="selectMobileUrgency(this, 'high')" class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" type="button">
         High
       </button>
-<button class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold flex flex-col items-center justify-center" type="button">
+<button onclick="selectMobileUrgency(this, 'critical')" class="urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold flex flex-col items-center justify-center cursor-pointer" type="button">
 <span>Critical</span>
 <span class="text-[10px] text-primary-fixed">45m SLA</span>
 </button>
 </div>
 <!-- Active Urgency Context Tag -->
-<div class="flex items-center justify-between p-space-sm px-space-md rounded-lg bg-error-container text-on-error-container">
+<div id="mobile-urgency-banner" class="flex items-center justify-between p-space-sm px-space-md rounded-lg bg-error-container text-on-error-container transition-all">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[18px]">timer</span>
-<span class="font-label-lg text-label-lg font-bold">Exam in 45m · Rapid Response Tier 1</span>
+<span id="mobile-urgency-banner-title" class="font-label-lg text-label-lg font-bold">Exam in 45m · Rapid Response Tier 1</span>
 </div>
-<span class="font-code-sm text-code-sm">Immediate Alert</span>
+<span id="mobile-urgency-banner-tag" class="font-code-sm text-code-sm">Immediate Alert</span>
 </div>
 </section>
 <!-- AI Triage Live Preview Card -->
@@ -245,7 +260,7 @@
 <span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wider">AI Predictive Dispatch</span>
 <span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-mono font-bold">Ready</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface mt-0.5">
+<p id="mobile-ai-advisory-text" class="font-body-md text-body-md text-on-surface mt-0.5">
           ✨ <strong class="font-semibold text-primary">HVAC Malfunction</strong> detected with high vibration acoustic profile. Auto-routing work order to <strong class="font-semibold text-primary">Dave Kovacs</strong> (Lead Zone HVAC Specialist, currently at Spilker Bldg).
         </p>
 </div>
@@ -260,7 +275,7 @@
 </div>
 </div>
 <script>
-  // Simple micro-interactions for chip toggles
+  // Category Selection
   document.querySelectorAll('#category-group .category-chip').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#category-group .category-chip').forEach(b => {
@@ -280,12 +295,108 @@
     });
   });
 
-  document.querySelectorAll('#urgency-selector .urgency-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#urgency-selector .urgency-btn').forEach(b => {
-        b.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all';
-      });
-      btn.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold';
+  // Urgency selection
+  function selectMobileUrgency(btn, level) {
+    document.querySelectorAll('#urgency-selector .urgency-btn').forEach(b => {
+      b.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center text-on-surface hover:bg-surface-container-high transition-all cursor-pointer';
     });
-  });
-</script></main><div class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-gutter-mobile flex items-center justify-between gap-space-md"><button class="h-11 px-space-lg rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-colors flex items-center justify-center min-w-[44px]" onclick="history.back()" type="button">Cancel</button><button class="h-11 px-space-xl rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg transition-all shadow-[0_4px_6px_-1px_rgba(30,27,75,0.06)] flex items-center justify-center flex-1" type="submit">Submit Issue</button></div></div></body></html>
+    btn.className = 'urgency-btn py-2 px-1 rounded font-label-sm text-label-sm text-center bg-primary text-on-primary shadow-sm font-bold cursor-pointer';
+
+    const slaBadge = document.getElementById('mobile-sla-badge');
+    const banner = document.getElementById('mobile-urgency-banner');
+    const bannerTitle = document.getElementById('mobile-urgency-banner-title');
+    const bannerTag = document.getElementById('mobile-urgency-banner-tag');
+
+    if (level === 'critical') {
+      if (slaBadge) { slaBadge.textContent = '<2h Urgent SLA'; slaBadge.className = 'font-label-sm text-label-sm text-error font-bold'; }
+      if (banner) banner.className = 'flex items-center justify-between p-space-sm px-space-md rounded-lg bg-error-container text-on-error-container transition-all';
+      if (bannerTitle) bannerTitle.textContent = 'Exam in 45m · Rapid Response Tier 1';
+      if (bannerTag) bannerTag.textContent = 'Immediate Alert';
+    } else if (level === 'high') {
+      if (slaBadge) { slaBadge.textContent = '8h Rapid SLA'; slaBadge.className = 'font-label-sm text-label-sm text-primary font-bold'; }
+      if (banner) banner.className = 'flex items-center justify-between p-space-sm px-space-md rounded-lg bg-primary-fixed/30 text-on-primary-fixed transition-all';
+      if (bannerTitle) bannerTitle.textContent = 'Rapid Response Scheduled · Priority 2';
+      if (bannerTag) bannerTag.textContent = '8h Target';
+    } else if (level === 'medium') {
+      if (slaBadge) { slaBadge.textContent = '24h Standard SLA'; slaBadge.className = 'font-label-sm text-label-sm text-secondary font-bold'; }
+      if (banner) banner.className = 'flex items-center justify-between p-space-sm px-space-md rounded-lg bg-secondary-fixed/30 text-on-secondary-fixed transition-all';
+      if (bannerTitle) bannerTitle.textContent = 'Standard Campus Dispatch Queue';
+      if (bannerTag) bannerTag.textContent = '24h Target';
+    } else {
+      if (slaBadge) { slaBadge.textContent = '72h Routine SLA'; slaBadge.className = 'font-label-sm text-label-sm text-on-surface-variant font-bold'; }
+      if (banner) banner.className = 'flex items-center justify-between p-space-sm px-space-md rounded-lg bg-surface-container-high text-on-surface transition-all';
+      if (bannerTitle) bannerTitle.textContent = 'Routine Facilities Batch Processing';
+      if (bannerTag) bannerTag.textContent = '72h Target';
+    }
+  }
+
+  // Voice Recording Mobile
+  let isMobileRecordingPaused = false;
+  function toggleMobileVoicePause(btn) {
+    isMobileRecordingPaused = !isMobileRecordingPaused;
+    const waveBars = document.querySelectorAll('#mobile-waveform span');
+    const ring = document.getElementById('mobile-mic-ring');
+    const title = document.getElementById('mobile-mic-title');
+    const pauseText = document.getElementById('mobile-pause-text');
+
+    waveBars.forEach(b => {
+      if (isMobileRecordingPaused) {
+        b.classList.remove('animate-pulse');
+        b.style.opacity = '0.3';
+      } else {
+        b.classList.add('animate-pulse');
+        b.style.opacity = '1';
+      }
+    });
+
+    if (isMobileRecordingPaused) {
+      if (ring) ring.classList.remove('animate-ping');
+      if (title) title.textContent = 'Audio Paused';
+      if (pauseText) pauseText.textContent = 'Resume';
+      if (btn && btn.querySelector('.material-symbols-outlined')) {
+        btn.querySelector('.material-symbols-outlined').textContent = 'play_arrow';
+      }
+    } else {
+      if (ring) ring.classList.add('animate-ping');
+      if (title) title.textContent = 'Capturing Audio';
+      if (pauseText) pauseText.textContent = 'Pause';
+      if (btn && btn.querySelector('.material-symbols-outlined')) {
+        btn.querySelector('.material-symbols-outlined').textContent = 'pause';
+      }
+    }
+  }
+
+  function reRecordMobileVoice() {
+    isMobileRecordingPaused = false;
+    const waveBars = document.querySelectorAll('#mobile-waveform span');
+    waveBars.forEach(b => { b.classList.add('animate-pulse'); b.style.opacity = '1'; });
+    const timer = document.getElementById('mobile-timer');
+    if (timer) timer.textContent = '00:01';
+    const transcript = document.getElementById('mobile-transcript-text');
+    if (transcript) {
+      transcript.textContent = '"Listening... (Speak clearly into your phone mic)"';
+      setTimeout(() => {
+        transcript.textContent = '"AC rattling loudly in room 204 before midterm. Louder during cycle startup."';
+      }, 1500);
+    }
+  }
+
+  function autoFillMobileTranscript() {
+    const transcript = document.getElementById('mobile-transcript-text');
+    if (transcript) {
+      transcript.innerHTML = '<span class="text-secondary font-bold">✓ AI voice stream synchronized to report title & notes.</span>';
+    }
+  }
+
+  function submitMobileForm(e) {
+    if (e) e.preventDefault();
+    const btn = document.getElementById('mobileSubmitBtn');
+    if (btn) {
+      btn.textContent = 'Dispatching AI Triage...';
+      btn.disabled = true;
+      setTimeout(() => {
+        window.location.href = '../campus_care_complaints_dashboard_mobile/code.html?tenant=stanford';
+      }, 700);
+    }
+  }
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-gutter-mobile flex items-center justify-between gap-space-md"><button class="h-11 px-space-lg rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-colors flex items-center justify-center min-w-[44px] cursor-pointer" onclick="window.location.href='../campus_care_complaints_dashboard_mobile/code.html'" type="button">Cancel</button><button id="mobileSubmitBtn" onclick="submitMobileForm(event)" class="h-11 px-space-xl rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg transition-all shadow-[0_4px_6px_-1px_rgba(30,27,75,0.06)] flex items-center justify-center flex-1 cursor-pointer font-bold" type="button">Submit Issue</button></div></div></body></html>
