@@ -27,8 +27,20 @@ class ApiClient {
           }
           return handler.next(options);
         },
-        onError: (DioException error, handler) {
-          // Handle token expiry / 401
+        onError: (DioException error, handler) async {
+          if (error.type == DioExceptionType.connectionError ||
+              error.type == DioExceptionType.connectionTimeout) {
+            final currentUrl = error.requestOptions.baseUrl;
+            if (currentUrl.contains('127.0.0.1')) {
+              try {
+                final fallbackOptions = error.requestOptions.copyWith(
+                  baseUrl: 'http://192.168.0.111:8000/api/v1',
+                );
+                final res = await dio.fetch(fallbackOptions);
+                return handler.resolve(res);
+              } catch (_) {}
+            }
+          }
           return handler.next(error);
         },
       ),

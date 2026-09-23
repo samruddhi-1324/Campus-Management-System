@@ -40,11 +40,14 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void _applyRolePreset(String roleKey, String email) {
+  void _applyRolePreset(String roleKey, String email, [String? name]) {
     setState(() {
       _selectedRolePreset = roleKey;
       _emailController.text = email;
       _passwordController.text = 'Admin@123456';
+      if (name != null) {
+        _nameController.text = name;
+      }
     });
   }
 
@@ -134,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceWhite,
-                  borderRadius: const BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
                       color: AppTheme.primaryIndigo.withOpacity(0.08),
@@ -220,7 +223,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
                       color: AppTheme.primaryContainer,
-                      borderRadius: const BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: AppTheme.secondaryContainer.withOpacity(0.3)),
                     ),
                     child: Row(
@@ -291,7 +294,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer.withOpacity(0.85),
-                  borderRadius: const BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: AppTheme.secondaryContainer.withOpacity(0.2)),
                 ),
                 child: Row(
@@ -300,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: AppTheme.primaryIndigo,
-                        borderRadius: const BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(Icons.hub_outlined, color: AppTheme.tertiaryMint, size: 24),
                     ),
@@ -403,7 +406,7 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppTheme.primaryContainer.withOpacity(0.5),
-        borderRadius: const BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.white.withOpacity(0.06)),
       ),
       child: Column(
@@ -449,7 +452,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
-                  borderRadius: const BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
                   children: [
@@ -596,7 +599,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
-                borderRadius: const BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppTheme.statusUrgent.withOpacity(0.3)),
               ),
               child: Row(

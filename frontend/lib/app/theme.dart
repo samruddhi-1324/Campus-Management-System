@@ -124,11 +124,11 @@ class AppTheme {
           color: textPrimary,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surfaceWhite,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16),
           side: BorderSide(color: const Color(0xFFE2E8F0)),
         ),
       ),
@@ -137,19 +137,19 @@ class AppTheme {
         fillColor: surfaceWhite,
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border: OutlineInputBorder(
-          borderRadius: const BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: secondaryCobalt, width: 1.8),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: const BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: statusUrgent),
         ),
         hintStyle: GoogleFonts.manrope(
@@ -165,7 +165,7 @@ class AppTheme {
           minimumSize: const Size(0, 48),
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: const BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.manrope(
             fontSize: 14,
@@ -180,7 +180,7 @@ class AppTheme {
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           side: BorderSide(color: outlineVariant),
           shape: RoundedRectangleBorder(
-            borderRadius: const BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.manrope(
             fontSize: 14,

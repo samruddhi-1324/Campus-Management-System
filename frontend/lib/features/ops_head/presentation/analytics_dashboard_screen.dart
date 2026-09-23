@@ -104,7 +104,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           title: Row(
             children: [
               const Icon(Icons.file_download_done, color: const Color(0xFF005137)),
@@ -123,7 +123,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: AppTheme.backgroundLight,
-                  borderRadius: const BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   'Payload Preview:\n${res.data.toString().split('\n').take(4).join('\n')}...',
@@ -171,7 +171,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.analytics_outlined, color: Colors.white, size: 20),
             ),
@@ -269,7 +269,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                             style: OutlinedButton.styleFrom(
                               foregroundColor: AppTheme.primaryIndigo,
                               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                             ),
                           ),
                           ElevatedButton.icon(
@@ -280,7 +280,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                               backgroundColor: AppTheme.primaryIndigo,
                               foregroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                             ),
                           ),
                         ],
@@ -299,7 +299,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
-                      borderRadius: const BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
                           color: AppTheme.primaryIndigo.withOpacity(0.15),
@@ -315,7 +315,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.12),
-                            borderRadius: const BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Icon(Icons.auto_awesome, color: AppTheme.accentMint, size: 22),
                         ),
@@ -340,7 +340,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                                     padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
                                       color: Colors.white.withOpacity(0.1),
-                                      borderRadius: const BorderRadius.circular(4),
+                                      borderRadius: BorderRadius.circular(4),
                                     ),
                                     child: Text(
                                       'Confidence: 99.4%',
@@ -390,7 +390,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceWhite,
-                      borderRadius: const BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                     ),
                     child: Column(
@@ -474,7 +474,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                         padding: const EdgeInsets.all(14),
                         decoration: BoxDecoration(
                           color: AppTheme.surfaceWhite,
-                          borderRadius: const BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12),
                           border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                         ),
                         child: Row(
@@ -483,7 +483,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: AppTheme.primaryIndigo.withOpacity(0.06),
-                                borderRadius: const BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Icon(Icons.assignment_outlined, color: AppTheme.primaryIndigo, size: 20),
                             ),
@@ -505,7 +505,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
                                 color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                                borderRadius: const BorderRadius.circular(6),
+                                borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
                                 status.toUpperCase(),
@@ -532,9 +532,9 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(width: 12, height: inflow.toDouble(), decoration: BoxDecoration(color: AppTheme.secondaryCobalt, borderRadius: const BorderRadius.circular(3))),
+            Container(width: 12, height: inflow.toDouble(), decoration: BoxDecoration(color: AppTheme.secondaryCobalt, borderRadius: BorderRadius.circular(3))),
             const SizedBox(width: 4),
-            Container(width: 12, height: resolved.toDouble(), decoration: BoxDecoration(color: const Color(0xFF005137), borderRadius: const BorderRadius.circular(3))),
+            Container(width: 12, height: resolved.toDouble(), decoration: BoxDecoration(color: const Color(0xFF005137), borderRadius: BorderRadius.circular(3))),
           ],
         ),
         const SizedBox(height: 6),
@@ -546,7 +546,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
   Widget _buildLegendItem(Color color, String label) {
     return Row(
       children: [
-        Container(width: 10, height: 10, decoration: BoxDecoration(color: color, borderRadius: const BorderRadius.circular(2))),
+        Container(width: 10, height: 10, decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(2))),
         const SizedBox(width: 4),
         Text(label, style: GoogleFonts.manrope(fontSize: 11, fontWeight: FontWeight.w600, color: AppTheme.textSecondary)),
       ],
@@ -559,7 +559,7 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
       ),
       child: Column(

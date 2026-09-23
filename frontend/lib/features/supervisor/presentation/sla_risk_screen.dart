@@ -150,7 +150,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.statusCritical,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.radar, color: Colors.white, size: 20),
             ),
@@ -211,7 +211,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFDAD6),
-                      borderRadius: const BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: AppTheme.statusCritical.withOpacity(0.3)),
                     ),
                     child: Row(
@@ -255,7 +255,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                             backgroundColor: AppTheme.primaryIndigo,
                             foregroundColor: Colors.white,
                             padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                            shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
                       ],
@@ -318,7 +318,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                       padding: const EdgeInsets.all(48),
                       decoration: BoxDecoration(
                         color: AppTheme.surfaceWhite,
-                        borderRadius: const BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                       ),
                       child: Column(
@@ -353,7 +353,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                         return Container(
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceWhite,
-                            borderRadius: const BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: isCritical ? AppTheme.statusCritical.withOpacity(0.4) : AppTheme.neutralLightOutline.withOpacity(0.3),
                               width: isCritical ? 1.5 : 1,
@@ -417,7 +417,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                                 decoration: BoxDecoration(
                                                   color: (isCritical ? AppTheme.statusCritical : AppTheme.secondaryCobalt).withOpacity(0.1),
-                                                  borderRadius: const BorderRadius.circular(6),
+                                                  borderRadius: BorderRadius.circular(6),
                                                 ),
                                                 child: Text(
                                                   isCritical ? 'CRITICAL BREACH RISK' : 'ELEVATED RISK',
@@ -481,7 +481,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                           style: OutlinedButton.styleFrom(
                                             foregroundColor: AppTheme.primaryIndigo,
                                             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                            shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                           ),
                                           child: Text('View Ticket'),
                                         ),
@@ -493,7 +493,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
                                             backgroundColor: AppTheme.statusCritical,
                                             foregroundColor: Colors.white,
                                             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                            shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                           ),
                                         ),
                                       ],
@@ -535,7 +535,7 @@ class _SlaRiskScreenState extends State<SlaRiskScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
       ),
       child: Column(

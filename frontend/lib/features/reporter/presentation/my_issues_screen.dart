@@ -123,7 +123,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.confirmation_number_outlined, color: Colors.white, size: 20),
             ),
@@ -302,7 +302,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
       padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: const BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(color: AppTheme.outlineVariant.withOpacity(0.4)),
       ),
       child: Row(
@@ -337,7 +337,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -350,7 +350,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
               filled: true,
               fillColor: AppTheme.surfaceContainerLow,
               border: OutlineInputBorder(
-                borderRadius: const BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
               contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
@@ -416,12 +416,12 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
 
         return InkWell(
           onTap: () => context.push('/issues/$id'),
-          borderRadius: const BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16),
           child: Container(
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
               color: AppTheme.surfaceWhite,
-              borderRadius: const BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppTheme.outlineVariant),
               boxShadow: [
                 BoxShadow(
@@ -443,7 +443,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceContainerLow,
-                            borderRadius: const BorderRadius.circular(6),
+                            borderRadius: BorderRadius.circular(6),
                             border: Border.all(color: AppTheme.outlineVariant),
                           ),
                           child: Text(
@@ -460,7 +460,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
                             color: AppTheme.primaryContainer.withOpacity(0.08),
-                            borderRadius: const BorderRadius.circular(6),
+                            borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
                             category,
@@ -477,7 +477,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: _getStatusColor(status).withOpacity(0.12),
-                        borderRadius: const BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
                         status.toUpperCase(),

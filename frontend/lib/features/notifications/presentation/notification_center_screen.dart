@@ -138,7 +138,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.notifications_active_outlined, color: Colors.white, size: 20),
             ),
@@ -200,7 +200,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.accentMint.withOpacity(0.2),
-                        borderRadius: const BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: Row(
                         children: [
@@ -249,7 +249,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                           backgroundColor: AppTheme.primaryIndigo,
                           foregroundColor: Colors.white,
                           padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                          shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                         ),
                       ),
                     ],
@@ -280,7 +280,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceWhite,
-                    borderRadius: const BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                   ),
                   child: SingleChildScrollView(
@@ -316,7 +316,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                     padding: const EdgeInsets.all(48),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceWhite,
-                      borderRadius: const BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                     ),
                     child: Column(
@@ -349,7 +349,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                       return Container(
                         decoration: BoxDecoration(
                           color: isRead ? AppTheme.surfaceWhite : const Color(0xFFF9FAFC),
-                          borderRadius: const BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(14),
                           border: Border.all(
                             color: !isRead ? AppTheme.secondaryCobalt.withOpacity(0.4) : AppTheme.neutralLightOutline.withOpacity(0.3),
                             width: !isRead ? 1.5 : 1,
@@ -421,7 +421,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: AppTheme.primaryIndigo,
                                               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                             ),
                                             onPressed: () => context.push('/issues/$issueId'),
                                           ),
@@ -475,7 +475,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       height: 40,
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
-        borderRadius: const BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Center(child: Icon(icon, size: 20, color: color)),
     );
@@ -506,7 +506,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: color.withOpacity(0.08),
-        borderRadius: const BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4),
       ),
       child: Text(label, style: GoogleFonts.manrope(fontSize: 10, fontWeight: FontWeight.w700, color: color)),
     );
@@ -531,7 +531,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
         color: isSelected ? Colors.white : AppTheme.textPrimary,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8),
         side: BorderSide(
           color: isSelected ? AppTheme.primaryIndigo : AppTheme.neutralLightOutline.withOpacity(0.4),
         ),
@@ -545,7 +545,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
       ),
       child: Row(
@@ -565,7 +565,7 @@ class _NotificationCenterScreenState extends State<NotificationCenterScreen> {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: countColor.withOpacity(0.1),
-              borderRadius: const BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, size: 20, color: countColor),
           ),

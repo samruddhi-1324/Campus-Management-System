@@ -150,7 +150,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.auto_awesome_outlined, color: Colors.white, size: 20),
             ),
@@ -261,7 +261,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceWhite,
-                      borderRadius: const BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                     ),
                     child: SingleChildScrollView(
@@ -293,7 +293,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                       padding: const EdgeInsets.all(48),
                       decoration: BoxDecoration(
                         color: AppTheme.surfaceWhite,
-                        borderRadius: const BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                       ),
                       child: Column(
@@ -324,7 +324,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                         return Container(
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceWhite,
-                            borderRadius: const BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16),
                             border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                             boxShadow: [
                               BoxShadow(
@@ -346,7 +346,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                       decoration: BoxDecoration(
                                         color: AppTheme.primaryIndigo.withOpacity(0.08),
-                                        borderRadius: const BorderRadius.circular(8),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -390,7 +390,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                     padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
                                       color: AppTheme.backgroundLight,
-                                      borderRadius: const BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -417,7 +417,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                         style: OutlinedButton.styleFrom(
                                           foregroundColor: AppTheme.statusCritical,
                                           padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                                          shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                         ),
                                         child: Text('Dismiss Advisory'),
                                       ),
@@ -430,7 +430,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                           backgroundColor: AppTheme.primaryIndigo,
                                           foregroundColor: Colors.white,
                                           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                                          shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                         ),
                                       ),
                                     ],
@@ -446,7 +446,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                         backgroundColor: const Color(0xFF005137),
                                         foregroundColor: Colors.white,
                                         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                                        shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(8)),
+                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                       ),
                                     ),
                                   ),
@@ -489,7 +489,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
         color: isSelected ? Colors.white : AppTheme.textPrimary,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8),
         side: BorderSide(
           color: isSelected ? AppTheme.primaryIndigo : AppTheme.neutralLightOutline.withOpacity(0.4),
         ),
@@ -503,7 +503,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
       ),
       child: Column(
