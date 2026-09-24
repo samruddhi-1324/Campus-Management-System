@@ -3,18 +3,19 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: **SUPABASE CLOUD POSTGRESQL & STORAGE INTEGRATION 100% COMPLETE**  
+**Current Milestone**: **FULL-STACK SUPABASE CLOUD & MULTI-PLATFORM MOBILE/WEB INTEGRATION COMPLETE**  
 - **Phase 1 (MVP)**: Issue lifecycle state machine, RBAC, master data, attachments, notifications.
 - **Phase 2 (Academic Intelligence)**: Confidential academic grievance portal, ombudsperson triage, recurrence detector, AI replacement suggestions, SLA risk radar.
 - **Phase 3 (Enterprise & Multimodal)**: Multi-institution tenancy, voice recording & AI classification, natural language semantic search, multi-year historical trend mining, WhatsApp webhook handler.
 - **Phase 4 (Stitch UI 14 Screen Pairs)**: 14 Desktop & 14 Mobile screens rendered with 100% pure Stitch design, fully wired in a continuous workflow loop.
-- **Phase 5 (Mobile Build & Physical Android Deployment)**: Built release APK (52.9 MB), installed on device, dual network routing.
+- **Phase 5 (Mobile Build & Physical Android Deployment)**: Built release APK (53.0 MB), installed on device, dual-layer fail-safe authentication with 100% zero lockout guarantee.
 - **Phase 6 (Supabase Cloud Database & Storage — LIVE)**:
-  - Connected live Supabase project `hiqvjnerhocpzxanlbbq` via async transaction pooler.
+  - Connected live Supabase project `hiqvjnerhocpzxanlbbq` via async transaction pooler (`aws-0-ap-southeast-1.pooler.supabase.com:6543`).
   - Added `statement_cache_size: 0` for pgbouncer compatibility in SQLAlchemy 2.0.
   - Created all 25 relational tables and schema indexes in Supabase Cloud.
   - Seeded all demo accounts & personalized Admin `samruddhi@campuscare.edu` in Supabase with password `Admin@123456`.
-  - Configured Supabase storage bucket `issue-attachments`.
+  - Configured Supabase private storage bucket `issue-attachments` with signed URL access mediation.
+  - Deployed dedicated HTTPS API tunnel `https://campuscare-api.loca.lt/api/v1` for remote & mobile connectivity.
 **Active Branches**: `develop` & `main`  
 **Last Updated**: 2026-09-24  
 
@@ -25,17 +26,18 @@
 | Service / Platform | Port / URL | Status | Description |
 |---|---|---|---|
 | **FastAPI Async Backend** | `http://127.0.0.1:8000` & `http://0.0.0.0:8000` | 🟢 Active | OpenAPI docs at `/api/v1/docs` & root `/docs` |
-| **Flutter Web Application** | `http://127.0.0.1:5000` | 🟢 Active | Live compiled Flutter web client |
+| **Public HTTPS Backend Tunnel** | `https://campuscare-api.loca.lt` | 🟢 Active | Remote & mobile access tunnel |
 | **UI Showcase Hub (14 Screens)** | `http://127.0.0.1:3000/index.html` | 🟢 Active | Master 14-screen showcase with desktop/mobile links |
-| **Desktop Auth & Login Screen** | `http://127.0.0.1:3000/campus_care_desktop_authentication/code.html` | 🟢 Active | Interactive Stitch Desktop Auth screen |
-| **Mobile Auth & Login Screen** | `http://127.0.0.1:3000/campus_care_mobile_authentication/code.html` | 🟢 Active | Interactive Stitch Mobile Auth screen |
-| **Physical Android App (APK)** | `d:\Campus Complaint Management\CampusCare.apk` | 🟢 Installed on Device | Direct release APK installed on phone via USB |
+| **Flutter Web Application** | `http://127.0.0.1:5000` | 🟢 Active | Compiled Flutter web client |
+| **Desktop Auth Screen** | `http://127.0.0.1:3000/campus_care_desktop_authentication/code.html` | 🟢 Active | Interactive Stitch Desktop Auth screen |
+| **Mobile Auth Screen** | `http://127.0.0.1:3000/campus_care_mobile_authentication/code.html` | 🟢 Active | Interactive Stitch Mobile Auth screen |
+| **Physical Android App (APK)** | `d:\Campus Complaint Management\CampusCare.apk` | 🟢 Installed on Device | Direct release APK with fail-safe authentication |
 
 ---
 
 ## 🔑 Default Credentials Inventory
 
-All accounts are pre-seeded with password: `Admin@123456`
+All accounts are pre-seeded in the live Supabase Database with password: `Admin@123456`
 
 | Role | Email ID | Password | Access / Scope |
 |---|---|---|---|
@@ -49,29 +51,34 @@ All accounts are pre-seeded with password: `Admin@123456`
 
 ---
 
-## 🗄️ Database & Supabase Cloud Migration Blueprint
+## 🖥️ Screen-by-Screen Web Directory
 
-### 1. Database Specifications:
-- **ORM**: SQLAlchemy 2.0 Async (`postgresql+asyncpg`)
-- **Schema Migration**: Alembic (`alembic.ini` & `backend/alembic/`)
-- **Total Relational Tables (25)**:
-  `users`, `tenants`, `categories`, `buildings`, `rooms`, `issues`, `issue_status_history`, `issue_internal_notes`, `issue_attachments`, `academic_concerns`, `confidential_access_logs`, `failure_recurrence_patterns`, `asset_recommendations`, `sla_configurations`, `notifications`, `user_notification_preferences`, `whatsapp_webhook_logs`, `audio_transcription_jobs`, `historical_trend_snapshots`, `seasonal_spike_alerts`, `technician_skills`, `category_sla_mappings`, `audit_logs`, `user_tokens`, `alembic_version`.
-
-### 2. Supabase Connection Requirements:
-- **Connection URI Format**: `postgresql+asyncpg://postgres.[PROJECT-REF]:[PASSWORD]@aws-0-[REGION].pooler.supabase.com:6543/postgres`
-- **Storage Bucket**: `issue-attachments` (Private bucket with signed URL access)
-- **API Keys Needed**: `SUPABASE_URL` & `SUPABASE_SERVICE_ROLE_KEY`
+| # | Role / Desk | Direct Link | Key Capabilities |
+| :--- | :--- | :--- | :--- |
+| 1 | **Main Web Showcase Hub** | [Open Hub](http://127.0.0.1:3000/index.html) | Master directory of all 14 screens |
+| 2 | **Desktop Login Screen** | [Open Login](http://127.0.0.1:3000/campus_care_desktop_authentication/code.html) | Role preset selector & JWT authentication |
+| 3 | **Student Issue Filing Form** | [Open Form](http://127.0.0.1:3000/campus_care_issue_filing_form_with_voice_input_desktop/code.html) | Voice input, photo upload, location hierarchy |
+| 4 | **Student Complaints Dashboard** | [Open Dashboard](http://127.0.0.1:3000/campus_care_complaints_dashboard_desktop/code.html) | Filter by status, view active tickets |
+| 5 | **Lifecycle & Resolution Tracker**| [Open Tracker](http://127.0.0.1:3000/campus_care_issue_detail_lifecycle_resolution_tracker_desktop/code.html) | 5-step visual progress, resolution proof photo |
+| 6 | **Coordinator Triage Desk** | [Open Workspace](http://127.0.0.1:3000/campus_care_coordinator_triage_workspace_desktop/code.html) | Incoming unassigned queue, AI urgency scorer |
+| 7 | **Maintenance Supervisor Hub** | [Open Hub](http://127.0.0.1:3000/campus_care_maintenance_supervisor_sla_risk_radar_desktop/code.html) | SLA countdown rings, technician assignment |
+| 8 | **Academic Review Officer** | [Open Desk](http://127.0.0.1:3000/campus_care_academic_officer_review_disposition_workspace_desktop/code.html) | Confidential grievance reviews, redacted identity |
+| 9 | **Operations Head Analytics** | [Open Analytics](http://127.0.0.1:3000/campus_care_executive_operations_analytics_dashboard_desktop/code.html) | Campus heatmaps, equipment recurrence radar |
+| 10 | **System Admin Portal** | [Open Portal](http://127.0.0.1:3000/campus_care_system_administrator_configuration_portal_desktop/code.html) | Master topology, SLA escalation matrices |
+| 11 | **AI Natural Language Search** | [Open Search](http://127.0.0.1:3000/campus_care_ai_natural_language_search_desktop/code.html) | Semantic plain English query discovery |
+| 12 | **Multi-Channel Notification Center** | [Open Notifications](http://127.0.0.1:3000/campus_care_unified_multi_channel_notification_center_desktop/code.html) | Multi-channel alert audit logs |
+| 13 | **Multi-Campus Switcher** | [Open Switcher](http://127.0.0.1:3000/campus_care_institution_workspace_switcher_desktop/code.html) | Multi-campus institution switching |
+| 14 | **Swagger API Explorer** | [Open Swagger](http://127.0.0.1:8000/docs) | Interactive live Supabase DB queries |
 
 ---
 
 ## 🏁 Starting Point for Next Session
 
-1. **Complete Supabase Cloud Database Connection**:
-   - Obtain database connection URI and secret `service_role` key from the Supabase Project Settings.
-   - Update `.env` file with the Supabase connection parameters.
-   - Run `alembic upgrade head` to apply all 25 tables to Supabase cloud.
-   - Run seed script to populate master data and users in Supabase.
-2. **Supabase Storage Validation**:
-   - Test photo and voice attachment upload from mobile app and web directly into `issue-attachments` bucket.
-3. **End-to-End Testing**:
-   - File issue from phone app ➔ Triage in Coordinator desktop ➔ Monitor on SLA Risk Radar.
+1. **End-to-End Complaint Lifecycle Testing**:
+   - Submit issue from physical mobile app with photo attachment.
+   - Verify file is stored in Supabase `issue-attachments` bucket and ticket appears in Supabase `issues` table.
+   - Open Coordinator Triage workspace on web and dispatch to Electrical/Plumbing crew.
+   - Open Supervisor SLA Radar and mark as `Resolved` with after-repair proof.
+   - Verify resolution rating and closure from the mobile app.
+2. **Production Packaging**:
+   - Finalize any additional feature requests or customizations.

@@ -18,9 +18,9 @@ app = FastAPI(
     title=settings.APP_NAME,
     description="Campus Care — AI-Powered Facilities & Academic Issue Tracker API",
     version="1.0.0",
-    openapi_url=f"{settings.API_V1_STR}/openapi.json",
-    docs_url=f"{settings.API_V1_STR}/docs",
-    redoc_url=f"{settings.API_V1_STR}/redoc",
+    openapi_url="/openapi.json",
+    docs_url="/docs",
+    redoc_url="/redoc",
     lifespan=lifespan,
 )
 
