@@ -3,23 +3,20 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: **MOBILE APK GENERATION, PHYSICAL DEVICE USB DEPLOYMENT & SUPABASE ONBOARDING PREP**  
+**Current Milestone**: **SUPABASE CLOUD POSTGRESQL & STORAGE INTEGRATION 100% COMPLETE**  
 - **Phase 1 (MVP)**: Issue lifecycle state machine, RBAC, master data, attachments, notifications.
 - **Phase 2 (Academic Intelligence)**: Confidential academic grievance portal, ombudsperson triage, recurrence detector, AI replacement suggestions, SLA risk radar.
 - **Phase 3 (Enterprise & Multimodal)**: Multi-institution tenancy, voice recording & AI classification, natural language semantic search, multi-year historical trend mining, WhatsApp webhook handler.
 - **Phase 4 (Stitch UI 14 Screen Pairs)**: 14 Desktop & 14 Mobile screens rendered with 100% pure Stitch design, fully wired in a continuous workflow loop.
-- **Phase 5 (Mobile Build & Physical Android Deployment — NEW)**:
-  - Installed Flutter SDK (v3.47.5 / Dart 3.13.4) in `C:\flutter` and configured in system `PATH`.
-  - Android platform scaffolding configured with Java 17, `desugar_jdk_libs:2.0.4`, and `compileSdk = 36` across all subprojects.
-  - Resolved `const BorderRadius.circular(...)` invalid constructor invocations across 16 presentation Dart files.
-  - Upgraded `CardTheme` ➔ `CardThemeData` in `frontend/lib/app/theme.dart`.
-  - Fixed `AndroidManifest.xml` with `INTERNET`, `ACCESS_NETWORK_STATE`, and `android:usesCleartextTraffic="true"`.
-  - Generated `CampusCare.apk` (52.9 MB) and successfully installed & launched it on physical phone (`D6YDOZOJOZZ54DY5`) via ADB.
-  - Configured dual-network client routing in `api_client.dart` supporting USB ADB reverse (`127.0.0.1:8000`) and local Wi-Fi (`192.168.0.111:8000`).
-  - Added root API router mounting in `backend/app/main.py` to seamlessly handle both `/api/v1/...` and `/...` requests.
-  - Seeded demo users & custom admin `samruddhi@campuscare.edu` in PostgreSQL database.
+- **Phase 5 (Mobile Build & Physical Android Deployment)**: Built release APK (52.9 MB), installed on device, dual network routing.
+- **Phase 6 (Supabase Cloud Database & Storage — LIVE)**:
+  - Connected live Supabase project `hiqvjnerhocpzxanlbbq` via async transaction pooler.
+  - Added `statement_cache_size: 0` for pgbouncer compatibility in SQLAlchemy 2.0.
+  - Created all 25 relational tables and schema indexes in Supabase Cloud.
+  - Seeded all demo accounts & personalized Admin `samruddhi@campuscare.edu` in Supabase with password `Admin@123456`.
+  - Configured Supabase storage bucket `issue-attachments`.
 **Active Branches**: `develop` & `main`  
-**Last Updated**: 2026-09-23  
+**Last Updated**: 2026-09-24  
 
 ---
 
