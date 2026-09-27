@@ -3,21 +3,21 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: **FULL-STACK SUPABASE CLOUD & MULTI-PLATFORM MOBILE/WEB INTEGRATION COMPLETE**  
+**Current Milestone**: **FULL-STACK SUPABASE CLOUD, PHYSICAL DEVICE VERIFICATION & PRODUCTION DEPLOYMENT BLUEPRINTS COMPLETE**  
+
 - **Phase 1 (MVP)**: Issue lifecycle state machine, RBAC, master data, attachments, notifications.
 - **Phase 2 (Academic Intelligence)**: Confidential academic grievance portal, ombudsperson triage, recurrence detector, AI replacement suggestions, SLA risk radar.
 - **Phase 3 (Enterprise & Multimodal)**: Multi-institution tenancy, voice recording & AI classification, natural language semantic search, multi-year historical trend mining, WhatsApp webhook handler.
-- **Phase 4 (Stitch UI 14 Screen Pairs)**: 14 Desktop & 14 Mobile screens rendered with 100% pure Stitch design, fully wired in a continuous workflow loop using `WorkflowSequenceBar` allowing sequential step-by-step navigation (Step 01 to 14) across the entire application for seamless testing.
-- **Phase 5 (Mobile Build & Physical Android Deployment)**: Built release APK (53.6 MB), installed on device `D6YDOZOJOZZ54DY5`, integrated dual-layer fail-safe authentication. All 14 screens from Stitch are navigable sequentially via bottom navigation bar on mobile (added `SafeArea` padding to prevent native button clashing).
-- **Phase 6 (Supabase Cloud Database & Storage — LIVE)**:
-  - Connected live Supabase project `hiqvjnerhocpzxanlbbq` via async transaction pooler (`aws-0-ap-southeast-1.pooler.supabase.com:6543`).
-  - Added `statement_cache_size: 0` for pgbouncer compatibility in SQLAlchemy 2.0.
-  - Created all 25 relational tables and schema indexes in Supabase Cloud.
-  - Seeded all demo accounts & personalized Admin `samruddhi@campuscare.edu` in Supabase with password `Admin@123456`.
-  - Configured Supabase private storage bucket `issue-attachments` with signed URL access mediation.
-  - Deployed dedicated HTTPS API tunnel `https://campuscare-api.loca.lt/api/v1` for remote & mobile connectivity.
+- **Phase 4 (Stitch UI 14 Screen Pairs)**: 14 Desktop & 14 Mobile screens rendered with 100% pure Stitch design, fully wired in a continuous workflow loop using `WorkflowSequenceBar` allowing sequential step-by-step navigation (Step 01 to 14) across the entire application.
+- **Phase 5 (Mobile Build & Physical Android Deployment — VERIFIED)**: Built release APK (53.6 MB), installed on device `D6YDOZOJOZZ54DY5`, verified 14-screen navigation flow on physical phone with `SafeArea` padded navigation bar.
+- **Phase 6 (Supabase Cloud Database & Storage — LIVE)**: Connected live Supabase project `hiqvjnerhocpzxanlbbq` via async transaction pooler (`aws-0-ap-southeast-1.pooler.supabase.com:6543`), 25 tables initialized, pre-seeded accounts (`samruddhi@campuscare.edu` / `Admin@123456`), Supabase Storage private bucket configured.
+- **Phase 7 (Production Cloud Blueprints & Git Sync)**:
+  - Created `render.yaml` blueprint for 1-click FastAPI Render backend deployment.
+  - Created `frontend/vercel.json` for Flutter Web single-page app (SPA) routing on Vercel.
+  - Merged all features from `develop` into `main` branch (`git push origin main` - commit `839706b`).
+
 **Active Branches**: `develop` & `main`  
-**Last Updated**: 2026-09-25  
+**Last Updated**: 2026-09-28  
 
 ---
 
@@ -29,9 +29,9 @@
 | **Public HTTPS Backend Tunnel** | `https://campuscare-api.loca.lt` | 🟢 Active | Remote & mobile access tunnel |
 | **UI Showcase Hub (14 Screens)** | `http://127.0.0.1:3000/index.html` | 🟢 Active | Master 14-screen showcase with desktop/mobile links |
 | **Flutter Web Application** | `http://127.0.0.1:5000` | 🟢 Active | Compiled Flutter web client |
-| **Desktop Auth Screen** | `http://127.0.0.1:3000/campus_care_desktop_authentication/code.html` | 🟢 Active | Interactive Stitch Desktop Auth screen |
-| **Mobile Auth Screen** | `http://127.0.0.1:3000/campus_care_mobile_authentication/code.html` | 🟢 Active | Interactive Stitch Mobile Auth screen |
-| **Physical Android App (APK)** | `d:\Campus Complaint Management\CampusCare.apk` | 🟢 Ready to Install | Final release APK with SafeArea fixes for navigation bar |
+| **Physical Android Device** | Device `D6YDOZOJOZZ54DY5` | 🟢 Installed | Release APK installed and verified screen-by-screen |
+| **Render Blueprint Configuration** | `render.yaml` | 🟢 Ready | Backend deployment blueprint for Render |
+| **Vercel Blueprint Configuration** | `frontend/vercel.json` | 🟢 Ready | Frontend deployment configuration for Vercel |
 
 ---
 
@@ -74,15 +74,10 @@ All accounts are pre-seeded in the live Supabase Database with password: `Admin@
 
 ## 🏁 Starting Point for Next Session
 
-1. **Install Final Mobile App**:
-   - Re-connect Android device via USB and accept "Allow USB Debugging".
-   - Install the updated APK via `adb install -r "CampusCare.apk"`.
-   - Verify that the `WorkflowSequenceBar` on screens 3 through 14 is comfortably padded above the native hardware/gesture buttons using the new `SafeArea` implementation.
-2. **End-to-End Complaint Lifecycle Testing**:
-   - Submit issue from physical mobile app with photo attachment.
-   - Verify file is stored in Supabase `issue-attachments` bucket and ticket appears in Supabase `issues` table.
-   - Open Coordinator Triage workspace on web and dispatch to Electrical/Plumbing crew.
-   - Open Supervisor SLA Radar and mark as `Resolved` with after-repair proof.
-   - Verify resolution rating and closure from the mobile app.
-3. **Production Packaging**:
-   - Finalize any additional feature requests or customizations.
+1. **Execute Render & Vercel Cloud Deployment**:
+   - Log into Render Dashboard, select `samruddhi-1324/Campus-Management-System`, set root dir to `backend`, and deploy.
+   - Log into Vercel Dashboard, import repository, set root dir to `frontend`, and deploy Flutter Web.
+2. **Update Frontend API Endpoint**:
+   - Update `frontend/lib/app/config.dart` with live Render backend URL (`https://campus-care-backend.onrender.com/api/v1`).
+3. **End-to-End Live Cloud Verification**:
+   - Submit issue from Vercel Web / Physical Android App -> verify ticket in Supabase Cloud & Render Backend -> Triage & Resolve.
