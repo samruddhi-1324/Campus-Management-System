@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class ConfidentialTriageScreen extends StatefulWidget {
   final String concernId;
@@ -159,7 +160,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.tertiaryMint.withOpacity(0.2),
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               children: [
@@ -212,6 +213,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                 ),
               ),
             ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 13)]))),
     );
   }
 
@@ -220,7 +222,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppTheme.primaryIndigo,
-        borderRadius: const BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -253,7 +255,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: AppTheme.primaryContainer,
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
               '48h SLA Active',
@@ -277,7 +279,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -295,7 +297,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceContainerLow,
-                    borderRadius: const BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: AppTheme.outlineVariant),
                   ),
                   child: Row(
@@ -328,7 +330,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Row(
@@ -371,7 +373,7 @@ class _ConfidentialTriageScreenState extends State<ConfidentialTriageScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(

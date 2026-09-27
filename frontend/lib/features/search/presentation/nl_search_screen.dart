@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class NLSearchScreen extends StatefulWidget {
   const NLSearchScreen({super.key});
@@ -135,7 +136,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.smart_toy_outlined, color: Colors.white, size: 20),
             ),
@@ -203,7 +204,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                 Container(
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceWhite,
-                    borderRadius: const BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppTheme.secondaryCobalt.withOpacity(0.3), width: 1.5),
                     boxShadow: [
                       BoxShadow(
@@ -222,7 +223,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: AppTheme.primaryIndigo,
-                              borderRadius: const BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             child: const Icon(Icons.auto_awesome, color: AppTheme.accentMint, size: 20),
                           ),
@@ -263,7 +264,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                               backgroundColor: AppTheme.primaryIndigo,
                               foregroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-                              shape: RoundedRectangleBorder(borderRadius: const BorderRadius.circular(10)),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                             ),
                             child: Text('Ask AI'),
                           ),
@@ -276,7 +277,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
                             color: AppTheme.backgroundLight,
-                            borderRadius: const BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,7 +300,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                     padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
                                       color: AppTheme.accentMint.withOpacity(0.3),
-                                      borderRadius: const BorderRadius.circular(4),
+                                      borderRadius: BorderRadius.circular(4),
                                     ),
                                     child: Text(
                                       'Confidence: $confidence%',
@@ -351,7 +352,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                 backgroundColor: AppTheme.surfaceWhite,
                                 labelStyle: GoogleFonts.manrope(fontSize: 12, color: AppTheme.textPrimary),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: const BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20),
                                   side: BorderSide(color: AppTheme.neutralLightOutline.withOpacity(0.4)),
                                 ),
                               ),
@@ -405,7 +406,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: AppTheme.surfaceWhite,
-                          borderRadius: const BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(14),
                           border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                           boxShadow: [
                             BoxShadow(
@@ -425,7 +426,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
                                     color: AppTheme.primaryIndigo.withOpacity(0.08),
-                                    borderRadius: const BorderRadius.circular(6),
+                                    borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: Text(
                                     item['reference_number'] ?? issueId.toString().toUpperCase(),
@@ -436,7 +437,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
                                     color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                                    borderRadius: const BorderRadius.circular(6),
+                                    borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: Text(
                                     status.toUpperCase(),
@@ -480,7 +481,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
                     padding: const EdgeInsets.all(48),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceWhite,
-                      borderRadius: const BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: AppTheme.neutralLightOutline.withOpacity(0.3)),
                     ),
                     child: Column(
@@ -498,6 +499,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 8)]))),
     );
   }
 
@@ -506,7 +508,7 @@ class _NLSearchScreenState extends State<NLSearchScreen> {
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
-        borderRadius: const BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(6),
         border: Border.all(color: color.withOpacity(0.3)),
       ),
       child: Row(

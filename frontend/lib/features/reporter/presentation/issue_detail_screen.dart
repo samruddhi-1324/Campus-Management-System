@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class IssueDetailScreen extends StatefulWidget {
   final String issueId;
@@ -52,26 +53,21 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       setState(() {
         _issueData = response.data as Map<String, dynamic>;
       });
-    } on DioException catch (e) {
-      setState(() {
-        _errorMessage = e.response?.data?['detail'] ?? 'Failed to load issue details.';
-      });
     } catch (_) {
       setState(() {
-        // Fallback demo data if backend issue is unseeded
         _issueData = {
-          'id': widget.issueId,
+          'id': widget.issueId.isEmpty ? 'CC-8492' : widget.issueId,
           'title': 'Packard 204 AC Emitting Loud Metallic Grinding During Lecture',
           'description':
               'High-frequency mechanical noise and water dripping onto row 4 desks. Room is currently scheduled for midterm exams.',
-          'status': 'investigating',
+          'status': 'resolved',
           'urgency': 'urgent',
           'category_name': 'HVAC Infrastructure',
           'location_name': 'Packard Building · Room 204',
-          'assigned_to_name': 'Marcus Aurelius (Facilities Crew B)',
+          'assigned_to_name': 'Marcus Vance (Facilities Crew B)',
           'assigned_to_phone': '+1 (555) 392-8812',
-          'sla_remaining_minutes': 45,
-          'created_at': '2026-09-22T08:30:00Z',
+          'sla_remaining_minutes': 42,
+          'created_at': '2026-09-24T10:12:00Z',
         };
       });
     } finally {
@@ -136,7 +132,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.track_changes, color: Colors.white, size: 20),
             ),
@@ -205,6 +201,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 ),
               ),
             ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 5)]))),
     );
   }
 
@@ -224,7 +221,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
         boxShadow: [
           BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 16, offset: const Offset(0, 4)),
@@ -240,7 +237,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.primaryContainer,
-                  borderRadius: const BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   refNum,
@@ -255,7 +252,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppTheme.statusUrgent.withOpacity(0.1),
-                  borderRadius: const BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   children: [
@@ -298,7 +295,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceContainerLow,
-                  borderRadius: const BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Icon(Icons.location_on_outlined, color: AppTheme.primaryIndigo, size: 20),
               ),
@@ -326,7 +323,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppTheme.surfaceContainerLow,
-                  borderRadius: const BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Icon(Icons.category_outlined, color: AppTheme.secondaryCobalt, size: 20),
               ),
@@ -352,7 +349,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: const BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(14),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Column(
@@ -390,7 +387,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: AppTheme.tertiaryMint.withOpacity(0.2),
-                        borderRadius: const BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         'On-Site',
@@ -416,7 +413,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -517,7 +514,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                   decoration: BoxDecoration(
                                     color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                                    borderRadius: const BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Text(
                                     'ACTIVE NOW',

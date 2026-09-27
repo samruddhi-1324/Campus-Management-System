@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class TenantSelectorScreen extends StatefulWidget {
   const TenantSelectorScreen({super.key});
@@ -94,6 +95,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundLight,
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 2)]))),
       appBar: AppBar(
         backgroundColor: AppTheme.surfaceWhite,
         title: Row(
@@ -102,7 +104,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: AppTheme.primaryIndigo,
-                borderRadius: const BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.corporate_fare, color: Colors.white, size: 20),
             ),
@@ -180,7 +182,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: AppTheme.surfaceContainerLow,
-                            borderRadius: const BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: AppTheme.outlineVariant),
                           ),
                           child: Text(
@@ -251,7 +253,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.12),
-                borderRadius: const BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
                 children: [
@@ -315,7 +317,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.08),
-        borderRadius: const BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.white.withOpacity(0.15)),
       ),
       child: Column(
@@ -337,7 +339,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
                   color: AppTheme.tertiaryMint,
-                  borderRadius: const BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   'Verified Node',
@@ -420,7 +422,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -433,7 +435,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               filled: true,
               fillColor: AppTheme.surfaceContainerLow,
               border: OutlineInputBorder(
-                borderRadius: const BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
               contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
@@ -503,7 +505,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: AppTheme.surfaceWhite,
-                borderRadius: const BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16),
                 border: Border.all(
                   color: isSelected ? AppTheme.secondaryCobalt : AppTheme.outlineVariant,
                   width: isSelected ? 2 : 1,
@@ -566,7 +568,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
                             color: AppTheme.secondaryCobalt.withOpacity(0.1),
-                            borderRadius: const BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
                             children: [
@@ -644,7 +646,7 @@ class _TenantSelectorScreenState extends State<TenantSelectorScreen> {
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: AppTheme.surfaceContainerLow,
-        borderRadius: const BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

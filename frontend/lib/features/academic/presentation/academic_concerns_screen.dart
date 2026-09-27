@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class AcademicConcernsScreen extends StatefulWidget {
   const AcademicConcernsScreen({super.key});
@@ -170,6 +171,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 11)]))),
     );
   }
 
@@ -178,7 +180,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         color: AppTheme.surfaceWhite,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.outlineVariant),
       ),
       child: Column(
@@ -189,7 +191,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: AppTheme.primaryIndigo,
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               children: [
@@ -224,7 +226,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: AppTheme.surfaceContainerLow,
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppTheme.outlineVariant),
             ),
             child: Row(
@@ -258,7 +260,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppTheme.statusUrgent.withOpacity(0.08),
-                borderRadius: const BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppTheme.statusUrgent.withOpacity(0.3)),
               ),
               child: Text(
@@ -372,7 +374,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: AppTheme.primaryIndigo,
-        borderRadius: const BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -416,7 +418,7 @@ class _AcademicConcernsScreenState extends State<AcademicConcernsScreen> {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: AppTheme.primaryContainer,
-              borderRadius: const BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.white10),
             ),
             child: Row(
