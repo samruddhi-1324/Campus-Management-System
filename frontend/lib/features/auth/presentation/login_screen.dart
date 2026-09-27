@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
 import 'package:campus_care/core/storage/secure_storage.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -188,6 +189,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundLight,
+      floatingActionButton: const WorkflowSequenceBar(currentStep: 1),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isDesktop = constraints.maxWidth >= 960;

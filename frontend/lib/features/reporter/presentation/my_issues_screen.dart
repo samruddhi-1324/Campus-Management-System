@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class MyIssuesScreen extends StatefulWidget {
   const MyIssuesScreen({super.key});
@@ -171,6 +172,7 @@ class _MyIssuesScreenState extends State<MyIssuesScreen> {
           const SizedBox(width: 8),
         ],
       ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 3)]))),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push('/issues/report'),
         backgroundColor: AppTheme.primaryIndigo,

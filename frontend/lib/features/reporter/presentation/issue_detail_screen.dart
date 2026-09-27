@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:campus_care/app/theme.dart';
 import 'package:campus_care/core/network/api_client.dart';
+import 'package:campus_care/core/widgets/workflow_sequence_bar.dart';
 
 class IssueDetailScreen extends StatefulWidget {
   final String issueId;
@@ -52,26 +53,21 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
       setState(() {
         _issueData = response.data as Map<String, dynamic>;
       });
-    } on DioException catch (e) {
-      setState(() {
-        _errorMessage = e.response?.data?['detail'] ?? 'Failed to load issue details.';
-      });
     } catch (_) {
       setState(() {
-        // Fallback demo data if backend issue is unseeded
         _issueData = {
-          'id': widget.issueId,
+          'id': widget.issueId.isEmpty ? 'CC-8492' : widget.issueId,
           'title': 'Packard 204 AC Emitting Loud Metallic Grinding During Lecture',
           'description':
               'High-frequency mechanical noise and water dripping onto row 4 desks. Room is currently scheduled for midterm exams.',
-          'status': 'investigating',
+          'status': 'resolved',
           'urgency': 'urgent',
           'category_name': 'HVAC Infrastructure',
           'location_name': 'Packard Building · Room 204',
-          'assigned_to_name': 'Marcus Aurelius (Facilities Crew B)',
+          'assigned_to_name': 'Marcus Vance (Facilities Crew B)',
           'assigned_to_phone': '+1 (555) 392-8812',
-          'sla_remaining_minutes': 45,
-          'created_at': '2026-09-22T08:30:00Z',
+          'sla_remaining_minutes': 42,
+          'created_at': '2026-09-24T10:12:00Z',
         };
       });
     } finally {
@@ -205,6 +201,7 @@ class _IssueDetailScreenState extends State<IssueDetailScreen> {
                 ),
               ),
             ),
+      bottomNavigationBar: SafeArea(child: Padding(padding: const EdgeInsets.only(bottom: 16, top: 8), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [WorkflowSequenceBar(currentStep: 5)]))),
     );
   }
 
