@@ -1,3 +1,4 @@
+import json
 from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -20,8 +21,24 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
-    # CORS
-    BACKEND_CORS_ORIGINS: list[str] = ["*"]
+    # CORS — stored as raw string, parsed into list by property below.
+    # Accepts: "*"  OR  "http://a.com,http://b.com"  OR  '["http://a.com"]'
+    BACKEND_CORS_ORIGINS: str = "*"
+
+    @property
+    def cors_origins(self) -> list[str]:
+        """Parse BACKEND_CORS_ORIGINS into a list regardless of input format."""
+        v = self.BACKEND_CORS_ORIGINS.strip()
+        if v.startswith("["):
+            try:
+                parsed = json.loads(v)
+                if isinstance(parsed, list):
+                    return [str(i) for i in parsed]
+            except json.JSONDecodeError:
+                pass
+        if "," in v:
+            return [o.strip() for o in v.split(",") if o.strip()]
+        return [v]
 
     # Database (Supabase PostgreSQL async pooled connection)
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/campus_care"
