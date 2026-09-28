@@ -2,7 +2,8 @@
 
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **System Version**: PRD & SRS v3.0 (Enterprise Higher-Ed Operating System)  
-**Document**: Technical Reference & System Architecture  
+**Document**: Technical Reference, Architecture & Known Patterns  
+**Last Updated**: 2026-09-28  
 
 ---
 
@@ -14,6 +15,11 @@ flowchart TD
         WEB["🌐 Modern Web Browser (CanvasKit / Vanilla CSS)"]
         MOBILE_PWA["📱 Mobile Web / PWA (Touch-Optimized, Pinned Tabs)"]
         FLUTTER_APP["📱 Flutter Native Mobile & Desktop (Android/iOS/Win)"]
+    end
+
+    subgraph Cloud["Cloud Production Layer"]
+        VERCEL["▲ Vercel — Flutter Web SPA"]
+        RENDER["🟣 Render — FastAPI Backend (Free Tier)"]
     end
 
     subgraph APIGateway["FastAPI Async Gateway (Port 8000)"]
@@ -33,12 +39,14 @@ flowchart TD
     end
 
     subgraph DataStorage["Data & Storage Infrastructure"]
-        POSTGRES["🗄️ PostgreSQL 15+ (Local / Supabase DB)"]
-        BUCKET["📦 Supabase S3 Attachment Locker"]
+        POSTGRES["🗄️ Supabase PostgreSQL 15 (Cloud — hiqvjnerhocpzxanlbbq)"]
+        BUCKET["📦 Supabase S3 Attachment Locker (issue-attachments)"]
         CACHE["⚡ In-Memory Session & Local Storage Cache"]
     end
 
-    ClientTiers --> APIGateway
+    ClientTiers --> Cloud
+    VERCEL --> RENDER
+    Cloud --> APIGateway
     APIGateway --> Microservices
     Microservices --> DataStorage
 ```
@@ -104,6 +112,49 @@ flowchart TD
 
 ---
 
+## ⚙️ Pydantic Settings — Known Pattern & Gotcha
+
+### Problem: `SettingsError` on `list[str]` env fields
+`pydantic-settings` (v2+) calls `json.loads()` on any field typed `list[str]` **before** any `@field_validator` runs.  
+This means setting `BACKEND_CORS_ORIGINS=*` in `.env` or Render causes:
+```
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+→ pydantic_settings.exceptions.SettingsError: error parsing value for field "BACKEND_CORS_ORIGINS"
+```
+
+### Fix (in `backend/app/core/config.py`):
+```python
+# ✅ CORRECT PATTERN — use str + property
+BACKEND_CORS_ORIGINS: str = "*"
+
+@property
+def cors_origins(self) -> list[str]:
+    """Accepts: '*'  OR  'http://a.com,http://b.com'  OR  '["http://a.com"]' """
+    v = self.BACKEND_CORS_ORIGINS.strip()
+    if v.startswith("["):
+        try:
+            parsed = json.loads(v)
+            if isinstance(parsed, list):
+                return [str(i) for i in parsed]
+        except json.JSONDecodeError:
+            pass
+    if "," in v:
+        return [o.strip() for o in v.split(",") if o.strip()]
+    return [v]
+```
+
+### Usage (in `backend/app/main.py`):
+```python
+# ✅ Use the property, not the raw string field
+app.add_middleware(CORSMiddleware, allow_origins=settings.cors_origins, ...)
+```
+
+### On Render — set `BACKEND_CORS_ORIGINS` to:
+- `*` for open (development/initial deploy)
+- `https://campus-care-abc.vercel.app` for production lock-down
+
+---
+
 ## 🎨 Stitch UI Component Design System
 
 All 14 screens use the unified enterprise design tokens:
@@ -127,7 +178,18 @@ All 14 screens use the unified enterprise design tokens:
    - `statusMedium` (`0xFFD97706`)
    - `statusLow` (`0xFF16A34A`)
    - `neutralLightOutline` (`0xFFD9DEE8`)
-2. **Analysis & Linter Rules (`frontend/analysis_options.yaml`)**:
+
+2. **`AppConfig` (`frontend/lib/app/config.dart`)**:
+   - `apiBaseUrl` reads from `String.fromEnvironment('API_BASE_URL', defaultValue: 'https://campuscare-api.loca.lt/api/v1')`
+   - Pass at build time via `--dart-define=API_BASE_URL=<url>`
+
+3. **`ApiClient` (`frontend/lib/core/network/api_client.dart`)**:
+   - Uses `Dio` with 4s connect + 10s receive timeout
+   - Auto-injects `Authorization: Bearer <token>` from `SecureStorage`
+   - Fallback candidates: `127.0.0.1:8000`, `192.168.1.23:8000`, `10.0.2.2:8000`
+   - Header `Bypass-Tunnel-Reminder: true` for localtunnel compatibility
+
+4. **Analysis & Linter Rules (`frontend/analysis_options.yaml`)**:
    - Standard `flutter_lints` rules with non-blocking cosmetic hints.
    - All runtime expressions, `GoogleFonts`, `CircularProgressIndicator`, and `SnackBar` constructors instantiate cleanly without `const` compile errors.
 
@@ -135,22 +197,71 @@ All 14 screens use the unified enterprise design tokens:
 
 ## 🚀 How to Run Locally
 
-### 1. Start PostgreSQL & Backend
+### 1. Start Backend
 ```powershell
 cd "d:\Campus Complaint Management\backend"
 python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+Swagger UI: `http://127.0.0.1:8000/docs`
 
-### 2. Start UI Showcase Server
+### 2. Start UI Showcase Server (14 Stitch Screens)
 ```powershell
 cd "d:\Campus Complaint Management\stitch_screen\stitch_campus_care_authentication_ui"
 python -m http.server 3000
 ```
-Open in browser: `http://127.0.0.1:3000/index.html` (or mobile: `http://<YOUR_IP>:3000/index.html`)
+Open: `http://127.0.0.1:3000/index.html`
 
-### 3. Run Flutter Frontend
+### 3. Run Flutter App (Mobile / Desktop)
 ```powershell
 cd "d:\Campus Complaint Management\frontend"
 flutter pub get
 flutter run
 ```
+
+### 4. Build Flutter Web (with live backend URL)
+```powershell
+flutter build web --release --dart-define=API_BASE_URL=https://campus-care-backend.onrender.com/api/v1
+```
+
+### 5. Install APK on Android Device
+```powershell
+& "C:\Users\samruddhi\AppData\Local\Android\Sdk\platform-tools\adb.exe" install -r "d:\Campus Complaint Management\CampusCare.apk"
+```
+
+---
+
+## 🚀 Cloud Deployment Configuration
+
+### Render (Backend)
+- Config file: [`render.yaml`](render.yaml)
+- Root dir: `backend`
+- Build: `pip install -r requirements.txt`
+- Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Region: Singapore (ap-southeast-1, closest to Supabase pooler)
+
+### Vercel (Frontend)
+- Config file: [`frontend/vercel.json`](frontend/vercel.json)
+- Root dir: `frontend`
+- Build command (in vercel.json): clones Flutter stable, runs `flutter build web --dart-define=API_BASE_URL=$API_BASE_URL`
+- Output dir: `build/web`
+- SPA rewrite: `/(.*) → /index.html`
+
+---
+
+## 🔗 Key File Reference
+
+| File | Purpose |
+|---|---|
+| `backend/app/core/config.py` | Pydantic settings with CORS str-property pattern |
+| `backend/app/main.py` | FastAPI app init, CORS middleware, router include |
+| `backend/app/services/state_machine.py` | Issue lifecycle state transitions & RBAC guards |
+| `backend/app/services/ai_advisory_service.py` | Claude/OpenAI AI advisory integration |
+| `backend/.env` | Local dev secrets (gitignored) |
+| `frontend/lib/app/config.dart` | Flutter build-time env var reader |
+| `frontend/lib/core/network/api_client.dart` | Dio HTTP client with auth interceptor & fallback |
+| `frontend/lib/core/widgets/workflow_sequence_bar.dart` | 14-step navigation bar widget |
+| `frontend/vercel.json` | Vercel SPA + Flutter build config |
+| `render.yaml` | Render 1-click deploy blueprint |
+| `CampusCare.apk` | Pre-built release APK (53.6 MB) |
+| `progress.md` | Session progress log & credentials |
+| `technical.md` | This file — architecture & patterns |
