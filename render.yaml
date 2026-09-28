@@ -14,13 +14,30 @@ services:
         value: /api/v1
       - key: BACKEND_CORS_ORIGINS
         value: '["*"]'
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "60"
+      - key: REFRESH_TOKEN_EXPIRE_DAYS
+        value: "30"
+      - key: SUPABASE_STORAGE_BUCKET_ATTACHMENTS
+        value: issue-attachments
+      - key: AI_PROVIDER
+        value: mock
+      - key: EMAIL_PROVIDER
+        value: smtp
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      # The following secrets must be added manually on Render Dashboard
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET_KEY
         sync: false
       - key: SUPABASE_URL
         sync: false
-      - key: SUPABASE_KEY
+      - key: SUPABASE_ANON_KEY
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
