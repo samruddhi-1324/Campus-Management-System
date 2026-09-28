@@ -3,7 +3,12 @@
 **Project**: Campus Care (AI-Powered Facilities & Academic Issue Tracker)  
 **Repository**: [`samruddhi-1324/Campus-Management-System`](https://github.com/samruddhi-1324/Campus-Management-System)  
 **Specification Version**: PRD & SRS v3.0  
-**Current Milestone**: **FULL-STACK SUPABASE CLOUD, PHYSICAL DEVICE VERIFICATION & PRODUCTION DEPLOYMENT BLUEPRINTS COMPLETE**  
+**Current Milestone**: **PRODUCTION DEPLOYMENT READY — CORS BUG FIXED, RENDER + VERCEL CONFIGS FINALIZED**  
+**Last Updated**: 2026-09-28 (23:49 IST)  
+
+---
+
+## ✅ Completed Phases (Chronological)
 
 - **Phase 1 (MVP)**: Issue lifecycle state machine, RBAC, master data, attachments, notifications.
 - **Phase 2 (Academic Intelligence)**: Confidential academic grievance portal, ombudsperson triage, recurrence detector, AI replacement suggestions, SLA risk radar.
@@ -14,24 +19,13 @@
 - **Phase 7 (Production Cloud Blueprints & Git Sync)**:
   - Created `render.yaml` blueprint for 1-click FastAPI Render backend deployment.
   - Created `frontend/vercel.json` for Flutter Web single-page app (SPA) routing on Vercel.
-  - Merged all features from `develop` into `main` branch (`git push origin main` - commit `839706b`).
-
-**Active Branches**: `develop` & `main`  
-**Last Updated**: 2026-09-28  
-
----
-
-## 🚀 Live System Servers & Verification Endpoints
-
-| Service / Platform | Port / URL | Status | Description |
-|---|---|---|---|
-| **FastAPI Async Backend** | `http://127.0.0.1:8000` & `http://0.0.0.0:8000` | 🟢 Active | OpenAPI docs at `/api/v1/docs` & root `/docs` |
-| **Public HTTPS Backend Tunnel** | `https://campuscare-api.loca.lt` | 🟢 Active | Remote & mobile access tunnel |
-| **UI Showcase Hub (14 Screens)** | `http://127.0.0.1:3000/index.html` | 🟢 Active | Master 14-screen showcase with desktop/mobile links |
-| **Flutter Web Application** | `http://127.0.0.1:5000` | 🟢 Active | Compiled Flutter web client |
-| **Physical Android Device** | Device `D6YDOZOJOZZ54DY5` | 🟢 Installed | Release APK installed and verified screen-by-screen |
-| **Render Blueprint Configuration** | `render.yaml` | 🟢 Ready | Backend deployment blueprint for Render |
-| **Vercel Blueprint Configuration** | `frontend/vercel.json` | 🟢 Ready | Frontend deployment configuration for Vercel |
+  - Merged all features from `develop` into `main` branch.
+- **Phase 8 (CORS Parsing Bug Fix — RESOLVED)**:
+  - **Bug**: `pydantic-settings` tried to `json.loads()` the `BACKEND_CORS_ORIGINS` list field before any field_validator ran. A plain `*` or `["*"]` with quotes caused `SettingsError`.
+  - **Fix**: Changed `BACKEND_CORS_ORIGINS: list[str]` → `BACKEND_CORS_ORIGINS: str = "*"` (raw string, bypasses pydantic-settings interception). Added `cors_origins` **property** in `Settings` class that safely parses all formats.
+  - **Files Changed**: `backend/app/core/config.py`, `backend/app/main.py`
+  - **Verified**: `python -c "from app.core.config import settings; print(settings.cors_origins)"` → `['*']` ✅
+  - **Committed**: `9595411` on both `develop` and `main`.
 
 ---
 
@@ -48,6 +42,54 @@ All accounts are pre-seeded in the live Supabase Database with password: `Admin@
 | **Maintenance Supervisor** | `supervisor@campuscare.edu` | `Admin@123456` | SLA risk radar, fatigue monitoring, technician dispatch |
 | **Academic Officer** | `academic@campuscare.edu` | `Admin@123456` | Confidential grievance review, FERPA locker, ombudsperson |
 | **Operations Head** | `opshead@campuscare.edu` | `Admin@123456` | Executive operations analytics, multi-year trend mining |
+
+---
+
+## 🌐 Live System Servers & Verification Endpoints
+
+| Service / Platform | Port / URL | Status | Description |
+|---|---|---|---|
+| **FastAPI Async Backend** | `http://127.0.0.1:8000` | 🟢 Active (local) | OpenAPI docs at `/docs` |
+| **UI Showcase Hub (14 Screens)** | `http://127.0.0.1:3000/index.html` | 🟢 Active (local) | Master 14-screen showcase |
+| **Flutter Web Application** | `http://127.0.0.1:5000` | 🟢 Active (local) | Compiled Flutter web client |
+| **Physical Android Device** | Device `D6YDOZOJOZZ54DY5` | 🟢 Installed | Release APK installed and verified screen-by-screen |
+| **Render Backend (to deploy)** | `https://campus-care-backend.onrender.com` | ⏳ Pending deploy | Backend deployment config ready in `render.yaml` |
+| **Vercel Frontend (to deploy)** | `https://campus-care-xxxx.vercel.app` | ⏳ Pending deploy | Flutter web config ready in `frontend/vercel.json` |
+
+---
+
+## 🗝️ Supabase & Database Secrets (For Render Environment Variables)
+
+> Set these manually on Render Dashboard → Environment tab (mark as secret):
+
+| Key | Value |
+|---|---|
+| `DATABASE_URL` | `postgresql+asyncpg://postgres.hiqvjnerhocpzxanlbbq:a9DBHX2NNoqy1a8G@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres` |
+| `JWT_SECRET_KEY` | `iAQVLY+Bhv/ddsBdk88napMDRzlUHbpeCXZeCMjohRdF4IkgcI2wHBRPANlOIAbRf+t8UM5PIL9k8qvUQu8t5w==` |
+| `SUPABASE_URL` | `https://hiqvjnerhocpzxanlbbq.supabase.co` |
+| `SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhpcXZqbmVyaG9jcHp4YW5sYmJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNTk0NzIsImV4cCI6MjEwNTczNTQ3Mn0.Z5UKRx9467BBJd6LZ140YT3XDEAJ8NfKbbxoTO-__gk` |
+| `SUPABASE_SERVICE_ROLE_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhpcXZqbmVyaG9jcHp4YW5sYmJxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MDE1OTQ3MiwiZXhwIjoyMTA1NzM1NDcyfQ.br_mT5o-jGPg0oSyNl2NFhhtBwyZr6CJBI_MsFNZKdE` |
+| `ENVIRONMENT` | `production` |
+| `API_V1_STR` | `/api/v1` |
+| `BACKEND_CORS_ORIGINS` | `*` ← plain wildcard, no brackets needed |
+| `JWT_ALGORITHM` | `HS256` |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | `60` |
+| `REFRESH_TOKEN_EXPIRE_DAYS` | `30` |
+| `SUPABASE_STORAGE_BUCKET_ATTACHMENTS` | `issue-attachments` |
+| `AI_PROVIDER` | `mock` |
+| `EMAIL_PROVIDER` | `smtp` |
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `587` |
+
+---
+
+## 🔧 Vercel Environment Variables (For Flutter Web Build)
+
+| Key | Value | Environment |
+|---|---|---|
+| `API_BASE_URL` | `https://campus-care-backend.onrender.com/api/v1` | Production, Preview, Development |
+
+> The Flutter app reads `API_BASE_URL` via `String.fromEnvironment('API_BASE_URL')` in `AppConfig`. Vercel passes it as a `--dart-define` build flag via the `buildCommand` in `frontend/vercel.json`.
 
 ---
 
@@ -74,10 +116,35 @@ All accounts are pre-seeded in the live Supabase Database with password: `Admin@
 
 ## 🏁 Starting Point for Next Session
 
-1. **Execute Render & Vercel Cloud Deployment**:
-   - Log into Render Dashboard, select `samruddhi-1324/Campus-Management-System`, set root dir to `backend`, and deploy.
-   - Log into Vercel Dashboard, import repository, set root dir to `frontend`, and deploy Flutter Web.
-2. **Update Frontend API Endpoint**:
-   - Update `frontend/lib/app/config.dart` with live Render backend URL (`https://campus-care-backend.onrender.com/api/v1`).
-3. **End-to-End Live Cloud Verification**:
-   - Submit issue from Vercel Web / Physical Android App -> verify ticket in Supabase Cloud & Render Backend -> Triage & Resolve.
+1. **Deploy Backend on Render**:
+   - Go to [render.com](https://render.com) → New Web Service → connect `samruddhi-1324/Campus-Management-System`
+   - Root dir: `backend`, Branch: `main`, Start cmd: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - Add all env vars from the **Supabase & Database Secrets** table above.
+   - Verify: `https://campus-care-backend.onrender.com/docs` should show Swagger UI.
+
+2. **Deploy Frontend on Vercel**:
+   - Go to [vercel.com](https://vercel.com) → New Project → import `samruddhi-1324/Campus-Management-System`
+   - Root dir: `frontend`, Framework: `Other`
+   - Add env var: `API_BASE_URL = https://campus-care-backend.onrender.com/api/v1`
+   - Vercel will use the `buildCommand` from `frontend/vercel.json` automatically.
+
+3. **Update CORS After Vercel Deploy**:
+   - Go to Render → Environment → change `BACKEND_CORS_ORIGINS` from `*` to your actual Vercel URL.
+   - Example: `https://campus-care-abc123.vercel.app`
+
+4. **End-to-End Live Cloud Verification**:
+   - Login from Vercel URL → File a complaint → Triage as Coordinator → Resolve as Supervisor.
+   - Check Supabase dashboard to confirm DB writes.
+
+---
+
+## 🐛 Known Bugs Fixed
+
+| Bug | Root Cause | Fix | Commit |
+|---|---|---|---|
+| `SettingsError: error parsing BACKEND_CORS_ORIGINS` | `pydantic-settings` calls `json.loads()` on `list[str]` fields before validators run. `*` is not valid JSON. | Changed field type to `str`, added `cors_origins` property in `Settings` for safe parsing. Updated `main.py` to use `settings.cors_origins`. | `9595411` |
+
+---
+
+**Active Branches**: `develop` & `main`  
+**Latest Commit on main**: `9595411` — CORS fix deployed  
